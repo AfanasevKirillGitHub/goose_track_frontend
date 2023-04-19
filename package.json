@@ -1,0 +1,81 @@
+{
+  "name": "goose_track_frontend",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@fontsource/roboto": "^4.5.8",
+    "@reduxjs/toolkit": "^1.9.2",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^29.4.0",
+    "@types/node": "^18.13.0",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@types/react-redux": "^7.1.25",
+    "@types/react-router-dom": "^5.3.3",
+    "axios": "^1.2.4",
+    "gh-pages": "^4.0.0",
+    "i18next": "^22.4.9",
+    "i18next-browser-languagedetector": "^6.1.2",
+    "i18next-http-backend": "^1.3.1",
+    "i18next-localstorage-backend": "^4.1.0",
+    "overlayscrollbars": "^2.0.3",
+    "overlayscrollbars-react": "^0.5.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-i18next": "^12.1.5",
+    "react-icons": "^4.7.1",
+    "react-redux": "^8.0.5",
+    "react-router-dom": "^6.7.0",
+    "react-scripts": "5.0.1",
+    "react-toastify": "^9.1.1",
+    "redux-persist": "^6.0.0",
+    "styled-components": "^5.3.6",
+    "swiper": "^9.0.5",
+    "toastify": "^2.0.1",
+    "typescript": "^4.9.5",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint:js": "eslint src/**/*.{js,jsx}"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "description": "This project was created with [Create React App](https://github.com/facebook/create-react-app).  To get acquainted and configure additional features [refer to documentation](https://facebook.github.io/create-react-app/docs/getting-started).",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AfanasevKirillGitHub/goose_track_frontend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AfanasevKirillGitHub/goose_track_frontend.git/issues"
+  },
+  "devDependencies": {
+    "@types/styled-components": "^5.1.26"
+  }
+}
