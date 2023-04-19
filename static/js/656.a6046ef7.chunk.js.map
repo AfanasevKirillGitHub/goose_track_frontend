@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/656.a6046ef7.chunk.js","mappings":"iMAAaA,EAAe,WAC1B,OAAO,uCACR,C","sources":["pages/FindPetPage/FavoritePage/FavoritePage.tsx"],"sourcesContent":["export const FavoritePage = () => {\n  return <p>FavoritePage</p>;\n};\n"],"names":["FavoritePage"],"sourceRoot":""}

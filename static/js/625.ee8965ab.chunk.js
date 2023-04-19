@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkgoose_track_frontend=self.webpackChunkgoose_track_frontend||[]).push([[625],{4625:function(e,n,r){r.r(n),r.d(n,{SellPage:function(){return c}});var t=r(3329),c=function(){return(0,t.jsx)("p",{children:" SellPage "})}}}]);
+//# sourceMappingURL=625.ee8965ab.chunk.js.map

@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkgoose_track_frontend=self.webpackChunkgoose_track_frontend||[]).push([[746],{3746:function(n,e,r){r.r(e),r.d(e,{MyAdsPage:function(){return s}});var t=r(3329),s=function(){return(0,t.jsx)("p",{children:"MyAdsPage"})}}}]);
+//# sourceMappingURL=746.6648e8b1.chunk.js.map

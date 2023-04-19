@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/746.6648e8b1.chunk.js","mappings":"8LAAaA,EAAY,WACvB,OAAO,oCACR,C","sources":["pages/FindPetPage/MyAdsPage/MyAdsPage.tsx"],"sourcesContent":["export const MyAdsPage = () => {\n  return <p>MyAdsPage</p>;\n};\n"],"names":["MyAdsPage"],"sourceRoot":""}
