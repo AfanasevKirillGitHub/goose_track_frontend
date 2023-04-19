@@ -1,0 +1,54 @@
+{
+  "navigation": {
+    "News": "News",
+    "Find pet": "Find pet",
+    "Our friends": "Our friends",
+    "Login": "Login",
+    "Registration": "Registration",
+    "Account": "Account"
+  },
+  "find-pet-nav": {
+    "sell": "sell",
+    "lost/found": "lost/found",
+    "in good hands": "in good hands",
+    "favorite ads": "favorite ads",
+    "my ads": "my ads"
+  },
+  "News": "News",
+  "Read more": "Read more",
+  "Search": "Search",
+  "Example@gmail.com": "Example@gmail.com",
+  "Password": "Password",
+
+  "Login": "Login",
+  "Next": "Next",
+  "Email": "Email",
+  "Confirm Password": "Confirm Password",
+  "Name": "Name",
+  "City, Region": "City, Region",
+  "Mobile Phone": "Mobile Phone",
+  "Registration": "Registration",
+  "Back": "Back",
+  "Don't have an account": "Don't have an account",
+  "Register": "Register",
+  "Already have an account": "Already have an account",
+
+  "Our friends": "Our friends",
+  "Time": "Time",
+  "Address": "Address",
+  "Phone": "Phone",
+  "Enter a valid Email": "Enter a valid Email",
+  "Email is correct": "Email is correct",
+  "Enter a valid Password": "Enter a valid Password",
+  "Password is correct": "Password is correct",
+  "confirmPassword is correct": "confirmPassword is correct",
+  "confirmPassword is not correct": "confirmPassword is not correct",
+  "Enter your name pls": "Enter your name pls",
+  "Name is valid": "Name is valid",
+  "Enter your city pls": "Enter your city pls",
+  "City is valid": "City is valid",
+  "Enter your phone pls": "Enter your phone pls",
+  "Phone is valid": "Phone is valid",
+
+  "add pet": "Add pet"
+}
