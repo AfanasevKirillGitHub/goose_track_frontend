@@ -1,6 +1,6 @@
 import i18n from 'i18next';
-import en from './assets/locals/en/en.json';
-import ua from './assets/locals/ua/ua.json';
+import en from './assets/en/en.json';
+import ua from './assets/ua/ua.json';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
 import LocalStorageBackend from 'i18next-localstorage-backend';

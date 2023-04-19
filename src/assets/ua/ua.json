@@ -1,0 +1,53 @@
+{
+  "navigation": {
+    "News": "Новини",
+    "Find pet": "Знайди друга",
+    "Our friends": "Партнери",
+    "Login": "Логін",
+    "Registration": "Реєстрація",
+    "Account": "Кабінет"
+  },
+  "find-pet-nav": {
+    "sell": "продати",
+    "lost/found": "пошук",
+    "in good hands": "в хороші руки",
+    "favorite ads": "улюблене",
+    "my ads": "мої повідомлення"
+  },
+  "News": "Новини",
+  "Read more": "Дивитись повну версію",
+  "Search": "Пошук",
+  "Example@gmail.com": "Example@gmail.com",
+  "Password": "Пароль",
+  "Login": "Залогінитися",
+  "Next": "Далі",
+  "Email": "Пошта",
+  "Confirm Password": "Підтвердити пароль",
+  "Name": "Ім'я",
+  "City, Region": "Місто, Регіон",
+  "Mobile Phone": "Мобільний телефон",
+  "Registration": "Зареєструватися",
+  "Back": "Повернутися назад",
+  "Don't have an account": "Ще не зареєстровані",
+  "Register": "Реєстрація",
+  "Already have an account": "Вже зареєстровані",
+
+  "Our friends": "Наші друзі",
+  "Time": "Час роботи",
+  "Address": "Адреса",
+  "Phone": "Номер телефону",
+  "Enter a valid Email": "Введіть коректну адресу пошти",
+  "Email is correct": "Адресу пошти прийнято",
+  "Enter a valid Password": "Введіть пароль від 6 символів",
+  "Password is correct": "Пароль прийнято",
+  "confirmPassword is correct": "Паролі співпадають",
+  "confirmPassword is not correct": "Паролі не співпадають",
+  "Enter your name pls": "Введіть ваше ім'я",
+  "Name is valid": "Ваше ім'я прийнято",
+  "Enter your city pls": "Введіть ваше місто",
+  "City is valid": "Ваше місто прийнято",
+  "Enter your phone pls": "Введіть номер мобільного телефону",
+  "Phone is valid": "Номер телефону прийнято",
+
+  "add pet": "Додати"
+}
