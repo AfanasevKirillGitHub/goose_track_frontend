@@ -1,9 +1,10 @@
 export interface ICredentials {
   name?: string;
   phone?: string;
-  city?: string;
-  password: string;
-  email: string;
+  birthday?: string;
+  password?: string;
+  email?: string;
+  skype?: string;
 }
 
 export interface IAuth {
@@ -15,5 +16,6 @@ export interface IAuth {
     birthday: string;
     phone: string;
     avatarURL: string;
+    skype: string;
   };
 }

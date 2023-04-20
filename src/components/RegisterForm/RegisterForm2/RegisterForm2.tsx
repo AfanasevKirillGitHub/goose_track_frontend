@@ -32,7 +32,6 @@ export const RegisterForm2 = ({ onToggle, dataForm1 }: IProps) => {
         password: string;
       }),
       name: name.value,
-      city: city.value,
       phone: phone.value,
     };
 

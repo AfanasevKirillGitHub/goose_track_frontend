@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { IPets } from '../../helpers/interfaces/petsApiInterface/petsApiInterface';
+import { ITask } from '../../helpers/interfaces/taskApiInterface/taskApiInterface';
 import { RootState } from '../store';
 
 // interface IData {
@@ -23,7 +23,7 @@ export const tasksApi = createApi({
   }),
   tagTypes: ['tasks'],
   endpoints: builder => ({
-    fetchTasks: builder.query<IPets[] | [], any>({
+    fetchTasks: builder.query<ITask[] | [], any>({
       query: ({ lang = 'en' }) => ({
         method: 'GET',
         url: `/?lang=${lang}`,
