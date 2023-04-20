@@ -1,20 +1,10 @@
 {
   "navigation": {
-    "News": "News",
-    "Find pet": "Find pet",
-    "Our friends": "Our friends",
     "Login": "Login",
     "Registration": "Registration",
     "Account": "Account"
   },
-  "find-pet-nav": {
-    "sell": "sell",
-    "lost/found": "lost/found",
-    "in good hands": "in good hands",
-    "favorite ads": "favorite ads",
-    "my ads": "my ads"
-  },
-  "News": "News",
+
   "Read more": "Read more",
   "Search": "Search",
   "Example@gmail.com": "Example@gmail.com",
@@ -33,7 +23,6 @@
   "Register": "Register",
   "Already have an account": "Already have an account",
 
-  "Our friends": "Our friends",
   "Time": "Time",
   "Address": "Address",
   "Phone": "Phone",

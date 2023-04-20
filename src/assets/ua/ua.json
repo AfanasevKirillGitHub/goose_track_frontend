@@ -1,20 +1,10 @@
 {
   "navigation": {
-    "News": "Новини",
-    "Find pet": "Знайди друга",
-    "Our friends": "Партнери",
     "Login": "Логін",
     "Registration": "Реєстрація",
     "Account": "Кабінет"
   },
-  "find-pet-nav": {
-    "sell": "продати",
-    "lost/found": "пошук",
-    "in good hands": "в хороші руки",
-    "favorite ads": "улюблене",
-    "my ads": "мої повідомлення"
-  },
-  "News": "Новини",
+
   "Read more": "Дивитись повну версію",
   "Search": "Пошук",
   "Example@gmail.com": "Example@gmail.com",
@@ -32,7 +22,6 @@
   "Register": "Реєстрація",
   "Already have an account": "Вже зареєстровані",
 
-  "Our friends": "Наші друзі",
   "Time": "Час роботи",
   "Address": "Адреса",
   "Phone": "Номер телефону",

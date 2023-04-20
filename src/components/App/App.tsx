@@ -10,6 +10,13 @@ import { Loader } from '../Loader/Loader';
 import { PrivateRout } from '../PrivateRoute/PrivateRoute';
 import { RestrictedRout } from '../RestrictedRoute/RestrictedRoute';
 
+const HomePage = lazy(() =>
+  import('../../pages/HomePage/HomePage').then(module => ({
+    ...module,
+    default: module.HomePage,
+  }))
+);
+
 const LoginPage = lazy(() =>
   import('../../pages/LoginPage/LoginPage').then(module => ({
     ...module,
@@ -52,6 +59,15 @@ export const App = () => {
       ) : (
         <Routes>
           <Route path="/" element={<Layout />}>
+            <Route
+              path="/"
+              element={
+                <RestrictedRout
+                  redirectTo="/account"
+                  component={<HomePage />}
+                />
+              }
+            />
             <Route
               path="/login"
               element={

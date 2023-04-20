@@ -7,19 +7,17 @@ import { ICredentials } from '../../helpers/interfaces/auth/authInterfaces';
 import { NavLink } from 'react-router-dom';
 import * as SC from './LoginForm.styled';
 import { useInput } from '../../hooks/useInput';
-import { FcGoogle } from 'react-icons/fc'
-import { HiEye, HiEyeOff } from 'react-icons/hi'
+import { FcGoogle } from 'react-icons/fc';
+import { HiEye, HiEyeOff } from 'react-icons/hi';
 import { useState } from 'react';
-
 
 export const LoginForm = () => {
   const dispatch = useDispatch<ThunkDispatch<any, any, AnyAction>>();
   const { t } = useTranslation();
-  const[passwordType, setPasswordType] = useState('password')
+  const [passwordType, setPasswordType] = useState('password');
 
   const email = useInput('', { isEmail: true });
   const password = useInput('', { minLength: 6 });
-
 
   const handleSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
@@ -38,7 +36,9 @@ export const LoginForm = () => {
   return (
     <SC.InnerDiv>
       <SC.Title>{t('Login')}</SC.Title>
-      <SC.Google href="https://your-pets.onrender.com/api/users/google"> <FcGoogle style={{width: "1.5em", height: "1.5em" }}/></SC.Google>  
+      <SC.Google href="https://your-tasks-hv5t.onrender.com/api/auth/google">
+        <FcGoogle style={{ width: '1.5em', height: '1.5em' }} />
+      </SC.Google>
       <SC.Form onSubmit={handleSubmit} autoComplete="off">
         <SC.Div>
           <SC.Input
@@ -97,7 +97,15 @@ export const LoginForm = () => {
               {t('Password is correct')}
             </SC.Notification>
           )}
-          <SC.Eye onClick={() => {passwordType === 'password' ? setPasswordType('text') : setPasswordType('password')}}>{passwordType === 'password' ? <HiEye/> : <HiEyeOff/>}</SC.Eye>
+          <SC.Eye
+            onClick={() => {
+              passwordType === 'password'
+                ? setPasswordType('text')
+                : setPasswordType('password');
+            }}
+          >
+            {passwordType === 'password' ? <HiEye /> : <HiEyeOff />}
+          </SC.Eye>
         </SC.Div>
         <SC.Button type="submit">{t('Login')}</SC.Button>
       </SC.Form>
