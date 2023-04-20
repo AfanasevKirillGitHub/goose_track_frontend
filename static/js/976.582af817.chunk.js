@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkgoose_track_frontend=self.webpackChunkgoose_track_frontend||[]).push([[976],{4976:function(n,e,o){o.r(e),o.d(e,{InGoodHandPage:function(){return t}});var r=o(3329),t=function(){return(0,r.jsx)("p",{children:"InGoodHandPage"})}}}]);
-//# sourceMappingURL=976.582af817.chunk.js.map

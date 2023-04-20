@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/625.ee8965ab.chunk.js","mappings":"6LAAaA,EAAW,WACtB,OAAO,qCACR,C","sources":["pages/FindPetPage/SellPage/SellPage.tsx"],"sourcesContent":["export const SellPage = () => {\n  return <p> SellPage </p>;\n};\n"],"names":["SellPage"],"sourceRoot":""}

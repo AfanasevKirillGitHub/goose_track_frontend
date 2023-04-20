@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkgoose_track_frontend=self.webpackChunkgoose_track_frontend||[]).push([[656],{8656:function(e,n,r){r.r(n),r.d(n,{FavoritePage:function(){return o}});var t=r(3329),o=function(){return(0,t.jsx)("p",{children:"FavoritePage"})}}}]);
-//# sourceMappingURL=656.a6046ef7.chunk.js.map
