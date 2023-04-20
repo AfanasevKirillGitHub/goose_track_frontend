@@ -1,0 +1,68 @@
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { IPets } from '../../helpers/interfaces/petsApiInterface/petsApiInterface';
+import { RootState } from '../store';
+
+// interface IData {
+
+// }
+
+export const tasksApi = createApi({
+  reducerPath: 'tasks',
+  baseQuery: fetchBaseQuery({
+    // baseUrl: 'http://localhost:3000/api/tasks',
+    baseUrl: 'https://your-tasks-hv5t.onrender.com/api/tasks',
+    prepareHeaders: (headers, { getState }) => {
+      const token: string | null = (getState() as RootState).auth.token;
+      if (token) {
+        headers.set('authorization', `Bearer ${token}`);
+      } else {
+        headers.delete('authorization');
+      }
+      return headers;
+    },
+  }),
+  tagTypes: ['tasks'],
+  endpoints: builder => ({
+    fetchTasks: builder.query<IPets[] | [], any>({
+      query: ({ lang = 'en' }) => ({
+        method: 'GET',
+        url: `/?lang=${lang}`,
+      }),
+      //   transformResponse: (response: IPetsApi) => response.news,
+      providesTags: ['tasks'],
+    }),
+    addTasks: builder.mutation<any, any>({
+      query: task => ({
+        method: 'POST',
+        url: '/',
+        body: task,
+      }),
+
+      invalidatesTags: ['tasks'],
+    }),
+    updateTasks: builder.mutation<any, any>({
+      query: ({ id, updateInfo }) => ({
+        method: 'PATCH',
+        url: `/${id}`,
+        body: updateInfo,
+      }),
+
+      invalidatesTags: ['tasks'],
+    }),
+    removeTasks: builder.mutation<any, any>({
+      query: id => ({
+        method: 'DELETE',
+        url: `/${id}`,
+      }),
+
+      invalidatesTags: ['tasks'],
+    }),
+  }),
+});
+
+export const {
+  useFetchTasksQuery,
+  useAddTasksMutation,
+  useRemoveTasksMutation,
+  useUpdateTasksMutation,
+} = tasksApi;

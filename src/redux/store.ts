@@ -10,8 +10,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { petsApi } from './pets/petsOperations';
-import { servicesApi } from './services/servicesOperations';
+import { tasksApi } from './pets/petsOperations';
 import { authSlice } from './auth/authReducer';
 
 const authPersistConfig = {
@@ -22,8 +21,7 @@ const authPersistConfig = {
 
 export const store = configureStore({
   reducer: {
-    [petsApi.reducerPath]: petsApi.reducer,
-    [servicesApi.reducerPath]: servicesApi.reducer,
+    [tasksApi.reducerPath]: tasksApi.reducer,
     [authSlice.name]: persistReducer(authPersistConfig, authSlice.reducer)!,
   },
   middleware: getDefaultMiddleware => [
@@ -33,8 +31,7 @@ export const store = configureStore({
       },
     }),
 
-    servicesApi.middleware,
-    petsApi.middleware,
+    tasksApi.middleware,
   ],
 });
 

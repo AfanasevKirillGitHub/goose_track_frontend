@@ -3,10 +3,9 @@ import { NavLink } from 'react-router-dom';
 import { IFormOneData } from '../../../pages/RegisterPage/RegisterPage';
 import * as SC from './RegisterForm1.styled';
 import { useInput } from '../../../hooks/useInput';
-import { FcGoogle } from 'react-icons/fc'
+import { FcGoogle } from 'react-icons/fc';
 import { useState } from 'react';
-import { HiEye, HiEyeOff } from 'react-icons/hi'
-
+import { HiEye, HiEyeOff } from 'react-icons/hi';
 
 interface IProps {
   onToggle: () => void;
@@ -14,10 +13,9 @@ interface IProps {
 }
 
 export const RegisterForm1 = ({ onToggle, getData }: IProps) => {
-
   const { t } = useTranslation();
-  const[passwordType, setPasswordType] = useState('password')
-  const[confirmPasswordType, setConfirmPasswordType] = useState('password')
+  const [passwordType, setPasswordType] = useState('password');
+  const [confirmPasswordType, setConfirmPasswordType] = useState('password');
   const email = useInput('', { isEmail: true });
   const password = useInput('', { minLength: 6 });
   const confirmPassword = useInput('', { isSamePassword: password.value });
@@ -30,7 +28,9 @@ export const RegisterForm1 = ({ onToggle, getData }: IProps) => {
   return (
     <SC.InnerDiv>
       <SC.Title>{t('Registration')}</SC.Title>
-      <SC.Google href="https://your-pets.onrender.com/api/users/google"> <FcGoogle style={{width: "1.5em", height: "1.5em" }}/></SC.Google> 
+      <SC.Google href="https://your-tasks-hv5t.onrender.com/api/auth/google">
+        <FcGoogle style={{ width: '1.5em', height: '1.5em' }} />
+      </SC.Google>
       <SC.Div>
         <SC.Input
           style={{
@@ -88,7 +88,15 @@ export const RegisterForm1 = ({ onToggle, getData }: IProps) => {
             {t('Password is correct')}
           </SC.Notification>
         )}
-        <SC.Eye onClick={() => {passwordType === 'password' ? setPasswordType('text') : setPasswordType('password')}}>{passwordType === 'password' ? <HiEye/> : <HiEyeOff/>}</SC.Eye>
+        <SC.Eye
+          onClick={() => {
+            passwordType === 'password'
+              ? setPasswordType('text')
+              : setPasswordType('password');
+          }}
+        >
+          {passwordType === 'password' ? <HiEye /> : <HiEyeOff />}
+        </SC.Eye>
       </SC.Div>
       <SC.Div>
         <SC.Input
@@ -120,7 +128,15 @@ export const RegisterForm1 = ({ onToggle, getData }: IProps) => {
               {t('confirmPassword is not correct')}
             </SC.Notification>
           )}
-        <SC.Eye onClick={()=> {confirmPasswordType === 'password' ? setConfirmPasswordType('text') : setConfirmPasswordType('password')}}>{confirmPasswordType === 'password' ? <HiEye/> : <HiEyeOff/>}</SC.Eye>
+        <SC.Eye
+          onClick={() => {
+            confirmPasswordType === 'password'
+              ? setConfirmPasswordType('text')
+              : setConfirmPasswordType('password');
+          }}
+        >
+          {confirmPasswordType === 'password' ? <HiEye /> : <HiEyeOff />}
+        </SC.Eye>
       </SC.Div>
       <SC.Button
         disabled={!confirmPassword.confirmError}
@@ -130,7 +146,8 @@ export const RegisterForm1 = ({ onToggle, getData }: IProps) => {
         {t('Next')}
       </SC.Button>
       <p>
-        {t('Already have an account')}? <NavLink to="/login">{t('Login')}</NavLink>
+        {t('Already have an account')}?{' '}
+        <NavLink to="/login">{t('Login')}</NavLink>
       </p>
     </SC.InnerDiv>
   );
