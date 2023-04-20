@@ -5,6 +5,7 @@ import {
   logOut,
   refreshUser,
   signInWhithToken,
+  updateInfo,
 } from './authOperations';
 
 interface IInitialState {
@@ -14,6 +15,7 @@ interface IInitialState {
     birthday: null | string;
     phone: null | string;
     avatarURL: null | string;
+    skype: null | string;
   };
   token: null | string;
   isLoggedIn: boolean;
@@ -27,6 +29,7 @@ const initialState: IInitialState = {
     birthday: null,
     phone: null,
     avatarURL: null,
+    skype: null,
   },
   token: null,
   isLoggedIn: false,
@@ -51,6 +54,7 @@ export const authSlice = createSlice({
         state.user.birthday = payload.dataUser.birthday;
         state.user.phone = payload.dataUser.phone;
         state.user.avatarURL = payload.dataUser.avatarURL;
+        state.user.skype = payload.dataUser.skype;
         state.token = payload.dataUser.token;
         state.isLoggedIn = true;
       })
@@ -66,6 +70,7 @@ export const authSlice = createSlice({
         state.user.birthday = payload.dataUser.birthday;
         state.user.phone = payload.dataUser.phone;
         state.user.avatarURL = payload.dataUser.avatarURL;
+        state.user.skype = payload.dataUser.skype;
         state.token = payload.dataUser.token;
         state.isLoggedIn = true;
       })
@@ -81,6 +86,7 @@ export const authSlice = createSlice({
         state.user.birthday = payload.dataUser.birthday;
         state.user.phone = payload.dataUser.phone;
         state.user.avatarURL = payload.dataUser.avatarURL;
+        state.user.skype = payload.dataUser.skype;
         state.token = payload.dataUser.token;
         state.isLoggedIn = true;
       })
@@ -104,6 +110,25 @@ export const authSlice = createSlice({
         state.user.email = payload.dataUser.email;
         state.user.birthday = payload.dataUser.birthday;
         state.user.phone = payload.dataUser.phone;
+        state.user.skype = payload.dataUser.skype;
+        state.user.avatarURL = payload.dataUser.avatarURL;
+        state.isLoggedIn = true;
+        state.isRefreshing = false;
+      })
+      .addCase(updateInfo.pending, (state, _) => {
+        state.isRefreshing = true;
+      })
+      .addCase(updateInfo.rejected, (state, _) => {
+        state.user = initialState.user;
+        state.isLoggedIn = false;
+        state.isRefreshing = false;
+      })
+      .addCase(updateInfo.fulfilled, (state, { payload }) => {
+        state.user.name = payload.dataUser.name;
+        state.user.email = payload.dataUser.email;
+        state.user.birthday = payload.dataUser.birthday;
+        state.user.phone = payload.dataUser.phone;
+        state.user.skype = payload.dataUser.skype;
         state.user.avatarURL = payload.dataUser.avatarURL;
         state.isLoggedIn = true;
         state.isRefreshing = false;

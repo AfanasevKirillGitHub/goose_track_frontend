@@ -111,3 +111,18 @@ export const refreshUser = createAsyncThunk(
     }
   }
 );
+
+export const updateInfo = createAsyncThunk<
+  IAuth,
+  ICredentials,
+  {
+    rejectValue: string;
+  }
+>('user/update', async (credentials, thunkAPI) => {
+  try {
+    const { data } = await axios.post<IAuth>('/user/info', credentials);
+    return data;
+  } catch (error: any) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});
