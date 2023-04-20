@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import { FriendsList } from '../../components/FriendsList/FriendsList';
-import * as SC from './FriendsPage.styled';
+import * as SC from './CalendarPage.styled';
 
-export const FriendsPage = () => {
+export const CalendarPage = () => {
   const { t } = useTranslation();
 
   return (

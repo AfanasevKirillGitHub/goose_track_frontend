@@ -4,7 +4,7 @@ import { IRoutsProps } from '../../helpers/interfaces/routs/routs';
 
 export const RestrictedRout = ({
   component: Component,
-  redirectTo = '/',
+  redirectTo = '/account',
 }: IRoutsProps) => {
   const { isLoggedIn } = useAuth();
   return isLoggedIn ? <Navigate to={redirectTo} replace /> : Component;

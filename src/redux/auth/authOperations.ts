@@ -9,7 +9,7 @@ import { selectToken } from './authSelectors';
 import { RootState } from '../store';
 
 // axios.defaults.baseURL = 'http://localhost:3000/api/users';
-axios.defaults.baseURL = 'https://your-pets.onrender.com/api/users';
+axios.defaults.baseURL = 'https://your-tasks-hv5t.onrender.com/api';
 
 const setAuthHeader = (token: String): void => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -26,7 +26,7 @@ export const signUp = createAsyncThunk<
   }
 >('auth/signUp', async (credentials, thunkAPI) => {
   try {
-    const { data } = await axios.post<IAuth>('/register', credentials);
+    const { data } = await axios.post<IAuth>('/auth/register', credentials);
     setAuthHeader(data.dataUser.token);
     return data;
   } catch (error: any) {
@@ -48,7 +48,7 @@ export const signIn = createAsyncThunk<
   }
 >('auth/signIn', async (credentials, thunkAPI) => {
   try {
-    const { data } = await axios.post<IAuth>('/login', credentials);
+    const { data } = await axios.post<IAuth>('/auth/login', credentials);
     setAuthHeader(data.dataUser.token);
     return data;
   } catch (error: any) {
@@ -69,7 +69,10 @@ export const signInWhithToken = createAsyncThunk<
   }
 >('auth/signInWhithToken', async (credentials, thunkAPI) => {
   try {
-    const { data } = await axios.post<IAuth>('/login/with-token', credentials);
+    const { data } = await axios.post<IAuth>(
+      '/auth/login/with-token',
+      credentials
+    );
     setAuthHeader(data.dataUser.token);
     return data;
   } catch (error: any) {
@@ -82,9 +85,9 @@ export const signInWhithToken = createAsyncThunk<
   }
 });
 
-export const logOut = createAsyncThunk('/logOut', async (_, thunkAPI) => {
+export const logOut = createAsyncThunk('auth/logOut', async (_, thunkAPI) => {
   try {
-    await axios.post('/logout');
+    await axios.post('/auth/logout');
     clearAuthHeader();
   } catch (error: any) {
     return thunkAPI.rejectWithValue(error.message);
@@ -92,7 +95,7 @@ export const logOut = createAsyncThunk('/logOut', async (_, thunkAPI) => {
 });
 
 export const refreshUser = createAsyncThunk(
-  'auth/refresh',
+  'user/refresh',
   async (_, thunkAPI) => {
     const token = selectToken(thunkAPI.getState() as RootState);
 
@@ -101,7 +104,7 @@ export const refreshUser = createAsyncThunk(
     }
     try {
       setAuthHeader(token);
-      const { data } = await axios.get<IAuth>('/current');
+      const { data } = await axios.get<IAuth>('/users/current');
       return data;
     } catch (error: any) {
       return thunkAPI.rejectWithValue(error.message);

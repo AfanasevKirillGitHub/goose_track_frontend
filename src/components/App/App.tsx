@@ -1,5 +1,5 @@
 import { lazy, useEffect } from 'react';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { ThunkDispatch } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
 import { AnyAction } from 'redux';
@@ -9,13 +9,6 @@ import { refreshUser } from '../../redux/auth/authOperations';
 import { Loader } from '../Loader/Loader';
 import { PrivateRout } from '../PrivateRoute/PrivateRoute';
 import { RestrictedRout } from '../RestrictedRoute/RestrictedRoute';
-
-const NewsPage = lazy(() =>
-  import('../../pages/NewsPage/NewsPage').then(module => ({
-    ...module,
-    default: module.NewsPage,
-  }))
-);
 
 const LoginPage = lazy(() =>
   import('../../pages/LoginPage/LoginPage').then(module => ({
@@ -38,56 +31,10 @@ const AccountPage = lazy(() =>
   }))
 );
 
-const FindPetPage = lazy(() =>
-  import('../../pages/FindPetPage/FindPetPage').then(module => ({
+const CalendarPage = lazy(() =>
+  import('../../pages/CalendarPage/CalendarPage').then(module => ({
     ...module,
-    default: module.FindPetPage,
-  }))
-);
-
-const FriendsPage = lazy(() =>
-  import('../../pages/FriendsPage/FriendsPage').then(module => ({
-    ...module,
-    default: module.FriendsPage,
-  }))
-);
-
-const LostFoundPage = lazy(() =>
-  import('../../pages/FindPetPage/LostFoundPage/LostFoundPage').then(
-    module => ({
-      ...module,
-      default: module.LostFoundPage,
-    })
-  )
-);
-
-const InGoodHandPage = lazy(() =>
-  import('../../pages/FindPetPage/InGoodHandPage/InGoodHandPage').then(
-    module => ({
-      ...module,
-      default: module.InGoodHandPage,
-    })
-  )
-);
-
-const FavoritePage = lazy(() =>
-  import('../../pages/FindPetPage/FavoritePage/FavoritePage').then(module => ({
-    ...module,
-    default: module.FavoritePage,
-  }))
-);
-
-const MyAdsPage = lazy(() =>
-  import('../../pages/FindPetPage/MyAdsPage/MyAdsPage').then(module => ({
-    ...module,
-    default: module.MyAdsPage,
-  }))
-);
-
-const SellPage = lazy(() =>
-  import('../../pages/FindPetPage/SellPage/SellPage').then(module => ({
-    ...module,
-    default: module.SellPage,
+    default: module.CalendarPage,
   }))
 );
 
@@ -105,40 +52,20 @@ export const App = () => {
       ) : (
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<Navigate to="login" />} />
-            <Route path="/news" element={<NewsPage />} />
-            <Route path="/find-pet" element={<FindPetPage />}>
-              <Route path="lost-found" element={<LostFoundPage />} />
-              <Route path="good-hand" element={<InGoodHandPage />} />
-              <Route path="sell" element={<SellPage />} />
-              <Route
-                path="favorite"
-                element={
-                  <PrivateRout
-                    redirectTo="/news"
-                    component={<FavoritePage />}
-                  />
-                }
-              />
-              <Route
-                path="my-ads"
-                element={
-                  <PrivateRout redirectTo="/news" component={<MyAdsPage />} />
-                }
-              />
-            </Route>
-            <Route path="/friends" element={<FriendsPage />} />
             <Route
               path="/login"
               element={
-                <RestrictedRout redirectTo="/news" component={<LoginPage />} />
+                <RestrictedRout
+                  redirectTo="/account"
+                  component={<LoginPage />}
+                />
               }
             />
             <Route
               path="/registration"
               element={
                 <RestrictedRout
-                  redirectTo="/news"
+                  redirectTo="/account"
                   component={<RegisterPage />}
                 />
               }
@@ -146,7 +73,13 @@ export const App = () => {
             <Route
               path="/account"
               element={
-                <PrivateRout redirectTo="/news" component={<AccountPage />} />
+                <PrivateRout redirectTo="/" component={<AccountPage />} />
+              }
+            />
+            <Route
+              path="/calendar"
+              element={
+                <PrivateRout redirectTo="/" component={<CalendarPage />} />
               }
             />
           </Route>
