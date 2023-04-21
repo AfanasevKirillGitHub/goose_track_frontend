@@ -9,6 +9,7 @@ export const CalendarMonitorWrapper = styled.div`
 
 export const TextWrapper = styled.span`
   font-size: 32px;
+  margin-right: 10px;
 `;
 export const TitleWrapper = styled(TextWrapper)`
   font-weight: bold;
@@ -22,6 +23,7 @@ export const ButtonsWrapper = styled.div`
 
 export const ButtonWrapper = styled.button`
   border: unset;
+  cursor: pointer;
   background-color: #565759;
   height: 20px;
   margin-right: 2px;

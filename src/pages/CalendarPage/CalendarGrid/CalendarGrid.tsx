@@ -51,7 +51,6 @@ export const CalendarGrid = ({ startDay, today }: IProps) => {
               <ul style={{ paddingLeft: '10px' }}>
                 <li>tasks</li>
                 <li>tasks</li>
-                <li>tasks</li>
               </ul>
             </SC.TopRopperInCell>
           </SC.CellWrapper>
