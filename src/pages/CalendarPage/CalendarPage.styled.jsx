@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const ShadowWrapper = styled.div`
   border-radius: 8px;
+  height: 100%;
   overflow: hidden;
   border-top: 1px solid #737374;
   border-left: 1px solid #464648;

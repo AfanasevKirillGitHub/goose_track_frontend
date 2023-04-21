@@ -45,6 +45,13 @@ const CalendarPage = lazy(() =>
   }))
 );
 
+const CurrentDayPage = lazy(() =>
+  import('../../pages/CurrentDayPage/CurrentDayPage').then(module => ({
+    ...module,
+    default: module.CurrentDayPage,
+  }))
+);
+
 export const App = () => {
   const dispatch = useDispatch<ThunkDispatch<any, any, AnyAction>>();
   const { isRefreshing } = useAuth();
@@ -98,9 +105,12 @@ export const App = () => {
                 <PrivateRout redirectTo="/" component={<CalendarPage />} />
               }
             />
-            {/*  */}
-            {/* <Route path="/" element={<CalendarPage />} /> */}
-            {/*  */}
+            <Route
+              path="/calendar/day"
+              element={
+                <PrivateRout redirectTo="/" component={<CurrentDayPage />} />
+              }
+            />
           </Route>
         </Routes>
       )}

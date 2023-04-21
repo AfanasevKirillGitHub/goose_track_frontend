@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import * as SC from './CalendarMonitor.styled';
 
 interface IProps {
@@ -16,19 +17,25 @@ export const CalendarMonitor = ({
   return (
     <SC.CalendarMonitorWrapper>
       <div>
-        <SC.TitleWrapper>{today.format('MMMM')}</SC.TitleWrapper>
-        <SC.TextWrapper>{today.format('YYYY')}</SC.TextWrapper>
+        <div>
+          <SC.TitleWrapper>{today.format('MMMM')}</SC.TitleWrapper>
+          <SC.TextWrapper>{today.format('YYYY')}</SC.TextWrapper>
+        </div>
+        <SC.ButtonsWrapper>
+          <SC.ButtonWrapper type="button" onClick={prevHandler}>
+            &lt;
+          </SC.ButtonWrapper>
+          <SC.ButtonWrapper type="button" onClick={todayHandler}>
+            Today
+          </SC.ButtonWrapper>
+          <SC.ButtonWrapper type="button" onClick={nextHandler}>
+            &gt;
+          </SC.ButtonWrapper>
+        </SC.ButtonsWrapper>
       </div>
       <SC.ButtonsWrapper>
-        <SC.ButtonWrapper type="button" onClick={prevHandler}>
-          &lt;
-        </SC.ButtonWrapper>
-        <SC.ButtonWrapper type="button" onClick={todayHandler}>
-          Today
-        </SC.ButtonWrapper>
-        <SC.ButtonWrapper type="button" onClick={nextHandler}>
-          &gt;
-        </SC.ButtonWrapper>
+        <NavLink to="/calendar">Month/</NavLink>
+        <NavLink to="/calendar/day">Day</NavLink>
       </SC.ButtonsWrapper>
     </SC.CalendarMonitorWrapper>
   );
