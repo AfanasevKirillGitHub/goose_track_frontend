@@ -3,6 +3,7 @@ import moment from 'moment';
 import { CalendarHeader } from './CalendarHeader/CalendarHeader';
 import { CalendarMonitor } from './CalendarMonitor/CalendarMonitor';
 import { CalendarGrid } from './CalendarGrid/CalendarGrid';
+import { AccountSidebar } from '../../components/Account/AccountSidebar';
 import * as SC from './CalendarPage.styled';
 import { useState } from 'react';
 
@@ -17,7 +18,6 @@ export const CalendarPage = () => {
   // const startDayQuery = startDay.clone().format('X');
   // const endDayQuery = startDay.clone().add(42, "days").format('X');
   //
-
   const prevHandler = () => {
     setToday(prev => prev.clone().subtract(1, 'month'));
   };
@@ -42,15 +42,18 @@ export const CalendarPage = () => {
   // const { t } = useTranslation();
 
   return (
-    <SC.ShadowWrapper>
-      <CalendarHeader />
-      <CalendarMonitor
-        prevHandler={prevHandler}
-        nextHandler={nextHandler}
-        todayHandler={todayHandler}
-        today={today}
-      />
-      <CalendarGrid startDay={startDay} today={today} />
-    </SC.ShadowWrapper>
+    <div style={{ display: 'flex' }}>
+      <AccountSidebar />
+      <SC.ShadowWrapper>
+        <CalendarHeader />
+        <CalendarMonitor
+          prevHandler={prevHandler}
+          nextHandler={nextHandler}
+          todayHandler={todayHandler}
+          today={today}
+        />
+        <CalendarGrid startDay={startDay} today={today} />
+      </SC.ShadowWrapper>
+    </div>
   );
 };

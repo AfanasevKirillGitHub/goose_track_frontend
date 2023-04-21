@@ -2,7 +2,6 @@ import * as SC from './AccountSidebar.styled';
 import goose from '../../images/goose.png';
 import { useTranslation } from 'react-i18next';
 import { accountPages } from '../../helpers/pages';
-// import { NavLink } from 'react-router-dom';
 import { LogOut } from '../LogOut/LogOut';
 
 export const AccountSidebar = () => {
@@ -21,7 +20,7 @@ export const AccountSidebar = () => {
       <SC.NavList>
         {accountPages.map(({ href, name, id }) => (
           <SC.NavItem key={id}>
-            <SC.Link to={href}>{t(`${name}`)}</SC.Link>
+            <SC.Link to={href}>{t(`navigation.${name}`)}</SC.Link>
           </SC.NavItem>
         ))}
       </SC.NavList>

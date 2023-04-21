@@ -39,13 +39,20 @@ export const CalendarGrid = ({ startDay, today }: IProps) => {
             isSelectedMonth={isSelectedMonth(dayItem)}
           >
             <SC.TopRopperInCell justifyContent={'flex-end'}>
-              <SC.DayWrapper>
-                {isCurrentDay(dayItem) ? (
-                  <SC.CurrentDay>{dayItem.format('D')}</SC.CurrentDay>
-                ) : (
-                  dayItem.format('D')
-                )}
-              </SC.DayWrapper>
+              <SC.ShowDaywrapper>
+                <SC.DayWrapper>
+                  {isCurrentDay(dayItem) ? (
+                    <SC.CurrentDay>{dayItem.format('D')}</SC.CurrentDay>
+                  ) : (
+                    dayItem.format('D')
+                  )}
+                </SC.DayWrapper>
+              </SC.ShowDaywrapper>
+              <ul style={{ paddingLeft: '10px' }}>
+                <li>tasks</li>
+                <li>tasks</li>
+                <li>tasks</li>
+              </ul>
             </SC.TopRopperInCell>
           </SC.CellWrapper>
         ))}

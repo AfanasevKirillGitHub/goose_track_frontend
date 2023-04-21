@@ -23,7 +23,7 @@ export const CalendarGrid = styled.div<ICalendarGridProps>`
 `;
 
 export const CellWrapper = styled.div<ICellWrapperProps>`
-  min-width: 140px;
+  min-width: 120px;
   min-height: ${p => (p.isHeader ? 40 : 80)}px;
   background-color: ${p => (p.isWeekend ? '#272829' : '#1e1f21')};
   color: ${p => (p.isSelectedMonth ? 'wheat' : '#4d4c4d')};
@@ -32,6 +32,7 @@ export const CellWrapper = styled.div<ICellWrapperProps>`
 
 export const TopRopperInCell = styled.div<ITopRopperInCellProps>`
   display: flex;
+  flex-direction: column;
   justify-content: ${p => (p.justifyContent ? p.justifyContent : 'flex-start')};
 `;
 
@@ -52,4 +53,9 @@ export const CurrentDay = styled.div`
   border-radius: 50%;
   width: 100%;
   height: 100%;
+`;
+
+export const ShowDaywrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
 `;
