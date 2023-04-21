@@ -30,9 +30,10 @@ export const LogoWrapper = styled.div`
 
 export const Title = styled.h1`
   color: #3e85f3;
-  font-family: 'Coolvetica';
-  font-size: 24px;
-  line-height: 1.5;
+  font-family: ${props => props.theme.fontFamily.logo};
+  font-weight: ${props => props.theme.fontWeights.regular};
+  font-size: ${props => props.theme.fontSizes.xxxl};
+  line-height: ${props => props.theme.lineHeights.xxs};
   text-shadow: 0px 47px 355px rgba(0, 0, 0, 0.07),
     0px 9.4px 57.6875px rgba(0, 0, 0, 0.035);
 `;
@@ -43,7 +44,6 @@ export const Span = styled.span`
 
 export const NavTitle = styled.h2`
   margin-left: 24px;
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 600;
   font-size: 14px;

@@ -12,7 +12,7 @@ export const AccountSidebar = () => {
       <SC.LogoWrapper>
         <SC.LogoImg src={goose} alt="logo goose" />
         <SC.Title>
-          <SC.Span>Goose</SC.Span>Track
+          G<SC.Span>oo</SC.Span>seTrack
         </SC.Title>
       </SC.LogoWrapper>
 
