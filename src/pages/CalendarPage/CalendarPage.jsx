@@ -1,8 +1,51 @@
 // import { useTranslation } from 'react-i18next';
+import moment from 'moment';
+import { CalendarHeader } from './CalendarHeader/CalendarHeader';
+import { CalendarMonitor } from './CalendarMonitor/CalendarMonitor';
+import { CalendarGrid } from './CalendarGrid/CalendarGrid';
 import * as SC from './CalendarPage.styled';
+import { useState } from 'react';
 
 export const CalendarPage = () => {
+  moment.updateLocale('en', { week: { dow: 1 } });
+
+  // const today = moment();
+  const [today, setToday] = useState(() => moment());
+  const startDay = today.clone().startOf('month').startOf('week');
+
+  const prevHandler = () => {
+    setToday(prev => prev.clone().subtract(1, 'month'));
+  };
+  const nextHandler = () => {
+    setToday(prev => prev.clone().add(1, 'month'));
+  };
+  const todayHandler = () => {
+    setToday(moment());
+  };
+
+  // const endDay = moment().endOf('month').endOf('week');
+
+  // const calendar = [];
+  // const day = startDay.clone();
+  // while (!day.isAfter(endDay)) {
+  //   calendar.push(day.clone());
+  //   day.add(1, 'day');
+  // }
+
+  // startDay.format('YYYY-MM-DD');
+
   // const { t } = useTranslation();
 
-  return <SC.Container></SC.Container>;
+  return (
+    <SC.ShadowWrapper>
+      <CalendarHeader />
+      <CalendarMonitor
+        prevHandler={prevHandler}
+        nextHandler={nextHandler}
+        todayHandler={todayHandler}
+        today={today}
+      />
+      <CalendarGrid startDay={startDay} today={today} />
+    </SC.ShadowWrapper>
+  );
 };

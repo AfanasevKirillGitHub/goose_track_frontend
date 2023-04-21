@@ -2,7 +2,8 @@
   "navigation": {
     "Login": "Логін",
     "Registration": "Реєстрація",
-    "Account": "Кабінет"
+    "My account": "Кабінет",
+    "Calendar": "Календар"
   },
 
   "Read more": "Дивитись повну версію",
