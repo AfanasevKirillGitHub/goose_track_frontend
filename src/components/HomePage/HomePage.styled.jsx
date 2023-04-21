@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
+
 export const Header = styled.div`
    display: flex;
    flex-direction: column;
@@ -35,7 +36,8 @@ export const Title = styled.h1`
   }
 `;
 
-export const ButtonList = styled.div`
+export const ButtonList = styled.ul`
+  list-style: none;
   display: flex;
   margin: 0 auto;
   flex-direction: column;
@@ -44,7 +46,11 @@ export const ButtonList = styled.div`
   }
 `;
 
-export const ButtonReg = styled(NavLink)`
+export const NavListItem = styled.li`
+
+`;
+
+export const Button = styled(NavLink)`
   text-decoration: none;
   width: 131px;
   height: 46px;
@@ -57,17 +63,21 @@ export const ButtonReg = styled(NavLink)`
   margin-right: ${props => props.theme.space[4]}px;
   margin-bottom: 200px;
   margin-top: 32px;
-  color: ${props => props.theme.colors.white};
+  color: ${props => (props.to === '/login' ? '#3E85F3' : '#FFFFFF')};
   font-size: ${props => props.theme.fontSizes.s};
   font-weight: ${props => props.theme.fontWeights.semiBold};
-  background-color: ${props => props.theme.colors.blue};
+  background-color: ${props => (props.to === '/login' ? '#FFFFFF' : '#3E85F3')};
   box-shadow: 0 0 15px rgba(236, 236, 236, 0.5);
   &:hover,
   &:focus {
-    background-color: ${props => props.theme.colors.white};
-    color: ${props => props.theme.colors.blue};
+    background-color: ${props => (props.to === '/login' ? '#3E85F3' : '#FFFFFF')};
+    color: ${props => (props.to === '/login' ? '#FFFFFF' : '#3E85F3')};
     box-shadow: 0 0 15px rgba(236, 236, 236, 0.5);
   }
+  svg {
+    margin-left: ${props => props.theme.space[3]}px;
+    display: ${props => (props.to === '/login' ? 'block' : 'none')};
+    }
   @media screen and (min-width: 768px) {
     width: 121px;
     height: 49px;
@@ -76,37 +86,7 @@ export const ButtonReg = styled(NavLink)`
   }
 `;
 
-export const ButtonLogin = styled(NavLink)`
-  text-decoration: none;
-  width: 131px;
-  height: 46px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  border-radius: ${props => props.theme.radii.medium};
-  border: ${props => props.theme.borders.none};
-  color: ${props => props.theme.colors.blue};
-  font-size: ${props => props.theme.fontSizes.s};
-  font-weight: ${props => props.theme.fontWeights.semiBold};
-  background-color: ${props => props.theme.colors.white};
-  box-shadow: ${props => props.theme.shadows.button};
-  &:hover,
-  &:focus {
-    background-color: ${props => props.theme.colors.blue};
-    color: ${props => props.theme.colors.white};
-    box-shadow: 0 0 15px rgba(236, 236, 236, 0.5);
-  }
-  svg {
-    margin-left: ${props => props.theme.space[3]}px;
-    }
-  @media screen and (min-width: 768px) {
-    width: 121px;
-    height: 49px;
-  }
-`;
-
 export const HomePageList = styled.li`
-
+   list-style: none;
 `;
 

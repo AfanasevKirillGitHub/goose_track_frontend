@@ -1,9 +1,10 @@
 {
   "navigation": {
-    "Login": "Логін",
+   "Login": "Логін",
     "Registration": "Реєстрація",
     "My account": "Кабінет",
-    "Calendar": "Календар"
+    "Calendar": "Календар",
+    "Sign up": "Реєстрація"
   },
 
   "Read more": "Дивитись повну версію",

@@ -1,8 +1,8 @@
 import { mainNav } from './interfaces/mainNav/mainNav';
 
 export const authPages: mainNav[] = [
-  { name: 'Login', href: '/login', id: 1 },
-  { name: 'Registration', href: '/registration', id: 2 },
+  { name: 'Sign up', href: '/registration', id: 1 },
+  { name: 'Login', href: '/login', id: 2 },
 ];
 
 export const accountPages: mainNav[] = [
