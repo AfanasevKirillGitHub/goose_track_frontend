@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-
 export const Header = styled.div`
-   display: flex;
-   flex-direction: column;
-   background-color: ${props => props.theme.colors.blue};
-   height: 812px;
-   @media screen and (min-width: 768px) and (max-width: 1439px) {
+  display: flex;
+  flex-direction: column;
+  background-color: ${props => props.theme.colors.blue};
+  height: 812px;
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
     height: 1024px;
   }
   @media screen and (min-width: 1440px) {
@@ -16,9 +15,9 @@ export const Header = styled.div`
 `;
 
 export const LogoImg = styled.img`
-   margin: 0 auto;
-   padding-top: 232px;
-   @media screen and (min-width: 768px) and (max-width: 1439px) {
+  margin: 0 auto;
+  padding-top: 232px;
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
     padding-top: 321px;
   }
   @media screen and (min-width: 1440px) {
@@ -28,8 +27,9 @@ export const LogoImg = styled.img`
 
 export const Title = styled.h1`
   text-align: center;
+  font-family: ${props => props.theme.fontFamily.logo};
   font-size: ${props => props.theme.fontSizes.bxxxl};
-  font-weight: ${props => props.theme.fontWeights.bold};
+  font-weight: ${props => props.theme.fontWeights.regular};
   color: ${props => props.theme.colors.white};
   @media screen and (min-width: 768px) {
     font-size: ${props => props.theme.fontSizes.homePageLogo};
@@ -46,9 +46,7 @@ export const ButtonList = styled.ul`
   }
 `;
 
-export const NavListItem = styled.li`
-
-`;
+export const NavListItem = styled.li``;
 
 export const Button = styled(NavLink)`
   text-decoration: none;
@@ -70,14 +68,15 @@ export const Button = styled(NavLink)`
   box-shadow: 0 0 15px rgba(236, 236, 236, 0.5);
   &:hover,
   &:focus {
-    background-color: ${props => (props.to === '/login' ? '#3E85F3' : '#FFFFFF')};
+    background-color: ${props =>
+      props.to === '/login' ? '#3E85F3' : '#FFFFFF'};
     color: ${props => (props.to === '/login' ? '#FFFFFF' : '#3E85F3')};
     box-shadow: 0 0 15px rgba(236, 236, 236, 0.5);
   }
   svg {
     margin-left: ${props => props.theme.space[3]}px;
     display: ${props => (props.to === '/login' ? 'block' : 'none')};
-    }
+  }
   @media screen and (min-width: 768px) {
     width: 121px;
     height: 49px;
@@ -87,6 +86,5 @@ export const Button = styled(NavLink)`
 `;
 
 export const HomePageList = styled.li`
-   list-style: none;
+  list-style: none;
 `;
-

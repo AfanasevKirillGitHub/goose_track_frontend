@@ -10,7 +10,9 @@ export const HomePageHeader = () => {
   return (
     <SC.Header>
       <SC.LogoImg src={goose} alt="logo goose" />
-      <SC.Title> Goose Track </SC.Title>
+      <SC.Title>
+        G<i>oo</i>se Track
+      </SC.Title>
       <SC.ButtonList>
         {authPages.map(({ href, name, id }) => (
           <SC.NavListItem key={id}>
