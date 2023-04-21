@@ -17,30 +17,27 @@ export const LoginForm = () => {
   const [passwordType, setPasswordType] = useState('password');
 
   const email = useInput('', { isEmail: true });
-  const password = useInput('', { minLength: 6 });
+  const password = useInput('', { isPassword: true });
 
   const handleSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
-    const form = evt.currentTarget as HTMLFormElement;
-    const emailInput = form.elements.namedItem('email') as HTMLInputElement;
-    const passwordInput = form.elements.namedItem(
-      'password'
-    ) as HTMLInputElement;
+
     const payload: ICredentials = {
-      email: emailInput.value.toLowerCase(),
-      password: passwordInput.value,
+      email: email.value.toLowerCase(),
+      password: password.value,
     };
     dispatch(signIn(payload));
-    form.reset();
   };
   return (
     <SC.InnerDiv>
-      <SC.Title>{t('Login')}</SC.Title>
+      <SC.Title>{t('Sign In')}</SC.Title>
       <SC.Google href="https://your-tasks-hv5t.onrender.com/api/auth/google">
         <FcGoogle style={{ width: '1.5em', height: '1.5em' }} />
       </SC.Google>
       <SC.Form onSubmit={handleSubmit} autoComplete="off">
         <SC.Div>
+          <label>
+            Email
           <SC.Input
             style={{
               border:
@@ -52,12 +49,14 @@ export const LoginForm = () => {
                   '1px solid red') as string),
             }}
             onChange={e => email.onChange(e)}
+            onBlur={e => email.onBlur(e)}
             type="email"
             value={email.value}
             name="email"
             placeholder={t('Example@gmail.com')!}
             required
           />
+          </label>
           {(email.isDirty && email.emailError && (
             <SC.Notification style={{ color: 'red' }}>
               {t('Enter a valid Email')}
@@ -70,29 +69,33 @@ export const LoginForm = () => {
             ))}
         </SC.Div>
         <SC.Div>
+          <label>
+            Password
           <SC.Input
             style={{
               border:
                 ((password.isDirty &&
-                  password.minLengthError &&
+                  password.passwordError &&
                   '1px solid red') as string) ||
                 ((password.isDirty &&
-                  !password.minLengthError &&
+                  !password.passwordError &&
                   '1px solid green') as string),
             }}
             onChange={e => password.onChange(e)}
+            onBlur={e => password.onBlur(e)}
             type={passwordType}
             value={password.value}
             name="password"
             placeholder={t('Password')!}
             required
           />
-          {password.isDirty && password.minLengthError && (
+          </label>
+          {password.isDirty && password.passwordError && (
             <SC.Notification style={{ color: 'red' }}>
               {t('Enter a valid Password')}
             </SC.Notification>
           )}
-          {password.isDirty && !password.minLengthError && (
+          {password.isDirty && !password.passwordError && (
             <SC.Notification style={{ color: 'green' }}>
               {t('Password is correct')}
             </SC.Notification>
@@ -107,7 +110,7 @@ export const LoginForm = () => {
             {passwordType === 'password' ? <HiEye /> : <HiEyeOff />}
           </SC.Eye>
         </SC.Div>
-        <SC.Button type="submit">{t('Login')}</SC.Button>
+        <SC.Button type="submit" disabled={!email.validForm || !password.validForm}>{t('Sign In')}</SC.Button>
       </SC.Form>
       <p>
         {t("Don't have an account")}?{' '}
