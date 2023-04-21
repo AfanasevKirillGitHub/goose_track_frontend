@@ -61,13 +61,13 @@ export const signIn = createAsyncThunk<
   }
 });
 
-export const signInWhithToken = createAsyncThunk<
+export const signInWithToken = createAsyncThunk<
   IAuth,
   { token: string },
   {
     rejectValue: string;
   }
->('auth/signInWhithToken', async (credentials, thunkAPI) => {
+>('auth/signInWithToken', async (credentials, thunkAPI) => {
   try {
     const { data } = await axios.post<IAuth>(
       '/auth/login/with-token',

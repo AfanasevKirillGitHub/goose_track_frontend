@@ -4,7 +4,7 @@ import {
   signIn,
   logOut,
   refreshUser,
-  signInWhithToken,
+  signInWithToken,
   updateInfo,
 } from './authOperations';
 
@@ -74,13 +74,13 @@ export const authSlice = createSlice({
         state.token = payload.dataUser.token;
         state.isLoggedIn = true;
       })
-      .addCase(signInWhithToken.pending, (state, _) => state)
-      .addCase(signInWhithToken.rejected, (state, _) => {
+      .addCase(signInWithToken.pending, (state, _) => state)
+      .addCase(signInWithToken.rejected, (state, _) => {
         state.user = initialState.user;
         state.token = null;
         state.isLoggedIn = false;
       })
-      .addCase(signInWhithToken.fulfilled, (state, { payload }) => {
+      .addCase(signInWithToken.fulfilled, (state, { payload }) => {
         state.user.name = payload.dataUser.name;
         state.user.email = payload.dataUser.email;
         state.user.birthday = payload.dataUser.birthday;
