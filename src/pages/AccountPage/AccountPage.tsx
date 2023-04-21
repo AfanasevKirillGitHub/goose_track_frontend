@@ -1,5 +1,4 @@
-import { AddPetBtn } from '../../components/AddPetBtn/AddPetBtn';
-import { MyInfo } from '../../components/MyInfo/MyInfo';
+import { AccountSidebar } from '../../components/Account/AccountSidebar';
 
 export const AccountPage = () => {
   const modalHandler = (): void => {
@@ -7,8 +6,7 @@ export const AccountPage = () => {
   };
   return (
     <>
-      <MyInfo />
-      <AddPetBtn toggleModal={modalHandler} />
+      <AccountSidebar/>
     </>
   );
 };
