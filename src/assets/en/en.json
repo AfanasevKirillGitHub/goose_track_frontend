@@ -2,7 +2,9 @@
   "navigation": {
     "Login": "Login",
     "Registration": "Registration",
-    "Account": "Account"
+    "My account": "Account",
+    "Calendar": "Calendar",
+    "Sign up": "Sign up"
   },
 
   "Read more": "Read more",
