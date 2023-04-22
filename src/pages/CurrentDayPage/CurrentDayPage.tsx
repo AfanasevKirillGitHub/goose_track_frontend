@@ -38,7 +38,7 @@ export const CurrentDayPage = () => {
   };
 
   const todayHandler = () => {
-    setSelectedDay(startDay);
+    setSelectedDay(moment());
     setToday(moment());
   };
   const isCurrentDay = (day: moment.Moment): boolean => {
