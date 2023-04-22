@@ -1,7 +1,6 @@
 import moment from 'moment';
 import { useState } from 'react';
 
-import { AccountSidebar } from '../../components/Account/AccountSidebar';
 import { CalendarMonitor } from '../CalendarPage/CalendarMonitor/CalendarMonitor';
 import * as SC from './CurrentDayPage.styled';
 
@@ -46,8 +45,7 @@ export const CurrentDayPage = () => {
   };
 
   return (
-    <main style={{ display: 'flex' }}>
-      <AccountSidebar />
+    <main>
       <SC.PageWrapper>
         <CalendarMonitor
           prevHandler={prevHandler}

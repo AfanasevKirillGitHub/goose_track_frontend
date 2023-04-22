@@ -1,10 +1,7 @@
-import { AccountSidebar } from '../../components/Account/AccountSidebar';
-
 export const AccountPage = () => {
-
   return (
     <>
-      <AccountSidebar/>
+      <p>Account Page</p>
     </>
   );
 };
