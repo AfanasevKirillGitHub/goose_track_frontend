@@ -2,8 +2,8 @@ import * as SC from './HomePage.styled';
 import goose from '../../images/goose.png';
 import { useTranslation } from 'react-i18next';
 import { authPages } from '../../helpers/pages';
-import { SVG } from '../../images';
 import { ChangeLngElem } from '../ChangeLngElem/ChangeLngElem';
+import { SVG } from '../../images';
 
 export const HomePageHeader = () => {
   const { t } = useTranslation();
