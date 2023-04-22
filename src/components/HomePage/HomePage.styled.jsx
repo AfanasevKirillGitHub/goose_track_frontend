@@ -105,26 +105,26 @@ export const ListItem = styled.li`
   margin-left: auto;
   margin-right: auto;
   margin-top: 64px;
-  align-items:center;
+  align-items: center;
   @media screen and (min-width: 375px) {
     width: 335px;
   }
   @media screen and (min-width: 768px) {
     width: 704px;
     &:nth-child(2) {
-      display:flex;
-      flex-direction:column;
-      align-items:flex-end;
-   }
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
   }
   @media screen and (min-width: 1440px) {
     width: 1107px;
-    display:flex;
-    justify-content:space-between;
+    display: flex;
+    justify-content: space-between;
     &:nth-child(2) {
-      flex-direction:row-reverse;
-      align-items:center;
-   }
+      flex-direction: row-reverse;
+      align-items: center;
+    }
   }
 `;
 
