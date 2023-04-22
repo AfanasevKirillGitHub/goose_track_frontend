@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 interface ICalendarGridProps {
@@ -28,6 +29,9 @@ export const CellWrapper = styled.div<ICellWrapperProps>`
   background-color: ${p => (p.isWeekend ? '#272829' : '#1e1f21')};
   color: ${p => (p.isSelectedMonth ? 'wheat' : '#4d4c4d')};
   ${p => p.isHeader && 'text-align:center'}
+`;
+export const Link = styled(NavLink)`
+  text-decoration: none;
 `;
 
 export const TopRopperInCell = styled.div<ITopRopperInCellProps>`
