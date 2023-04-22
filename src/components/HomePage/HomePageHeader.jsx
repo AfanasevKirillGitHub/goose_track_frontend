@@ -2,7 +2,7 @@ import * as SC from './HomePage.styled';
 import goose from '../../images/goose.png';
 import { useTranslation } from 'react-i18next';
 import { authPages } from '../../helpers/pages';
-import { MdLogin } from 'react-icons/md';
+import { SVG } from '../../images';
 
 export const HomePageHeader = () => {
   const { t } = useTranslation();
@@ -11,14 +11,14 @@ export const HomePageHeader = () => {
     <SC.Header>
       <SC.LogoImg src={goose} alt="logo goose" />
       <SC.Title>
-        G<i>oo</i>se Track
+        G<i>oo</i>seTrack
       </SC.Title>
       <SC.ButtonList>
         {authPages.map(({ href, name, id }) => (
           <SC.NavListItem key={id}>
             <SC.Button to={href}>
               {t(`navigation.${name}`)}
-              <MdLogin />
+              <SVG.LogInIcon />
             </SC.Button>
           </SC.NavListItem>
         ))}
