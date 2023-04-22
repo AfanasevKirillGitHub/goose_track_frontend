@@ -29,6 +29,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
 h1,
 h2,
 h3,
@@ -38,11 +39,13 @@ h6,
 p {
   margin: 0;
 }
+
 ul,
 ol {
   margin: 0;
   padding: 0;
 }
+
 img {
   display: block;
   max-width: 100%;
@@ -68,43 +71,23 @@ button {
 }
 
 .container {
-  display: flex;
+  /* display: flex; */
   /* padding: 0 16px; */
   margin: 0 auto;
-  background-color: #f7f6f9;
-
-  /* width: 1280px; */
+  /* background-color: #f7f6f9; */
 
   @media screen and (min-width: 375px) {
     width: 375px;
-    /* padding: 0 20px; */
+    padding: 0 20px;
   }
 
   @media screen and (min-width: 768px) {
     width: 768px;
-    /* padding: 0 32px; */
+    padding: 0 32px;
   }
 
   @media screen and (min-width: 1440px) {
     width: 1440px;
-    /* padding: 0 24px; */
+    padding: 0 24px;
   }
 }
-
-/* .container {
-  padding: 0 15px;
-  margin: 0 auto;
-
-  width: 90vw;
-} */
-
-/* @media screen and (min-width: 768px) {
-  .container {
-    width: 100vw;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .container {
-    width: 100vw;
-  }
-} */
