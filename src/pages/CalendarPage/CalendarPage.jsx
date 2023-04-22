@@ -1,13 +1,20 @@
 // import { useTranslation } from 'react-i18next';
 import moment from 'moment';
+import { useState } from 'react';
 import { CalendarHeader } from './CalendarHeader/CalendarHeader';
 import { CalendarMonitor } from './CalendarMonitor/CalendarMonitor';
 import { CalendarGrid } from './CalendarGrid/CalendarGrid';
 import * as SC from './CalendarPage.styled';
-import { useState } from 'react';
+
+import 'moment/locale/uk';
+import { useTranslation } from 'react-i18next';
 
 export const CalendarPage = () => {
+  const { t } = useTranslation();
+
   moment.updateLocale('en', { week: { dow: 1 } });
+
+  moment.locale(t(`lang`));
 
   // const today = moment();
   const [today, setToday] = useState(moment());
