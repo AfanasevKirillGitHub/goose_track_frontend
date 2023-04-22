@@ -1,6 +1,5 @@
 import { NavLink } from 'react-router-dom';
 import * as SC from './CalendarMonitor.styled';
-import { CurrentDay } from '../CalendarGrid/CalendarGrid.styled';
 
 interface IProps {
   today: moment.Moment;
