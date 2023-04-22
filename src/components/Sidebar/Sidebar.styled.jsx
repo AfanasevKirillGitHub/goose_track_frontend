@@ -8,6 +8,15 @@ export const Sidebar = styled.div`
   height: 100vh;
   padding: 24px 20px;
   background-color: #fff;
+  background-color: #fff;
+  height: 100%;
+  margin: 0 32px 0 0;
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
+    height: 1024px;
+  }
+  @media screen and (min-width: 1440px) {
+    height: 770px;
+  }
 
   @media screen and (min-width: 768px) and (max-width: 1439px) {
     width: 289px;
@@ -117,6 +126,7 @@ export const NavTitle = styled.h2`
 `;
 
 export const NavList = styled.ul`
+  margin-top: 32px;
   display: flex;
   flex-direction: column;
   list-style: none;

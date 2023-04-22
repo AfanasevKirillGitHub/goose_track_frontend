@@ -1,3 +1,4 @@
+import * as SC from './Sidebar.styled';
 import goose from '../../images/goose.png';
 import { useTranslation } from 'react-i18next';
 import {
@@ -6,8 +7,7 @@ import {
   RiCalendarCheckLine,
 } from 'react-icons/ri';
 import { accountPages } from '../../helpers/pages';
-import { LogOut } from '../LogOut/LogOut';
-import * as SC from './AccountSidebar.styled';
+import { LogoutBtn } from '../LogoutBtn/LogoutBtn';
 
 export const AccountSidebar = () => {
   const { t } = useTranslation();
@@ -22,7 +22,7 @@ export const AccountSidebar = () => {
         <SC.ButtonClose type='button'><RiCloseLine size={12}/></SC.ButtonClose>
       </SC.LogoWrapper>
 
-      <SC.NavTitle>User Panel</SC.NavTitle>
+      <SC.NavTitle>{t`User Panel`}</SC.NavTitle>
 
       <SC.NavList>
         {accountPages.map(({ href, name, id }) => (
@@ -33,7 +33,8 @@ export const AccountSidebar = () => {
           </SC.NavItem>
         ))}
       </SC.NavList>
-      <LogOut />
+
+      <LogoutBtn />
     </SC.Sidebar>
   );
 };

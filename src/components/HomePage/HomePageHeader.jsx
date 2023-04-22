@@ -2,6 +2,7 @@ import * as SC from './HomePage.styled';
 import goose from '../../images/goose.png';
 import { useTranslation } from 'react-i18next';
 import { authPages } from '../../helpers/pages';
+import { ChangeLngElem } from '../ChangeLngElem/ChangeLngElem';
 import { MdLogin } from 'react-icons/md';
 
 export const HomePageHeader = () => {
@@ -9,6 +10,7 @@ export const HomePageHeader = () => {
 
   return (
     <SC.Header>
+      <ChangeLngElem />
       <SC.LogoImg src={goose} alt="logo goose" />
       <SC.Title>
         G<i>oo</i>se Track

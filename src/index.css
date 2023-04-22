@@ -22,7 +22,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.5;
-  background-color: #f7f6f9;
+  /* background-color: #f7f6f9; */
 }
 
 code {
@@ -68,10 +68,27 @@ button {
 }
 
 .container {
-  padding: 0 16px;
+  display: flex;
+  /* padding: 0 16px; */
   margin: 0 auto;
+  background-color: #f7f6f9;
 
-  width: 1280px;
+  /* width: 1280px; */
+
+  @media screen and (min-width: 375px) {
+    width: 375px;
+    /* padding: 0 20px; */
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 768px;
+    /* padding: 0 32px; */
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 1440px;
+    /* padding: 0 24px; */
+  }
 }
 
 /* .container {

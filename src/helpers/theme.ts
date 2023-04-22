@@ -23,6 +23,7 @@ export const theme: ITheme = {
     bxl: '32px',
     bxxl: '40px',
     bxxxl: '44px',
+    homePageNumber: '80px',
     homePage: '104px',
     homePageLogo: '120px',
   },
