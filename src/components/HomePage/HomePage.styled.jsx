@@ -111,11 +111,20 @@ export const ListItem = styled.li`
   }
   @media screen and (min-width: 768px) {
     width: 704px;
+    &:nth-child(2) {
+      display:flex;
+      flex-direction:column;
+      align-items:flex-end;
+   }
   }
   @media screen and (min-width: 1440px) {
     width: 1107px;
     display:flex;
     justify-content:space-between;
+    &:nth-child(2) {
+      flex-direction:row-reverse;
+      align-items:center;
+   }
   }
 `;
 
