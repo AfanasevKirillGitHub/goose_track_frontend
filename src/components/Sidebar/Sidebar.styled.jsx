@@ -78,35 +78,6 @@ export const Span = styled.span`
   font-style: italic;
 `;
 
-export const ButtonClose = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  background-color: rgba(0, 0, 0, 0);
-  color: #343434;
-  border: ${props => props.theme.borders.none};
-  padding: 0;
-  margin-left: auto;
-  cursor: pointer;
-  transition: color 0.25s ease-in-out, transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  :hover,
-  :focus {
-    color: yellow;
-  }
-
-  @media screen and (min-width: 768px) and (max-width: 1439px) {
-    width: 32px;
-    height: 32px;
-  }
-
-  @media screen and (min-width: 1440px) {
-    /* display: none; */
-  }
-`;
-
 export const NavTitle = styled.h2`
   margin-bottom: 24px;
   font-style: normal;
@@ -124,13 +95,8 @@ export const NavTitle = styled.h2`
 export const NavList = styled.ul`
   display: flex;
   flex-direction: column;
-  list-style: none;
   margin-bottom: auto;
-`;
-
-export const NavItem = styled.li`
-  /* width: 241px;
-  height: 56px; */
+  list-style: none;
 `;
 
 export const Link = styled(NavLink)`
@@ -159,8 +125,8 @@ export const Link = styled(NavLink)`
 
   :hover:not(.active),
   :focus-visible:not(.active) {
-    background: yellowgreen;
-    color: yellow;
+    background: gold;
+    color: #3e85f3;
   }
 
   @media screen and (min-width: 768px) {

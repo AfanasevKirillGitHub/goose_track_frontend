@@ -24,8 +24,9 @@ export const Button = styled.button`
 
   :hover,
   :focus {
-    color: yellow;
-    background-color: yellowgreen;
+    color: #3e85f3;
+    background-color: gold;
+    transform: scale(1.1);
   }
   
   @media screen and (min-width: 768px) {
