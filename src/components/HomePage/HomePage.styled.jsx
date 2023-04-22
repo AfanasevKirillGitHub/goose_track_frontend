@@ -123,6 +123,7 @@ export const ListItem = styled.li`
     justify-content:space-between;
     &:nth-child(2) {
       flex-direction:row-reverse;
+      align-items:center;
    }
   }
 `;
