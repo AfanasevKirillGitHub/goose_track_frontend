@@ -29,6 +29,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
 h1,
 h2,
 h3,
@@ -38,11 +39,13 @@ h6,
 p {
   margin: 0;
 }
+
 ul,
 ol {
   margin: 0;
   padding: 0;
 }
+
 img {
   display: block;
   max-width: 100%;
@@ -68,31 +71,32 @@ button {
 }
 
 .container {
-  padding: 0 16px;
+  /* display: flex; */
+  /* padding: 0 16px; */
   margin: 0 auto;
+  /* background-color: #f7f6f9; */
 
   /* width: 1280px; */
-  
+
   @media screen and (min-width: 375px) {
-      width: 375px;
-      padding: 0 20px;
-  };
-  
+    width: 375px;
+    padding: 0 20px;
+  }
+
   @media screen and (min-width: 768px) {
-      width: 768px;
-      padding: 0 32px;
-  };
-  
+    width: 768px;
+    padding: 0 32px;
+  }
+
   @media screen and (min-width: 1440px) {
-      width: 1440px;
-      padding: 0 24px;
-  };
+    width: 1440px;
+    padding: 0 24px;
+  }
 }
 
 /* .container {
   padding: 0 15px;
   margin: 0 auto;
-
   width: 90vw;
 } */
 
