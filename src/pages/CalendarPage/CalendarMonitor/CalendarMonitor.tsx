@@ -1,11 +1,13 @@
 import { NavLink } from 'react-router-dom';
 import * as SC from './CalendarMonitor.styled';
+import { CurrentDay } from '../CalendarGrid/CalendarGrid.styled';
 
 interface IProps {
   today: moment.Moment;
   todayHandler: () => void;
   nextHandler: () => void;
   prevHandler: () => void;
+  currentDay?: boolean;
 }
 
 export const CalendarMonitor = ({
@@ -13,11 +15,13 @@ export const CalendarMonitor = ({
   prevHandler,
   nextHandler,
   todayHandler,
+  currentDay,
 }: IProps) => {
   return (
     <SC.CalendarMonitorWrapper>
-      <div>
+      <SC.LeftWrapper>
         <div>
+          {currentDay && <SC.TextWrapper>{today.format('D')}</SC.TextWrapper>}
           <SC.TitleWrapper>{today.format('MMMM')}</SC.TitleWrapper>
           <SC.TextWrapper>{today.format('YYYY')}</SC.TextWrapper>
         </div>
@@ -32,7 +36,7 @@ export const CalendarMonitor = ({
             &gt;
           </SC.ButtonWrapper>
         </SC.ButtonsWrapper>
-      </div>
+      </SC.LeftWrapper>
       <SC.ButtonsWrapper>
         <NavLink to="/calendar">Month/</NavLink>
         <NavLink to="/calendar/day">Day</NavLink>
