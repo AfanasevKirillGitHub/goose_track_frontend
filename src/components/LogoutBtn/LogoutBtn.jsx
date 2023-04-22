@@ -1,8 +1,8 @@
+import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import { logOut } from '../../redux/auth/authOperations';
-import { MdLogout } from 'react-icons/md';
+import { SVG } from '../../images';
 import * as SC from './LogoutBtn.styled';
-import { useTranslation } from 'react-i18next';
 
 export const LogoutBtn = () => {
   const dispatch = useDispatch();
@@ -13,7 +13,7 @@ export const LogoutBtn = () => {
     <>
       <SC.Button type="button" onClick={() => dispatch(logOut())}>
         {t`Log Out`}
-        <MdLogout />
+        <SVG.LogOutIcon />
       </SC.Button>
     </>
   );

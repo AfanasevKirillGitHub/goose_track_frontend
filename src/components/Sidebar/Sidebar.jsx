@@ -1,13 +1,9 @@
-import * as SC from './Sidebar.styled';
-import goose from '../../images/goose.png';
 import { useTranslation } from 'react-i18next';
-import {
-  RiCloseLine,
-  RiAccountCircleLine,
-  RiCalendarCheckLine,
-} from 'react-icons/ri';
 import { accountPages } from '../../helpers/pages';
 import { LogoutBtn } from '../LogoutBtn/LogoutBtn';
+import { SVG } from '../../images';
+import goose from '../../images/goose.png';
+import * as SC from './Sidebar.styled';
 
 export const AccountSidebar = () => {
   const { t } = useTranslation();
@@ -19,7 +15,7 @@ export const AccountSidebar = () => {
         <SC.Title>
           G<SC.Span>oo</SC.Span>seTrack
         </SC.Title>
-        <SC.ButtonClose type='button'><RiCloseLine size={12}/></SC.ButtonClose>
+        <SC.ButtonClose type='button'><SVG.CloseIcon /></SC.ButtonClose>
       </SC.LogoWrapper>
 
       <SC.NavTitle>{t`User Panel`}</SC.NavTitle>
@@ -28,7 +24,7 @@ export const AccountSidebar = () => {
         {accountPages.map(({ href, name, id }) => (
           <SC.NavItem key={id}>
             <SC.Link to={href}>
-              {id === 3 ? <RiAccountCircleLine /> : <RiCalendarCheckLine />} {t(`navigation.${name}`)}
+              {href === 'account' ? <SVG.UserCheck /> : <SVG.Calendar />} {t(`navigation.${name}`)}
             </SC.Link>
           </SC.NavItem>
         ))}

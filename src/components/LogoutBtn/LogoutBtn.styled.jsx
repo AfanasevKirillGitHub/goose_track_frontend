@@ -12,7 +12,8 @@ export const Button = styled.button`
   color: ${props => (props.to === '/login' ? '#3E85F3' : '#FFFFFF')};
   background-color: ${props => (props.to === '/login' ? '#FFFFFF' : '#3E85F3')};
   cursor: pointer;
-  font-size: ${props => props.theme.fontSizes.s};
+  font-size: ${props => props.theme.fontSizes.l};
+  line-height: ${props => props.theme.lineHeights.xl};
   font-weight: ${props => props.theme.fontWeights.semiBold};
   box-shadow: 0 0 15px rgba(236, 236, 236, 0.5);
   transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out, transform 250ms cubic-bezier(0.4, 0, 0.2, 1);

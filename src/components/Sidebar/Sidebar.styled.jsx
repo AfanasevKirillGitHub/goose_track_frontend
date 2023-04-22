@@ -8,16 +8,16 @@ export const Sidebar = styled.div`
   height: 100vh;
   padding: 24px 20px;
   background-color: #fff;
-  height: 100%;
+  /* height: 100%; */
 
   @media screen and (min-width: 768px) and (max-width: 1439px) {
-    height: 1024px;
+    /* height: 1024px; */
     width: 289px;
     padding: 24px 32px;
   }
 
   @media screen and (min-width: 1440px) {
-    height: 770px;
+    /* height: 770px; */
     width: 289px;
     padding: 32px 24px;
   }
@@ -79,7 +79,9 @@ export const Span = styled.span`
 `;
 
 export const ButtonClose = styled.button`
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 24px;
   height: 24px;
   background-color: rgba(0, 0, 0, 0);
