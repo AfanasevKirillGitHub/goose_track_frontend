@@ -11,7 +11,7 @@ export const CalendarPage = () => {
   moment.updateLocale('en', { week: { dow: 1 } });
 
   // const today = moment();
-  const [today, setToday] = useState(() => moment());
+  const [today, setToday] = useState(moment());
   const startDay = today.clone().startOf('month').startOf('week');
 
   //

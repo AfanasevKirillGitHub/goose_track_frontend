@@ -7,6 +7,11 @@ export const CalendarMonitorWrapper = styled.div`
   background-color: #565759;
 `;
 
+export const LeftWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
 export const TextWrapper = styled.span`
   font-size: 32px;
   margin-right: 10px;
