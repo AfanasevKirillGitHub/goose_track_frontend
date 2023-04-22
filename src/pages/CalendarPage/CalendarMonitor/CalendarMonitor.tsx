@@ -1,3 +1,7 @@
+import moment from 'moment';
+import { useTranslation } from 'react-i18next';
+import 'moment/locale/uk';
+
 import { NavLink } from 'react-router-dom';
 import * as SC from './CalendarMonitor.styled';
 
@@ -16,6 +20,8 @@ export const CalendarMonitor = ({
   todayHandler,
   currentDay,
 }: IProps) => {
+  const { t } = useTranslation();
+
   return (
     <SC.CalendarMonitorWrapper>
       <SC.LeftWrapper>
@@ -29,7 +35,7 @@ export const CalendarMonitor = ({
             &lt;
           </SC.ButtonWrapper>
           <SC.ButtonWrapper type="button" onClick={todayHandler}>
-            Today
+            {t('Today')}
           </SC.ButtonWrapper>
           <SC.ButtonWrapper type="button" onClick={nextHandler}>
             &gt;
