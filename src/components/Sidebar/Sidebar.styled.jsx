@@ -2,11 +2,9 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Sidebar = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 289px;
-  height: 812px;
   background-color: #fff;
+  height: 100%;
+  margin: 0 32px 0 0;
   @media screen and (min-width: 768px) and (max-width: 1439px) {
     height: 1024px;
   }
@@ -53,7 +51,6 @@ export const NavTitle = styled.h2`
 
 export const NavList = styled.ul`
   margin-top: 32px;
-  margin-bottom: 511px;
   display: flex;
   flex-direction: column;
   margin-bottom: 511px;
@@ -79,6 +76,7 @@ export const Link = styled(NavLink)`
   font-size: 16px;
   line-height: 19px;
   color: #84828a;
+
   &.active {
     background: #e3f3ff;
     border-radius: 8px;

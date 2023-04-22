@@ -6,13 +6,13 @@
     "Calendar": "Calendar",
     "Sign up": "Sign up"
   },
-
   "Read more": "Read more",
   "Search": "Search",
   "Example@gmail.com": "Example@gmail.com",
   "Password": "Password",
-
   "Login": "Login",
+  "Log In": "Log In",
+  "Sign Up": "Sign Up",
   "Next": "Next",
   "Email": "Email",
   "Confirm Password": "Confirm Password",
@@ -24,7 +24,6 @@
   "Don't have an account": "Don't have an account",
   "Register": "Register",
   "Already have an account": "Already have an account",
-
   "Time": "Time",
   "Address": "Address",
   "Phone": "Phone",
@@ -40,10 +39,11 @@
   "City is valid": "City is valid",
   "Enter your phone pls": "Enter your phone pls",
   "Phone is valid": "Phone is valid",
-
-  "add pet": "Add pet",
-
   "Calendar": "Calendar",
   "Sidebar": "Sidebar",
-  "All in": "All in"
+  "All in": "All in",
+  "User Profile": "User Profile",
+  "Log Out": "Log Out",
+  "User Panel": "User Panel",
+  "User Profile": "User Profile"
 }

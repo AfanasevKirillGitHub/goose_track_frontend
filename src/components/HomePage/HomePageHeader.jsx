@@ -3,12 +3,14 @@ import goose from '../../images/goose.png';
 import { useTranslation } from 'react-i18next';
 import { authPages } from '../../helpers/pages';
 import { SVG } from '../../images';
+import { ChangeLngElem } from '../ChangeLngElem/ChangeLngElem';
 
 export const HomePageHeader = () => {
   const { t } = useTranslation();
 
   return (
     <SC.Header>
+      <ChangeLngElem />
       <SC.LogoImg src={goose} alt="logo goose" />
       <SC.Title>
         G<i>oo</i>seTrack

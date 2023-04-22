@@ -31,6 +31,13 @@ const RegisterPage = lazy(() =>
   }))
 );
 
+const UserPage = lazy(() =>
+  import('../../pages/UserPage/UserPage').then(module => ({
+    ...module,
+    default: module.UserPage,
+  }))
+);
+
 const AccountPage = lazy(() =>
   import('../../pages/AccountPage/AccountPage').then(module => ({
     ...module,
@@ -70,7 +77,7 @@ export const App = () => {
               path="/"
               element={
                 <RestrictedRout
-                  redirectTo="/account"
+                  redirectTo="/user/account"
                   component={<HomePage />}
                 />
               }
@@ -79,7 +86,7 @@ export const App = () => {
               path="/login"
               element={
                 <RestrictedRout
-                  redirectTo="/account"
+                  redirectTo="/user/account"
                   component={<LoginPage />}
                 />
               }
@@ -88,29 +95,34 @@ export const App = () => {
               path="/registration"
               element={
                 <RestrictedRout
-                  redirectTo="/account"
+                  redirectTo="/user/account"
                   component={<RegisterPage />}
                 />
               }
             />
             <Route
-              path="/account"
-              element={
-                <PrivateRout redirectTo="/" component={<AccountPage />} />
-              }
-            />
-            <Route
-              path="/calendar"
-              element={
-                <PrivateRout redirectTo="/" component={<CalendarPage />} />
-              }
-            />
-            <Route
-              path="/calendar/day"
-              element={
-                <PrivateRout redirectTo="/" component={<CurrentDayPage />} />
-              }
-            />
+              path="/user"
+              element={<PrivateRout redirectTo="/" component={<UserPage />} />}
+            >
+              <Route
+                path="account"
+                element={
+                  <PrivateRout redirectTo="/" component={<AccountPage />} />
+                }
+              />
+              <Route
+                path="calendar"
+                element={
+                  <PrivateRout redirectTo="/" component={<CalendarPage />} />
+                }
+              />
+              <Route
+                path="calendar/day"
+                element={
+                  <PrivateRout redirectTo="/" component={<CurrentDayPage />} />
+                }
+              />
+            </Route>
           </Route>
         </Routes>
       )}

@@ -47,13 +47,13 @@ export const ButtonList = styled.ul`
 `;
 
 export const NavListItem = styled.li`
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     &:not(:last-child) {
       margin-top: 32px;
       margin-bottom: 200px;
     }
   }
-  @media screen and (min-width: 769px) {
+  @media screen and (min-width: 768px) {
     margin-bottom: 0;
     margin-top: 0;
     margin-right: ${props => props.theme.space[4]}px;
