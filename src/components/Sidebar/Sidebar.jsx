@@ -1,8 +1,8 @@
-import * as SC from './AccountSidebar.styled';
+import * as SC from './Sidebar.styled';
 import goose from '../../images/goose.png';
 import { useTranslation } from 'react-i18next';
 import { accountPages } from '../../helpers/pages';
-import { LogOut } from '../LogOut/LogOut';
+import { LogoutBtn } from '../LogoutBtn/LogoutBtn';
 
 export const AccountSidebar = () => {
   const { t } = useTranslation();
@@ -16,7 +16,8 @@ export const AccountSidebar = () => {
         </SC.Title>
       </SC.LogoWrapper>
 
-      <SC.NavTitle>User Panel</SC.NavTitle>
+      <SC.NavTitle>{t`User Panel`}</SC.NavTitle>
+
       <SC.NavList>
         {accountPages.map(({ href, name, id }) => (
           <SC.NavItem key={id}>
@@ -24,7 +25,8 @@ export const AccountSidebar = () => {
           </SC.NavItem>
         ))}
       </SC.NavList>
-      <LogOut />
+
+      <LogoutBtn />
     </SC.Sidebar>
   );
 };

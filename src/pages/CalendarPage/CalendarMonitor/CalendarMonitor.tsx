@@ -37,8 +37,8 @@ export const CalendarMonitor = ({
         </SC.ButtonsWrapper>
       </SC.LeftWrapper>
       <SC.ButtonsWrapper>
-        <NavLink to="/calendar">Month/</NavLink>
-        <NavLink to="/calendar/day">Day</NavLink>
+        <NavLink to="calendar">Month/</NavLink>
+        <NavLink to="day">Day</NavLink>
       </SC.ButtonsWrapper>
     </SC.CalendarMonitorWrapper>
   );
