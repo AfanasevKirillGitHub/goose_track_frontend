@@ -23,7 +23,7 @@ export const CalendarGrid = ({ startDay, today }: IProps) => {
     <>
       <SC.CalendarGrid isHeader>
         {[...Array(7)].map((_, idx) => (
-          <SC.CellWrapper isHeader key={idx} isSelectedMonth={true}>
+          <SC.CellWrapper isHeader key={idx} isSelectedMonth>
             {moment()
               .day(idx + 1)
               .format('ddd')

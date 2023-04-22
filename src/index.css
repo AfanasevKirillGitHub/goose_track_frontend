@@ -76,8 +76,6 @@ button {
   margin: 0 auto;
   /* background-color: #f7f6f9; */
 
-  /* width: 1280px; */
-
   @media screen and (min-width: 375px) {
     width: 375px;
     padding: 0 20px;
@@ -93,20 +91,3 @@ button {
     padding: 0 24px;
   }
 }
-
-/* .container {
-  padding: 0 15px;
-  margin: 0 auto;
-  width: 90vw;
-} */
-
-/* @media screen and (min-width: 768px) {
-  .container {
-    width: 100vw;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .container {
-    width: 100vw;
-  }
-} */

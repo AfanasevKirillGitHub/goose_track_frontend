@@ -3,7 +3,6 @@ import moment from 'moment';
 import { CalendarHeader } from './CalendarHeader/CalendarHeader';
 import { CalendarMonitor } from './CalendarMonitor/CalendarMonitor';
 import { CalendarGrid } from './CalendarGrid/CalendarGrid';
-import { AccountSidebar } from '../../components/Account/AccountSidebar';
 import * as SC from './CalendarPage.styled';
 import { useState } from 'react';
 
@@ -11,7 +10,7 @@ export const CalendarPage = () => {
   moment.updateLocale('en', { week: { dow: 1 } });
 
   // const today = moment();
-  const [today, setToday] = useState(() => moment());
+  const [today, setToday] = useState(moment());
   const startDay = today.clone().startOf('month').startOf('week');
 
   //
@@ -43,7 +42,6 @@ export const CalendarPage = () => {
 
   return (
     <div style={{ display: 'flex' }}>
-      <AccountSidebar />
       <SC.ShadowWrapper>
         <CalendarHeader />
         <CalendarMonitor

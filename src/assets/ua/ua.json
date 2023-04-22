@@ -1,12 +1,11 @@
 {
   "navigation": {
-   "Login": "Логін",
+    "Login": "Логін",
     "Registration": "Реєстрація",
     "My account": "Кабінет",
     "Calendar": "Календар",
     "Sign up": "Реєстрація"
   },
-
   "Read more": "Дивитись повну версію",
   "Search": "Пошук",
   "Example@gmail.com": "Example@gmail.com",
@@ -25,7 +24,6 @@
   "Don't have an account": "Ще не зареєстровані",
   "Register": "Реєстрація",
   "Already have an account": "Вже зареєстровані",
-
   "Time": "Час роботи",
   "Address": "Адреса",
   "Phone": "Номер телефону",
@@ -41,10 +39,11 @@
   "City is valid": "Ваше місто прийнято",
   "Enter your phone pls": "Введіть номер мобільного телефону",
   "Phone is valid": "Номер телефону прийнято",
-
   "add pet": "Додати",
-
   "Calendar": "Календар",
   "Sidebar": "Панель",
-  "All in": "Все в"
+  "All in": "Все в",
+  "Log Out": "Вийти",
+  "User Panel": "Панель користувача",
+  "User Profile": "Профіль користувача"
 }
