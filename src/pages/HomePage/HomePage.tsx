@@ -14,7 +14,9 @@ export const HomePage = () => {
   return (
     <>
       <HomePageHeader />
-      <HomePageMain />
+      <div className="container">
+        <HomePageMain />
+      </div>
     </>
   );
 };

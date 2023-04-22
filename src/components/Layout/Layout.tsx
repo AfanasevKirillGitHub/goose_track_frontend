@@ -6,11 +6,11 @@ import { Loader } from '../Loader/Loader';
 
 export const Layout = () => {
   return (
-    <div className="container">
+    <>
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
       <ToastContainer autoClose={3000} />
-    </div>
+    </>
   );
 };
