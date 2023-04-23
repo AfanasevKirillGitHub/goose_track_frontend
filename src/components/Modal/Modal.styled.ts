@@ -20,12 +20,13 @@ export const Inner = styled.div`
   max-width: 1200px;
   max-height: 90%;
   background-color: ${p => p.theme.colors.modalBackground};
+  border: 1px solid;
 `;
 
 export const CloseBtn = styled.button`
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 19px;
+  right: 19px;
   background-color: transparent;
   color: ${p => p.theme.colors.navBcg};
   border: none;
