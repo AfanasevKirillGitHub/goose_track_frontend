@@ -1,27 +1,19 @@
 import moment from 'moment';
 import 'moment/locale/uk';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { CalendarMonitor } from '../CalendarPage/CalendarMonitor/CalendarMonitor';
 import * as SC from './CurrentDayPage.styled';
 
 export const CurrentDayPage = () => {
+  const { current } = useParams();
   const { t } = useTranslation();
   moment.updateLocale('en', { day: { dow: 1 } });
 
   moment.locale(t(`lang`)!);
-  const [today, setToday] = useState(() => {
-    const data = JSON.parse(localStorage.getItem('data')!) || '';
-    return data ? moment(new Date(data)) : moment();
-  });
-  const [selectedDay, setSelectedDay] = useState(() => {
-    const data = JSON.parse(localStorage.getItem('data')!) || '';
-    return data ? moment(new Date(data)) : moment();
-  });
-
-  useEffect(() => {
-    return () => localStorage.removeItem('data');
-  }, []);
+  const [today, setToday] = useState(moment(current));
+  const [selectedDay, setSelectedDay] = useState(moment(current));
 
   const totalDays = 7;
   const startDay = today.clone().startOf('isoWeek');

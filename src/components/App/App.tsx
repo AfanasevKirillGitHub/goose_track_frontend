@@ -101,7 +101,7 @@ export const App = () => {
               }
             />
             <Route
-              path="/user"
+              path="user"
               element={<PrivateRout redirectTo="/" component={<UserPage />} />}
             >
               <Route
@@ -117,7 +117,7 @@ export const App = () => {
                 }
               />
               <Route
-                path="day"
+                path="day/:current"
                 element={
                   <PrivateRout redirectTo="/" component={<CurrentDayPage />} />
                 }
