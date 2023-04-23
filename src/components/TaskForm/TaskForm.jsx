@@ -4,7 +4,7 @@ import { useGetSearchParams } from '../../hooks/useGetSearchParams';
 import { useAddTasksMutation } from '../../redux/task/taskOperations';
 
 export const TaskForm = ({ fieldsData }) => {
-  const { lang, setSearchParams } = useGetSearchParams();
+  const { lang } = useGetSearchParams();
   console.log('lang :>> ', lang);
 
   const [title, setTitle] = useState(fieldsData?.title[lang] ?? '');
@@ -40,7 +40,6 @@ export const TaskForm = ({ fieldsData }) => {
     };
 
     console.log('taskData :>> ', taskData);
-    setSearchParams({ lang });
     addTask(taskData);
   };
 
@@ -64,6 +63,8 @@ export const TaskForm = ({ fieldsData }) => {
         break;
     }
   };
+
+  console.log('taskIsLoading :>> ', taskIsLoading);
 
   return (
     <form
