@@ -8,7 +8,7 @@ import {
 import { selectToken } from './authSelectors';
 import { RootState } from '../store';
 
-// axios.defaults.baseURL = 'http://localhost:3000/api/users';
+// axios.defaults.baseURL = 'http://localhost:3000/api';
 axios.defaults.baseURL = 'https://your-tasks-hv5t.onrender.com/api';
 
 const setAuthHeader = (token: String): void => {
