@@ -1,6 +1,7 @@
 import moment from 'moment';
 import * as SC from './CalendarGrid.styled';
 import { useFetchTasksQuery } from '../../../redux/task/taskOperations';
+import { useGetSearchParams } from '../../../hooks/useGetSearchParams';
 
 interface IProps {
   startDay: moment.Moment;
@@ -8,6 +9,7 @@ interface IProps {
 }
 
 export const CalendarGrid = ({ startDay, today }: IProps) => {
+  const { lang } = useGetSearchParams();
   const targetDateClick = (day: moment.Moment) => {
     localStorage.setItem('data', JSON.stringify(day.format('YYYY-MM-DD')));
   };
@@ -16,7 +18,7 @@ export const CalendarGrid = ({ startDay, today }: IProps) => {
   const day = startDay.clone().subtract(1, 'day');
   const daysArray = [...Array(totalDays)].map(() => day.add(1, 'day').clone());
 
-  const { data } = useFetchTasksQuery({ lang: 'en' });
+  const { data } = useFetchTasksQuery({ lang });
   console.log(data);
 
   const isCurrentDay = (day: moment.Moment): boolean => {
@@ -57,10 +59,21 @@ export const CalendarGrid = ({ startDay, today }: IProps) => {
                     )}
                   </SC.DayWrapper>
                 </SC.ShowDaywrapper>
-                <ul style={{ paddingLeft: '10px' }}>
-                  <li>tasks</li>
-                  <li>tasks</li>
-                </ul>
+                <SC.TasksList>
+                  {data
+                    ?.filter(
+                      ({ date }) =>
+                        date >= dayItem.format('X') &&
+                        date <= dayItem.clone().endOf('day').format('X')
+                    )
+                    .map(({ date, title }) => (
+                      <li key={date}>
+                        {title['en']
+                          ? title['en']?.slice(0, 8)
+                          : title['ua']?.slice(0, 8)}
+                      </li>
+                    ))}
+                </SC.TasksList>
               </SC.TopRopperInCell>
             </SC.CellWrapper>
           </SC.Link>

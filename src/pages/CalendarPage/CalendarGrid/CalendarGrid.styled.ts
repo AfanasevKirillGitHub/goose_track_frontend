@@ -63,3 +63,8 @@ export const ShowDaywrapper = styled.div`
   display: flex;
   justify-content: flex-end;
 `;
+
+export const TasksList = styled.ul`
+  list-style: none;
+  padding-left: 10px;
+`;
