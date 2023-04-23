@@ -9,9 +9,9 @@ import { useInput } from '../../hooks/useInput';
 import { FcGoogle } from 'react-icons/fc';
 import { HiEye, HiEyeOff } from 'react-icons/hi';
 import { useState } from 'react';
-import { MdLogin } from 'react-icons/md';
 import rocket from '../../images/rocket.png';
 import { ChangeLngElem } from '../ChangeLngElem/ChangeLngElem';
+import { SVG } from '../../images';
 
 export const LoginForm = () => {
   const dispatch = useDispatch<ThunkDispatch<any, any, AnyAction>>();
@@ -118,7 +118,7 @@ export const LoginForm = () => {
             type="submit"
             disabled={!email.validForm || !password.validForm}
           >
-            {t('Log In')}<MdLogin />
+            {t('Log In')}<SVG.LogInIcon />
           </SC.Button>
         </SC.Form>
       
