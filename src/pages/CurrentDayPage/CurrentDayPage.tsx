@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { CalendarMonitor } from '../CalendarPage/CalendarMonitor/CalendarMonitor';
 import * as SC from './CurrentDayPage.styled';
+import { TaskModal } from '../../components/TaskModal';
 
 export const CurrentDayPage = () => {
   const { current } = useParams();
@@ -12,8 +13,15 @@ export const CurrentDayPage = () => {
   moment.updateLocale('en', { day: { dow: 1 } });
 
   moment.locale(t(`lang`)!);
+
   const [today, setToday] = useState(moment(current));
   const [selectedDay, setSelectedDay] = useState(moment(current));
+
+ 
+  const [isOpenModal, setIsOpenModal] = useState(false);
+
+
+
 
   const totalDays = 7;
   const startDay = today.clone().startOf('isoWeek');
@@ -50,6 +58,10 @@ export const CurrentDayPage = () => {
     return selectedDay.isSame(day, 'day');
   };
 
+  const toggleModal = () => {
+    setIsOpenModal(!isOpenModal);
+  };
+
   return (
     <main style={{ width: '1151px' }}>
       <SC.PageWrapper>
@@ -83,6 +95,11 @@ export const CurrentDayPage = () => {
           </SC.DaysWrapper>
         </SC.WeekAndDayWrapper>
       </SC.PageWrapper>
+
+      <button type="button" onClick={toggleModal}>
+        Open modal
+      </button>
+      {isOpenModal && <TaskModal data={null} closeModal={toggleModal} />}
     </main>
   );
 };
