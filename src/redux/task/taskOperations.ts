@@ -1,10 +1,13 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { ITask } from '../../helpers/interfaces/taskApiInterface/taskApiInterface';
+import {
+  ITask,
+  ITaskApi,
+} from '../../helpers/interfaces/taskApiInterface/taskApiInterface';
 import { RootState } from '../store';
 
-// interface IData {
-
-// }
+interface IData {
+  lang: string;
+}
 
 export const tasksApi = createApi({
   reducerPath: 'tasks',
@@ -23,12 +26,12 @@ export const tasksApi = createApi({
   }),
   tagTypes: ['tasks'],
   endpoints: builder => ({
-    fetchTasks: builder.query<ITask[] | [], any>({
+    fetchTasks: builder.query<ITask[] | [], IData>({
       query: ({ lang = 'en' }) => ({
         method: 'GET',
         url: `/?lang=${lang}`,
       }),
-      //   transformResponse: (response: IPetsApi) => response.news,
+      transformResponse: (response: ITaskApi) => response.tasks,
       providesTags: ['tasks'],
     }),
     addTasks: builder.mutation<any, any>({

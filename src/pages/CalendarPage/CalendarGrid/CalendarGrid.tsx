@@ -1,5 +1,6 @@
 import moment from 'moment';
 import * as SC from './CalendarGrid.styled';
+import { useFetchTasksQuery } from '../../../redux/task/taskOperations';
 
 interface IProps {
   startDay: moment.Moment;
@@ -14,6 +15,9 @@ export const CalendarGrid = ({ startDay, today }: IProps) => {
   const totalDays = 42;
   const day = startDay.clone().subtract(1, 'day');
   const daysArray = [...Array(totalDays)].map(() => day.add(1, 'day').clone());
+
+  const { data } = useFetchTasksQuery({ lang: 'en' });
+  console.log(data);
 
   const isCurrentDay = (day: moment.Moment): boolean => {
     return moment().isSame(day, 'day');
