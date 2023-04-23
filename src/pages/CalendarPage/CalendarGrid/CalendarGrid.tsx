@@ -30,7 +30,7 @@ export const CalendarGrid = ({ startDay, today }: IProps) => {
   };
 
   return (
-    <>
+    <main style={{ width: '1151px' }}>
       <SC.CalendarGrid isHeader>
         {[...Array(7)].map((_, idx) => (
           <SC.CellWrapper isHeader key={idx} isSelectedMonth>
@@ -79,6 +79,6 @@ export const CalendarGrid = ({ startDay, today }: IProps) => {
           </SC.Link>
         ))}
       </SC.CalendarGrid>
-    </>
+    </main>
   );
 };

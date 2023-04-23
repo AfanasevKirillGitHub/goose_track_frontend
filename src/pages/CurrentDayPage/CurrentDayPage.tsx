@@ -59,7 +59,7 @@ export const CurrentDayPage = () => {
   };
 
   return (
-    <main>
+    <main style={{ width: '1151px' }}>
       <SC.PageWrapper>
         <CalendarMonitor
           prevHandler={prevHandler}
