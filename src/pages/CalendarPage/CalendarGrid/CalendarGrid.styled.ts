@@ -21,11 +21,12 @@ export const CalendarGrid = styled.div<ICalendarGridProps>`
   grid-gap: 1px;
   background-color: ${p => (p.isHeader ? '#1e1f21' : '#4d4c4d')};
   ${p => p.isHeader && 'border-bottom: 1px solid #4d4c4d'}
+  width:100%;
 `;
 
 export const CellWrapper = styled.div<ICellWrapperProps>`
   min-width: 120px;
-  min-height: ${p => (p.isHeader ? 40 : 80)}px;
+  min-height: ${p => (p.isHeader ? 40 : 104)}px;
   background-color: ${p => (p.isWeekend ? '#272829' : '#1e1f21')};
   color: ${p => (p.isSelectedMonth ? 'wheat' : '#4d4c4d')};
   ${p => p.isHeader && 'text-align:center'}
@@ -62,4 +63,9 @@ export const CurrentDay = styled.div`
 export const ShowDaywrapper = styled.div`
   display: flex;
   justify-content: flex-end;
+`;
+
+export const TasksList = styled.ul`
+  list-style: none;
+  padding-left: 10px;
 `;

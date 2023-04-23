@@ -1,7 +1,8 @@
 import { MouseEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useGetSearchParams } from '../../hooks/useGetSearchParams';
-import US from '../../helpers/photos/us.png';
+import USA from '../../helpers/photos/usa.png';
+import UA from '../../helpers/photos/ukraine.png';
 import * as SC from './ChangeLngElem.styled';
 
 export const ChangeLngElem = () => {
@@ -17,11 +18,11 @@ export const ChangeLngElem = () => {
   return (
     <SC.Wrap>
       <SC.Btn type="button" onClick={onchangeLngClick} name="en">
-        <img src={US} alt="usa flag" style={{ width: '20px' }} />
+        <img src={USA} alt="usa flag" style={{ width: '24px' }} />
       </SC.Btn>
       <span>/</span>
       <SC.Btn type="button" onClick={onchangeLngClick} name="ua">
-        💛💙
+        <img src={UA} alt="usa flag" style={{ width: '24px' }} />
       </SC.Btn>
     </SC.Wrap>
   );

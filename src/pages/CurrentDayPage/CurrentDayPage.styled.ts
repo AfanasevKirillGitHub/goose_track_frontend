@@ -32,24 +32,20 @@ export const CurrentDay = styled.div`
 export const WeekWrapper = styled.div`
   display: flex;
   /* align-items: center; */
-  justify-content: space-between;
+  justify-content: space-around;
 `;
 
 export const DaysWrapper = styled.div`
   display: flex;
   /* align-items: center; */
-  justify-content: space-between;
+  justify-content: space-around;
 `;
 
-export const DayOfWeek = styled.div`
-  :not(:last-child) {
-    margin-right: 20px;
-  }
-`;
+export const DayOfWeek = styled.div``;
 
 export const WeekAndDayWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
-  justify-content: space-between;
+  /* justify-content: space-around; */
+  width: 100%;
 `;
