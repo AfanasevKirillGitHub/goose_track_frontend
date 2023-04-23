@@ -47,13 +47,13 @@ export const ButtonList = styled.ul`
 `;
 
 export const NavListItem = styled.li`
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     &:not(:last-child) {
       margin-top: 32px;
       margin-bottom: 200px;
     }
   }
-  @media screen and (min-width: 769px) {
+  @media screen and (min-width: 768px) {
     margin-bottom: 0;
     margin-top: 0;
     margin-right: ${props => props.theme.space[4]}px;
@@ -105,17 +105,26 @@ export const ListItem = styled.li`
   margin-left: auto;
   margin-right: auto;
   margin-top: 64px;
-  align-items:center;
+  align-items: center;
   @media screen and (min-width: 375px) {
     width: 335px;
   }
   @media screen and (min-width: 768px) {
     width: 704px;
+    &:nth-child(2) {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
   }
   @media screen and (min-width: 1440px) {
     width: 1107px;
-    display:flex;
-    justify-content:space-between;
+    display: flex;
+    justify-content: space-between;
+    &:nth-child(2) {
+      flex-direction: row-reverse;
+      align-items: center;
+    }
   }
 `;
 

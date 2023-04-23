@@ -1,131 +1,114 @@
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: ${props => props.theme.colors.blue2};
+`;
+
+export const InnerDiv = styled.div`
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+`;
+
+export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  width: 335px;
+  padding: 40px 24px;
+  margin-bottom: 18px;
+  background-color: ${props => props.theme.colors.white};
+  border-radius: ${props => props.theme.radii.normal};
+  @media (min-width: 768px) {
+    width: 480px;
+    padding: 40px;
+    margin-bottom: 24px;
+  }
+`;
+
+export const Title = styled.h2`
+  font-size: ${props => props.theme.fontSizes.l};
+  font-weight: ${props => props.theme.fontWeights.semiBold};
+  line-height: ${props => props.theme.lineHeights.xl};
+  color: ${props => props.theme.colors.blue};
+  margin-bottom: 32px;
+  @media (min-width: 768px) {
+    font-size: ${props => props.theme.fontSizes.xxxl};
+  }
+`;
+
+export const Label = styled.label`
+  display: flex;
+  flex-direction: column;
+  font-size: ${props => props.theme.fontSizes.xs};
+  font-weight: ${props => props.theme.fontWeights.semiBold};
+  line-height: ${props => props.theme.lineHeights.l};
+  color: ${props => props.theme.colors.black2};
+   @media (min-width: 768px) {
+    font-size: ${props => props.theme.fontSizes.s};
+  }
+`;
 
 export const Input = styled.input`
-border-radius: 40px;
-border: 1px solid rgba(245, 146, 86, 0.5);
-background-color: rgba(253, 247, 242, 1);
-outline: none;
-
-
-@media (max-width: 767px) {
-    padding-top: 11px;
-    padding-right: 14px;
-    padding-bottom: 12px;
-    padding-left: 14px;
-    height: 40px;
-    width: 280px;
-    font-weight: 400;
-    font-size: 14px;  
-    line-height: 1.35;  
-    // margin-bottom: 24px;
-}
-@media (min-width: 768px) {
-    padding-top: 14px;
-    padding-right: 32px;
-    padding-bottom: 13px;
-    padding-left: 32px;
-    height: 52;
-    width: 448px;
-    font-weight: 400;
-    font-size: 18px;  
-    line-height: 1.39;
-    // margin-bottom: 40px;
-}
-
+  outline: none;
+  width: 100%;
+  border: ${props => props.theme.borders.task};
+  border-radius: ${props => props.theme.radii.normal};
+  margin-top: ${props => props.theme.space[3]}px;
+  padding: 14px;
+  &::placeholder {
+    font-weight: ${props => props.theme.fontWeights.regular};
+    font-size: ${props => props.theme.fontSizes.s};
+    line-height: ${props => props.theme.lineHeights.xl};
+    color: ${props => props.theme.colors.grey4};
+    @media (min-width: 768px) {
+    font-size: ${props => props.theme.fontSizes.m};
+  }
+  }
 `;
+
 export const Button = styled.button`
-border-radius: 40px;
-border: 2px solid #F59256;
-background-color: #F59256;
-color: white;
-cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 287px;
+  height: 44px;
+  padding: 14px;
+  margin-top: ${props => props.theme.space[5]}px;
 
-@media (max-width: 767px) {
-    // padding-top: 11px;
-    // padding-right: 14px;
-    // padding-bottom: 12px;
-    // padding-left: 14px;
-    height: 44px;
-    width: 280px;
-    font-weight: 500;
-    font-size: 20px;  
-    line-height: 1.35;  
-    margin-bottom: 40px;
-    margin-top: 16px;
-};
-@media (min-width: 768px) {
-    // padding-top: 14px;
-    // padding-right: 32px;
-    // padding-bottom: 13px;
-    // padding-left: 32px;
-    height: 44px;
-    width: 458px;
-    font-weight: 500;
-    font-size: 20px;  
-    line-height: 1.35;
-    margin-bottom: 40px;
-};
-@media (min-width: 1280px) {
-    // padding-top: 14px;
-    // padding-right: 32px;
-    // padding-bottom: 13px;
-    // padding-left: 32px;
-    height: 48px;
-    // width: 458px;
-    // font-weight: 400;
-    // font-size: 18px;  
-    // line-height: 1.39;
-};
-`
-export const InnerDiv = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
+  border: none;
+  border-radius: ${props => props.theme.radii.medium};
+  background: ${props => props.theme.colors.blue};
+  color: ${props => props.theme.colors.white};
+  box-shadow: ${props => props.theme.shadows.button};
 
-@media (max-width: 767px) {
-    width: 100%;
-    height: 100vh
-};
-@media (min-width: 768px) {
-    background-color: #FFF;
-    padding-top: 60px;
-    padding-right: 80px;
-    padding-bottom: 60px;
-    padding-left: 80px;
-    width: 608px;
-    height: 492px;
-    border-radius: 40px;
-}
-@media (min-width: 1280px) {
-    width: 618px;
-    height: 496px;
-};
+  font-weight: ${props => props.theme.fontWeights.semiBold};
+  font-size: ${props => props.theme.fontSizes.s};
+  line-height: ${props => props.theme.lineHeights.xl};
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  svg {
+    margin-left: ${props => props.theme.space[3]}px;
+    width: 18px;
+    height: 18px;
+  }
+  &:hover,
+  :focus {
+    transform: scale(1.05);
+  }
+  @media (min-width: 768px) {
+    width: 400px;
+    height: 56px;
+    font-size: ${props => props.theme.fontSizes.l};
+  }
+`;
 
-`
-export const Form = styled.form`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-`
-export const Title = styled.h2`
-margin-bottom: 13px;
-
-@media (max-width: 767px) {
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 1.375;
-    
-};
-@media (min-width: 768px) {
-    font-weight: 500;
-    font-size: 36px;
-    line-height: 1.36;
-};
-
-`
 export const Div = styled.div`
 position: relative;
 @media (max-width: 767px) { 
@@ -134,27 +117,52 @@ position: relative;
 @media (min-width: 768px) { 
     margin-bottom: 40px;
 };
-`
+`;
+
 export const Notification = styled.span`
 position: absolute;
 font-size: 12px;
 left: 20px;
 bottom: -40%;
-`
+`;
+
 export const Google = styled.a`
  margin-bottom: 13px;
  height: 24px
+`;
 
-`
 export const Eye = styled.span`
     position: absolute;
     right: 15px;
-    top: 55%;
+    top: 70%;
     transform: translateY(-50%);
     cursor: pointer;
-    color: #F59256;
+    color: ${props => props.theme.colors.blue};
 
     @media (min-width: 768px) {
         right: 20px;  
     }
-`
+`;
+
+export const GooseImage = styled.img`
+  display: none;
+  @media (min-width: 1440px) {
+    display: block;
+    position: fixed;
+    right: 60px;
+    bottom: 20px;
+    width: 370px;
+    height: 520px;
+  }
+`;
+
+export const Link = styled(NavLink)`
+   font-size: ${props => props.theme.fontSizes.s};
+   font-weight: ${props => props.theme.fontWeights.semiBold};
+   line-height: ${props => props.theme.lineHeights.xl};
+   color: ${props => props.theme.colors.blue};
+    @media (min-width: 768px) {
+       font-size: ${props => props.theme.fontSizes.l};
+        line-height: ${props => props.theme.lineHeights.m};
+    }
+`;

@@ -1,3 +1,7 @@
+import moment from 'moment';
+import { useTranslation } from 'react-i18next';
+import 'moment/locale/uk';
+
 import { NavLink } from 'react-router-dom';
 import * as SC from './CalendarMonitor.styled';
 
@@ -6,6 +10,7 @@ interface IProps {
   todayHandler: () => void;
   nextHandler: () => void;
   prevHandler: () => void;
+  currentDay?: boolean;
 }
 
 export const CalendarMonitor = ({
@@ -13,11 +18,15 @@ export const CalendarMonitor = ({
   prevHandler,
   nextHandler,
   todayHandler,
+  currentDay,
 }: IProps) => {
+  const { t } = useTranslation();
+
   return (
     <SC.CalendarMonitorWrapper>
-      <div>
+      <SC.LeftWrapper>
         <div>
+          {currentDay && <SC.TextWrapper>{today.format('D')}</SC.TextWrapper>}
           <SC.TitleWrapper>{today.format('MMMM')}</SC.TitleWrapper>
           <SC.TextWrapper>{today.format('YYYY')}</SC.TextWrapper>
         </div>
@@ -26,16 +35,16 @@ export const CalendarMonitor = ({
             &lt;
           </SC.ButtonWrapper>
           <SC.ButtonWrapper type="button" onClick={todayHandler}>
-            Today
+            {t('Today')}
           </SC.ButtonWrapper>
           <SC.ButtonWrapper type="button" onClick={nextHandler}>
             &gt;
           </SC.ButtonWrapper>
         </SC.ButtonsWrapper>
-      </div>
+      </SC.LeftWrapper>
       <SC.ButtonsWrapper>
-        <NavLink to="/calendar">Month/</NavLink>
-        <NavLink to="/calendar/day">Day</NavLink>
+        <NavLink to="/user/calendar">{t('Month')}/ </NavLink>
+        <NavLink to="/user/calendar/day"> {t('Day')}</NavLink>
       </SC.ButtonsWrapper>
     </SC.CalendarMonitorWrapper>
   );

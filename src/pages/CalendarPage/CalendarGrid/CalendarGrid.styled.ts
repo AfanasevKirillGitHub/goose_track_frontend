@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 interface ICalendarGridProps {
@@ -29,6 +30,9 @@ export const CellWrapper = styled.div<ICellWrapperProps>`
   color: ${p => (p.isSelectedMonth ? 'wheat' : '#4d4c4d')};
   ${p => p.isHeader && 'text-align:center'}
 `;
+export const Link = styled(NavLink)`
+  text-decoration: none;
+`;
 
 export const TopRopperInCell = styled.div<ITopRopperInCellProps>`
   display: flex;
@@ -58,4 +62,9 @@ export const CurrentDay = styled.div`
 export const ShowDaywrapper = styled.div`
   display: flex;
   justify-content: flex-end;
+`;
+
+export const TasksList = styled.ul`
+  list-style: none;
+  padding-left: 10px;
 `;
