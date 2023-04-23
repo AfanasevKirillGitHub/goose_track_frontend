@@ -1,31 +1,8 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-// export const Sidebar = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   width: 225px;
-//   height: 100vh;
-//   padding: 24px 20px;
-//   background-color: #fff;
-//   /* height: 100%; */
-
-//   @media screen and (min-width: 768px) and (max-width: 1439px) {
-//     /* height: 1024px; */
-//     width: 289px;
-//     padding: 24px 32px;
-//   }
-
-//   @media screen and (min-width: 1440px) {
-//     /* height: 770px; */
-//     width: 289px;
-//     padding: 32px 24px;
-//   }
-// `;
-
-// ================================================================================================
 export const MenuContainer = styled.div`
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 1439px) {
     position: fixed;
     left: 0;
     top: 0;
@@ -33,47 +10,42 @@ export const MenuContainer = styled.div`
     width: 100%;
     height: 100%;
     background-color: rgba(227,243,255, 0.8);
-
-    // overflow-y: scroll;
-
+    
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-
+    
     transition-property: opacity, visibility;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-
+    
     &.is-open {
       opacity: 1;
       visibility: visible;
       pointer-events: initial;
     }
-
+    
     &.is-open > div {
-      transform: translateX(100%);
+      transform: translateX(0);
     }
   }
-
-  @media screen and (min-width: 1200px) {
-    /* margin-right: 141px; */
-  }
-`;
+  `;
 
 export const Sidebar = styled.div`
-  @media screen and (max-width: 1199px) {
+  @media screen and (max-width: 1439px) {
+    display: flex;
+    flex-direction: column;
     position: fixed;
     left: 0;
     top: 0;
     z-index: 6;
-    width: 250px;
+    width: 225px;
+    /* height: 100vh; */
     height: 100%;
-    padding: 60px 20px;
+    padding: 24px 20px;
+    background-color: #fff;
 
     overflow-y: scroll;
-
-    background-color: #E17992;
-
     transform: translateX(-100%);
 
     transition-property: transform;
@@ -81,30 +53,15 @@ export const Sidebar = styled.div`
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-/* .menu-container.is-open .menu-content {
-  transform: translateX(0);
-} */
-
-
-
-  /* display: flex;
-  flex-direction: column;
-  width: 225px;
-  height: 100vh;
-  padding: 24px 20px;
-  background-color: #fff;
-  
-  @media screen and (min-width: 768px) and (max-width: 1439px) {
+  @media screen and (min-width: 768px) {
     width: 289px;
     padding: 24px 32px;
   }
 
   @media screen and (min-width: 1440px) {
-    width: 289px;
     padding: 32px 24px;
-  } */
+  }
 `;
-// ================================================================================================
 
 export const LogoWrapper = styled.div`
   display: flex;

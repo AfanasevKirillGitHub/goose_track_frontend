@@ -37,6 +37,6 @@ export const ButtonOpen = styled.button`
     }
 
     @media screen and (min-width: 1440px) {
-        /* display: none; */
+        display: none;
     }
 `;

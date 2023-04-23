@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  display: flex;
+  @media screen and (min-width: 1440px) {
+    display: grid;
+    grid-template-columns: 289px 1fr;
+  }
 `;

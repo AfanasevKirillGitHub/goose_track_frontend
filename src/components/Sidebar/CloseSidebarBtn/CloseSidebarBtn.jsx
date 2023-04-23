@@ -2,13 +2,13 @@ import { SVG } from '../../../images';
 import * as SC from './CloseSidebarBtn.styled';
 
 export const CloseSidebarBtn = () => {
-
-    // const closeBurgerMenu = () => {
-    //     setIsBurgerMenuOpen(false);
-    // }
+    const closeBurgerMenu = () => {
+        const mobileMenu = document.querySelector('#menuContainer');
+        mobileMenu.classList.toggle('is-open');
+    }
 
     return (
-        <SC.ButtonClose type='button'>
+        <SC.ButtonClose type='button' onClick={()=>closeBurgerMenu()}>
             <SVG.CloseIcon />
         </SC.ButtonClose>
     );

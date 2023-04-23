@@ -10,8 +10,8 @@ export const AccountSidebar = () => {
   const { t } = useTranslation();
 
   return (
-    <SC.MenuContainer>
-      <SC.Sidebar>
+    <SC.MenuContainer id="menuContainer">
+      <SC.Sidebar id="sidebar">
         <SC.LogoWrapper>
           <SC.LogoImg src={goose} alt="logo goose" />
           <SC.Title>
