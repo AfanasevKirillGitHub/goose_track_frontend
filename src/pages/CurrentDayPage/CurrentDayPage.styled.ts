@@ -38,7 +38,8 @@ export const CurrentDay = styled.div`
   height: 100%;
 `;
 
-export const WeekWrapper = styled.div`
+export const WeekWrapper = styled.ul`
+  list-style: none;
   display: flex;
   /* align-items: center; */
   justify-content: space-between;
@@ -59,7 +60,7 @@ export const WeekWrapper = styled.div`
 //   justify-content: space-around;
 // `;
 
-export const DayOfWeek = styled.div`
+export const DayOfWeek = styled.li`
   display: flex;
   flex-direction: column;
   align-items: center;
