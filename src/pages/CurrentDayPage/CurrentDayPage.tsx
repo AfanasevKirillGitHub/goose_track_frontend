@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { CalendarMonitor } from '../CalendarPage/CalendarMonitor/CalendarMonitor';
 import * as SC from './CurrentDayPage.styled';
+import { TaskModal } from '../../components/TaskModal';
 
 export const CurrentDayPage = () => {
   const { t } = useTranslation();
@@ -18,6 +19,8 @@ export const CurrentDayPage = () => {
     const data = JSON.parse(localStorage.getItem('data')!) || '';
     return data ? moment(new Date(data)) : moment();
   });
+
+  const [isOpenModal, setIsOpenModal] = useState(false);
 
   useEffect(() => {
     return () => localStorage.removeItem('data');
@@ -58,6 +61,10 @@ export const CurrentDayPage = () => {
     return selectedDay.isSame(day, 'day');
   };
 
+  const toggleModal = () => {
+    setIsOpenModal(!isOpenModal);
+  };
+
   return (
     <main>
       <SC.PageWrapper>
@@ -91,6 +98,11 @@ export const CurrentDayPage = () => {
           </SC.DaysWrapper>
         </SC.WeekAndDayWrapper>
       </SC.PageWrapper>
+
+      <button type="button" onClick={toggleModal}>
+        Open modal
+      </button>
+      {isOpenModal && <TaskModal data={null} closeModal={toggleModal} />}
     </main>
   );
 };
