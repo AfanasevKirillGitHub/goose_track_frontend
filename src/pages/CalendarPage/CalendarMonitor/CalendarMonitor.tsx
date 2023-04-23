@@ -2,7 +2,6 @@ import moment from 'moment';
 import { useTranslation } from 'react-i18next';
 import 'moment/locale/uk';
 
-import { NavLink } from 'react-router-dom';
 import * as SC from './CalendarMonitor.styled';
 
 interface IProps {
@@ -25,11 +24,11 @@ export const CalendarMonitor = ({
   return (
     <SC.CalendarMonitorWrapper>
       <SC.LeftWrapper>
-        <div>
+        <SC.TextWrapperOutline>
           {currentDay && <SC.TextWrapper>{today.format('D')}</SC.TextWrapper>}
           <SC.TitleWrapper>{today.format('MMMM')}</SC.TitleWrapper>
           <SC.TextWrapper>{today.format('YYYY')}</SC.TextWrapper>
-        </div>
+        </SC.TextWrapperOutline>
         <SC.ButtonsWrapper>
           <SC.ButtonWrapper type="button" onClick={prevHandler}>
             &lt;
@@ -43,8 +42,8 @@ export const CalendarMonitor = ({
         </SC.ButtonsWrapper>
       </SC.LeftWrapper>
       <SC.ButtonsWrapper>
-        <NavLink to="/user/calendar">{t('Month')}/ </NavLink>
-        <NavLink to="/user/calendar/day"> {t('Day')}</NavLink>
+        <SC.LinkMonth to="/user/calendar">{t('Month')}</SC.LinkMonth>
+        <SC.LinkDay to="/user/day"> {t('Day')}</SC.LinkDay>
       </SC.ButtonsWrapper>
     </SC.CalendarMonitorWrapper>
   );

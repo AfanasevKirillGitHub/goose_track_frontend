@@ -117,7 +117,7 @@ export const App = () => {
                 }
               />
               <Route
-                path="calendar/day"
+                path="day"
                 element={
                   <PrivateRout redirectTo="/" component={<CurrentDayPage />} />
                 }
