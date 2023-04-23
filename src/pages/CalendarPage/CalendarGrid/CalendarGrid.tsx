@@ -1,7 +1,6 @@
 import moment from 'moment';
 import * as SC from './CalendarGrid.styled';
 import { useFetchTasksQuery } from '../../../redux/task/taskOperations';
-import { useGetSearchParams } from '../../../hooks/useGetSearchParams';
 
 interface IProps {
   startDay: moment.Moment;
@@ -9,7 +8,7 @@ interface IProps {
 }
 
 export const CalendarGrid = ({ startDay, today }: IProps) => {
-  const { lang } = useGetSearchParams();
+  const lang = localStorage.getItem('i18nextLng') as string;
 
   const totalDays = 42;
   const day = startDay.clone().subtract(1, 'day');
