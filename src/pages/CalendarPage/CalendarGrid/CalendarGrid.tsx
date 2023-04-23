@@ -10,16 +10,12 @@ interface IProps {
 
 export const CalendarGrid = ({ startDay, today }: IProps) => {
   const { lang } = useGetSearchParams();
-  const targetDateClick = (day: moment.Moment) => {
-    localStorage.setItem('data', JSON.stringify(day.format('YYYY-MM-DD')));
-  };
 
   const totalDays = 42;
   const day = startDay.clone().subtract(1, 'day');
   const daysArray = [...Array(totalDays)].map(() => day.add(1, 'day').clone());
 
   const { data } = useFetchTasksQuery({ lang });
-  console.log(data);
 
   const isCurrentDay = (day: moment.Moment): boolean => {
     return moment().isSame(day, 'day');
@@ -43,9 +39,11 @@ export const CalendarGrid = ({ startDay, today }: IProps) => {
       </SC.CalendarGrid>
       <SC.CalendarGrid>
         {daysArray.map(dayItem => (
-          <SC.Link to="day" key={dayItem.format('DDMMYY')}>
+          <SC.Link
+            to={`/user/day/${dayItem.format('YYYY-MM-DD')}`}
+            key={dayItem.format('DDMMYY')}
+          >
             <SC.CellWrapper
-              onClick={() => targetDateClick(dayItem)}
               isWeekend={dayItem.day() === 6 || dayItem.day() === 0}
               isSelectedMonth={isSelectedMonth(dayItem)}
             >

@@ -43,7 +43,9 @@ export const CalendarMonitor = ({
       </SC.LeftWrapper>
       <SC.ButtonsWrapper>
         <SC.LinkMonth to="/user/calendar">{t('Month')}</SC.LinkMonth>
-        <SC.LinkDay to="/user/day"> {t('Day')}</SC.LinkDay>
+        <SC.LinkDay to={`/user/day/${today.format('YYYY-MM-DD')}`}>
+          {t('Day')}
+        </SC.LinkDay>
       </SC.ButtonsWrapper>
     </SC.CalendarMonitorWrapper>
   );
