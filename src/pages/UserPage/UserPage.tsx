@@ -2,12 +2,12 @@ import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
 import { AccountSidebar } from '../../components/Sidebar/Sidebar';
 import { Header } from '../../components/Header/Header';
-import { Wrapper } from './UserPage.styled';
 import { Loader } from '../../components/Loader/Loader';
+import * as SC from './UserPage.styled';
 
 export const UserPage = () => {
   return (
-    <Wrapper>
+    <SC.Wrapper>
       <AccountSidebar />
       <div>
         <Header />
@@ -15,6 +15,6 @@ export const UserPage = () => {
           <Outlet />
         </Suspense>
       </div>
-    </Wrapper>
+    </SC.Wrapper>
   );
 };
