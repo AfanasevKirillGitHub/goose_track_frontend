@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import { logOut } from '../../../../redux/auth/authOperations';
 import { SVG } from '../../../../images';
@@ -6,8 +7,28 @@ import * as SC from './ModalForLogOut.styled';
 export const ModalForLogOut = ({ onClose }) => {
     const dispatch = useDispatch();
 
+    const handleCloseByOverlay = (event) => {
+        if (event.target === event.currentTarget) {
+            onClose();
+        }
+    };
+
+    useEffect(() => {
+        const handleCloseByEsc = event => {
+            if (event.code === 'Escape') {
+                onClose();
+            }
+        };
+        
+        window.addEventListener('keydown', handleCloseByEsc);
+
+        return () => {
+            window.removeEventListener('keydown', handleCloseByEsc);
+        };
+    }, [onClose]);
+
     return (
-        <SC.Overlay>
+        <SC.Overlay onClick={handleCloseByOverlay}>
             <SC.Inner>
                 <SC.CloseBtn type="button" onClick={onClose}>
                     <SVG.CloseIcon />
