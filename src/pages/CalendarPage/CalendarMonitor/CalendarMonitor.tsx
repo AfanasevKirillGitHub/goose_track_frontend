@@ -19,7 +19,7 @@ export const CalendarMonitor = ({
   today,
   prevHandler,
   nextHandler,
-  // todayHandler,
+  todayHandler,
   currentDay,
   nextDisabled,
   prevDisabled,
@@ -46,9 +46,6 @@ export const CalendarMonitor = ({
           >
             <SVG.Chevron />
           </SC.ChevronButton>
-          {/* <SC.ButtonWrapper type="button" onClick={todayHandler}>
-            {t('Today')}
-          </SC.ButtonWrapper> */}
           <SC.ChevronButton
             type="button"
             onClick={nextHandler}
@@ -60,6 +57,9 @@ export const CalendarMonitor = ({
             <SVG.Chevron />
           </SC.ChevronButton>
         </SC.ButtonsWrapper>
+        <SC.TodayButton type="button" onClick={todayHandler}>
+          {t('Today')}
+        </SC.TodayButton>
       </SC.LeftWrapper>
       <SC.ButtonsWrapper>
         <SC.LinkMonth to="/user/calendar">{t('Month')}</SC.LinkMonth>
