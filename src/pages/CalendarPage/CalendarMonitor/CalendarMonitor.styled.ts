@@ -109,7 +109,7 @@ export const Link = styled(NavLink)`
   padding: 9px 16px;
   background-color: #e3f3ff;
   min-width: 82px;
-  &.active {
+  &.active.act {
     background-color: #3e85f350;
   }
 `;

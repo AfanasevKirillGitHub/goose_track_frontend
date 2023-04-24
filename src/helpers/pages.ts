@@ -7,5 +7,5 @@ export const authPages: mainNav[] = [
 
 export const accountPages: mainNav[] = [
   { name: 'My account', href: 'account', id: 3 },
-  { name: 'Calendar', href: 'calendar', id: 4 },
+  { name: 'Calendar', href: 'calendar/month', id: 4 },
 ];
