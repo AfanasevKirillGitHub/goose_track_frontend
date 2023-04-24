@@ -16,7 +16,6 @@ export const CellWrapper = styled.div<ICellWrapperProps>`
   display: flex;
   align-items: center;
   justify-content: center;
-  /* background-color: ${p => (p.isWeekend ? '#272829' : '#1e1f21')}; */
   color: black;
   ${p => p.isHeader && 'text-align:center'}
   width: 27px;
@@ -41,7 +40,7 @@ export const CurrentDay = styled.div`
 export const WeekWrapper = styled.ul`
   list-style: none;
   display: flex;
-  /* align-items: center; */
+
   justify-content: space-between;
   width: 100%;
   border: 1px solid rgba(220, 227, 229, 0.8);
@@ -54,22 +53,9 @@ export const WeekWrapper = styled.ul`
   color: #616161;
 `;
 
-// export const DaysWrapper = styled.div`
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-around;
-// `;
-
 export const DayOfWeek = styled.li`
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 4px;
 `;
-
-// export const WeekAndDayWrapper = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: space-around;
-//   width: 100%;
-// `;

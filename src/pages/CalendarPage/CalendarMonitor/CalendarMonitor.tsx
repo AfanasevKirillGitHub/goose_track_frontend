@@ -10,6 +10,8 @@ interface IProps {
   nextHandler: () => void;
   prevHandler: () => void;
   currentDay?: boolean;
+  nextDisabled?: boolean;
+  prevDisabled?: boolean;
 }
 
 export const CalendarMonitor = ({
@@ -18,6 +20,8 @@ export const CalendarMonitor = ({
   nextHandler,
   todayHandler,
   currentDay,
+  nextDisabled,
+  prevDisabled,
 }: IProps) => {
   const { t } = useTranslation();
 
@@ -30,13 +34,21 @@ export const CalendarMonitor = ({
           <SC.TextWrapper>{today.format('YYYY')}</SC.TextWrapper>
         </SC.TextWrapperOutline>
         <SC.ButtonsWrapper>
-          <SC.ButtonWrapper type="button" onClick={prevHandler}>
+          <SC.ButtonWrapper
+            type="button"
+            onClick={prevHandler}
+            disabled={prevDisabled}
+          >
             &lt;
           </SC.ButtonWrapper>
           <SC.ButtonWrapper type="button" onClick={todayHandler}>
             {t('Today')}
           </SC.ButtonWrapper>
-          <SC.ButtonWrapper type="button" onClick={nextHandler}>
+          <SC.ButtonWrapper
+            type="button"
+            onClick={nextHandler}
+            disabled={nextDisabled}
+          >
             &gt;
           </SC.ButtonWrapper>
         </SC.ButtonsWrapper>
