@@ -15,6 +15,7 @@ export const LeftWrapper = styled.div`
 `;
 export const TextWrapperOutline = styled.div`
   background-color: #3e85f3;
+  color: ${props => props.theme.colors.white};
   padding: 8px 12px;
   border-radius: 8px;
 `;

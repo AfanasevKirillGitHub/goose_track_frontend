@@ -19,7 +19,7 @@ export const CalendarGrid = styled.div<ICalendarGridProps>`
   grid-template-columns: repeat(7, 1fr);
   /* grid-template-rows: repeat(6, 1fr); */
   grid-gap: 1px;
-  background-color: ${p => (p.isHeader ? '#1e1f21' : '#4d4c4d')};
+  background-color: ${p => (p.isHeader ? 'rgba(220, 227, 229, 0.8)' : 'rgba(220, 227, 229, 0.8)')};
   ${p => p.isHeader && 'border-bottom: 1px solid #4d4c4d'}
   width:100%;
 `;
@@ -27,8 +27,8 @@ export const CalendarGrid = styled.div<ICalendarGridProps>`
 export const CellWrapper = styled.div<ICellWrapperProps>`
   min-width: 120px;
   min-height: ${p => (p.isHeader ? 40 : 104)}px;
-  background-color: ${p => (p.isWeekend ? '#272829' : '#1e1f21')};
-  color: ${p => (p.isSelectedMonth ? 'wheat' : '#4d4c4d')};
+  background-color: ${p => (p.isWeekend ? '#FFFFFF' : '#FFFFFF')};
+  color: ${p => (p.isSelectedMonth ? '#343434' : 'rgba(220, 227, 229, 0.8)')};
   ${p => p.isHeader && 'text-align:center'}
 `;
 export const Link = styled(NavLink)`
@@ -48,14 +48,16 @@ export const DayWrapper = styled.div`
   align-items: center;
   justify-content: center;
   margin: 2px;
+  
 `;
 
 export const CurrentDay = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: red;
-  border-radius: 50%;
+  background-color: ${props => props.theme.colors.blue};
+  color: ${props => props.theme.colors.white};
+  border-radius: ${props => props.theme.radii.normal};
   width: 100%;
   height: 100%;
 `;
