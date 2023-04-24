@@ -77,6 +77,10 @@ export const theme: ITheme = {
     pink: '#EA3D65',
 
     orange: '#FFAC33',
+
+    hoverBackground: 'gold',
+    backdropBackground: 'rgba(227,243,255, 0.8)',
+    modalBackground: '#FFFFFF',
   },
   radii: {
     none: '0',

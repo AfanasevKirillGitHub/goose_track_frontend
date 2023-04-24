@@ -9,7 +9,7 @@ export const ButtonOpen = styled.button`
     padding: 0;
     margin-left: auto;
 
-    color: #343434;
+    color: ${p => p.theme.colors.black5};
     background-color: rgba(0, 0, 0, 0);
     border: ${props => props.theme.borders.none};
     cursor: pointer;
@@ -22,8 +22,8 @@ export const ButtonOpen = styled.button`
 
     :hover,
     :focus {
-        color: #3e85f3;
-        transform: scale(1.3);
+        color: ${p => p.theme.colors.blue};
+        transform: scale(1.1);
     }
 
     @media screen and (min-width: 768px) and (max-width: 1439px) {
