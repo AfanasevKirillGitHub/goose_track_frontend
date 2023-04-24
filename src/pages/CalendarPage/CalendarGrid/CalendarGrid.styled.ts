@@ -51,6 +51,11 @@ export const DayOfWeekItem = styled.li`
   flex-direction: column;
   align-items: center;
   gap: 4px;
+
+  &:nth-last-child(2) > span,
+  &:nth-last-child(1) > span {
+    color: ${props => props.theme.colors.blue};
+  }
 `;
 
 export const DayOfWeek = styled.span`
