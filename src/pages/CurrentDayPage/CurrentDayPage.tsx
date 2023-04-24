@@ -39,7 +39,9 @@ export const CurrentDayPage = () => {
     if (prevDay.toLocaleString() === startDay.toLocaleString()) {
       setPrevDisabled(true);
     }
+
     if (prevDay.isBefore(startDay)) {
+      setPrevDisabled(true);
       setToday(startDay);
       navigate(`/user/day/${startDay.format('YYYY-MM-DD')}`);
     } else {
@@ -71,6 +73,7 @@ export const CurrentDayPage = () => {
     setToday(moment());
     navigate(`/user/day/${moment().format('YYYY-MM-DD')}`);
   };
+
   const isCurrentDay = (day: moment.Moment): boolean => {
     return today.isSame(day, 'day');
   };

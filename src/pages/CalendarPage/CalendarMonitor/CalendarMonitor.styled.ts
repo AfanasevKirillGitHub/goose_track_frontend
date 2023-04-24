@@ -46,9 +46,13 @@ export const TitleWrapper = styled(TextWrapper)`
 `;
 
 export const ButtonsWrapper = styled.div`
-  margin-left: 20px;
+  margin-left: 16px;
   display: flex;
   align-items: center;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.125;
 `;
 
 export const ChevronButton = styled.button`
@@ -57,12 +61,30 @@ export const ChevronButton = styled.button`
   align-items: center;
   cursor: pointer;
   background-color: transparent;
-  padding: 10px 10px;
+  padding: 8px 16px;
   border: 1px solid rgba(220, 227, 229, 0.5);
   color: #616161;
 
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
+`;
+
+export const TodayButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: transparent;
+  border-radius: 8px;
+  padding: 8px 16px;
+  border: 1px solid rgba(220, 227, 229, 0.5);
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.125;
+  color: #616161;
+
+  margin-left: 16px;
 `;
 
 export const ButtonWrapper = styled.button`
@@ -72,16 +94,21 @@ export const ButtonWrapper = styled.button`
   cursor: pointer;
   background-color: transparent;
   border-radius: 8px;
-  padding: 10px 10px;
+  padding: 8px 16px;
   border: 1px solid rgba(220, 227, 229, 0.5);
+
   color: #616161;
 `;
 
 export const Link = styled(NavLink)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
   color: #3e85f3;
-  padding: 8px 16px;
+  padding: 9px 16px;
   background-color: #e3f3ff;
+  min-width: 82px;
   &.active.act {
     background-color: #3e85f350;
   }
