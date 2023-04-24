@@ -17,7 +17,7 @@ export const AccountSidebar = () => {
           <SC.Title>
             G<SC.Span>oo</SC.Span>seTrack
           </SC.Title>
-          <CloseSidebarBtn type="button" />
+          <CloseSidebarBtn />
         </SC.LogoWrapper>
 
         <SC.NavTitle>{t`User Panel`}</SC.NavTitle>
@@ -26,7 +26,8 @@ export const AccountSidebar = () => {
           {accountPages.map(({ href, name, id }) => (
             <li key={id}>
               <SC.Link to={href}>
-                {href === 'account' ? <SVG.UserCheck /> : <SVG.Calendar />} {t(`navigation.${name}`)}
+                {href === 'account' ? <SVG.UserCheck /> : <SVG.Calendar />}{' '}
+                {t(`navigation.${name}`)}
               </SC.Link>
             </li>
           ))}

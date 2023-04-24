@@ -6,7 +6,11 @@ import { ModalForLogOut } from './ModalForLogOut/ModalForLogOut';
 import { SVG } from '../../../images';
 import * as SC from './LogoutBtn.styled';
 
-export const LogoutBtn = ({ design }) => {
+interface IProps {
+  design?: boolean;
+}
+
+export const LogoutBtn = ({ design }: IProps) => {
   const { t } = useTranslation();
   // const dispatch = useDispatch();
 
