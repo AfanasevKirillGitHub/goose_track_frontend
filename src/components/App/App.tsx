@@ -77,7 +77,7 @@ export const App = () => {
               path="/"
               element={
                 <RestrictedRout
-                  redirectTo="/user/account"
+                  redirectTo="/user/calendar/month"
                   component={<HomePage />}
                 />
               }
@@ -86,7 +86,7 @@ export const App = () => {
               path="/login"
               element={
                 <RestrictedRout
-                  redirectTo="/user/account"
+                  redirectTo="/user/calendar/month"
                   component={<LoginPage />}
                 />
               }
@@ -95,7 +95,7 @@ export const App = () => {
               path="/registration"
               element={
                 <RestrictedRout
-                  redirectTo="/user/account"
+                  redirectTo="/user/calendar/month"
                   component={<RegisterPage />}
                 />
               }
@@ -111,13 +111,13 @@ export const App = () => {
                 }
               />
               <Route
-                path="calendar"
+                path="calendar/month"
                 element={
                   <PrivateRout redirectTo="/" component={<CalendarPage />} />
                 }
               />
               <Route
-                path="day/:current"
+                path="calendar/month/day/:current"
                 element={
                   <PrivateRout redirectTo="/" component={<CurrentDayPage />} />
                 }
