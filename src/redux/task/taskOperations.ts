@@ -44,9 +44,9 @@ export const tasksApi = createApi({
       invalidatesTags: ['tasks'],
     }),
     updateTasks: builder.mutation<any, any>({
-      query: ({ id, updateInfo }) => ({
+      query: ({ updateInfo }) => ({
         method: 'PATCH',
-        url: `/${id}`,
+        url: `/${updateInfo.date}`,
         body: updateInfo,
       }),
 

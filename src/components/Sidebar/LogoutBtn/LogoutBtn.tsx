@@ -6,7 +6,11 @@ import { ModalForLogOut } from './ModalForLogOut/ModalForLogOut';
 import { SVG } from '../../../images';
 import * as SC from './LogoutBtn.styled';
 
-export const LogoutBtn = () => {
+interface IProps {
+  design?: boolean;
+}
+
+export const LogoutBtn = ({ design }: IProps) => {
   const { t } = useTranslation();
   // const dispatch = useDispatch();
 
@@ -14,11 +18,11 @@ export const LogoutBtn = () => {
 
   const openModal = () => {
     setIsModalOpen(true);
-  }
+  };
 
   const closeModal = () => {
     setIsModalOpen(false);
-  }
+  };
 
   return (
     <>
@@ -27,7 +31,7 @@ export const LogoutBtn = () => {
         <SVG.LogOutIcon />
       </SC.Button> */}
 
-      <SC.Button type="button" onClick={()=>openModal()}>
+      <SC.Button design={design} type="button" onClick={() => openModal()}>
         {t`Log Out`}
         <SVG.LogOutIcon />
       </SC.Button>

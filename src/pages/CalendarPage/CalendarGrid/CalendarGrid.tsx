@@ -1,7 +1,6 @@
 import moment from 'moment';
 import * as SC from './CalendarGrid.styled';
 import { useFetchTasksQuery } from '../../../redux/task/taskOperations';
-import { useGetSearchParams } from '../../../hooks/useGetSearchParams';
 
 interface IProps {
   startDay: moment.Moment;
@@ -9,7 +8,7 @@ interface IProps {
 }
 
 export const CalendarGrid = ({ startDay, today }: IProps) => {
-  const { lang } = useGetSearchParams();
+  const lang = localStorage.getItem('i18nextLng') as string;
 
   const totalDays = 42;
   const day = startDay.clone().subtract(1, 'day');
@@ -26,17 +25,20 @@ export const CalendarGrid = ({ startDay, today }: IProps) => {
   };
 
   return (
-    <main style={{ width: '1151px' }}>
-      <SC.CalendarGrid isHeader>
+    <main style={{ width: '1087px' }}>
+      <SC.WeekWrapper>
         {[...Array(7)].map((_, idx) => (
-          <SC.CellWrapper isHeader key={idx} isSelectedMonth>
-            {moment()
-              .day(idx + 1)
-              .format('ddd')
-              .toUpperCase()}
-          </SC.CellWrapper>
+          <SC.DayOfWeekItem key={idx}>
+            <SC.DayOfWeek>
+              {moment()
+                .day(idx + 1)
+                .format('ddd')
+                .toUpperCase()}
+            </SC.DayOfWeek>
+          </SC.DayOfWeekItem>
         ))}
-      </SC.CalendarGrid>
+      </SC.WeekWrapper>
+      {/* <SC.CalendarGrid isHeader></SC.CalendarGrid> */}
       <SC.CalendarGrid>
         {daysArray.map(dayItem => (
           <SC.Link

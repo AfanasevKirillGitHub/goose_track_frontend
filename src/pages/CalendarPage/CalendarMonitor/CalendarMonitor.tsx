@@ -3,21 +3,26 @@ import { useTranslation } from 'react-i18next';
 import 'moment/locale/uk';
 
 import * as SC from './CalendarMonitor.styled';
+import { SVG } from '../../../images';
 
 interface IProps {
   today: moment.Moment;
-  todayHandler: () => void;
+  todayHandler?: () => void;
   nextHandler: () => void;
   prevHandler: () => void;
   currentDay?: boolean;
+  nextDisabled?: boolean;
+  prevDisabled?: boolean;
 }
 
 export const CalendarMonitor = ({
   today,
   prevHandler,
   nextHandler,
-  todayHandler,
+  // todayHandler,
   currentDay,
+  nextDisabled,
+  prevDisabled,
 }: IProps) => {
   const { t } = useTranslation();
 
@@ -30,15 +35,30 @@ export const CalendarMonitor = ({
           <SC.TextWrapper>{today.format('YYYY')}</SC.TextWrapper>
         </SC.TextWrapperOutline>
         <SC.ButtonsWrapper>
-          <SC.ButtonWrapper type="button" onClick={prevHandler}>
-            &lt;
-          </SC.ButtonWrapper>
-          <SC.ButtonWrapper type="button" onClick={todayHandler}>
+          <SC.ChevronButton
+            type="button"
+            onClick={prevHandler}
+            disabled={prevDisabled}
+            style={{
+              transform: 'rotate(180deg)',
+              color: prevDisabled ? '#DCE3E5' : '#616161',
+            }}
+          >
+            <SVG.Chevron />
+          </SC.ChevronButton>
+          {/* <SC.ButtonWrapper type="button" onClick={todayHandler}>
             {t('Today')}
-          </SC.ButtonWrapper>
-          <SC.ButtonWrapper type="button" onClick={nextHandler}>
-            &gt;
-          </SC.ButtonWrapper>
+          </SC.ButtonWrapper> */}
+          <SC.ChevronButton
+            type="button"
+            onClick={nextHandler}
+            disabled={nextDisabled}
+            style={{
+              color: nextDisabled ? '#DCE3E5' : '#616161',
+            }}
+          >
+            <SVG.Chevron />
+          </SC.ChevronButton>
         </SC.ButtonsWrapper>
       </SC.LeftWrapper>
       <SC.ButtonsWrapper>
