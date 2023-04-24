@@ -1,6 +1,6 @@
 import React, { useEffect, MouseEvent } from 'react';
 import { createPortal } from 'react-dom';
-import { ImCross } from 'react-icons/im';
+import { SVG } from '../../images';
 import * as SC from './Modal.styled';
 
 const modalRoot = document.querySelector('#modal-root') as HTMLElement;
@@ -12,16 +12,16 @@ interface IProps {
 
 export const Modal = ({ toggleModal, children }: IProps) => {
   useEffect(() => {
-    const coseModal = (evt: Event): void => {
+    const closeModal = (evt: Event): void => {
       if (evt instanceof KeyboardEvent && evt.code === 'Escape') {
         toggleModal();
       }
     };
-    window.addEventListener('keydown', coseModal);
+    window.addEventListener('keydown', closeModal);
     document.body.style.overflow = 'hidden';
 
     return () => {
-      window.removeEventListener('keydown', coseModal);
+      window.removeEventListener('keydown', closeModal);
       document.body.style.overflow = '';
     };
   }, [toggleModal]);
@@ -37,7 +37,7 @@ export const Modal = ({ toggleModal, children }: IProps) => {
       <SC.Inner>
         {children}
         <SC.CloseBtn type="button" onClick={toggleModal}>
-          <ImCross size="16" />
+          <SVG.CloseIcon />
         </SC.CloseBtn>
       </SC.Inner>
     </SC.Overlay>,

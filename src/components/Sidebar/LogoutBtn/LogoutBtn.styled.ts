@@ -16,8 +16,8 @@ export const Button = styled.button<IButton>`
   padding: ${props => props.theme.space[0]}px;
   border-radius: ${props => props.theme.radii.medium};
   border: ${props => props.theme.borders.none};
-  color: #ffffff;
-  background-color: #3e85f3;
+  color: ${p => p.theme.colors.white};
+  background-color: ${p => p.theme.colors.blue};
   cursor: pointer;
   font-size: ${props => (props.design ? '14px' : props.theme.fontSizes.l)};
   line-height: ${props => props.theme.lineHeights.xl};
@@ -32,9 +32,9 @@ export const Button = styled.button<IButton>`
 
   :hover,
   :focus {
-    color: #3e85f3;
-    background-color: gold;
-    transform: scale(1.1);
+    color: ${p => p.theme.colors.blue};
+    background-color: ${p => p.theme.colors.hoverBackground};
+    transform: scale(1.02);
   }
 
   @media screen and (min-width: 768px) {
