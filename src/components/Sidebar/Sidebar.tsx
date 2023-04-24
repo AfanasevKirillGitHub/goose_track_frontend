@@ -12,27 +12,28 @@ export const AccountSidebar = () => {
   return (
     <SC.MenuContainer id="menuContainer">
       <SC.Sidebar id="sidebar">
-        <SC.LogoWrapper>
-          <SC.LogoImg src={goose} alt="logo goose" />
-          <SC.Title>
-            G<SC.Span>oo</SC.Span>seTrack
-          </SC.Title>
-          <CloseSidebarBtn />
-        </SC.LogoWrapper>
+        <div>
+          <SC.LogoWrapper>
+            <SC.LogoImg src={goose} alt="logo goose" />
+            <SC.Title>
+              G<SC.Span>oo</SC.Span>seTrack
+            </SC.Title>
+            <CloseSidebarBtn />
+          </SC.LogoWrapper>
 
-        <SC.NavTitle>{t`User Panel`}</SC.NavTitle>
+          <SC.NavTitle>{t`User Panel`}</SC.NavTitle>
 
-        <SC.NavList>
-          {accountPages.map(({ href, name, id }) => (
-            <li key={id}>
-              <SC.Link to={href}>
-                {href === 'account' ? <SVG.UserCheck /> : <SVG.Calendar />}{' '}
-                {t(`navigation.${name}`)}
-              </SC.Link>
-            </li>
-          ))}
-        </SC.NavList>
-
+          <SC.NavList>
+            {accountPages.map(({ href, name, id }) => (
+              <li key={id}>
+                <SC.Link to={href}>
+                  {href === 'account' ? <SVG.UserCheck /> : <SVG.Calendar />}{' '}
+                  {t(`navigation.${name}`)}
+                </SC.Link>
+              </li>
+            ))}
+          </SC.NavList>
+        </div>
         <LogoutBtn />
       </SC.Sidebar>
     </SC.MenuContainer>
