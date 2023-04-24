@@ -36,8 +36,10 @@ export const CurrentDayPage = () => {
 
   const prevHandler = () => {
     const prevDay = today.clone().subtract(1, 'day');
-    if (prevDay.isBefore(startDay)) {
+    if (prevDay.toLocaleString() === startDay.toLocaleString()) {
       setPrevDisabled(true);
+    }
+    if (prevDay.isBefore(startDay)) {
       setToday(startDay);
       navigate(`/user/day/${startDay.format('YYYY-MM-DD')}`);
     } else {
@@ -49,7 +51,7 @@ export const CurrentDayPage = () => {
 
   const nextHandler = () => {
     const nextDay = today.clone().add(1, 'day');
-    if (nextDay.isAfter(startDay.clone().add(6, 'day'))) {
+    if (nextDay.isAfter(startDay.clone().add(5, 'day'))) {
       setNextDisabled(true);
       setToday(startDay.clone().add(6, 'day'));
       navigate(
