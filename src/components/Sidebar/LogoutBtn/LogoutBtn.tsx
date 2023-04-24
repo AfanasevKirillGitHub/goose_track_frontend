@@ -1,7 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
-// import { useDispatch } from 'react-redux';
-// import { logOut } from '../../redux/auth/authOperations';
+import { Modal } from '../../Modal/Modal';
 import { ModalForLogOut } from './ModalForLogOut/ModalForLogOut';
 import { SVG } from '../../../images';
 import * as SC from './LogoutBtn.styled';
@@ -12,31 +11,25 @@ interface IProps {
 
 export const LogoutBtn = ({ design }: IProps) => {
   const { t } = useTranslation();
-  // const dispatch = useDispatch();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
+  const modalHandler = () => {
+    setIsModalOpen(!isModalOpen);
   };
 
   return (
     <>
-      {/* <SC.Button type="button" onClick={() => dispatch(logOut())}>
-        {t`Log Out`}
-        <SVG.LogOutIcon />
-      </SC.Button> */}
-
-      <SC.Button design={design} type="button" onClick={() => openModal()}>
+      <SC.Button design={design} type="button" onClick={() => modalHandler()}>
         {t`Log Out`}
         <SVG.LogOutIcon />
       </SC.Button>
 
-      {isModalOpen && <ModalForLogOut onClose={closeModal} />}
+      {isModalOpen && (
+        <Modal toggleModal={modalHandler}>
+          <ModalForLogOut onCloseModal={modalHandler} />
+        </Modal>)
+      }
     </>
   );
 };
