@@ -4,8 +4,8 @@ import { NavLink } from 'react-router-dom';
 export const CalendarMonitorWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 32px;
-  /* background-color: #565759; */
+  padding-top: 32px;
+  padding-bottom: 32px;
   width: 100%;
 `;
 
@@ -14,19 +14,31 @@ export const LeftWrapper = styled.div`
   align-items: center;
 `;
 export const TextWrapperOutline = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #3e85f3;
   color: ${props => props.theme.colors.white};
   padding: 8px 12px;
   border-radius: 8px;
+  min-width: 173px;
+  height: 100%;
 `;
 
 export const TextWrapper = styled.span`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-weight: 700;
   font-size: 16px;
   line-height: 0.9;
-  margin-right: 10px;
   text-transform: uppercase;
   color: #ffffff;
+  min-width: 24px;
+
+  &:not(:last-of-type) {
+    margin-right: 10px;
+  }
 `;
 
 export const TitleWrapper = styled(TextWrapper)`
@@ -39,7 +51,24 @@ export const ButtonsWrapper = styled.div`
   align-items: center;
 `;
 
+export const ChevronButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: transparent;
+  padding: 10px 10px;
+  border: 1px solid rgba(220, 227, 229, 0.5);
+  color: #616161;
+
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+`;
+
 export const ButtonWrapper = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
   background-color: transparent;
   border-radius: 8px;

@@ -25,18 +25,20 @@ export const CalendarGrid = ({ startDay, today }: IProps) => {
   };
 
   return (
-    <main style={{ width: '1151px' }}>
+    <main style={{ width: '1087px' }}>
       <SC.WeekWrapper>
         {[...Array(7)].map((_, idx) => (
-          <SC.DayOfWeek key={idx}>
-            {moment()
-              .day(idx + 1)
-              .format('ddd')
-              .toUpperCase()}
-          </SC.DayOfWeek>
+          <SC.DayOfWeekItem key={idx}>
+            <SC.DayOfWeek>
+              {moment()
+                .day(idx + 1)
+                .format('ddd')
+                .toUpperCase()}
+            </SC.DayOfWeek>
+          </SC.DayOfWeekItem>
         ))}
       </SC.WeekWrapper>
-      <SC.CalendarGrid isHeader></SC.CalendarGrid>
+      {/* <SC.CalendarGrid isHeader></SC.CalendarGrid> */}
       <SC.CalendarGrid>
         {daysArray.map(dayItem => (
           <SC.Link
