@@ -26,16 +26,17 @@ export const CalendarGrid = ({ startDay, today }: IProps) => {
 
   return (
     <main style={{ width: '1151px' }}>
-      <SC.CalendarGrid isHeader>
+      <SC.WeekWrapper>
         {[...Array(7)].map((_, idx) => (
-          <SC.CellWrapper isHeader key={idx} isSelectedMonth>
+          <SC.DayOfWeek key={idx}>
             {moment()
               .day(idx + 1)
               .format('ddd')
               .toUpperCase()}
-          </SC.CellWrapper>
+          </SC.DayOfWeek>
         ))}
-      </SC.CalendarGrid>
+      </SC.WeekWrapper>
+      <SC.CalendarGrid isHeader></SC.CalendarGrid>
       <SC.CalendarGrid>
         {daysArray.map(dayItem => (
           <SC.Link

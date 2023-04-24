@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 
-export const Button = styled.button`
+interface IButton {
+  design?: boolean;
+  to?: boolean;
+}
+
+export const Button = styled.button<IButton>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,8 +16,8 @@ export const Button = styled.button`
   padding: ${props => props.theme.space[0]}px;
   border-radius: ${props => props.theme.radii.medium};
   border: ${props => props.theme.borders.none};
-  color: ${props => (props.to === '/login' ? '#3E85F3' : '#FFFFFF')};
-  background-color: ${props => (props.to === '/login' ? '#FFFFFF' : '#3E85F3')};
+  color: #ffffff;
+  background-color: #3e85f3;
   cursor: pointer;
   font-size: ${props => (props.design ? '14px' : props.theme.fontSizes.l)};
   line-height: ${props => props.theme.lineHeights.xl};
