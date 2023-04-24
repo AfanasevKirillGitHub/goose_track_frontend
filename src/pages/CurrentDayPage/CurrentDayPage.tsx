@@ -17,7 +17,6 @@ export const CurrentDayPage = () => {
   moment.locale(t(`lang`)!);
 
   const [today, setToday] = useState(moment(current));
-  const [selectedDay, setSelectedDay] = useState(moment(current));
 
   const [isOpenModal, setIsOpenModal] = useState(false);
 
@@ -26,14 +25,23 @@ export const CurrentDayPage = () => {
   const day = startDay.clone().subtract(1, 'day');
   const daysArray = [...Array(totalDays)].map(() => day.add(1, 'day').clone());
 
+  const [nextDisabled, setNextDisabled] = useState(() => {
+    const nextDay = today.clone().add(1, 'day');
+    return nextDay.isAfter(startDay.clone().add(6, 'day')) ? true : false;
+  });
+  const [prevDisabled, setPrevDisabled] = useState(() => {
+    const prevDay = today.clone().subtract(1, 'day');
+    return prevDay.isBefore(startDay) ? true : false;
+  });
+
   const prevHandler = () => {
     const prevDay = today.clone().subtract(1, 'day');
     if (prevDay.isBefore(startDay)) {
-      setSelectedDay(startDay);
+      setPrevDisabled(true);
       setToday(startDay);
       navigate(`/user/day/${startDay.format('YYYY-MM-DD')}`);
     } else {
-      setSelectedDay(prevDay);
+      setNextDisabled(false);
       setToday(prevDay);
       navigate(`/user/day/${prevDay.format('YYYY-MM-DD')}`);
     }
@@ -42,25 +50,27 @@ export const CurrentDayPage = () => {
   const nextHandler = () => {
     const nextDay = today.clone().add(1, 'day');
     if (nextDay.isAfter(startDay.clone().add(6, 'day'))) {
-      setSelectedDay(startDay.clone().add(6, 'day'));
+      setNextDisabled(true);
       setToday(startDay.clone().add(6, 'day'));
       navigate(
         `/user/day/${startDay.clone().add(6, 'day').format('YYYY-MM-DD')}`
       );
     } else {
+      setPrevDisabled(false);
+
       setToday(nextDay);
-      setSelectedDay(nextDay);
       navigate(`/user/day/${nextDay.format('YYYY-MM-DD')}`);
     }
   };
 
   const todayHandler = () => {
-    setSelectedDay(moment());
+    setPrevDisabled(false);
+    setNextDisabled(false);
     setToday(moment());
     navigate(`/user/day/${moment().format('YYYY-MM-DD')}`);
   };
   const isCurrentDay = (day: moment.Moment): boolean => {
-    return selectedDay.isSame(day, 'day');
+    return today.isSame(day, 'day');
   };
 
   const toggleModal = () => {
@@ -76,6 +86,8 @@ export const CurrentDayPage = () => {
           todayHandler={todayHandler}
           today={today}
           currentDay={true}
+          nextDisabled={nextDisabled}
+          prevDisabled={prevDisabled}
         />
         <SC.WeekWrapper>
           {daysArray.map(dayItem => (

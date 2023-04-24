@@ -25,6 +25,7 @@ export const TextWrapper = styled.span`
   line-height: 0.9;
   margin-right: 10px;
   text-transform: uppercase;
+  color: #ffffff;
 `;
 
 export const TitleWrapper = styled(TextWrapper)`
