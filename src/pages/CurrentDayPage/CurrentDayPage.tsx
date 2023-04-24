@@ -77,28 +77,20 @@ export const CurrentDayPage = () => {
           today={today}
           currentDay={true}
         />
-        <SC.WeekAndDayWrapper>
-          <SC.WeekWrapper>
-            {daysArray.map((dayItem, idx) => (
-              <SC.DayOfWeek key={idx}>
-                {dayItem.format('ddd').toUpperCase()}
-              </SC.DayOfWeek>
-            ))}
-          </SC.WeekWrapper>
-          <SC.DaysWrapper>
-            {daysArray.map(dayItem => (
-              <div key={dayItem.format('DDMMYY')}>
-                <SC.CellWrapper>
-                  {isCurrentDay(dayItem) ? (
-                    <SC.CurrentDay>{dayItem.format('D')}</SC.CurrentDay>
-                  ) : (
-                    dayItem.format('D')
-                  )}
-                </SC.CellWrapper>
-              </div>
-            ))}
-          </SC.DaysWrapper>
-        </SC.WeekAndDayWrapper>
+        <SC.WeekWrapper>
+          {daysArray.map(dayItem => (
+            <SC.DayOfWeek key={dayItem.format('DDMMYY')}>
+              <span>{dayItem.format('ddd').toUpperCase()}</span>
+              <SC.CellWrapper>
+                {isCurrentDay(dayItem) ? (
+                  <SC.CurrentDay>{dayItem.format('D')}</SC.CurrentDay>
+                ) : (
+                  dayItem.format('D')
+                )}
+              </SC.CellWrapper>
+            </SC.DayOfWeek>
+          ))}
+        </SC.WeekWrapper>
       </SC.PageWrapper>
 
       <button type="button" onClick={toggleModal}>

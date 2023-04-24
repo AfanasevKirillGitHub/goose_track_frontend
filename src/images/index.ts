@@ -15,7 +15,11 @@ import { ReactComponent as SunIcon } from './icons/sun.svg';
 import { ReactComponent as UserCheck } from './icons/user-check.svg';
 import { ReactComponent as UserAvatar } from './icons/user.svg';
 
-export const SVG = {
+interface IIcons {
+  [key: string]: React.FC;
+}
+
+export const SVG: IIcons = {
   ArrowCircle,
   Calendar,
   Chevron,
