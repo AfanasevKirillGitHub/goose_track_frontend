@@ -82,7 +82,7 @@ export const Link = styled(NavLink)`
   color: #3e85f3;
   padding: 8px 16px;
   background-color: #e3f3ff;
-  &.active {
+  &.active.act {
     background-color: #3e85f350;
   }
 `;
