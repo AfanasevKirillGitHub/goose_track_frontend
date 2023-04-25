@@ -120,7 +120,7 @@ export const updateInfo = createAsyncThunk<
   }
 >('user/update', async (credentials, thunkAPI) => {
   try {
-    const { data } = await axios.post<IAuth>('/user/info', credentials);
+    const { data } = await axios.patch<IAuth>('/user/info', credentials);
     return data;
   } catch (error: any) {
     return thunkAPI.rejectWithValue(error.message);
