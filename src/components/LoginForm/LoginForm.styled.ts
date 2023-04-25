@@ -37,7 +37,6 @@ export const Title = styled.h2`
   font-weight: ${props => props.theme.fontWeights.semiBold};
   line-height: ${props => props.theme.lineHeights.xl};
   color: ${props => props.theme.colors.blue};
-  // margin-bottom: 32px;
   @media (min-width: 768px) {
     font-size: ${props => props.theme.fontSizes.xxxl};
   }
@@ -129,12 +128,12 @@ bottom: -40%;
 `;
 
 export const Google = styled.a`
-//  margin-bottom: 13px;
  height: 24px;
  text-decoration: none;
+ display:flex;
+ align-items:center;
  color: ${props => props.theme.colors.blue};
  font-family: ${props => props.theme.fontFamily.logo};
-
 
 `;
 
