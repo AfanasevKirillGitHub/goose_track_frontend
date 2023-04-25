@@ -14,6 +14,11 @@
   box-sizing: border-box;
 }
 
+::selection {
+  color: #ffee00;
+  background-color: #3e85f3;
+}
+
 body {
   margin: 0;
   font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
