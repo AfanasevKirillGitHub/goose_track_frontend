@@ -42,6 +42,7 @@ export const TaskForm = ({ fieldsData }) => {
     formState: { errors },
   } = useForm();
 
+  console.log('errors :>> ', errors);
   // const onSubmit = e => {
   //   e.preventDefault();
 
