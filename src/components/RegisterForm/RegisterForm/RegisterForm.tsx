@@ -38,15 +38,22 @@ export const RegisterForm = () => {
 
   return (
     <SC.Wrapper>
-      <ChangeLngElem />
       <SC.InnerDiv>
         <SC.Form onSubmit={onSubmit} autoComplete="off">
-          <div>
+        <SC.TitleDiv>
+          <SC.Title>{t('Sign Up')}</SC.Title>
+          <ChangeLngElem />
+          <SC.Google href="https://your-tasks-hv5t.onrender.com/api/auth/google">
+            <FcGoogle style={{ width: '1.5em', height: '1.5em' }} />
+            <SC.Span><i>oo</i>gle</SC.Span>
+          </SC.Google>
+          </SC.TitleDiv>
+          {/* <div>
             <SC.Title>{t('Sign Up')}</SC.Title>
             <SC.Google href="https://your-tasks-hv5t.onrender.com/api/auth/google">
               <FcGoogle style={{ width: '1.5em', height: '1.5em' }} />
             </SC.Google>
-          </div>
+          </div> */}
           <SC.Div>
             <SC.Label>
               {t('Name')}
