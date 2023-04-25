@@ -8,6 +8,7 @@ import * as SC from './CurrentDayPage.styled';
 import { TaskModal } from '../../components/TaskModal';
 import { useNavigate } from 'react-router-dom';
 // import { ITaskToEdit } from '../../helpers/interfaces/taskApiInterface/taskApiInterface';
+import { TasksColumnsList } from '../../components/TasksColumnsList/TasksColumnsList';
 
 export const CurrentDayPage = () => {
   const { current } = useParams();
@@ -181,6 +182,7 @@ export const CurrentDayPage = () => {
             </SC.DayOfWeek>
           ))}
         </SC.WeekWrapper>
+        <TasksColumnsList items={STATUS} currentDate={current} />
       </SC.PageWrapper>
 
       <ul>
