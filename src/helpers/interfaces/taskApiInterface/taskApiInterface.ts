@@ -5,8 +5,6 @@ export interface ITaskApi {
 
 export interface ITask {
   title: string;
-  statr: string;
-  title: ILang;
   start: string;
   end: string;
   date: string;
@@ -14,4 +12,3 @@ export interface ITask {
   status: string;
   priority: string;
 }
-
