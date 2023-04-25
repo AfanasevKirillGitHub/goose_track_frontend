@@ -7,18 +7,46 @@ import { CalendarMonitor } from '../CalendarPage/CalendarMonitor/CalendarMonitor
 import * as SC from './CurrentDayPage.styled';
 import { TaskModal } from '../../components/TaskModal';
 import { useNavigate } from 'react-router-dom';
+// import { ITaskToEdit } from '../../helpers/interfaces/taskApiInterface/taskApiInterface';
 
 export const CurrentDayPage = () => {
   const { current } = useParams();
   const navigate = useNavigate();
   const { t } = useTranslation();
+  // const lang = localStorage.getItem('i18nextLng');
+
+  // Fake Modal Data ---------------------
+
+  const STATUS = ['todo', 'inprogress', 'done'];
+  // const PRIORITY = ['low', 'medium', 'high'];
+
+  // const TEMP_MODAL_DATA = {};
+  // const TEMP_STATUS = 'todo';
+  // const TEMP_MODAL_DATA: ITaskToEdit = {
+  //   title: { [lang as string]: 'text' },
+  //   start: '13:00',
+  //   end: '13:13',
+  //   date: 'data from back',
+  //   status: TEMP_STATUS,
+  //   priority: 'high1',
+  // };
+
+  const TEMP_MODAL_DATA = {
+    title: 'Edit me',
+    start: '11:00',
+    end: '12:00',
+    date: '2023-04-25',
+    priority: 'low',
+  };
+
+  // Fake Modal Data ---------------------
 
   moment.updateLocale('en', { day: { dow: 1 } });
   moment.locale(t(`lang`)!);
 
   const [today, setToday] = useState(moment(current));
 
-  const [isOpenModal, setIsOpenModal] = useState(false);
+  // const [isOpenModal, setIsOpenModal] = useState(false);
 
   const totalDays = 7;
   const startDay = today.clone().startOf('isoWeek');
@@ -39,7 +67,9 @@ export const CurrentDayPage = () => {
     if (prevDay.toLocaleString() === startDay.toLocaleString()) {
       setPrevDisabled(true);
     }
+
     if (prevDay.isBefore(startDay)) {
+      setPrevDisabled(true);
       setToday(startDay);
       navigate(`/user/calendar/month/day/${startDay.format('YYYY-MM-DD')}`);
     } else {
@@ -74,18 +104,25 @@ export const CurrentDayPage = () => {
     setToday(moment());
     navigate(`/user/calendar/month/day/${moment().format('YYYY-MM-DD')}`);
   };
+
   const isCurrentDay = (day: moment.Moment): boolean => {
     return today.isSame(day, 'day');
   };
 
-  const toggleModal = () => {
-    setIsOpenModal(!isOpenModal);
-  };
+  // const toggleModal = () => {
+  //   setIsOpenModal(!isOpenModal);
+  // };
+
 
   const handleChangeDay = (dayItem: moment.Moment) => {
     setToday(moment(dayItem.format('YYYY-MM-DD')));
     navigate(`/user/calendar/month/day/${dayItem.format('YYYY-MM-DD')}`);
   };
+
+
+  const modalData = Object.keys(TEMP_MODAL_DATA).length
+    ? TEMP_MODAL_DATA
+    : null;
 
   return (
     <main style={{ width: '1151px' }}>
@@ -115,10 +152,34 @@ export const CurrentDayPage = () => {
         </SC.WeekWrapper>
       </SC.PageWrapper>
 
-      <button type="button" onClick={toggleModal}>
-        Open modal
-      </button>
-      {isOpenModal && <TaskModal data={null} closeModal={toggleModal} />}
+      <ul>
+        {STATUS.map(col => (
+          <li key={col}>
+            {/* <button type="button" onClick={toggleModal}>
+              Open modal for {col}
+            </button> */}
+            {/* {isOpenModal && (
+              <TaskModal
+                status={col}
+                data={modalData}
+                closeModal={toggleModal}
+              />
+            )} */}
+            <>
+              <p>
+                ADD task button
+                <TaskModal status={col} data={null} />
+              </p>
+
+              <p>
+                EDIT task button
+                <TaskModal status={col} data={modalData} />
+              </p>
+              <br />
+            </>
+          </li>
+        ))}
+      </ul>
     </main>
   );
 };

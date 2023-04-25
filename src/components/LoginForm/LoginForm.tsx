@@ -32,13 +32,16 @@ export const LoginForm = () => {
   };
   return (
     <SC.Wrapper>
-      <ChangeLngElem />
       <SC.InnerDiv>
         <SC.Form onSubmit={handleSubmit} autoComplete="off">
+          <SC.TitleDiv>
           <SC.Title>{t('Log In')}</SC.Title>
+          <ChangeLngElem />
           <SC.Google href="https://your-tasks-hv5t.onrender.com/api/auth/google">
             <FcGoogle style={{ width: '1.5em', height: '1.5em' }} />
+            <SC.Span><i>oo</i>gle</SC.Span>
           </SC.Google>
+          </SC.TitleDiv>
           <SC.Div>
             <SC.Label>
               {t('Email')}

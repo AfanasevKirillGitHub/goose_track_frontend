@@ -14,6 +14,12 @@ export const Header = styled.div`
   }
 `;
 
+export const WrapperChange = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+`;
+
 export const LogoImg = styled.img`
   margin: 0 auto;
   padding-top: 232px;
@@ -74,14 +80,13 @@ export const Button = styled(NavLink)`
   font-size: ${props => props.theme.fontSizes.s};
   font-weight: ${props => props.theme.fontWeights.semiBold};
   background-color: ${props => (props.to === '/login' ? '#FFFFFF' : '#3E85F3')};
-  box-shadow: 0 0 15px rgba(236, 236, 236, 0.5);
+
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
   &:hover,
   &:focus {
-    background-color: ${props =>
-      props.to === '/login' ? '#3E85F3' : '#FFFFFF'};
-    color: ${props => (props.to === '/login' ? '#FFFFFF' : '#3E85F3')};
-    box-shadow: 0 0 15px rgba(236, 236, 236, 0.5);
-    text-decoration: underline;
+    background-color: #ffee00;
+    color: ${props => props.theme.colors.blue};
   }
   svg {
     margin-left: ${props => props.theme.space[3]}px;
@@ -121,7 +126,7 @@ export const ListItem = styled.li`
     width: 1107px;
     display: flex;
     justify-content: space-between;
-    &:nth-child(2) {
+    &:nth-child(2n) {
       flex-direction: row-reverse;
       align-items: center;
     }
