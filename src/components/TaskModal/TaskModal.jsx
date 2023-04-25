@@ -1,13 +1,26 @@
 import { Modal } from '../Modal/Modal';
 import { TaskForm } from '../TaskForm';
+import { useState } from 'react';
 
-export const TaskModal = ({ data, closeModal }) => {
-  console.log('data :>> ', data);
+export const TaskModal = ({ status, data }) => {
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  // console.log('data :>> ', data);
+  const formData = { ...data, status };
+  // console.log('formData :>> ', formData);
+  const toggleModal = () => {
+    setIsOpenModal(!isOpenModal);
+  };
+
   return (
     <>
-      <Modal toggleModal={closeModal}>
-        <TaskForm fieldsData={data} />
-      </Modal>
+      <button type="button" onClick={toggleModal}>
+        Open modal for {status}
+      </button>
+      {isOpenModal && (
+        <Modal toggleModal={toggleModal}>
+          <TaskForm fieldsData={formData} />
+        </Modal>
+      )}
     </>
   );
 };

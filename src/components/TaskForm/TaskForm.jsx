@@ -3,26 +3,38 @@ import { useForm } from 'react-hook-form';
 import { useAddTasksMutation } from '../../redux/task/taskOperations';
 import { useParams } from 'react-router';
 import { toast } from 'react-toastify';
+import moment from 'moment';
+import 'moment/locale/uk';
+
+const PRIORITY = ['low', 'medium', 'high'];
+const taskCreateTime = moment(Date.now()).format('hh:mm');
 
 export const TaskForm = ({ fieldsData }) => {
+  const addMinutes = minutes => +Date.now() + minutes * 60 * 1000;
   //ts
   // const lang = localStorage.getItem('i18nextLng') as string;
 
   //js
   const lang = localStorage.getItem('i18nextLng');
 
-  // toast.success(lang);
+  const defaultEndTime = moment(addMinutes(30)).format('hh:mm');
 
   const { current } = useParams();
 
-  const [title, setTitle] = useState(fieldsData?.title[lang] ?? '');
-  const [start, setStart] = useState(fieldsData?.start ?? '');
-  const [end, setEnd] = useState(fieldsData?.end ?? '');
+  // const [title, setTitle] = useState(fieldsData?.title[lang] ?? '');
+  const [title, setTitle] = useState(fieldsData?.title ?? '');
+  const [start, setStart] = useState(fieldsData?.start ?? taskCreateTime);
+  const [end, setEnd] = useState(fieldsData?.end ?? defaultEndTime);
   const [priority, setPriority] = useState(fieldsData?.priority ?? '');
 
   const [addTask, { isLoading: taskIsLoading }] = useAddTasksMutation();
+  // const [{ isLoading: taskIsLoading }] = useAddTasksMutation();
 
-  const buttonName = fieldsData ? 'Edit' : 'Add';
+  const modalType = fieldsData.title
+    ? `Edit ${fieldsData.status}`
+    : `Add ${fieldsData.status}`;
+
+  // console.log('in form fieldsData :>> ', fieldsData);
 
   const {
     register,
@@ -30,37 +42,68 @@ export const TaskForm = ({ fieldsData }) => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = e => {
-    e.preventDefault();
+  // const onSubmit = e => {
+  //   e.preventDefault();
 
-    const formData = new FormData(e.target);
+  //   const formData = new FormData(e.target);
 
-    // const TEST_DATA = {
-    //   title: { en: 'form to back1' },
-    //   start: '2024-02-02',
-    //   end: '2024-05-02',
-    //   date: 'dateNow',
-    //   status: 'todo',
-    //   priority: 'high',
-    // };
+  //   // const TEST_DATA = {
+  //   //   title: { en: 'form to back1' },
+  //   //   start: '2024-02-02',
+  //   //   end: '2024-05-02',
+  //   //   date: 'dateNow',
+  //   //   status: 'todo',
+  //   //   priority: 'high',
+  //   // };
 
-    const taskData = {
-      title: { [lang]: formData.get('title') },
-      start: formData.get('start'),
-      end: formData.get('end'),
-      priority: formData.get('priority'),
-      date: current,
-      status: fieldsData?.status ?? 'todo',
-    };
+  //   const taskData = {
+  //     title: { [lang]: formData.get('title') },
+  //     start: formData.get('start'),
+  //     end: formData.get('end'),
+  //     priority: formData.get('priority'),
+  //     date: current,
+  //     status: fieldsData?.status ?? 'todo',
+  //   };
+
+  //   // console.log('taskData :>> ', { data: taskData, lang });
+  //   console.log('taskData :>> ', taskData);
+  //   addTask({ data: taskData, lang });
+  // };
+  const onError = (errors, e) => {
+    const errorFields = Object.keys(errors);
+    const notifyErrors = () =>
+      errorFields.forEach(errorField => {
+        toast.error(`Field ${errorField} ${errors[errorField]?.message}`);
+      });
+
+    notifyErrors();
+  };
+  const onSubmit = (data, e) => {
+    const isValidStartTime = start >= taskCreateTime;
+    const isValidEndTime = start <= end;
+
+    if (!isValidStartTime) {
+      toast.error("Start time can't be in past!");
+      setStart(taskCreateTime);
+    }
+
+    if (!isValidEndTime) {
+      toast.error("End time can't be lower of start time!");
+      setEnd(defaultEndTime);
+    }
 
     // console.log('taskData :>> ', { data: taskData, lang });
-    console.log('taskData :>> ', taskData);
+    console.log('formData :>> ', data);
+
+    const taskData = { ...data, status: fieldsData.status, date: current };
+    console.log('formData :>> ', taskData);
+    // addTask({ data: taskData, lang });
+
     addTask({ data: taskData, lang });
   };
 
-  const PRIORITY = ['low', 'medium', 'high'];
-
   const onInput = e => {
+    console.log('e.target.name :>> ', e.target.name);
     switch (e.target.name) {
       case 'title':
         setTitle(e.target.value);
@@ -91,13 +134,21 @@ export const TaskForm = ({ fieldsData }) => {
         paddingRight: '18px',
         backgroundColor: 'white',
       }}
-      onSubmit={handleSubmit(data => console.log('hookForm data: ', data))}
+      onSubmit={handleSubmit(onSubmit, onError)}
     >
       <label>
         Title
         <input
-          {...register('title', { required: true })}
           type="text"
+          placeholder="Enter text"
+          {...register('title', {
+            required: ' is requared!',
+            maxLength: {
+              value: 250,
+              message: `must be lower then 250 chars!`,
+            },
+          })}
+          name="title"
           value={title}
           onInput={onInput}
         />
@@ -105,10 +156,10 @@ export const TaskForm = ({ fieldsData }) => {
       <label>
         Start
         <input
-          {...register('start')}
-          // name="start"
-          id="start"
-          type="text"
+          type="time"
+          {...register('start', {
+            required: 'is requared!',
+          })}
           value={start}
           onInput={onInput}
         />
@@ -116,10 +167,10 @@ export const TaskForm = ({ fieldsData }) => {
       <label>
         End
         <input
-          {...register('end')}
-          // name="end"
-          id="end"
-          type="text"
+          {...register('end', {
+            required: 'is requared!',
+          })}
+          type="time"
           value={end}
           onInput={onInput}
         />
@@ -136,8 +187,12 @@ export const TaskForm = ({ fieldsData }) => {
           return (
             <label key={el}>
               <input
-                {...register('priority')}
-                // name="priority"
+                {...register('priority', {
+                  validate: {
+                    priority: value =>
+                      PRIORITY.includes(value) || 'is not valid',
+                  },
+                })}
                 type="radio"
                 value={el}
                 defaultChecked={isSelected}
@@ -148,7 +203,7 @@ export const TaskForm = ({ fieldsData }) => {
           );
         })}
       </div>
-      {!taskIsLoading && <button type="submit">{buttonName}</button>}
+      {!taskIsLoading && <button type="submit">{modalType}</button>}
     </form>
   );
 };
