@@ -74,14 +74,14 @@ export const Button = styled(NavLink)`
   font-size: ${props => props.theme.fontSizes.s};
   font-weight: ${props => props.theme.fontWeights.semiBold};
   background-color: ${props => (props.to === '/login' ? '#FFFFFF' : '#3E85F3')};
-  box-shadow: 0 0 15px rgba(236, 236, 236, 0.5);
+
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
   &:hover,
   &:focus {
-    background-color: ${props =>
-      props.to === '/login' ? '#3E85F3' : '#FFFFFF'};
-    color: ${props => (props.to === '/login' ? '#FFFFFF' : '#3E85F3')};
-    box-shadow: 0 0 15px rgba(236, 236, 236, 0.5);
-    text-decoration: underline;
+    background-color: #ffee00;
+    color: ${props => props.theme.colors.blue};
+    /* box-shadow: 0 0 10px rgba(255, 238, 0, 0.5); */
   }
   svg {
     margin-left: ${props => props.theme.space[3]}px;
