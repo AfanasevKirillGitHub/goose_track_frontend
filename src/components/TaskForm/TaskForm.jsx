@@ -5,9 +5,20 @@ import { useParams } from 'react-router';
 import { toast } from 'react-toastify';
 import moment from 'moment';
 import 'moment/locale/uk';
+import { SVG } from '../../images';
+import * as SC from './TaskForm.Styled';
 
 const PRIORITY = ['low', 'medium', 'high'];
-const taskCreateTime = moment(Date.now()).format('hh:mm');
+const taskCreateTime = moment(Date.now()).format('HH:mm');
+
+// const TEMP_MODAL_DATA = {
+//   title: 'Edit me',
+//   start: '11:00',
+//   end: '12:00',
+//   date: '2023-04-25',
+//   priority: 'low',
+// };
+// const modalData = Object.keys(TEMP_MODAL_DATA).length ? TEMP_MODAL_DATA : null;
 
 export const TaskForm = ({ fieldsData }) => {
   const addMinutes = minutes => +Date.now() + minutes * 60 * 1000;
@@ -17,7 +28,7 @@ export const TaskForm = ({ fieldsData }) => {
   //js
   const lang = localStorage.getItem('i18nextLng');
 
-  const defaultEndTime = moment(addMinutes(30)).format('hh:mm');
+  const defaultEndTime = moment(addMinutes(30)).format('HH:mm');
 
   const { current } = useParams();
 
@@ -30,9 +41,7 @@ export const TaskForm = ({ fieldsData }) => {
   const [addTask, { isLoading: taskIsLoading }] = useAddTasksMutation();
   // const [{ isLoading: taskIsLoading }] = useAddTasksMutation();
 
-  const modalType = fieldsData.title
-    ? `Edit ${fieldsData.status}`
-    : `Add ${fieldsData.status}`;
+  const modalType = fieldsData.title ? `edit` : `add`;
 
   // console.log('in form fieldsData :>> ', fieldsData);
 
@@ -43,33 +52,7 @@ export const TaskForm = ({ fieldsData }) => {
   } = useForm();
 
   console.log('errors :>> ', errors);
-  // const onSubmit = e => {
-  //   e.preventDefault();
 
-  //   const formData = new FormData(e.target);
-
-  //   // const TEST_DATA = {
-  //   //   title: { en: 'form to back1' },
-  //   //   start: '2024-02-02',
-  //   //   end: '2024-05-02',
-  //   //   date: 'dateNow',
-  //   //   status: 'todo',
-  //   //   priority: 'high',
-  //   // };
-
-  //   const taskData = {
-  //     title: { [lang]: formData.get('title') },
-  //     start: formData.get('start'),
-  //     end: formData.get('end'),
-  //     priority: formData.get('priority'),
-  //     date: current,
-  //     status: fieldsData?.status ?? 'todo',
-  //   };
-
-  //   // console.log('taskData :>> ', { data: taskData, lang });
-  //   console.log('taskData :>> ', taskData);
-  //   addTask({ data: taskData, lang });
-  // };
   const onError = (errors, e) => {
     const errorFields = Object.keys(errors);
     const notifyErrors = () =>
@@ -126,20 +109,10 @@ export const TaskForm = ({ fieldsData }) => {
   // console.log('taskIsLoading :>> ', taskIsLoading);
 
   return (
-    <form
-      style={{
-        width: '303px',
-        paddingTop: '48px',
-        paddingBottom: '40px',
-        paddingLeft: '18px',
-        paddingRight: '18px',
-        backgroundColor: 'white',
-      }}
-      onSubmit={handleSubmit(onSubmit, onError)}
-    >
-      <label>
-        Title
-        <input
+    <SC.Form onSubmit={handleSubmit(onSubmit, onError)}>
+      <SC.Field>
+        <SC.Label>Title</SC.Label>
+        <SC.Input
           type="text"
           placeholder="Enter text"
           {...register('title', {
@@ -153,32 +126,37 @@ export const TaskForm = ({ fieldsData }) => {
           value={title}
           onInput={onInput}
         />
-      </label>
-      <label>
-        Start
-        <input
-          type="time"
-          {...register('start', {
-            required: 'is requared!',
-          })}
-          value={start}
-          onInput={onInput}
-        />
-      </label>
-      <label>
-        End
-        <input
-          {...register('end', {
-            required: 'is requared!',
-          })}
-          type="time"
-          value={end}
-          onInput={onInput}
-        />
-      </label>
+      </SC.Field>
+
+      {/* Блок TIME */}
+      <SC.Time>
+        <SC.Field>
+          <SC.Label>Start</SC.Label>
+          <SC.Input
+            type="time"
+            {...register('start', {
+              required: 'is requared!',
+            })}
+            value={start}
+            onInput={onInput}
+          />
+        </SC.Field>
+        <SC.Field>
+          <SC.Label>End</SC.Label>
+          <SC.Input
+            {...register('end', {
+              required: 'is requared!',
+            })}
+            type="time"
+            value={end}
+            onInput={onInput}
+          />
+        </SC.Field>
+      </SC.Time>
+
       {/* Блок PRIORITY */}
-      <div>
-        {PRIORITY.map((el, idx) => {
+      <SC.PriorityList>
+        {PRIORITY.map((priorityEl, idx) => {
           const sellectedByDefault = PRIORITY[idx] === PRIORITY[0];
 
           const isSelected = priority
@@ -186,25 +164,33 @@ export const TaskForm = ({ fieldsData }) => {
             : sellectedByDefault;
 
           return (
-            <label key={el}>
-              <input
-                {...register('priority', {
-                  validate: {
-                    priority: value =>
-                      PRIORITY.includes(value) || 'is not valid',
-                  },
-                })}
-                type="radio"
-                value={el}
-                defaultChecked={isSelected}
-                onChange={e => setPriority(e.target.value)}
-              />
-              {el}
-            </label>
+            <SC.PriorityItem key={priority}>
+              <SC.PriorityLabel>
+                <SC.RadioButton
+                  {...register('priority', {
+                    validate: {
+                      priority: value =>
+                        PRIORITY.includes(value) || 'is not valid',
+                    },
+                  })}
+                  type="radio"
+                  value={priority}
+                  defaultChecked={isSelected}
+                  onChange={e => setPriority(e.target.value)}
+                />
+                <span>is sell {isSelected}</span>
+                {priority}
+              </SC.PriorityLabel>
+            </SC.PriorityItem>
           );
         })}
+      </SC.PriorityList>
+      <div>
+        <button type="submit" disabled={taskIsLoading}>
+          {modalType}
+        </button>
+        <button type="button">Cancel</button>
       </div>
-      {!taskIsLoading && <button type="submit">{modalType}</button>}
-    </form>
+    </SC.Form>
   );
 };

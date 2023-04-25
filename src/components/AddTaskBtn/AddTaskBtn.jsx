@@ -1,9 +1,9 @@
 import { SVG } from '../../images';
 import { AddButton } from './AddTaskBtn.styled';
 
-export const AddTaskBtn = () => {
+export const AddTaskBtn = ({ onClick }) => {
   return (
-    <AddButton type="button">
+    <AddButton type="button" onClick={onClick}>
       <SVG.AddIcon />
       Add task
     </AddButton>

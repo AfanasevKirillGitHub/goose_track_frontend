@@ -62,6 +62,7 @@ export const theme: ITheme = {
     grey5: '#F6F6F6',
     grey6: 'rgba(220, 227, 229, 0.8)',
     grey7: 'rgba(246, 246, 246, 1)',
+    grey8: '#F7F7F7',
 
     blue: '#3E85F3',
     blue2: '#DCEBF7',

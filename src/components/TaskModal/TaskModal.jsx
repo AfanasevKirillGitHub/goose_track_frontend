@@ -1,9 +1,10 @@
+import { AddTaskBtn } from '../AddTaskBtn/AddTaskBtn';
 import { Modal } from '../Modal/Modal';
 import { TaskForm } from '../TaskForm';
 import { useState } from 'react';
 
 export const TaskModal = ({ status, data }) => {
-  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [isOpenModal, setIsOpenModal] = useState(true);
   // console.log('data :>> ', data);
   const formData = { ...data, status };
   // console.log('formData :>> ', formData);
@@ -13,9 +14,8 @@ export const TaskModal = ({ status, data }) => {
 
   return (
     <>
-      <button type="button" onClick={toggleModal}>
-        Open modal for {status}
-      </button>
+      <AddTaskBtn onClick={toggleModal} />
+
       {isOpenModal && (
         <Modal toggleModal={toggleModal}>
           <TaskForm fieldsData={formData} />
