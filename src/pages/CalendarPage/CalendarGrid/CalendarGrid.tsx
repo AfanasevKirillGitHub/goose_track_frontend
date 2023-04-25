@@ -23,53 +23,55 @@ export const CalendarGrid = ({ startDay, today }: IProps) => {
   };
 
   return (
-    <main style={{ width: '1087px' }}>
-      <SC.WeekWrapper>
-        {[...Array(7)].map((_, idx) => (
-          <SC.DayOfWeekItem key={idx}>
-            <SC.DayOfWeek>
-              {moment()
-                .day(idx + 1)
-                .format('ddd')
-                .toUpperCase()}
-            </SC.DayOfWeek>
-          </SC.DayOfWeekItem>
-        ))}
-      </SC.WeekWrapper>
-      <SC.CalendarGrid>
-        {daysArray.map(dayItem => (
-          <SC.Link
-            to={`/user/calendar/day/${dayItem.format('YYYY-MM-DD')}`}
-            key={dayItem.format('DDMMYY')}
-          >
-            <SC.CellWrapper
-              isWeekend={dayItem.day() === 6 || dayItem.day() === 0}
-              isSelectedMonth={isSelectedMonth(dayItem)}
+    <main>
+      <SC.CalendarContainer>
+        <SC.WeekWrapper>
+          {[...Array(7)].map((_, idx) => (
+            <SC.DayOfWeekItem key={idx}>
+              <SC.DayOfWeek>
+                {moment()
+                  .day(idx + 1)
+                  .format('ddd')
+                  .toUpperCase()}
+              </SC.DayOfWeek>
+            </SC.DayOfWeekItem>
+          ))}
+        </SC.WeekWrapper>
+        <SC.CalendarGrid>
+          {daysArray.map(dayItem => (
+            <SC.Link
+              to={`/user/calendar/day/${dayItem.format('YYYY-MM-DD')}`}
+              key={dayItem.format('DDMMYY')}
             >
-              <SC.TopRopperInCell justifyContent={'flex-end'}>
-                <SC.ShowDaywrapper>
-                  <SC.DayWrapper>
-                    {isCurrentDay(dayItem) ? (
-                      <SC.CurrentDay>{dayItem.format('D')}</SC.CurrentDay>
-                    ) : (
-                      dayItem.format('D')
-                    )}
-                  </SC.DayWrapper>
-                </SC.ShowDaywrapper>
-                <SC.TasksList>
-                  {data
-                    ?.filter(
-                      ({ date }) => date === dayItem.format('YYYY-MM-DD')
-                    )
-                    .map(({ date, title }) => (
-                      <li key={date}>{title?.slice(0, 8)}</li>
-                    ))}
-                </SC.TasksList>
-              </SC.TopRopperInCell>
-            </SC.CellWrapper>
-          </SC.Link>
-        ))}
-      </SC.CalendarGrid>
+              <SC.CellWrapper
+                isWeekend={dayItem.day() === 6 || dayItem.day() === 0}
+                isSelectedMonth={isSelectedMonth(dayItem)}
+              >
+                <SC.TopRopperInCell justifyContent={'flex-end'}>
+                  <SC.ShowDaywrapper>
+                    <SC.DayWrapper>
+                      {isCurrentDay(dayItem) ? (
+                        <SC.CurrentDay>{dayItem.format('D')}</SC.CurrentDay>
+                      ) : (
+                        dayItem.format('D')
+                      )}
+                    </SC.DayWrapper>
+                  </SC.ShowDaywrapper>
+                  <SC.TasksList>
+                    {data
+                      ?.filter(
+                        ({ date }) => date === dayItem.format('YYYY-MM-DD')
+                      )
+                      .map(({ date, title }) => (
+                        <li key={date}>{title?.slice(0, 8)}</li>
+                      ))}
+                  </SC.TasksList>
+                </SC.TopRopperInCell>
+              </SC.CellWrapper>
+            </SC.Link>
+          ))}
+        </SC.CalendarGrid>
+      </SC.CalendarContainer>
     </main>
   );
 };

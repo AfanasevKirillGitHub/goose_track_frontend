@@ -67,7 +67,7 @@ export const CalendarMonitor = ({
       <SC.ButtonsWrapper>
         <SC.LinkMonth
           className={pathname.includes('day') ? '' : 'act'}
-          to="/user/calendar/month"
+          to="/user/calendar"
         >
           {t('Month')}
         </SC.LinkMonth>
