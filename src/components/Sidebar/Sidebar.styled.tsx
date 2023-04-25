@@ -32,11 +32,12 @@ export const MenuContainer = styled.div`
   `;
 
 export const Sidebar = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   height: 100%;
 
   @media screen and (max-width: 1439px) {
-    display: flex;
-    flex-direction: column;
     position: fixed;
     left: 0;
     top: 0;
@@ -60,10 +61,6 @@ export const Sidebar = styled.div`
   }
 
   @media screen and (min-width: 1440px) {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     padding: 32px 24px;
   }
 `;
