@@ -32,18 +32,20 @@ export const MenuContainer = styled.div`
   `;
 
 export const Sidebar = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+
   @media screen and (max-width: 1439px) {
-    display: flex;
-    flex-direction: column;
     position: fixed;
     left: 0;
     top: 0;
     z-index: 6;
     width: 225px;
     /* height: 100vh; */
-    height: 100%;
     padding: 24px 20px;
-    background-color: #fff;
+    background-color: ${p => p.theme.colors.white};
 
     overflow-y: scroll;
     transform: translateX(-100%);
@@ -95,7 +97,7 @@ export const LogoImg = styled.img`
 `;
 
 export const Title = styled.h1`
-  color: #3e85f3;
+  color: ${p => p.theme.colors.blue};
   font-family: ${props => props.theme.fontFamily.logo};
   font-weight: ${props => props.theme.fontWeights.regular};
   font-size: ${props => props.theme.fontSizes.m};
@@ -150,7 +152,7 @@ export const Link = styled(NavLink)`
   font-weight: ${props => props.theme.fontWeights.semiBold};
   font-size: ${props => props.theme.fontSizes.s};
   line-height: ${props => props.theme.lineHeights.m};
-  color: #84828a;
+  color: ${p => p.theme.colors.grey3};
   border-radius: ${props => props.theme.radii.normal};
   transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out, border-color 0.25s ease-in-out, transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -159,14 +161,14 @@ export const Link = styled(NavLink)`
   }
 
   &.active {
-    background: #e3f3ff;
-    color: #3e85f3;
+    color: ${p => p.theme.colors.blue};
+    background: ${p => p.theme.colors.blue3};
   }
 
   :hover:not(.active),
   :focus-visible:not(.active) {
-    background: gold;
-    color: #3e85f3;
+    color: ${p => p.theme.colors.blue};
+    background: ${p => p.theme.colors.hoverBackground};
   }
 
   @media screen and (min-width: 768px) {

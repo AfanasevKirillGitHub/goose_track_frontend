@@ -209,7 +209,8 @@ export const RegisterForm = () => {
             }
             type="submit"
           >
-            {t('Sign Up')}<SVG.LogInIcon />
+            {t('Sign Up')}
+            <SVG.LogInIcon />
           </SC.Button>
         </SC.Form>
         <SC.Link to="/login">{t('Log In')}</SC.Link>

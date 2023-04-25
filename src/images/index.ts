@@ -14,6 +14,9 @@ import { ReactComponent as AddCircleIcon } from './icons/plus-circle.svg';
 import { ReactComponent as SunIcon } from './icons/sun.svg';
 import { ReactComponent as UserCheck } from './icons/user-check.svg';
 import { ReactComponent as UserAvatar } from './icons/user.svg';
+import { ReactComponent as GoogleIcon } from './icons/google.svg';
+import { ReactComponent as EyeIcon } from './icons/eye.svg';
+import { ReactComponent as EyeClosedIcon } from './icons/eye-slash.svg';
 
 interface IIcons {
   [key: string]: React.FC;
@@ -36,4 +39,7 @@ export const SVG: IIcons = {
   SunIcon,
   UserCheck,
   UserAvatar,
+  GoogleIcon,
+  EyeIcon,
+  EyeClosedIcon,
 };

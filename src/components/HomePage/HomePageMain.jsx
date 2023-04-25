@@ -103,6 +103,35 @@ export const HomePageMain = () => {
             <SC.ItemImg src={homeRageD3} alt="preview day" />
           </picture>
         </SC.ListItem>
+
+        <SC.ListItem>
+          <SC.ItemWrapper>
+            <SC.ItemNumber>4.</SC.ItemNumber>
+            <SC.ItemTitle>{t('Our team')}</SC.ItemTitle>
+            <SC.ItemSubtitle>INteam</SC.ItemSubtitle>
+            <SC.ItemText>
+            {t('Best of the best')}
+            </SC.ItemText>
+          </SC.ItemWrapper>
+          <picture>
+            <source
+              srcSet={homeRage3}
+              type="image/jpg"
+              media="(min-width: 1200px)"
+            />
+            <source
+              srcSet={homeRageD3}
+              type="image/jpg"
+              media="(min-width: 768px)"
+            />
+            <source
+              srcSet={homeRageM3}
+              type="image/jpg"
+              media="(max-width: 767px)"
+            />
+            <SC.ItemImg src={homeRageD3} alt="preview day" />
+          </picture>
+        </SC.ListItem>
       </SC.HomePageList>
     </>
   );

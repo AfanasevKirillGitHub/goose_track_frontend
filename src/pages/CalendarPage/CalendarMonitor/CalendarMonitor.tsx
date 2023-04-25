@@ -4,6 +4,7 @@ import 'moment/locale/uk';
 
 import * as SC from './CalendarMonitor.styled';
 import { SVG } from '../../../images';
+import { useLocation } from 'react-router-dom';
 
 interface IProps {
   today: moment.Moment;
@@ -19,12 +20,15 @@ export const CalendarMonitor = ({
   today,
   prevHandler,
   nextHandler,
-  // todayHandler,
+  todayHandler,
   currentDay,
   nextDisabled,
   prevDisabled,
 }: IProps) => {
   const { t } = useTranslation();
+
+  const { pathname } = useLocation();
+  console.log(pathname);
 
   return (
     <SC.CalendarMonitorWrapper>
@@ -46,9 +50,6 @@ export const CalendarMonitor = ({
           >
             <SVG.Chevron />
           </SC.ChevronButton>
-          {/* <SC.ButtonWrapper type="button" onClick={todayHandler}>
-            {t('Today')}
-          </SC.ButtonWrapper> */}
           <SC.ChevronButton
             type="button"
             onClick={nextHandler}
@@ -60,10 +61,21 @@ export const CalendarMonitor = ({
             <SVG.Chevron />
           </SC.ChevronButton>
         </SC.ButtonsWrapper>
+        <SC.TodayButton type="button" onClick={todayHandler}>
+          {t('Today')}
+        </SC.TodayButton>
       </SC.LeftWrapper>
       <SC.ButtonsWrapper>
-        <SC.LinkMonth to="/user/calendar">{t('Month')}</SC.LinkMonth>
-        <SC.LinkDay to={`/user/day/${today.format('YYYY-MM-DD')}`}>
+        <SC.LinkMonth
+          className={pathname.includes('day') ? '' : 'act'}
+          to="/user/calendar/month"
+        >
+          {t('Month')}
+        </SC.LinkMonth>
+        <SC.LinkDay
+          className={pathname.includes('day') ? 'act' : ''}
+          to={`/user/calendar/month/day/${today.format('YYYY-MM-DD')}`}
+        >
           {t('Day')}
         </SC.LinkDay>
       </SC.ButtonsWrapper>
