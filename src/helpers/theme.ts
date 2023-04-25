@@ -72,6 +72,7 @@ export const theme: ITheme = {
 
     lightYellow: '#FCF0D4',
     yellow: '#F3B249',
+    hoverYellow: '#ffee00',
 
     lightPink: '#FFD2DD',
     pink: '#EA3D65',

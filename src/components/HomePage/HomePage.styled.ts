@@ -85,7 +85,7 @@ export const Button = styled(NavLink)`
 
   &:hover,
   &:focus {
-    background-color: #ffee00;
+    background-color: ${props => props.theme.colors.hoverYellow};
     color: ${props => props.theme.colors.blue};
   }
   svg {
