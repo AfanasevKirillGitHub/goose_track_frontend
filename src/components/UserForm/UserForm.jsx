@@ -3,29 +3,28 @@ import { useState } from 'react';
 import { useAuth } from '../../hooks/useAuth';
 import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
-import *as SC from './UserForm.styled'
+import * as SC from './UserForm.styled';
 
 import { updateInfo } from '../../redux/auth/authOperations';
 
 import plus from '../../images/icons/plusAvatar.svg';
 import avatarDefault from '../../images/avatar-default.png';
 
-
-
 const schema = yup.object().shape({
   name: yup.string().required('Name is required'),
   phone: yup.string().min(7).max(15).required('Phone number is required'),
-//   birthday: yup.date(), // TODO: - валидацию
+  //   birthday: yup.date(), // TODO: - валидацию
   email: yup.string().email().required(),
   skype: yup.string().max(16),
 });
 
 const UserForm = () => {
-  const [birthday, setBirthday] = useState(new Date());
+  const { user } = useAuth();
+  const [birthday, setBirthday] = useState();
   const [avatarURL, setAvatarURL] = useState();
-    
-    const { user } = useAuth();
-    const dispatch = useDispatch();
+
+  console.log(user);
+  const dispatch = useDispatch();
 
   return (
     <SC.Wrapper>
@@ -56,13 +55,20 @@ const UserForm = () => {
       >
         {({ values, handleSubmit, handleChange, handleBlur }) => (
           <SC.Forms autoComplete="off" onSubmit={handleSubmit}>
-          
             <SC.Container>
-              {avatarURL 
-              ? ( <SC.ImgAvatar src={URL.createObjectURL(avatarURL)} alt="avatar" />) 
-              : (<SC.ImgAvatar src={user.avatarURL || avatarDefault} alt="avatar" />)}
+              {avatarURL ? (
+                <SC.ImgAvatar
+                  src={URL.createObjectURL(avatarURL)}
+                  alt="avatar"
+                />
+              ) : (
+                <SC.ImgAvatar
+                  src={user.avatarURL || avatarDefault}
+                  alt="avatar"
+                />
+              )}
             </SC.Container>
-                      
+
             <SC.LabelImg htmlFor="avatar">
               <SC.ImgBtn src={plus} alt="user" />
 
@@ -83,7 +89,7 @@ const UserForm = () => {
                 <p>User Name</p>
                 <SC.Input
                   type="text"
-                  value={values.username}
+                  value={values.name}
                   name="name"
                   id="name"
                   onChange={handleChange}
@@ -112,10 +118,11 @@ const UserForm = () => {
                   id="date"
                   type="date"
                   input={true}
-                  maxDate={new Date()}
+                  // maxDate={new Date()}
                   selected={birthday}
                   onChange={data => setBirthday(data)}
                   dateFormat="dd/MM/yyyy"
+                  placeholder={'Birthday date'}
                 />
                 <ErrorMessage name="birthday" />
               </SC.LabelBtn>
