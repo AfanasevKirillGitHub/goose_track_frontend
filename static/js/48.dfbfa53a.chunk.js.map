@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/48.dfbfa53a.chunk.js","mappings":"+LAAaA,EAAc,WACzB,OACE,+BACE,yCAGL,C","sources":["pages/AccountPage/AccountPage.tsx"],"sourcesContent":["export const AccountPage = () => {\n  return (\n    <>\n      <p>Account Page</p>\n    </>\n  );\n};\n"],"names":["AccountPage"],"sourceRoot":""}
