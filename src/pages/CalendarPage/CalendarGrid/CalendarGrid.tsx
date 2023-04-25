@@ -8,13 +8,11 @@ interface IProps {
 }
 
 export const CalendarGrid = ({ startDay, today }: IProps) => {
-  const lang = localStorage.getItem('i18nextLng') as string;
-
   const totalDays = 42;
   const day = startDay.clone().subtract(1, 'day');
   const daysArray = [...Array(totalDays)].map(() => day.add(1, 'day').clone());
 
-  const { data } = useFetchTasksQuery({ lang });
+  const { data } = useFetchTasksQuery(null);
 
   const isCurrentDay = (day: moment.Moment): boolean => {
     return moment().isSame(day, 'day');
@@ -25,22 +23,23 @@ export const CalendarGrid = ({ startDay, today }: IProps) => {
   };
 
   return (
-    <main style={{ width: '1151px' }}>
+    <main style={{ width: '1087px' }}>
       <SC.WeekWrapper>
         {[...Array(7)].map((_, idx) => (
-          <SC.DayOfWeek key={idx}>
-            {moment()
-              .day(idx + 1)
-              .format('ddd')
-              .toUpperCase()}
-          </SC.DayOfWeek>
+          <SC.DayOfWeekItem key={idx}>
+            <SC.DayOfWeek>
+              {moment()
+                .day(idx + 1)
+                .format('ddd')
+                .toUpperCase()}
+            </SC.DayOfWeek>
+          </SC.DayOfWeekItem>
         ))}
       </SC.WeekWrapper>
-      <SC.CalendarGrid isHeader></SC.CalendarGrid>
       <SC.CalendarGrid>
         {daysArray.map(dayItem => (
           <SC.Link
-            to={`/user/day/${dayItem.format('YYYY-MM-DD')}`}
+            to={`/user/calendar/month/day/${dayItem.format('YYYY-MM-DD')}`}
             key={dayItem.format('DDMMYY')}
           >
             <SC.CellWrapper
@@ -60,16 +59,10 @@ export const CalendarGrid = ({ startDay, today }: IProps) => {
                 <SC.TasksList>
                   {data
                     ?.filter(
-                      ({ date }) =>
-                        date >= dayItem.format('X') &&
-                        date <= dayItem.clone().endOf('day').format('X')
+                      ({ date }) => date === dayItem.format('YYYY-MM-DD')
                     )
                     .map(({ date, title }) => (
-                      <li key={date}>
-                        {title['en']
-                          ? title['en']?.slice(0, 8)
-                          : title['ua']?.slice(0, 8)}
-                      </li>
+                      <li key={date}>{title?.slice(0, 8)}</li>
                     ))}
                 </SC.TasksList>
               </SC.TopRopperInCell>

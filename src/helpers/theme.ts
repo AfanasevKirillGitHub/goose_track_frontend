@@ -72,11 +72,16 @@ export const theme: ITheme = {
 
     lightYellow: '#FCF0D4',
     yellow: '#F3B249',
+    hoverYellow: '#ffee00',
 
     lightPink: '#FFD2DD',
     pink: '#EA3D65',
 
     orange: '#FFAC33',
+
+    hoverBackground: 'gold',
+    backdropBackground: 'rgba(227,243,255, 0.8)',
+    modalBackground: '#FFFFFF',
   },
   radii: {
     none: '0',

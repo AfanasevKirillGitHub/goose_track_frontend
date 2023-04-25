@@ -3,10 +3,12 @@ import { useTranslation } from 'react-i18next';
 import 'moment/locale/uk';
 
 import * as SC from './CalendarMonitor.styled';
+import { SVG } from '../../../images';
+import { useLocation } from 'react-router-dom';
 
 interface IProps {
   today: moment.Moment;
-  todayHandler: () => void;
+  todayHandler?: () => void;
   nextHandler: () => void;
   prevHandler: () => void;
   currentDay?: boolean;
@@ -25,6 +27,9 @@ export const CalendarMonitor = ({
 }: IProps) => {
   const { t } = useTranslation();
 
+  const { pathname } = useLocation();
+  console.log(pathname);
+
   return (
     <SC.CalendarMonitorWrapper>
       <SC.LeftWrapper>
@@ -34,28 +39,43 @@ export const CalendarMonitor = ({
           <SC.TextWrapper>{today.format('YYYY')}</SC.TextWrapper>
         </SC.TextWrapperOutline>
         <SC.ButtonsWrapper>
-          <SC.ButtonWrapper
+          <SC.ChevronButton
             type="button"
             onClick={prevHandler}
             disabled={prevDisabled}
+            style={{
+              transform: 'rotate(180deg)',
+              color: prevDisabled ? '#DCE3E5' : '#616161',
+            }}
           >
-            &lt;
-          </SC.ButtonWrapper>
-          <SC.ButtonWrapper type="button" onClick={todayHandler}>
-            {t('Today')}
-          </SC.ButtonWrapper>
-          <SC.ButtonWrapper
+            <SVG.Chevron />
+          </SC.ChevronButton>
+          <SC.ChevronButton
             type="button"
             onClick={nextHandler}
             disabled={nextDisabled}
+            style={{
+              color: nextDisabled ? '#DCE3E5' : '#616161',
+            }}
           >
-            &gt;
-          </SC.ButtonWrapper>
+            <SVG.Chevron />
+          </SC.ChevronButton>
         </SC.ButtonsWrapper>
+        <SC.TodayButton type="button" onClick={todayHandler}>
+          {t('Today')}
+        </SC.TodayButton>
       </SC.LeftWrapper>
       <SC.ButtonsWrapper>
-        <SC.LinkMonth to="/user/calendar">{t('Month')}</SC.LinkMonth>
-        <SC.LinkDay to={`/user/day/${today.format('YYYY-MM-DD')}`}>
+        <SC.LinkMonth
+          className={pathname.includes('day') ? '' : 'act'}
+          to="/user/calendar/month"
+        >
+          {t('Month')}
+        </SC.LinkMonth>
+        <SC.LinkDay
+          className={pathname.includes('day') ? 'act' : ''}
+          to={`/user/calendar/month/day/${today.format('YYYY-MM-DD')}`}
+        >
           {t('Day')}
         </SC.LinkDay>
       </SC.ButtonsWrapper>

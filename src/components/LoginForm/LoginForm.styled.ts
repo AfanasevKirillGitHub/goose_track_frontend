@@ -37,7 +37,6 @@ export const Title = styled.h2`
   font-weight: ${props => props.theme.fontWeights.semiBold};
   line-height: ${props => props.theme.lineHeights.xl};
   color: ${props => props.theme.colors.blue};
-  margin-bottom: 32px;
   @media (min-width: 768px) {
     font-size: ${props => props.theme.fontSizes.xxxl};
   }
@@ -99,8 +98,10 @@ export const Button = styled.button`
     height: 18px;
   }
   &:hover,
-  :focus {
-    transform: scale(1.05);
+  &:focus {
+    background-color: #ffee00;
+    color: ${props => props.theme.colors.blue};
+  }
   }
   @media (min-width: 768px) {
     width: 400px;
@@ -127,8 +128,13 @@ bottom: -40%;
 `;
 
 export const Google = styled.a`
- margin-bottom: 13px;
- height: 24px
+ height: 24px;
+ text-decoration: none;
+ display:flex;
+ align-items:center;
+ color: ${props => props.theme.colors.blue};
+ font-family: ${props => props.theme.fontFamily.logo};
+
 `;
 
 export const Eye = styled.span`
@@ -161,8 +167,20 @@ export const Link = styled(NavLink)`
    font-weight: ${props => props.theme.fontWeights.semiBold};
    line-height: ${props => props.theme.lineHeights.xl};
    color: ${props => props.theme.colors.blue};
+   
     @media (min-width: 768px) {
        font-size: ${props => props.theme.fontSizes.l};
         line-height: ${props => props.theme.lineHeights.m};
     }
 `;
+
+export const TitleDiv = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+`
+
+export const Span = styled.span`
+font-size: ${props => props.theme.fontSizes.xl}
+`

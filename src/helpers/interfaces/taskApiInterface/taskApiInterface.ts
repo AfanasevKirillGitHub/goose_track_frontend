@@ -1,19 +1,20 @@
 export interface ITaskApi {
   massege: string;
-  tasks: [];
+  tasks: ITask[] | [];
+  total: number;
 }
 
 export interface ITask {
-  title: ILang;
-  statr: string;
+  title: string;
+  start: string;
   end: string;
   date: string;
   _id: string;
   status: string;
   priority: string;
-}
-
-interface ILang {
-  en?: string;
-  ua?: string;
+  owner: {
+    email: string;
+    name: string;
+    _id: string;
+  };
 }

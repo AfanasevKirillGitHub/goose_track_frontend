@@ -17,10 +17,13 @@ export const Inner = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
 
+  min-width: 360px;
   max-width: 1200px;
   max-height: 90%;
+  padding: 40px 28px;
+  border-radius: ${props => props.theme.radii.normal};
   background-color: ${p => p.theme.colors.modalBackground};
-  border: 1px solid;
+  box-shadow: ${props => props.theme.shadows.modal};
 `;
 
 export const CloseBtn = styled.button`
@@ -28,13 +31,15 @@ export const CloseBtn = styled.button`
   top: 19px;
   right: 19px;
   background-color: transparent;
-  color: ${p => p.theme.colors.navBcg};
+  color: ${p => p.theme.colors.black};
   border: none;
   outline: none;
   cursor: pointer;
-  transition: 250ms linear;
+  transition: color 0.25s ease-in-out, transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  :hover {
-    color: red;
-  }
+  :hover,
+  :focus {
+      color: ${p => p.theme.colors.blue};
+      transform: scale(1.1);
+    }
 `;

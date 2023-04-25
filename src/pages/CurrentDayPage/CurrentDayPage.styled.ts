@@ -10,9 +10,12 @@ export const PageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-left: 32px;
+  padding-right: 32px;
 `;
 
 export const CellWrapper = styled.div<ICellWrapperProps>`
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -22,6 +25,8 @@ export const CellWrapper = styled.div<ICellWrapperProps>`
   height: 26px;
 
   font-weight: 700;
+  font-size: 16px;
+  line-height: 1.125;
   color: #343434;
 `;
 

@@ -23,6 +23,10 @@ export const CalendarGrid = styled.div<ICalendarGridProps>`
     p.isHeader ? 'rgba(220, 227, 229, 0.8)' : 'rgba(220, 227, 229, 0.8)'};
   ${p => p.isHeader && 'border-bottom: 1px solid #4d4c4d'}
   width:100%;
+  border: 1px solid rgba(220, 227, 229, 0.8);
+  border-radius: ${props => props.theme.radii.normal};
+
+  overflow: hidden;
 `;
 
 export const WeekWrapper = styled.ul<ICellWrapperProps>`
@@ -34,7 +38,7 @@ export const WeekWrapper = styled.ul<ICellWrapperProps>`
   padding: 14px 0;
 
   border: 1px solid rgba(220, 227, 229, 0.8);
-  border-radius: 8px;
+  border-radius: ${props => props.theme.radii.normal};
 
   font-weight: 600;
   font-size: 14px;
@@ -42,16 +46,31 @@ export const WeekWrapper = styled.ul<ICellWrapperProps>`
   color: #616161;
 `;
 
-export const DayOfWeek = styled.li`
+export const DayOfWeekItem = styled.li`
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 4px;
+
+  &:nth-last-child(2) > span,
+  &:nth-last-child(1) > span {
+    color: ${props => props.theme.colors.blue};
+  }
+`;
+
+export const DayOfWeek = styled.span`
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.125;
+  text-transform: uppercase;
+
+  color: #616161;
 `;
 
 export const CellWrapper = styled.div<ICellWrapperProps>`
   min-width: 120px;
   min-height: 104px;
+  padding: 8px;
   background-color: ${p => (p.isWeekend ? '#FFFFFF' : '#FFFFFF')};
   color: ${p => (p.isSelectedMonth ? '#343434' : 'rgba(220, 227, 229, 0.8)')};
 `;
@@ -66,12 +85,14 @@ export const TopRopperInCell = styled.div<ITopRopperInCellProps>`
 `;
 
 export const DayWrapper = styled.div`
-  width: 33px;
-  height: 33px;
+  width: 27px;
+  height: 26px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 2px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.125;
 `;
 
 export const CurrentDay = styled.div`
