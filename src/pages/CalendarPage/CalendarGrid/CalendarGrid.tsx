@@ -42,7 +42,7 @@ export const CalendarGrid = ({ startDay, today }: IProps) => {
       <SC.CalendarGrid>
         {daysArray.map(dayItem => (
           <SC.Link
-            to={`/user/day/${dayItem.format('YYYY-MM-DD')}`}
+            to={`/user/calendar/month/day/${dayItem.format('YYYY-MM-DD')}`}
             key={dayItem.format('DDMMYY')}
           >
             <SC.CellWrapper
