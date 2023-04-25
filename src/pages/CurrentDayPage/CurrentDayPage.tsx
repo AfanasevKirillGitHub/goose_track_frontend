@@ -64,7 +64,12 @@ export const CurrentDayPage = () => {
 
   const prevHandler = () => {
     const prevDay = today.clone().subtract(1, 'day');
-    if (prevDay.toLocaleString() === startDay.toLocaleString()) {
+    if (
+      prevDay.clone().format('YYYY-MM-DD') ===
+        today.clone().startOf('isoWeek').format('YYYY-MM-DD') &&
+      prevDay.clone().format('YYYY-MM-DD') !==
+        today.clone().endOf('isoWeek').format('YYYY-MM-DD')
+    ) {
       setPrevDisabled(true);
     }
 
@@ -81,7 +86,12 @@ export const CurrentDayPage = () => {
 
   const nextHandler = () => {
     const nextDay = today.clone().add(1, 'day');
-    if (nextDay.isAfter(startDay.clone().add(5, 'day'))) {
+    if (
+      nextDay.clone().format('YYYY-MM-DD') ===
+        today.clone().endOf('isoWeek').format('YYYY-MM-DD') &&
+      nextDay.clone().format('YYYY-MM-DD') !==
+        today.clone().startOf('isoWeek').format('YYYY-MM-DD')
+    ) {
       setNextDisabled(true);
       setToday(startDay.clone().add(6, 'day'));
       navigate(
@@ -113,12 +123,33 @@ export const CurrentDayPage = () => {
   //   setIsOpenModal(!isOpenModal);
   // };
 
-
   const handleChangeDay = (dayItem: moment.Moment) => {
+    if (
+      dayItem.clone().format('YYYY-MM-DD') ===
+        today.clone().startOf('isoWeek').format('YYYY-MM-DD') &&
+      dayItem.clone().format('YYYY-MM-DD') !==
+        today.clone().endOf('isoWeek').format('YYYY-MM-DD')
+    ) {
+      setPrevDisabled(true);
+      setNextDisabled(false);
+    }
+    //
+    else if (
+      dayItem.clone().format('YYYY-MM-DD') ===
+        today.clone().endOf('isoWeek').format('YYYY-MM-DD') &&
+      dayItem.clone().format('YYYY-MM-DD') !==
+        today.clone().startOf('isoWeek').format('YYYY-MM-DD')
+    ) {
+      setNextDisabled(true);
+      setPrevDisabled(false);
+    } else {
+      setPrevDisabled(false);
+      setNextDisabled(false);
+    }
+
     setToday(moment(dayItem.format('YYYY-MM-DD')));
     navigate(`/user/calendar/month/day/${dayItem.format('YYYY-MM-DD')}`);
   };
-
 
   const modalData = Object.keys(TEMP_MODAL_DATA).length
     ? TEMP_MODAL_DATA
