@@ -77,11 +77,11 @@ export const CurrentDayPage = () => {
     if (prevDay.isBefore(startDay)) {
       setPrevDisabled(true);
       setToday(startDay);
-      navigate(`/user/calendar/month/day/${startDay.format('YYYY-MM-DD')}`);
+      navigate(`/user/calendar/day/${startDay.format('YYYY-MM-DD')}`);
     } else {
       setNextDisabled(false);
       setToday(prevDay);
-      navigate(`/user/calendar/month/day/${prevDay.format('YYYY-MM-DD')}`);
+      navigate(`/user/calendar/day/${prevDay.format('YYYY-MM-DD')}`);
     }
   };
 
@@ -96,7 +96,7 @@ export const CurrentDayPage = () => {
       setNextDisabled(true);
       setToday(startDay.clone().add(6, 'day'));
       navigate(
-        `/user/calendar/month/day/${startDay
+        `/user/calendar/day/${startDay
           .clone()
           .add(6, 'day')
           .format('YYYY-MM-DD')}`
@@ -105,7 +105,7 @@ export const CurrentDayPage = () => {
       setPrevDisabled(false);
 
       setToday(nextDay);
-      navigate(`/user/calendar/month/day/${nextDay.format('YYYY-MM-DD')}`);
+      navigate(`/user/calendar/day/${nextDay.format('YYYY-MM-DD')}`);
     }
   };
 
@@ -113,7 +113,7 @@ export const CurrentDayPage = () => {
     setPrevDisabled(false);
     setNextDisabled(false);
     setToday(moment());
-    navigate(`/user/calendar/month/day/${moment().format('YYYY-MM-DD')}`);
+    navigate(`/user/calendar/day/${moment().format('YYYY-MM-DD')}`);
   };
 
   const isCurrentDay = (day: moment.Moment): boolean => {
@@ -149,7 +149,7 @@ export const CurrentDayPage = () => {
     }
 
     setToday(moment(dayItem.format('YYYY-MM-DD')));
-    navigate(`/user/calendar/month/day/${dayItem.format('YYYY-MM-DD')}`);
+    navigate(`/user/calendar/day/${dayItem.format('YYYY-MM-DD')}`);
   };
 
   const modalData = Object.keys(TEMP_MODAL_DATA).length

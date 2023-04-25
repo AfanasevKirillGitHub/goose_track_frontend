@@ -8,7 +8,7 @@ import { useLocation } from 'react-router-dom';
 
 interface IProps {
   today: moment.Moment;
-  todayHandler?: () => void;
+  todayHandler: () => void;
   nextHandler: () => void;
   prevHandler: () => void;
   currentDay?: boolean;
@@ -73,7 +73,7 @@ export const CalendarMonitor = ({
         </SC.LinkMonth>
         <SC.LinkDay
           className={pathname.includes('day') ? 'act' : ''}
-          to={`/user/calendar/month/day/${today.format('YYYY-MM-DD')}`}
+          to={`/user/calendar/day/${today.format('YYYY-MM-DD')}`}
         >
           {t('Day')}
         </SC.LinkDay>
