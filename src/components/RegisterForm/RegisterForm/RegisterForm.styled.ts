@@ -37,7 +37,6 @@ export const Title = styled.h2`
   font-weight: ${props => props.theme.fontWeights.semiBold};
   line-height: ${props => props.theme.lineHeights.xl};
   color: ${props => props.theme.colors.blue};
-  // margin-bottom: 32px;
   @media (min-width: 768px) {
     font-size: ${props => props.theme.fontSizes.xxxl};
   }
@@ -100,10 +99,10 @@ export const Button = styled.button`
   }
   &:hover,
   &:focus {
-    background-color: #ffee00;
+    background-color: ${props => props.theme.colors.hoverYellow};
     color: ${props => props.theme.colors.blue};
   }
-  }
+  
   @media (min-width: 768px) {
     width: 400px;
     height: 56px;
@@ -117,7 +116,7 @@ position: relative;
     margin-bottom: 24px;
 };
 @media (min-width: 768px) { 
-    margin-bottom: 40px;
+    margin-bottom: 26px;
 };
 `;
 
@@ -125,13 +124,14 @@ export const Notification = styled.span`
 position: absolute;
 font-size: 12px;
 left: 20px;
-bottom: -40%;
+bottom: -35%;
 `;
 
 export const Google = styled.a`
-//  margin-bottom: 13px;
  height: 24px;
  text-decoration: none;
+ display:flex;
+ align-items:center;
  color: ${props => props.theme.colors.blue};
  font-family: ${props => props.theme.fontFamily.logo};
 `;

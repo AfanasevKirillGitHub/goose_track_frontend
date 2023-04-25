@@ -48,12 +48,6 @@ export const RegisterForm = () => {
             <SC.Span><i>oo</i>gle</SC.Span>
           </SC.Google>
           </SC.TitleDiv>
-          {/* <div>
-            <SC.Title>{t('Sign Up')}</SC.Title>
-            <SC.Google href="https://your-tasks-hv5t.onrender.com/api/auth/google">
-              <FcGoogle style={{ width: '1.5em', height: '1.5em' }} />
-            </SC.Google>
-          </div> */}
           <SC.Div>
             <SC.Label>
               {t('Name')}
