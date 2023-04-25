@@ -28,7 +28,6 @@ export const CalendarMonitor = ({
   const { t } = useTranslation();
 
   const { pathname } = useLocation();
-  console.log(pathname);
 
   return (
     <SC.CalendarMonitorWrapper>
