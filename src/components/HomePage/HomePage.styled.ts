@@ -14,6 +14,12 @@ export const Header = styled.div`
   }
 `;
 
+export const WrapperChange = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+`;
+
 export const LogoImg = styled.img`
   margin: 0 auto;
   padding-top: 232px;
@@ -81,7 +87,6 @@ export const Button = styled(NavLink)`
   &:focus {
     background-color: #ffee00;
     color: ${props => props.theme.colors.blue};
-    /* box-shadow: 0 0 10px rgba(255, 238, 0, 0.5); */
   }
   svg {
     margin-left: ${props => props.theme.space[3]}px;
@@ -121,7 +126,7 @@ export const ListItem = styled.li`
     width: 1107px;
     display: flex;
     justify-content: space-between;
-    &:nth-child(2) {
+    &:nth-child(2n) {
       flex-direction: row-reverse;
       align-items: center;
     }

@@ -10,8 +10,11 @@ export const HomePageHeader = () => {
 
   return (
     <SC.Header>
-      <ChangeLngElem />
+      <SC.WrapperChange className="container">
+        <ChangeLngElem />
+      </SC.WrapperChange>
       <SC.LogoImg src={goose} alt="logo goose" />
+
       <SC.Title>
         G<i>oo</i>seTrack
       </SC.Title>
