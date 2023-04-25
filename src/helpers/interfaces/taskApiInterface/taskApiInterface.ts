@@ -1,6 +1,7 @@
 export interface ITaskApi {
   massege: string;
-  tasks: [];
+  tasks: ITask[] | [];
+  total: number;
 }
 
 export interface ITask {
@@ -11,4 +12,9 @@ export interface ITask {
   _id: string;
   status: string;
   priority: string;
+  owner: {
+    email: string;
+    name: string;
+    _id: string;
+  };
 }

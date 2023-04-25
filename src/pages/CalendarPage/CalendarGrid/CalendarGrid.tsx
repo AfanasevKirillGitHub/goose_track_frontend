@@ -8,8 +8,6 @@ interface IProps {
 }
 
 export const CalendarGrid = ({ startDay, today }: IProps) => {
-  // const lang = localStorage.getItem('i18nextLng') as string;
-
   const totalDays = 42;
   const day = startDay.clone().subtract(1, 'day');
   const daysArray = [...Array(totalDays)].map(() => day.add(1, 'day').clone());
@@ -38,7 +36,6 @@ export const CalendarGrid = ({ startDay, today }: IProps) => {
           </SC.DayOfWeekItem>
         ))}
       </SC.WeekWrapper>
-      {/* <SC.CalendarGrid isHeader></SC.CalendarGrid> */}
       <SC.CalendarGrid>
         {daysArray.map(dayItem => (
           <SC.Link
@@ -62,9 +59,7 @@ export const CalendarGrid = ({ startDay, today }: IProps) => {
                 <SC.TasksList>
                   {data
                     ?.filter(
-                      ({ date }) =>
-                        date >= dayItem.format('X') &&
-                        date <= dayItem.clone().endOf('day').format('X')
+                      ({ date }) => date === dayItem.format('YYYY-MM-DD')
                     )
                     .map(({ date, title }) => (
                       <li key={date}>{title?.slice(0, 8)}</li>
