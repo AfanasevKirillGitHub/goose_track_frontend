@@ -4,16 +4,11 @@ export interface ITaskApi {
 }
 
 export interface ITask {
-  title: ILang;
+  title: string;
   statr: string;
   end: string;
   date: string;
   _id: string;
   status: string;
   priority: string;
-}
-
-interface ILang {
-  en?: string;
-  ua?: string;
 }

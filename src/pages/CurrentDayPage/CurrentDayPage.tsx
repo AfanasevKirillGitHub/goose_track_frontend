@@ -82,6 +82,11 @@ export const CurrentDayPage = () => {
     setIsOpenModal(!isOpenModal);
   };
 
+  const handleChangeDay = (dayItem: moment.Moment) => {
+    setToday(moment(dayItem.format('YYYY-MM-DD')));
+    navigate(`/user/calendar/month/day/${dayItem.format('YYYY-MM-DD')}`);
+  };
+
   return (
     <main style={{ width: '1151px' }}>
       <SC.PageWrapper>
@@ -98,7 +103,7 @@ export const CurrentDayPage = () => {
           {daysArray.map(dayItem => (
             <SC.DayOfWeek key={dayItem.format('DDMMYY')}>
               <span>{dayItem.format('ddd').toUpperCase()}</span>
-              <SC.CellWrapper>
+              <SC.CellWrapper onClick={() => handleChangeDay(dayItem)}>
                 {isCurrentDay(dayItem) ? (
                   <SC.CurrentDay>{dayItem.format('D')}</SC.CurrentDay>
                 ) : (

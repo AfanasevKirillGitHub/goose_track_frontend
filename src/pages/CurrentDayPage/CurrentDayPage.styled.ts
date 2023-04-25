@@ -15,6 +15,7 @@ export const PageWrapper = styled.div`
 `;
 
 export const CellWrapper = styled.div<ICellWrapperProps>`
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;

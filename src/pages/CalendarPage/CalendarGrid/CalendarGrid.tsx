@@ -8,13 +8,13 @@ interface IProps {
 }
 
 export const CalendarGrid = ({ startDay, today }: IProps) => {
-  const lang = localStorage.getItem('i18nextLng') as string;
+  // const lang = localStorage.getItem('i18nextLng') as string;
 
   const totalDays = 42;
   const day = startDay.clone().subtract(1, 'day');
   const daysArray = [...Array(totalDays)].map(() => day.add(1, 'day').clone());
 
-  const { data } = useFetchTasksQuery({ lang });
+  const { data } = useFetchTasksQuery(null);
 
   const isCurrentDay = (day: moment.Moment): boolean => {
     return moment().isSame(day, 'day');
@@ -67,11 +67,7 @@ export const CalendarGrid = ({ startDay, today }: IProps) => {
                         date <= dayItem.clone().endOf('day').format('X')
                     )
                     .map(({ date, title }) => (
-                      <li key={date}>
-                        {title['en']
-                          ? title['en']?.slice(0, 8)
-                          : title['ua']?.slice(0, 8)}
-                      </li>
+                      <li key={date}>{title?.slice(0, 8)}</li>
                     ))}
                 </SC.TasksList>
               </SC.TopRopperInCell>
