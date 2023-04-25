@@ -4,6 +4,8 @@ export interface ITaskApi {
 }
 
 export interface ITask {
+  title: string;
+  statr: string;
   title: ILang;
   start: string;
   end: string;
@@ -13,21 +15,3 @@ export interface ITask {
   priority: string;
 }
 
-interface ILang {
-  en?: string;
-  ua?: string;
-}
-
-export interface ITaskToEdit {
-  title: ILang;
-  start: string;
-  end: string;
-  date: string;
-  status: string;
-  priority: string;
-}
-
-export interface ITaskToSend {
-  taskData: ITaskToEdit;
-  lang: string;
-}

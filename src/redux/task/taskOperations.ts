@@ -5,9 +5,9 @@ import {
 } from '../../helpers/interfaces/taskApiInterface/taskApiInterface';
 import { RootState } from '../store';
 
-interface IData {
-  lang: string;
-}
+// interface IData {
+//   lang: string;
+// }
 
 export const tasksApi = createApi({
   reducerPath: 'tasks',
@@ -26,10 +26,10 @@ export const tasksApi = createApi({
   }),
   tagTypes: ['tasks'],
   endpoints: builder => ({
-    fetchTasks: builder.query<ITask[] | [], IData>({
-      query: ({ lang = 'en' }) => ({
+    fetchTasks: builder.query<ITask[] | [], null>({
+      query: () => ({
         method: 'GET',
-        url: `/?lang=${lang}`,
+        url: `/`,
       }),
       transformResponse: (response: ITaskApi) => response.tasks,
       providesTags: ['tasks'],
