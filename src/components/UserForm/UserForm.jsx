@@ -9,7 +9,6 @@ import * as SC from './UserForm.styled';
 
 export const UserForm = () => {
   const { user } = useAuth();
-  console.log(user.birthday.slice(0, 10));
 
   const [birthday, setBirthday] = useState(new Date(user.birthday) ?? '');
   const [avatarURL, setAvatarURL] = useState('');
