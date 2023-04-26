@@ -5,8 +5,9 @@ import { ChangeLngElem } from '../ChangeLngElem/ChangeLngElem';
 import { UserInfo } from './UserInfo/UserInfo';
 import { ThemeToogle } from './ThemeToogle/ThemeToogle';
 import { OpenSidebarBtn } from '../Sidebar/OpenSidebarBtn/OpenSidebarBtn';
+import { ColorToggle } from './ColorToggle/ColorToggle';
 
-export const Header = () => {
+export const Header: React.FC = () => {
   const { t } = useTranslation();
 
   const location = useLocation();
@@ -18,6 +19,7 @@ export const Header = () => {
         {location.pathname === '/user/account' ? t`User Profile` : t`Calendar`}
       </SC.HeaderTitle>
       <SC.UserInfo>
+        <ColorToggle />
         <ThemeToogle />
         <ChangeLngElem />
         <UserInfo />

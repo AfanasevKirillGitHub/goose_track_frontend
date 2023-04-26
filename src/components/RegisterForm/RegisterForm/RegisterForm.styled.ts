@@ -11,10 +11,10 @@ export const Wrapper = styled.div`
 `;
 
 export const InnerDiv = styled.div`
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const Form = styled.form`
@@ -49,7 +49,7 @@ export const Label = styled.label`
   font-weight: ${props => props.theme.fontWeights.semiBold};
   line-height: ${props => props.theme.lineHeights.l};
   color: ${props => props.theme.colors.black2};
-   @media (min-width: 768px) {
+  @media (min-width: 768px) {
     font-size: ${props => props.theme.fontSizes.s};
   }
 `;
@@ -67,8 +67,8 @@ export const Input = styled.input`
     line-height: ${props => props.theme.lineHeights.xl};
     color: ${props => props.theme.colors.grey4};
     @media (min-width: 768px) {
-    font-size: ${props => props.theme.fontSizes.m};
-  }
+      font-size: ${props => props.theme.fontSizes.m};
+    }
   }
 `;
 
@@ -102,51 +102,56 @@ export const Button = styled.button`
     background-color: ${props => props.theme.colors.hoverYellow};
     color: ${props => props.theme.colors.blue};
   }
-  
+
   @media (min-width: 768px) {
     width: 400px;
     height: 56px;
     font-size: ${props => props.theme.fontSizes.l};
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
   }
 `;
 
 export const Div = styled.div`
-position: relative;
-@media (max-width: 767px) { 
+  position: relative;
+  @media (max-width: 767px) {
     margin-bottom: 24px;
-};
-@media (min-width: 768px) { 
+  }
+  @media (min-width: 768px) {
     margin-bottom: 26px;
-};
+  }
 `;
 
 export const Notification = styled.span`
-position: absolute;
-font-size: 12px;
-left: 20px;
-bottom: -35%;
+  position: absolute;
+  font-size: 12px;
+  left: 20px;
+  bottom: -35%;
 `;
 
 export const Google = styled.a`
- height: 24px;
- text-decoration: none;
- display:flex;
- align-items:center;
- color: ${props => props.theme.colors.blue};
- font-family: ${props => props.theme.fontFamily.logo};
+  height: 24px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  color: ${props => props.theme.colors.blue};
+  font-family: ${props => props.theme.fontFamily.logo};
 `;
 
 export const Eye = styled.span`
-    position: absolute;
-    right: 15px;
-    top: 70%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    color: ${props => props.theme.colors.blue};
+  position: absolute;
+  right: 15px;
+  top: 70%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  fill: ${props => props.theme.colors.blue};
 
-    @media (min-width: 768px) {
-        right: 20px;  
-    }
+  @media (min-width: 768px) {
+    right: 20px;
+  }
 `;
 
 export const GooseImage = styled.img`
@@ -162,14 +167,20 @@ export const GooseImage = styled.img`
 `;
 
 export const Link = styled(NavLink)`
-   font-size: ${props => props.theme.fontSizes.s};
-   font-weight: ${props => props.theme.fontWeights.semiBold};
-   line-height: ${props => props.theme.lineHeights.xl};
-   color: ${props => props.theme.colors.blue};
-    @media (min-width: 768px) {
-       font-size: ${props => props.theme.fontSizes.l};
-        line-height: ${props => props.theme.lineHeights.m};
-    }
+  text-decoration: none;
+  font-size: ${props => props.theme.fontSizes.s};
+  font-weight: ${props => props.theme.fontWeights.semiBold};
+  line-height: ${props => props.theme.lineHeights.xl};
+  color: ${props => props.theme.colors.blue};
+  @media (min-width: 768px) {
+    font-size: ${props => props.theme.fontSizes.l};
+    line-height: ${props => props.theme.lineHeights.m};
+  }
+
+  :hover,
+  :focus {
+    text-decoration: underline;
+  }
 `;
 
 export const TitleDiv = styled.div`
@@ -177,8 +188,8 @@ export const TitleDiv = styled.div`
   align-items: center;
   justify-content: space-between;
   margin-bottom: 32px;
-`
+`;
 
 export const Span = styled.span`
-font-size: ${props => props.theme.fontSizes.xl}
-`
+  font-size: ${props => props.theme.fontSizes.xl};
+`;
