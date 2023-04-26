@@ -17,6 +17,7 @@ import { ReactComponent as UserAvatar } from './icons/user.svg';
 import { ReactComponent as GoogleIcon } from './icons/google.svg';
 import { ReactComponent as EyeIcon } from './icons/eye.svg';
 import { ReactComponent as EyeClosedIcon } from './icons/eye-slash.svg';
+import { ReactComponent as NotFoundIcon } from './icons/sad_goose_404.svg';
 
 interface IIcons {
   [key: string]: React.FC;
@@ -42,4 +43,5 @@ export const SVG: IIcons = {
   GoogleIcon,
   EyeIcon,
   EyeClosedIcon,
+  NotFoundIcon
 };
