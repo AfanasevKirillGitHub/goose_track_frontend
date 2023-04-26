@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useAddReviewMutation } from '../../redux/review/reviewOperations';
+import * as SC from './addReview.styled';
 
 export const AddReview = () => {
     const [addReview, { isLoading }] = useAddReviewMutation();
@@ -27,16 +28,16 @@ export const AddReview = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label>
+        <SC.Form onSubmit={handleSubmit}>
+            <SC.Label>
                 leave your review
                 <textarea onChange={handlInputChange} value={review} name='review'  maxlength="189" cols="25" rows="7"></textarea>
-             </label>
-            <label>
+             </SC.Label>
+            <SC.Label>
                 stars
                 <input onChange={handlInputChange} type="number" value={stars} name='stars' min='1' max='5' />
-            </label>
-          <button type="submit" disabled={isLoading || review==='' ||stars===''} >add review</button>
-        </form>
+            </SC.Label>
+          <SC.Button type="submit" disabled={isLoading || review==='' ||stars===''} >add review</SC.Button>
+        </SC.Form>
     )
 }
