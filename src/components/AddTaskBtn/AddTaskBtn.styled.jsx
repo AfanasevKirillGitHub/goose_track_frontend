@@ -20,4 +20,6 @@ export const AddButton = styled.button`
   background-color: #e3f3ff;
   border: 1px dashed #3e85f3;
   border-radius: 8px;
+
+  cursor: pointer;
 `;
