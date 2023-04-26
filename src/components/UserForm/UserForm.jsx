@@ -13,7 +13,7 @@ export const UserForm = () => {
   const [birthday, setBirthday] = useState(
     user.birthday ? new Date(user.birthday) : ''
   );
-  const [avatarURL, setAvatarURL] = useState(user.avatarURL ?? '');
+  const [avatarURL, setAvatarURL] = useState(user.avatarURL ?? avatarDefault);
   const [name, setName] = useState(user.name ?? '');
   const [skype, setSkype] = useState(user.skype ?? '');
   const [email, setEmail] = useState(user.email ?? '');

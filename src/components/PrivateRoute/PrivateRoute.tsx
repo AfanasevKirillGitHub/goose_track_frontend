@@ -8,5 +8,6 @@ export const PrivateRout = ({
 }: IRoutsProps) => {
   const { isLoggedIn, isRefreshing, token } = useAuth();
   const shouldRedirect = !isLoggedIn && !isRefreshing && !token;
+  console.log(shouldRedirect);
   return shouldRedirect ? <Navigate to={redirectTo} replace /> : Component;
 };
