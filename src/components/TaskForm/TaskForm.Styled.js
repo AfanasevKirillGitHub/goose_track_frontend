@@ -2,9 +2,14 @@ import styled from 'styled-components';
 
 export const Form = styled.form`
   width: 303px;
-  padding-top: 48px;
+  padding-top: 8px;
 
   font-family: ${p => p.theme.fontFamily.main};
+
+  @media screen and (min-width: 768px) {
+    width: 396px;
+    padding-top: 0px;
+  }
 `;
 
 export const Field = styled.span`
@@ -28,8 +33,14 @@ export const Input = styled.input`
   padding-right: 14px;
 
   margin-bottom: ${p => {
-    return p.type === 'time' ? p.theme.space[0] : p.theme.space[3];
+    return p.type === 'time' ? p.theme.space[0] : p.theme.space[4];
   }}px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: ${p => {
+      return p.type === 'time' ? p.theme.space[0] : 18;
+    }}px;
+  }
 
   font-family: ${p => p.theme.fontFamily.main};
   font-size: ${p => p.theme.fontSizes.s};
@@ -67,11 +78,16 @@ export const Time = styled.div`
   width: 100%;
 
   margin-bottom: 18px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 28px;
+  }
 `;
 
 export const PriorityList = styled.ul`
   display: flex;
   gap: 15px;
+  align-items: center;
 
   width: 100%;
 
@@ -96,9 +112,10 @@ export const RadioButton = styled.input`
   overflow: hidden;
 `;
 export const CustomRadioButton = styled.span`
-  display: inline-block;
-  width: 12px;
-  height: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+
   color: ${p => {
     switch (p.name) {
       case 'low':
@@ -112,12 +129,18 @@ export const CustomRadioButton = styled.span`
     }
   }};
 
+  svg {
+    width: 12px;
+    height: 12px;
+  }
+
   border-radius: ${p => p.theme.radii.round};
 `;
 
 export const PriorityLabel = styled.label`
   display: flex;
   gap: 6px;
+  align-items: center;
 
   font-family: ${p => p.theme.fontFamily.main};
   font-size: ${p => p.theme.fontSizes.s};
