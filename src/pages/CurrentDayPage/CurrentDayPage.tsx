@@ -5,7 +5,6 @@ import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { CalendarMonitor } from '../CalendarPage/CalendarMonitor/CalendarMonitor';
 import * as SC from './CurrentDayPage.styled';
-import { TaskModal } from '../../components/TaskModal';
 import { useNavigate } from 'react-router-dom';
 import { TasksColumnsList } from '../../components/TasksColumnsList/TasksColumnsList';
 
