@@ -3,29 +3,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useFetchReviewsQuery } from "../../redux/review/reviewOperations";
 
-const rewiews = [
-    {name: "Sergey",
-    id: 1,
-    grade: 5,
-    rewiew: "goooooood"
-    },
-    {name: "Yehor",
-    id: 2,
-    grade: 5,
-    rewiew: "not so goooooood"
-    },
-    {name: "Igor",
-    id: 3,
-    grade: 2,
-    rewiew: "beeeeed"
-    },
-    {name: "Mikle",
-    id: 4,
-    grade: 5,
-    rewiew: "not so beeeeeed"
-    },
-
-]
 
 export const GetReviews = () =>  {
     const settings = {
@@ -51,13 +28,6 @@ export const GetReviews = () =>  {
     ]
     }
     
-    //  async function getAllReviews () {
-    //     const {data} = await useFetchReviewsQuery();
-    //     return data
-    // }
-    // const allReviews = getAllReviews()
-
-    // console.log(allReviews)
 
     const {data} = useFetchReviewsQuery()
     console.log(data?.rewiew)

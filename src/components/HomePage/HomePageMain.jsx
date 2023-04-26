@@ -7,11 +7,11 @@ import homeRageM1 from '../../images/homePage/homePageM1.png';
 import homeRage2 from '../../images/homePage/homePage2.png';
 import homeRageD2 from '../../images/homePage/homePageD2.png';
 import homeRageM2 from '../../images/homePage/homePageM2.png';
-
+import {GetReviews} from '../review/gettReviews'
 import homeRage3 from '../../images/homePage/homePage3.png';
 import homeRageD3 from '../../images/homePage/homePageD3.png';
 import homeRageM3 from '../../images/homePage/homePageM3.png';
-import {GetReviews} from '../review/gettReviews'
+
 
 export const HomePageMain = () => {
   const { t } = useTranslation();
