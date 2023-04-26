@@ -60,6 +60,13 @@ const CurrentDayPage = lazy(() =>
   }))
 );
 
+const NotFoundPage = lazy(() =>
+  import('../../pages/NotFoundPage/NotFoundPage').then(module => ({
+    ...module,
+    default: module.NotFoundPage,
+  }))
+);
+
 export const App = () => {
   const dispatch = useDispatch<ThunkDispatch<any, any, AnyAction>>();
   const { isRefreshing } = useAuth();
@@ -133,7 +140,8 @@ export const App = () => {
                   <PrivateRout redirectTo="/" component={<CurrentDayPage />} />
                 }
               />
-            </Route>
+              </Route>
+              <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
       )}

@@ -19,6 +19,7 @@ import { ReactComponent as EyeIcon } from './icons/eye.svg';
 import { ReactComponent as EyeClosedIcon } from './icons/eye-slash.svg';
 import { ReactComponent as RadioButton } from './icons/rb.svg';
 import { ReactComponent as RadioButtonActive } from './icons/rb-active.svg';
+import { ReactComponent as NotFoundIcon } from './icons/sad_goose_404.svg';
 
 interface IIcons {
   [key: string]: React.FC;
@@ -46,4 +47,5 @@ export const SVG: IIcons = {
   EyeClosedIcon,
   RadioButton,
   RadioButtonActive,
+  NotFoundIcon
 };
