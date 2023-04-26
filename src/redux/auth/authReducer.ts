@@ -119,7 +119,6 @@ export const authSlice = createSlice({
         state.isRefreshing = true;
       })
       .addCase(updateInfo.rejected, (state, _) => {
-        state.user = initialState.user;
         state.isLoggedIn = false;
         state.isRefreshing = false;
       })
