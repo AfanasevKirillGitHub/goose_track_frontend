@@ -251,3 +251,10 @@ export const Btn = styled.button`
     margin-top: 88px;
   }
 `;
+
+export const Notification = styled.span`
+  position: absolute;
+  font-size: 12px;
+  left: 20px;
+  bottom: -35%;
+`;
