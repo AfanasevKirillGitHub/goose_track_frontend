@@ -6,8 +6,6 @@ import { signIn } from '../../redux/auth/authOperations';
 import { ICredentials } from '../../helpers/interfaces/auth/authInterfaces';
 import * as SC from './LoginForm.styled';
 import { useInput } from '../../hooks/useInput';
-import { FcGoogle } from 'react-icons/fc';
-import { HiEye, HiEyeOff } from 'react-icons/hi';
 import { useState } from 'react';
 import rocket from '../../images/rocket.png';
 import { ChangeLngElem } from '../ChangeLngElem/ChangeLngElem';
@@ -35,12 +33,8 @@ export const LoginForm = () => {
       <SC.InnerDiv>
         <SC.Form onSubmit={handleSubmit} autoComplete="off">
           <SC.TitleDiv>
-          <SC.Title>{t('Log In')}</SC.Title>
-          <ChangeLngElem />
-          <SC.Google href="https://your-tasks-hv5t.onrender.com/api/auth/google">
-            <FcGoogle style={{ width: '1.5em', height: '1.5em' }} />
-            <SC.Span><i>oo</i>gle</SC.Span>
-          </SC.Google>
+            <SC.Title>{t('Log In')}</SC.Title>
+            <ChangeLngElem />
           </SC.TitleDiv>
           <SC.Div>
             <SC.Label>
@@ -77,7 +71,7 @@ export const LoginForm = () => {
           </SC.Div>
           <SC.Div>
             <SC.Label>
-               {t('Password')}
+              {t('Password')}
               <SC.Input
                 style={{
                   border:
@@ -114,22 +108,34 @@ export const LoginForm = () => {
                   : setPasswordType('password');
               }}
             >
-              {passwordType === 'password' ? <HiEye /> : <HiEyeOff />}
+              {passwordType === 'password' ? (
+                <SVG.EyeIcon />
+              ) : (
+                <SVG.EyeClosedIcon />
+              )}
             </SC.Eye>
           </SC.Div>
+
+          <SC.Google href="https://your-tasks-hv5t.onrender.com/api/auth/google">
+            <SC.Span>{t('login with')}</SC.Span>
+            <SC.GoogleName>
+              <SVG.GoogleIcon />
+              <SC.Span>
+                <i>oo</i>gle
+              </SC.Span>
+            </SC.GoogleName>
+          </SC.Google>
           <SC.Button
             type="submit"
             disabled={!email.validForm || !password.validForm}
           >
-            {t('Log In')}<SVG.LogInIcon />
+            {t('Log In')}
+            <SVG.LogInIcon />
           </SC.Button>
         </SC.Form>
-      
+
         <SC.Link to="/registration">{t('Sign Up')}</SC.Link>
-        <SC.GooseImage
-              src={rocket}
-              alt="goose"
-            />
+        <SC.GooseImage src={rocket} alt="goose" />
       </SC.InnerDiv>
     </SC.Wrapper>
   );

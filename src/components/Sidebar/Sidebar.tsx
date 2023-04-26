@@ -1,3 +1,4 @@
+import { MouseEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 import { accountPages } from '../../helpers/pages';
 import { LogoutBtn } from './LogoutBtn/LogoutBtn';
@@ -10,8 +11,19 @@ import { CloseSidebarBtn } from './CloseSidebarBtn/CloseSidebarBtn';
 export const AccountSidebar = () => {
   const { t } = useTranslation();
 
+  const closeBurgerMenu = () => {
+    const mobileMenu = document.querySelector('#menuContainer') as HTMLElement;
+    mobileMenu.classList.toggle('is-open');
+  };
+
+  const closeOnClickByOverlay = (event: MouseEvent<HTMLElement>) => {
+    if (event.target === event.currentTarget) {
+      closeBurgerMenu();
+    }
+  };
+
   return (
-    <SC.MenuContainer id="menuContainer">
+    <SC.MenuContainer id="menuContainer" onClick={closeOnClickByOverlay}>
       <SC.Sidebar id="sidebar">
         <div>
           <SC.LogoWrapper>
@@ -27,7 +39,7 @@ export const AccountSidebar = () => {
           <SC.NavList>
             {accountPages.map(({ href, name, id }) => (
               <li key={id}>
-                <SC.Link to={href}>
+                <SC.Link to={href} onClick={() => closeBurgerMenu()}>
                   {href === 'account' ? <SVG.UserCheck /> : <SVG.Calendar />}{' '}
                   {t(`navigation.${name}`)}
                 </SC.Link>

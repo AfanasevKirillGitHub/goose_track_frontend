@@ -21,8 +21,25 @@ import { ReactComponent as RadioButton } from './icons/rb.svg';
 import { ReactComponent as RadioButtonActive } from './icons/rb-active.svg';
 import { ReactComponent as NotFoundIcon } from './icons/sad_goose_404.svg';
 
+import homePage1 from './homePage/homePage1.png';
+import homePage2 from './homePage/homePage2.png';
+import homePage3 from './homePage/homePage3.png';
+import homePageM1 from './homePage/homePageM1.png';
+import homePageM2 from './homePage/homePageM2.png';
+import homePageM3 from './homePage/homePageM3.png';
+import homePageD1 from './homePage/homePageD1.png';
+import homePageD2 from './homePage/homePageD2.png';
+import homePageD3 from './homePage/homePageD3.png';
+import team from './homePage/team-desc.png';
+import teamD from './homePage/team-tab.png';
+import teamM from './homePage/team-mob.png';
+
 interface IIcons {
   [key: string]: React.FC;
+}
+
+interface IImg {
+  [key: string]: string;
 }
 
 export const SVG: IIcons = {
@@ -47,5 +64,20 @@ export const SVG: IIcons = {
   EyeClosedIcon,
   RadioButton,
   RadioButtonActive,
-  NotFoundIcon
+  NotFoundIcon,
+};
+
+export const IMG: IImg = {
+  homePage1,
+  homePage2,
+  homePage3,
+  homePageM1,
+  homePageM2,
+  homePageM3,
+  homePageD1,
+  homePageD2,
+  homePageD3,
+  team,
+  teamD,
+  teamM,
 };

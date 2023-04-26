@@ -1,16 +1,8 @@
 import * as SC from './HomePage.styled';
 import { useTranslation } from 'react-i18next';
-import homeRage1 from '../../images/homePage/homePage1.png';
-import homeRageD1 from '../../images/homePage/homePageD1.png';
-import homeRageM1 from '../../images/homePage/homePageM1.png';
 
-import homeRage2 from '../../images/homePage/homePage2.png';
-import homeRageD2 from '../../images/homePage/homePageD2.png';
-import homeRageM2 from '../../images/homePage/homePageM2.png';
-import {GetReviews} from '../review/gettReviews'
-import homeRage3 from '../../images/homePage/homePage3.png';
-import homeRageD3 from '../../images/homePage/homePageD3.png';
-import homeRageM3 from '../../images/homePage/homePageM3.png';
+import { IMG } from '../../images';
+
 
 
 export const HomePageMain = () => {
@@ -24,27 +16,25 @@ export const HomePageMain = () => {
             <SC.ItemNumber>1.</SC.ItemNumber>
             <SC.ItemTitle>{t('Calendar')}</SC.ItemTitle>
             <SC.ItemSubtitle>{t('View')}</SC.ItemSubtitle>
-            <SC.ItemText>
-            {t('GooseTracks')}
-            </SC.ItemText>
+            <SC.ItemText>{t('GooseTracks')}</SC.ItemText>
           </SC.ItemWrapper>
           <picture>
             <source
-              srcSet={homeRage1}
+              srcSet={IMG.homePage1}
               type="image/jpg"
               media="(min-width: 1200px)"
             />
             <source
-              srcSet={homeRageD1}
+              srcSet={IMG.homePageD1}
               type="image/jpg"
               media="(min-width: 768px)"
             />
             <source
-              srcSet={homeRageM1}
+              srcSet={IMG.homePageM1}
               type="image/jpg"
               media="(max-width: 767px)"
             />
-            <SC.ItemImg src={homeRageD1} alt="preview calendar" />
+            <SC.ItemImg src={IMG.homePageD1} alt="preview calendar" />
           </picture>
         </SC.ListItem>
 
@@ -52,27 +42,25 @@ export const HomePageMain = () => {
           <SC.ItemWrapper>
             <SC.ItemNumber>2.</SC.ItemNumber>
             <SC.ItemSubtitle>{t('Sidebar')}</SC.ItemSubtitle>
-            <SC.ItemText>
-            {t('GooseTrack offers')}
-            </SC.ItemText>
+            <SC.ItemText>{t('GooseTrack offers')}</SC.ItemText>
           </SC.ItemWrapper>
           <picture>
             <source
-              srcSet={homeRage2}
+              srcSet={IMG.homePage2}
               type="image/jpg"
               media="(min-width: 1200px)"
             />
             <source
-              srcSet={homeRageD2}
+              srcSet={IMG.homePageD2}
               type="image/jpg"
               media="(min-width: 768px)"
             />
             <source
-              srcSet={homeRageM2}
+              srcSet={IMG.homePageM2}
               type="image/jpg"
               media="(max-width: 767px)"
             />
-            <SC.ItemImg src={homeRageD2} alt="preview menu" />
+            <SC.ItemImg src={IMG.homePageD2} alt="preview menu" />
           </picture>
         </SC.ListItem>
 
@@ -81,27 +69,25 @@ export const HomePageMain = () => {
             <SC.ItemNumber>3.</SC.ItemNumber>
             <SC.ItemTitle>{t('All in')}</SC.ItemTitle>
             <SC.ItemSubtitle>{t('One')}</SC.ItemSubtitle>
-            <SC.ItemText>
-            {t('GooseTrack is')}
-            </SC.ItemText>
+            <SC.ItemText>{t('GooseTrack is')}</SC.ItemText>
           </SC.ItemWrapper>
           <picture>
             <source
-              srcSet={homeRage3}
+              srcSet={IMG.homePage3}
               type="image/jpg"
               media="(min-width: 1200px)"
             />
             <source
-              srcSet={homeRageD3}
+              srcSet={IMG.homePageD3}
               type="image/jpg"
               media="(min-width: 768px)"
             />
             <source
-              srcSet={homeRageM3}
+              srcSet={IMG.homePageM3}
               type="image/jpg"
               media="(max-width: 767px)"
             />
-            <SC.ItemImg src={homeRageD3} alt="preview day" />
+            <SC.ItemImg src={IMG.homePageD3} alt="preview day" />
           </picture>
         </SC.ListItem>
 
@@ -110,27 +96,25 @@ export const HomePageMain = () => {
             <SC.ItemNumber>4.</SC.ItemNumber>
             <SC.ItemTitle>{t('Our team')}</SC.ItemTitle>
             <SC.ItemSubtitle>INteam</SC.ItemSubtitle>
-            <SC.ItemText>
-            {t('Best of the best')}
-            </SC.ItemText>
+            <SC.ItemText>{t('Best of the best')}</SC.ItemText>
           </SC.ItemWrapper>
           <picture>
             <source
-              srcSet={homeRage3}
+              srcSet={IMG.team}
               type="image/jpg"
               media="(min-width: 1200px)"
             />
             <source
-              srcSet={homeRageD3}
+              srcSet={IMG.teamD}
               type="image/jpg"
               media="(min-width: 768px)"
             />
             <source
-              srcSet={homeRageM3}
+              srcSet={IMG.teamM}
               type="image/jpg"
               media="(max-width: 767px)"
             />
-            <SC.ItemImg src={homeRageD3} alt="preview day" />
+            <SC.ItemImg src={IMG.team} alt="team" />
           </picture>
         </SC.ListItem>
       </SC.HomePageList>
