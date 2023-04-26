@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Field, Form } from 'formik';
 
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -44,7 +43,7 @@ export const Title = styled.h2`
   }
 `;
 
-export const Forms = styled(Form)`
+export const Forms = styled.form`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -69,7 +68,7 @@ export const InputList = styled.div`
   }
 `;
 
-export const Input = styled(Field)`
+export const Input = styled.input`
   width: 299px;
   height: 42px;
 
