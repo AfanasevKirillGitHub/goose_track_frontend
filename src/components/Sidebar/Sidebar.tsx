@@ -9,21 +9,35 @@ import { Modal } from '../Modal/Modal';
 import * as SC from './Sidebar.styled';
 import { CloseSidebarBtn } from './CloseSidebarBtn/CloseSidebarBtn';
 
-
-
 export const AccountSidebar = () => {
   const { t } = useTranslation();
 
-  const closeBurgerMenu = () => {
+  const toggleBurgerMenu = () => {
     const mobileMenu = document.querySelector('#menuContainer') as HTMLElement;
     mobileMenu.classList.toggle('is-open');
+    document.body.style.overflow = '';
   };
 
   const closeOnClickByOverlay = (event: MouseEvent<HTMLElement>) => {
     if (event.target === event.currentTarget) {
-      closeBurgerMenu();
+      toggleBurgerMenu();
     }
   };
+
+  // useEffect(() => {
+  //   const closeModal = (evt: Event): void => {
+  //     if (evt instanceof KeyboardEvent && evt.code === 'Escape') {
+  //       toggleModal();
+  //     }
+  //   };
+  //   window.addEventListener('keydown', closeModal);
+  //   document.body.style.overflow = 'hidden';
+
+  //   return () => {
+  //     window.removeEventListener('keydown', closeModal);
+  //     document.body.style.overflow = '';
+  //   };
+  // }, [toggleModal]);
 
   const [isOpenModal, setIsOpenModal] = useState(false);
   
@@ -48,7 +62,7 @@ export const AccountSidebar = () => {
           <SC.NavList>
             {accountPages.map(({ href, name, id }) => (
               <li key={id}>
-                <SC.Link to={href} onClick={() => closeBurgerMenu()}>
+                <SC.Link to={href} onClick={() => toggleBurgerMenu()}>
                   {href === 'account' ? <SVG.UserCheck /> : <SVG.Calendar />}{' '}
                   {t(`navigation.${name}`)}
                 </SC.Link>
