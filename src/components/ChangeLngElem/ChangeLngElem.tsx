@@ -15,15 +15,19 @@ export const ChangeLngElem = () => {
     i18n.changeLanguage(name);
   };
 
+  const selectedLang = localStorage.getItem('i18nextLng');
+
   return (
     <SC.Wrap>
-      <SC.Btn type="button" onClick={onchangeLngClick} name="en">
-        <img src={USA} alt="usa flag" style={{ width: '24px' }} />
-      </SC.Btn>
-      <span>/</span>
-      <SC.Btn type="button" onClick={onchangeLngClick} name="ua">
-        <img src={UA} alt="usa flag" style={{ width: '24px' }} />
-      </SC.Btn>
+      {selectedLang === 'ua' ? (
+        <SC.Btn type="button" onClick={onchangeLngClick} name="en">
+          <img src={USA} alt="usa flag" style={{ width: '36px' }} />
+        </SC.Btn>
+      ) : (
+        <SC.Btn type="button" onClick={onchangeLngClick} name="ua">
+          <img src={UA} alt="usa flag" style={{ width: '36px' }} />
+        </SC.Btn>
+      )}
     </SC.Wrap>
   );
 };

@@ -22,6 +22,8 @@ export const CalendarGrid = ({ startDay, today }: IProps) => {
     return today.isSame(month, 'month');
   };
 
+  const isMobileView = window.innerWidth < 768;
+
   return (
     <main>
       <SC.CalendarContainer>
@@ -29,10 +31,15 @@ export const CalendarGrid = ({ startDay, today }: IProps) => {
           {[...Array(7)].map((_, idx) => (
             <SC.DayOfWeekItem key={idx}>
               <SC.DayOfWeek>
-                {moment()
-                  .day(idx + 1)
-                  .format('ddd')
-                  .toUpperCase()}
+                {isMobileView
+                  ? moment()
+                      .day(idx + 1)
+                      .format('dd')
+                      .slice(0, 1)
+                  : moment()
+                      .day(idx + 1)
+                      .format('ddd')
+                      .toUpperCase()}
               </SC.DayOfWeek>
             </SC.DayOfWeekItem>
           ))}

@@ -140,8 +140,8 @@ export const App = () => {
                   <PrivateRout redirectTo="/" component={<CurrentDayPage />} />
                 }
               />
-              </Route>
-              <Route path="*" element={<NotFoundPage />} />
+            </Route>
+            <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
       )}

@@ -2,9 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import { signUp } from '../../../redux/auth/authOperations';
 import { useInput } from '../../../hooks/useInput';
-import { FcGoogle } from 'react-icons/fc';
 import { FormEvent, useState } from 'react';
-import { HiEye, HiEyeOff } from 'react-icons/hi';
 import { ICredentials } from '../../../helpers/interfaces/auth/authInterfaces';
 import { ThunkDispatch } from '@reduxjs/toolkit';
 import { AnyAction } from 'redux';
@@ -40,13 +38,15 @@ export const RegisterForm = () => {
     <SC.Wrapper>
       <SC.InnerDiv>
         <SC.Form onSubmit={onSubmit} autoComplete="off">
-        <SC.TitleDiv>
-          <SC.Title>{t('Sign Up')}</SC.Title>
-          <ChangeLngElem />
-          <SC.Google href="https://your-tasks-hv5t.onrender.com/api/auth/google">
-            <FcGoogle style={{ width: '1.5em', height: '1.5em' }} />
-            <SC.Span><i>oo</i>gle</SC.Span>
-          </SC.Google>
+          <SC.TitleDiv>
+            <SC.Title>{t('Sign Up')}</SC.Title>
+            <ChangeLngElem />
+            <SC.Google href="https://your-tasks-hv5t.onrender.com/api/auth/google">
+              <SVG.GoogleIcon />
+              <SC.Span>
+                <i>oo</i>gle
+              </SC.Span>
+            </SC.Google>
           </SC.TitleDiv>
           <SC.Div>
             <SC.Label>
@@ -154,7 +154,11 @@ export const RegisterForm = () => {
                   : setPasswordType('password');
               }}
             >
-              {passwordType === 'password' ? <HiEye /> : <HiEyeOff />}
+              {passwordType === 'password' ? (
+                <SVG.EyeIcon />
+              ) : (
+                <SVG.EyeClosedIcon />
+              )}
             </SC.Eye>
           </SC.Div>
           <SC.Div>
@@ -198,7 +202,11 @@ export const RegisterForm = () => {
                   : setConfirmPasswordType('password');
               }}
             >
-              {confirmPasswordType === 'password' ? <HiEye /> : <HiEyeOff />}
+              {confirmPasswordType === 'password' ? (
+                <SVG.EyeIcon />
+              ) : (
+                <SVG.EyeClosedIcon />
+              )}
             </SC.Eye>
           </SC.Div>
           <SC.Button
