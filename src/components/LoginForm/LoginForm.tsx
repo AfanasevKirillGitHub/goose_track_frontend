@@ -116,6 +116,14 @@ export const LoginForm = () => {
             </SC.Eye>
           </SC.Div>
 
+          <SC.Button
+            type="submit"
+            disabled={!email.validForm || !password.validForm}
+          >
+            {t('Log In')}
+            <SVG.LogInIcon />
+          </SC.Button>
+
           <SC.Google href="https://your-tasks-hv5t.onrender.com/api/auth/google">
             <SC.Span>{t('login with')}</SC.Span>
             <SC.GoogleName>
@@ -125,13 +133,6 @@ export const LoginForm = () => {
               </SC.Span>
             </SC.GoogleName>
           </SC.Google>
-          <SC.Button
-            type="submit"
-            disabled={!email.validForm || !password.validForm}
-          >
-            {t('Log In')}
-            <SVG.LogInIcon />
-          </SC.Button>
         </SC.Form>
 
         <SC.Link to="/registration">{t('Sign Up')}</SC.Link>
