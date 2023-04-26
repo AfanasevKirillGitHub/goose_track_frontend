@@ -9,6 +9,7 @@ import { refreshUser } from '../../redux/auth/authOperations';
 import { Loader } from '../Loader/Loader';
 import { PrivateRout } from '../PrivateRoute/PrivateRoute';
 import { RestrictedRout } from '../RestrictedRoute/RestrictedRoute';
+import CalendarRedirect from '../../pages/CalendarPage/CalendarRedirect';
 
 const HomePage = lazy(() =>
   import('../../pages/HomePage/HomePage').then(module => ({
@@ -77,7 +78,7 @@ export const App = () => {
               path="/"
               element={
                 <RestrictedRout
-                  redirectTo="/user/calendar/month"
+                  redirectTo="/user/calendar"
                   component={<HomePage />}
                 />
               }
@@ -86,7 +87,7 @@ export const App = () => {
               path="/login"
               element={
                 <RestrictedRout
-                  redirectTo="/user/calendar/month"
+                  redirectTo="/user/calendar"
                   component={<LoginPage />}
                 />
               }
@@ -95,7 +96,7 @@ export const App = () => {
               path="/registration"
               element={
                 <RestrictedRout
-                  redirectTo="/user/calendar/month"
+                  redirectTo="/user/calendar"
                   component={<RegisterPage />}
                 />
               }
@@ -111,13 +112,23 @@ export const App = () => {
                 }
               />
               <Route
-                path="calendar/month"
+                path="calendar"
                 element={
-                  <PrivateRout redirectTo="/" component={<CalendarPage />} />
+                  <PrivateRout
+                    redirectTo="/"
+                    component={<CalendarRedirect />}
+                  />
                 }
-              />
+              >
+                <Route
+                  path="month"
+                  element={
+                    <PrivateRout redirectTo="/" component={<CalendarPage />} />
+                  }
+                />
+              </Route>
               <Route
-                path="calendar/month/day/:current"
+                path="calendar/day/:current"
                 element={
                   <PrivateRout redirectTo="/" component={<CurrentDayPage />} />
                 }
