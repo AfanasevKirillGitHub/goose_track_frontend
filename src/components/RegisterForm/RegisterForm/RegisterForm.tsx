@@ -203,15 +203,7 @@ export const RegisterForm = () => {
               )}
             </SC.Eye>
           </SC.Div>
-          <SC.Google href="https://your-tasks-hv5t.onrender.com/api/auth/google">
-            <SC.Span>{t('register with')}</SC.Span>
-            <SC.GoogleName>
-              <SVG.GoogleIcon />
-              <SC.Span>
-                <i>oo</i>gle
-              </SC.Span>
-            </SC.GoogleName>
-          </SC.Google>
+
           <SC.Button
             disabled={
               !email.validForm ||
@@ -224,6 +216,15 @@ export const RegisterForm = () => {
             {t('Sign Up')}
             <SVG.LogInIcon />
           </SC.Button>
+          <SC.Google href="https://your-tasks-hv5t.onrender.com/api/auth/google">
+            <SC.Span>{t('register with')}</SC.Span>
+            <SC.GoogleName>
+              <SVG.GoogleIcon />
+              <SC.Span>
+                <i>oo</i>gle
+              </SC.Span>
+            </SC.GoogleName>
+          </SC.Google>
         </SC.Form>
         <SC.Link to="/login">{t('Log In')}</SC.Link>
         <SC.GooseImage src={register} alt="goose" />
