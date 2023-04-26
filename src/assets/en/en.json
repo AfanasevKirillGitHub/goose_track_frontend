@@ -33,7 +33,12 @@
   "Password is correct": "Password is correct",
   "confirmPassword is correct": "confirmPassword is correct",
   "confirmPassword is not correct": "confirmPassword is not correct",
-  "Enter your name pls": "Enter your name pls",
+  "login with": "Log In with",
+  "register with": "Register with",
+  "Enter your name pls": "Enter your name please",
+  "Enter your name": "Enter your name",
+  "Enter your email": "Enter your email",
+  "Enter your password": "Enter your password",
   "Name is valid": "Name is valid",
   "Enter your city pls": "Enter your city pls",
   "City is valid": "City is valid",
@@ -57,5 +62,4 @@
   "My Account": "My Account",
   "Our team": "Our team",
   "Best of the best": "Best of the best"
-
 }
