@@ -1,7 +1,10 @@
 import * as SC from './HomePage.styled';
 import { useTranslation } from 'react-i18next';
+import { GetReviews } from '../review/gettReviews';
 
 import { IMG } from '../../images';
+
+
 
 export const HomePageMain = () => {
   const { t } = useTranslation();
@@ -116,6 +119,7 @@ export const HomePageMain = () => {
           </picture>
         </SC.ListItem>
       </SC.HomePageList>
+      <GetReviews />
     </>
   );
 };
