@@ -10,12 +10,16 @@ import * as SC from './UserForm.styled';
 export const UserForm = () => {
   const { user } = useAuth();
 
-  const [birthday, setBirthday] = useState(new Date(user.birthday) ?? '');
-  const [avatarURL, setAvatarURL] = useState('');
+  const [birthday, setBirthday] = useState(
+    user.birthday ? new Date(user.birthday) : ''
+  );
+  const [avatarURL, setAvatarURL] = useState(user.avatarURL ?? '');
   const [name, setName] = useState(user.name ?? '');
   const [skype, setSkype] = useState(user.skype ?? '');
   const [email, setEmail] = useState(user.email ?? '');
   const [phone, setPhone] = useState(user.phone ?? '');
+
+  console.log(avatarURL);
 
   // const name = useInput('', { isName: true });
   // const email = useInput('', { isEmail: true });
@@ -24,7 +28,6 @@ export const UserForm = () => {
 
   const handleChange = evt => {
     const { name, value, files } = evt.target;
-    console.log(value);
     switch (name) {
       case 'name':
         setName(value);
