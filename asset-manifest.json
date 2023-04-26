@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/static/css/main.fad6574e.css",
-    "main.js": "/static/js/main.48eedcb1.js",
+    "main.js": "/static/js/main.bd89f081.js",
     "static/js/799.32bf1291.chunk.js": "/static/js/799.32bf1291.chunk.js",
     "static/js/898.53865435.chunk.js": "/static/js/898.53865435.chunk.js",
     "static/js/91.5bd08b31.chunk.js": "/static/js/91.5bd08b31.chunk.js",
     "static/js/743.766d5c4f.chunk.js": "/static/js/743.766d5c4f.chunk.js",
-    "static/js/292.38816a7a.chunk.js": "/static/js/292.38816a7a.chunk.js",
+    "static/js/292.0a21ebe4.chunk.js": "/static/js/292.0a21ebe4.chunk.js",
     "static/js/136.e3568e3c.chunk.js": "/static/js/136.e3568e3c.chunk.js",
     "static/js/846.97ea1950.chunk.js": "/static/js/846.97ea1950.chunk.js",
     "static/js/711.4ed46542.chunk.js": "/static/js/711.4ed46542.chunk.js",
@@ -55,12 +55,12 @@
     "static/media/ellipse.svg": "/static/media/ellipse.798d4ac62e40ceecbf2467f91b3ca87d.svg",
     "static/media/rb.svg": "/static/media/rb.f3ae18d49d34a77ee35bed2743e96be0.svg",
     "main.fad6574e.css.map": "/static/css/main.fad6574e.css.map",
-    "main.48eedcb1.js.map": "/static/js/main.48eedcb1.js.map",
+    "main.bd89f081.js.map": "/static/js/main.bd89f081.js.map",
     "799.32bf1291.chunk.js.map": "/static/js/799.32bf1291.chunk.js.map",
     "898.53865435.chunk.js.map": "/static/js/898.53865435.chunk.js.map",
     "91.5bd08b31.chunk.js.map": "/static/js/91.5bd08b31.chunk.js.map",
     "743.766d5c4f.chunk.js.map": "/static/js/743.766d5c4f.chunk.js.map",
-    "292.38816a7a.chunk.js.map": "/static/js/292.38816a7a.chunk.js.map",
+    "292.0a21ebe4.chunk.js.map": "/static/js/292.0a21ebe4.chunk.js.map",
     "136.e3568e3c.chunk.js.map": "/static/js/136.e3568e3c.chunk.js.map",
     "846.97ea1950.chunk.js.map": "/static/js/846.97ea1950.chunk.js.map",
     "711.4ed46542.chunk.js.map": "/static/js/711.4ed46542.chunk.js.map",
@@ -72,6 +72,6 @@
   },
   "entrypoints": [
     "static/css/main.fad6574e.css",
-    "static/js/main.48eedcb1.js"
+    "static/js/main.bd89f081.js"
   ]
 }
