@@ -17,6 +17,8 @@ import { ReactComponent as UserAvatar } from './icons/user.svg';
 import { ReactComponent as GoogleIcon } from './icons/google.svg';
 import { ReactComponent as EyeIcon } from './icons/eye.svg';
 import { ReactComponent as EyeClosedIcon } from './icons/eye-slash.svg';
+import { ReactComponent as RadioButton } from './icons/rb.svg';
+import { ReactComponent as RadioButtonActive } from './icons/rb-active.svg';
 import { ReactComponent as NotFoundIcon } from './icons/sad_goose_404.svg';
 
 interface IIcons {
@@ -43,5 +45,7 @@ export const SVG: IIcons = {
   GoogleIcon,
   EyeIcon,
   EyeClosedIcon,
+  RadioButton,
+  RadioButtonActive,
   NotFoundIcon
 };

@@ -13,6 +13,18 @@ interface ICellWrapperProps {
   isSelectedMonth?: boolean;
 }
 
+export const CalendarContainer = styled.div`
+  width: 335px;
+
+  @media screen and (min-width: 768px) {
+    width: 704px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 1087px;
+  }
+`;
+
 export const CalendarGrid = styled.div<ICalendarGridProps>`
   border: 1px solid rgba(220, 227, 229, 0.8);
   display: grid;
@@ -68,12 +80,21 @@ export const DayOfWeek = styled.span`
 `;
 
 export const CellWrapper = styled.div<ICellWrapperProps>`
-  min-width: 120px;
-  min-height: 104px;
+  min-width: 100%;
+  min-height: 94px;
   padding: 8px;
   background-color: ${p => (p.isWeekend ? '#FFFFFF' : '#FFFFFF')};
   color: ${p => (p.isSelectedMonth ? '#343434' : 'rgba(220, 227, 229, 0.8)')};
+
+  @media screen and (min-width: 768px) {
+    min-height: 144px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    min-height: 104px;
+  }
 `;
+
 export const Link = styled(NavLink)`
   text-decoration: none;
 `;
