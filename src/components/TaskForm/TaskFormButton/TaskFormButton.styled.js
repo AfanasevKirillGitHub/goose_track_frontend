@@ -28,4 +28,16 @@ export const Button = styled.button`
   outline: none;
 
   cursor: pointer;
+
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    background-color: ${p => p.theme.colors.hoverYellow};
+    color: ${p => p.theme.colors.blue};
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 15px;
+  }
 `;
