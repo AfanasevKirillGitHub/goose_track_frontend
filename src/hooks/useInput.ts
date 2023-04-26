@@ -13,11 +13,10 @@ export const useInput = (initialValue: string, validations: ISetings) => {
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
   };
- 
-  const onBlur = (e: React.FocusEvent<HTMLElement>) => {
-    setIsDirty(true)
-  }
 
+  const onBlur = (e: React.FocusEvent<HTMLElement>) => {
+    setIsDirty(true);
+  };
 
   return {
     value,

@@ -1,46 +1,39 @@
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { useAuth } from '../../hooks/useAuth';
-// import { useInput } from '../../hooks/useInput';
+import { useInput } from '../../hooks/useInput';
 import { updateInfo } from '../../redux/auth/authOperations';
 import plus from '../../images/icons/plusAvatar.svg';
 import avatarDefault from '../../images/avatar-default.png';
 import * as SC from './UserForm.styled';
+import { useTranslation } from 'react-i18next';
 
 export const UserForm = () => {
+  const { t } = useTranslation();
   const { user } = useAuth();
 
   const [birthday, setBirthday] = useState(
     user.birthday ? new Date(user.birthday) : ''
   );
   const [avatarURL, setAvatarURL] = useState(user.avatarURL ?? avatarDefault);
-  const [name, setName] = useState(user.name ?? '');
-  const [skype, setSkype] = useState(user.skype ?? '');
-  const [email, setEmail] = useState(user.email ?? '');
-  const [phone, setPhone] = useState(user.phone ?? '');
 
-  console.log(avatarURL);
+  const name = useInput(user.name ?? '', { isName: true, maxLength: 16 });
+  const email = useInput(user.email ?? '', { isEmail: true });
+  const skype = useInput(user.skype ?? '', { maxLength: 16 });
+  const phone = useInput(user.phone ?? '', { isPhone: true });
 
-  // const name = useInput('', { isName: true });
-  // const email = useInput('', { isEmail: true });
+  // const avatarURL = useInput(user.avatarURL ?? avatarDefault, {
+  //   isEmail: true,
+  // });
+  // const birthday = useInput(user.birthday ? new Date(user.birthday) : '', {
+  //   isEmail: true,
+  // });
 
   const dispatch = useDispatch();
 
   const handleChange = evt => {
-    const { name, value, files } = evt.target;
+    const { name, files } = evt.target;
     switch (name) {
-      case 'name':
-        setName(value);
-        return;
-      case 'skype':
-        setSkype(value);
-        return;
-      case 'email':
-        setEmail(value);
-        return;
-      case 'phone':
-        setPhone(value);
-        return;
       case 'avatarURL':
         setAvatarURL(files[0]);
         return;
@@ -51,10 +44,10 @@ export const UserForm = () => {
 
   const handleSubmit = () => {
     const formData = new FormData();
-    formData.append('name', name);
-    formData.append('email', email);
-    formData.append('phone', phone);
-    formData.append('skype', skype);
+    formData.append('name', name.value);
+    formData.append('email', email.value);
+    formData.append('phone', phone.value);
+    formData.append('skype', skype.value);
     formData.append('birthday', birthday);
     formData.append('avatar', avatarURL);
 
@@ -85,24 +78,43 @@ export const UserForm = () => {
 
         <SC.InputList>
           <SC.LabelBtn htmlFor="username">
-            User Name
+            {t('Name')}
             <SC.Input
+              style={{
+                border:
+                  (name.isDirty && !name.nameError && '1px solid green') ||
+                  (name.isDirty && name.nameError && '1px solid red'),
+              }}
               type="text"
-              value={name}
+              value={name.value}
               name="name"
               id="name"
-              onChange={handleChange}
+              onChange={e => name.onChange(e)}
+              onBlur={e => name.onBlur(e)}
+              placeholder={t('Enter your name')}
+              required
             />
           </SC.LabelBtn>
+          {/* {name.isDirty && name.nameError && (
+            <SC.Notification style={{ color: 'red' }}>
+              {t('Enter your name pls')}
+            </SC.Notification>
+          )} */}
 
           <SC.LabelBtn htmlFor="phone">
             Phone
             <SC.Input
+              style={{
+                border:
+                  (phone.isDirty && !phone.phoneError && '1px solid green') ||
+                  (phone.isDirty && phone.phoneError && '1px solid red'),
+              }}
               type="tel"
               name="phone"
               id="phone"
-              value={phone}
-              onChange={handleChange}
+              value={phone.value}
+              onChange={e => phone.onChange(e)}
+              onBlur={e => phone.onBlur(e)}
             ></SC.Input>
           </SC.LabelBtn>
 
@@ -122,27 +134,56 @@ export const UserForm = () => {
           <SC.LabelBtn htmlFor="skype">
             Skype
             <SC.Input
+              style={{
+                border:
+                  (skype.isDirty && !skype.skypeError && '1px solid green') ||
+                  (skype.isDirty && skype.skypeError && '1px solid red'),
+              }}
               type="text"
               name="skype"
               id="skype"
-              value={skype}
-              onChange={handleChange}
+              value={skype.value}
+              onChange={e => skype.onChange(e)}
+              onBlur={e => skype.onBlur(e)}
             />
           </SC.LabelBtn>
 
           <SC.LabelBtn htmlFor="email">
-            Email
+            {t('Email')}
             <SC.Input
+              style={{
+                border:
+                  (email.isDirty && !email.emailError && '1px solid green') ||
+                  (email.isDirty && email.emailError && '1px solid red'),
+              }}
               type="email"
               name="email"
               id="email"
-              value={email}
-              onChange={handleChange}
+              value={email.value}
+              onChange={e => email.onChange(e)}
+              onBlur={e => email.onBlur(e)}
+              placeholder={t('Enter your email')}
+              required
             />
           </SC.LabelBtn>
+          {/* {email.isDirty && email.emailError && (
+            <SC.Notification style={{ color: 'red' }}>
+              {t('Enter a valid Email')}
+            </SC.Notification>
+          )} */}
         </SC.InputList>
 
-        <SC.Btn type="submit"> Save changes </SC.Btn>
+        <SC.Btn
+          disabled={
+            !email.validForm ||
+            !name.validForm ||
+            !phone.validForm ||
+            !skype.validForm
+          }
+          type="submit"
+        >
+          Save changes
+        </SC.Btn>
       </SC.Forms>
     </SC.Wrapper>
   );
