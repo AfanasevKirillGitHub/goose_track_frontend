@@ -10,7 +10,8 @@ export const Button = styled.button<IButton>`
   align-items: center;
   justify-content: center;
   margin-left: ${props =>
-    props.design ? props.theme.space[4] : props.theme.space[0]}px;
+    props.design ? "18" : props.theme.space[0]}px;
+    
   width: ${props => (props.design ? '108' : '141')}px;
   height: ${props => (props.design ? '37' : '46')}px;
   padding: ${props => props.theme.space[0]}px;
@@ -28,6 +29,7 @@ export const Button = styled.button<IButton>`
 
   svg {
     margin-left: ${props => props.theme.space[3]}px;
+   
   }
 
   :hover,

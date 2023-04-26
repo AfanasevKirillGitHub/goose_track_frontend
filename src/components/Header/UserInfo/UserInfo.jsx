@@ -12,9 +12,13 @@ export const UserInfo = () => {
   return (
     <>
       <SC.UserInfo onClick={toggleModal}>
-        <UserAvatar />
+        <UserAvatar invert />
       </SC.UserInfo>
-      {showModal && <ModalUserInfo toggleModal={toggleModal} />}
+      {showModal && (
+        <ModalUserInfo toggleModal={toggleModal}>
+          <UserAvatar />
+        </ModalUserInfo>
+      )}
     </>
   );
 };

@@ -7,7 +7,6 @@ export const ButtonOpen = styled.button`
     width: 24px;
     height: 24px;
     padding: 0;
-    margin-left: auto;
 
     color: ${p => p.theme.colors.black5};
     background-color: rgba(0, 0, 0, 0);

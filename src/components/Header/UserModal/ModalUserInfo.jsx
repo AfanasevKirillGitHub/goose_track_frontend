@@ -6,11 +6,10 @@ import * as SC from './ModalUserInfo.styled';
 
 import { createPortal } from 'react-dom';
 import { useEffect } from 'react';
-import { UserAvatar } from '../UserAvatar/UserAvatar';
 
 const modalUserRoot = document.querySelector('#user-modal');
 
-export const ModalUserInfo = ({ toggleModal }) => {
+export const ModalUserInfo = ({ toggleModal, children }) => {
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -37,8 +36,8 @@ export const ModalUserInfo = ({ toggleModal }) => {
   return createPortal(
     <SC.Overlay onClick={closeOnClick}>
       <SC.ModalUserInfo>
-        <UserAvatar />
-        <SC.Link to="account">
+        {children}
+        <SC.Link to="account" onClick={closeOnClick}>
           <SVG.UserCheck />
           {t('My Account')}
         </SC.Link>
