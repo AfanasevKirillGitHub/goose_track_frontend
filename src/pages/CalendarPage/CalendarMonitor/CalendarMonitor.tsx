@@ -37,7 +37,7 @@ export const CalendarMonitor = ({
           <SC.TitleWrapper>{today.format('MMMM')}</SC.TitleWrapper>
           <SC.TextWrapper>{today.format('YYYY')}</SC.TextWrapper>
         </SC.TextWrapperOutline>
-        <SC.ButtonsWrapper>
+        <SC.ChevronButtonsWrapper>
           <SC.ChevronButton
             type="button"
             onClick={prevHandler}
@@ -59,7 +59,7 @@ export const CalendarMonitor = ({
           >
             <SVG.Chevron />
           </SC.ChevronButton>
-        </SC.ButtonsWrapper>
+        </SC.ChevronButtonsWrapper>
         <SC.TodayButton type="button" onClick={todayHandler}>
           {t('Today')}
         </SC.TodayButton>

@@ -14,14 +14,14 @@ interface ICellWrapperProps {
 }
 
 export const CalendarContainer = styled.div`
-  width: 335px;
+  width: 100%;
+  padding-top: 12px;
 
   @media screen and (min-width: 768px) {
-    width: 704px;
+    padding-top: 16px;
   }
 
   @media screen and (min-width: 1440px) {
-    width: 1087px;
   }
 `;
 
@@ -29,7 +29,6 @@ export const CalendarGrid = styled.div<ICalendarGridProps>`
   border: 1px solid rgba(220, 227, 229, 0.8);
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  /* grid-template-rows: repeat(6, 1fr); */
   grid-gap: 1px;
   background-color: ${p =>
     p.isHeader ? 'rgba(220, 227, 229, 0.8)' : 'rgba(220, 227, 229, 0.8)'};
@@ -51,6 +50,8 @@ export const WeekWrapper = styled.ul<ICellWrapperProps>`
 
   border: 1px solid rgba(220, 227, 229, 0.8);
   border-radius: ${props => props.theme.radii.normal};
+
+  background-color: ${props => props.theme.colors.white};
 
   font-weight: 600;
   font-size: 14px;
@@ -106,14 +107,21 @@ export const TopRopperInCell = styled.div<ITopRopperInCellProps>`
 `;
 
 export const DayWrapper = styled.div`
-  width: 27px;
-  height: 26px;
+  width: 21px;
+  height: 22px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 16px;
-  line-height: 1.125;
+  font-size: 12px;
+  line-height: 1.1667;
+
+  @media screen and (min-width: 768px) {
+    width: 27px;
+    height: 26px;
+    font-size: 16px;
+    line-height: 1.125;
+  }
 `;
 
 export const CurrentDay = styled.div`
@@ -122,9 +130,13 @@ export const CurrentDay = styled.div`
   justify-content: center;
   background-color: ${props => props.theme.colors.blue};
   color: ${props => props.theme.colors.white};
-  border-radius: ${props => props.theme.radii.normal};
+  border-radius: 6px;
   width: 100%;
   height: 100%;
+
+  @media screen and (min-width: 768px) {
+    border-radius: ${props => props.theme.radii.normal};
+  }
 `;
 
 export const ShowDaywrapper = styled.div`

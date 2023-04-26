@@ -2,16 +2,31 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const CalendarMonitorWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  padding-top: 32px;
-  padding-bottom: 32px;
+  padding-top: 16px;
+  padding-bottom: 16px;
   width: 100%;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+  }
 `;
 
 export const LeftWrapper = styled.div`
   display: flex;
   align-items: center;
+
+  @media screen and (max-width: 767px) {
+    justify-content: space-between;
+  }
+
+  @media screen and (min-width: 768px) {
+    gap: 8px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    gap: 16px;
+  }
 `;
 export const TextWrapperOutline = styled.div`
   display: flex;
@@ -21,23 +36,35 @@ export const TextWrapperOutline = styled.div`
   color: ${props => props.theme.colors.white};
   padding: 8px 12px;
   border-radius: 8px;
-  min-width: 173px;
   height: 100%;
+  min-width: 155px;
+
+  @media screen and (min-width: 768px) {
+    min-width: 173px;
+  }
 `;
 
 export const TextWrapper = styled.span`
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   font-weight: 700;
-  font-size: 16px;
-  line-height: 0.9;
+  font-size: 14px;
+  line-height: 1.286;
+
   text-transform: uppercase;
+
   color: #ffffff;
   min-width: 24px;
 
   &:not(:last-of-type) {
     margin-right: 10px;
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.125;
   }
 `;
 
@@ -46,13 +73,21 @@ export const TitleWrapper = styled(TextWrapper)`
 `;
 
 export const ButtonsWrapper = styled.div`
-  margin-left: 16px;
   display: flex;
   align-items: center;
 
   font-weight: 500;
   font-size: 16px;
   line-height: 1.125;
+
+  @media screen and (max-width: 767px) {
+    margin-top: 16px;
+  }
+`;
+
+export const ChevronButtonsWrapper = styled.div`
+  display: flex;
+  align-items: center;
 `;
 
 export const ChevronButton = styled.button`
@@ -61,18 +96,23 @@ export const ChevronButton = styled.button`
   align-items: center;
   cursor: pointer;
   background-color: transparent;
-  padding: 8px 16px;
+  padding: 7px;
   border: 1px solid rgba(220, 227, 229, 0.5);
   color: #616161;
 
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
+
+  @media screen and (min-width: 768px) {
+    padding: 8px 16px;
+  }
 `;
 
 export const TodayButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+
   cursor: pointer;
   background-color: transparent;
   border-radius: 8px;
@@ -84,7 +124,9 @@ export const TodayButton = styled.button`
   line-height: 1.125;
   color: #616161;
 
-  margin-left: 16px;
+  @media screen and (min-width: 768px) {
+    padding: 8px 16px;
+  }
 `;
 
 export const ButtonWrapper = styled.button`
