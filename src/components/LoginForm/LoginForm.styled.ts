@@ -133,12 +133,25 @@ export const Notification = styled.span`
 `;
 
 export const Google = styled.a`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  height: 45px;
+  border: ${props => props.theme.borders.userInput};
+  padding: 22px;
+  border-radius: ${props => props.theme.radii.normal};
+
   height: 24px;
   text-decoration: none;
-  display: flex;
-  align-items: center;
+
   color: ${props => props.theme.colors.blue};
   font-family: ${props => props.theme.fontFamily.logo};
+`;
+
+export const GoogleName = styled.div`
+  display: flex;
+  align-items: center;
 `;
 
 export const Eye = styled.span`

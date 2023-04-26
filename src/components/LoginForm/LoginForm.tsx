@@ -35,12 +35,6 @@ export const LoginForm = () => {
           <SC.TitleDiv>
             <SC.Title>{t('Log In')}</SC.Title>
             <ChangeLngElem />
-            <SC.Google href="https://your-tasks-hv5t.onrender.com/api/auth/google">
-              <SVG.GoogleIcon />
-              <SC.Span>
-                <i>oo</i>gle
-              </SC.Span>
-            </SC.Google>
           </SC.TitleDiv>
           <SC.Div>
             <SC.Label>
@@ -121,6 +115,16 @@ export const LoginForm = () => {
               )}
             </SC.Eye>
           </SC.Div>
+
+          <SC.Google href="https://your-tasks-hv5t.onrender.com/api/auth/google">
+            <SC.Span>{t('login with')}</SC.Span>
+            <SC.GoogleName>
+              <SVG.GoogleIcon />
+              <SC.Span>
+                <i>oo</i>gle
+              </SC.Span>
+            </SC.GoogleName>
+          </SC.Google>
           <SC.Button
             type="submit"
             disabled={!email.validForm || !password.validForm}
