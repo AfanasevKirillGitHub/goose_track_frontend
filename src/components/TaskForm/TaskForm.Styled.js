@@ -95,15 +95,41 @@ export const RadioButton = styled.input`
   clip: rect(0 0 0 0);
   overflow: hidden;
 `;
+export const CustomRadioButton = styled.span`
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  color: ${p => {
+    switch (p.name) {
+      case 'low':
+        return p.theme.colors.blue5;
+      case 'medium':
+        return p.theme.colors.yellow;
+      case 'high':
+        return p.theme.colors.pink;
+      default:
+        return p.theme.colors.grey4;
+    }
+  }};
+
+  border-radius: ${p => p.theme.radii.round};
+`;
 
 export const PriorityLabel = styled.label`
-  display: block;
+  display: flex;
+  gap: 6px;
 
   font-family: ${p => p.theme.fontFamily.main};
   font-size: ${p => p.theme.fontSizes.s};
   font-weight: ${p => p.theme.fontWeights.semiBold};
-  line-height: ${props => props.theme.lineHeights.s};
+  line-height: ${p => p.theme.lineHeights.s};
   text-transform: capitalize;
 
   color: ${p => p.theme.colors.grey};
+`;
+
+export const Buttons = styled.div`
+  display: flex;
+  gap: 14px;
+  width: 100%;
 `;

@@ -16,9 +16,9 @@ export const TaskModal = ({ status, data }) => {
     <>
       <AddTaskBtn onClick={toggleModal} />
 
-      {isOpenModal && (
+      {!isOpenModal && (
         <Modal toggleModal={toggleModal}>
-          <TaskForm fieldsData={formData} />
+          <TaskForm fieldsData={formData} toggleModal={toggleModal} />
         </Modal>
       )}
     </>

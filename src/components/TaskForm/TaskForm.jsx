@@ -7,6 +7,7 @@ import moment from 'moment';
 import 'moment/locale/uk';
 import { SVG } from '../../images';
 import * as SC from './TaskForm.Styled';
+import { TaskFormButton } from './TaskFormButton';
 
 const PRIORITY = ['low', 'medium', 'high'];
 const taskCreateTime = moment(Date.now()).format('HH:mm');
@@ -18,9 +19,8 @@ const taskCreateTime = moment(Date.now()).format('HH:mm');
 //   date: '2023-04-25',
 //   priority: 'low',
 // };
-// const modalData = Object.keys(TEMP_MODAL_DATA).length ? TEMP_MODAL_DATA : null;
 
-export const TaskForm = ({ fieldsData }) => {
+export const TaskForm = ({ fieldsData, toggleModal }) => {
   const addMinutes = minutes => +Date.now() + minutes * 60 * 1000;
   //ts
   // const lang = localStorage.getItem('i18nextLng') as string;
@@ -45,13 +45,9 @@ export const TaskForm = ({ fieldsData }) => {
 
   // console.log('in form fieldsData :>> ', fieldsData);
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit } = useForm();
 
-  console.log('errors :>> ', errors);
+  // console.log('errors :>> ', errors);
 
   const onError = (errors, e) => {
     const errorFields = Object.keys(errors);
@@ -69,11 +65,13 @@ export const TaskForm = ({ fieldsData }) => {
     if (!isValidStartTime) {
       toast.error("Start time can't be in past!");
       setStart(taskCreateTime);
+      return;
     }
 
     if (!isValidEndTime) {
       toast.error("End time can't be lower of start time!");
-      setEnd(defaultEndTime);
+      setEnd(taskCreateTime);
+      return;
     }
 
     // console.log('taskData :>> ', { data: taskData, lang });
@@ -84,6 +82,7 @@ export const TaskForm = ({ fieldsData }) => {
     // addTask({ data: taskData, lang });
 
     addTask({ data: taskData, lang });
+    toggleModal();
   };
 
   const onInput = e => {
@@ -105,8 +104,6 @@ export const TaskForm = ({ fieldsData }) => {
         break;
     }
   };
-
-  // console.log('taskIsLoading :>> ', taskIsLoading);
 
   return (
     <SC.Form onSubmit={handleSubmit(onSubmit, onError)}>
@@ -156,7 +153,7 @@ export const TaskForm = ({ fieldsData }) => {
 
       {/* Блок PRIORITY */}
       <SC.PriorityList>
-        {PRIORITY.map((priorityEl, idx) => {
+        {PRIORITY.map((name, idx) => {
           const sellectedByDefault = PRIORITY[idx] === PRIORITY[0];
 
           const isSelected = priority
@@ -164,7 +161,7 @@ export const TaskForm = ({ fieldsData }) => {
             : sellectedByDefault;
 
           return (
-            <SC.PriorityItem key={priority}>
+            <SC.PriorityItem key={name}>
               <SC.PriorityLabel>
                 <SC.RadioButton
                   {...register('priority', {
@@ -174,23 +171,34 @@ export const TaskForm = ({ fieldsData }) => {
                     },
                   })}
                   type="radio"
-                  value={priority}
+                  value={name}
                   defaultChecked={isSelected}
                   onChange={e => setPriority(e.target.value)}
                 />
-                <span>is sell {isSelected}</span>
-                {priority}
+                <SC.CustomRadioButton name={name}>
+                  {isSelected ? <SVG.RadioButtonActive /> : <SVG.RadioButton />}
+                </SC.CustomRadioButton>
+                {name}
               </SC.PriorityLabel>
             </SC.PriorityItem>
           );
         })}
       </SC.PriorityList>
-      <div>
-        <button type="submit" disabled={taskIsLoading}>
+      <SC.Buttons>
+        <TaskFormButton type="submit" disabled={taskIsLoading}>
+          {modalType === 'add' ? (
+            <SVG.AddIcon width="18px" height="18px" />
+          ) : (
+            <SVG.EditIcon />
+          )}
           {modalType}
-        </button>
-        <button type="button">Cancel</button>
-      </div>
+        </TaskFormButton>
+        {modalType === 'add' && (
+          <TaskFormButton type="button" onClick={toggleModal}>
+            Cancel
+          </TaskFormButton>
+        )}
+      </SC.Buttons>
     </SC.Form>
   );
 };
