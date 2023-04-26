@@ -7,12 +7,12 @@ export const AddReview = () => {
     const [stars, setStars] = useState('')
 
     const handlInputChange = evt => {
-        const field = evt.target;
-        switch (field.name) {
+        const {value,name} = evt.target;
+        switch (name) {
           case 'review':
-            return setReview(field.value);
+            return setReview(value);
           case 'stars':
-            return setStars(field.value);
+            return setStars(value);
           default:
             return;
         }
@@ -22,39 +22,21 @@ export const AddReview = () => {
         e.preventDefault();
         
         addReview({reviewText: review, stars})
+        setReview('');
+        setStars('');
     }
 
     return (
-        <form onClick={handleSubmit}>
+        <form onSubmit={handleSubmit}>
             <label>
                 leave your review
-                <textarea onChange={handlInputChange} value={review} name='review' disabled={isLoading} maxlength="189" cols="25" rows="7"></textarea>
+                <textarea onChange={handlInputChange} value={review} name='review'  maxlength="189" cols="25" rows="7"></textarea>
              </label>
             <label>
                 stars
                 <input onChange={handlInputChange} type="number" value={stars} name='stars' min='1' max='5' />
             </label>
-            {/* <label>
-            <input type="radio"  
-            name="stars" value="1"/>
-            1</label>
-            <label>
-            <input type="radio"  
-            name="stars" value="2"/>
-            2</label>
-            <label>
-            <input type="radio"  
-            name="stars" value="3"/>
-            3</label>
-            <label>
-            <input type="radio"  
-            name="stars" value="4"/>
-            4</label>
-            <label>
-            <input type="radio"  
-            name="stars" value="5"/>
-            5</label> */}
-          <button type="submit">add review</button>
+          <button type="submit" disabled={isLoading || review==='' ||stars===''} >add review</button>
         </form>
     )
 }

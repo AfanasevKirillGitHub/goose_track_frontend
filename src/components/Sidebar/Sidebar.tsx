@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { accountPages } from '../../helpers/pages';
 import { LogoutBtn } from './LogoutBtn/LogoutBtn';
+import {AddReview} from '../review/addReview'
 import { SVG } from '../../images';
 import goose from '../../images/goose.png';
 import * as SC from './Sidebar.styled';
@@ -34,6 +35,7 @@ export const AccountSidebar = () => {
             ))}
           </SC.NavList>
         </div>
+        <AddReview />
         <LogoutBtn />
       </SC.Sidebar>
     </SC.MenuContainer>

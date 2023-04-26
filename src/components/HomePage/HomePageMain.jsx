@@ -11,6 +11,7 @@ import homeRageM2 from '../../images/homePage/homePageM2.png';
 import homeRage3 from '../../images/homePage/homePage3.png';
 import homeRageD3 from '../../images/homePage/homePageD3.png';
 import homeRageM3 from '../../images/homePage/homePageM3.png';
+import {GetReviews} from '../review/gettReviews'
 
 export const HomePageMain = () => {
   const { t } = useTranslation();
@@ -133,6 +134,7 @@ export const HomePageMain = () => {
           </picture>
         </SC.ListItem>
       </SC.HomePageList>
+      <GetReviews />
     </>
   );
 };
