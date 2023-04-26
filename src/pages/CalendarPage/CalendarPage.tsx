@@ -28,16 +28,14 @@ export const CalendarPage = () => {
   };
 
   return (
-    <div style={{ display: 'flex' }}>
-      <SC.ShadowWrapper>
-        <CalendarMonitor
-          prevHandler={prevHandler}
-          nextHandler={nextHandler}
-          todayHandler={todayHandler}
-          today={today}
-        />
-        <CalendarGrid startDay={startDay} today={today} />
-      </SC.ShadowWrapper>
-    </div>
+    <SC.ShadowWrapper>
+      <CalendarMonitor
+        prevHandler={prevHandler}
+        nextHandler={nextHandler}
+        todayHandler={todayHandler}
+        today={today}
+      />
+      <CalendarGrid startDay={startDay} today={today} />
+    </SC.ShadowWrapper>
   );
 };

@@ -20,6 +20,7 @@ import { ReactComponent as EyeClosedIcon } from './icons/eye-slash.svg';
 import { ReactComponent as RadioButton } from './icons/rb.svg';
 import { ReactComponent as RadioButtonActive } from './icons/rb-active.svg';
 import { ReactComponent as NotFoundIcon } from './icons/sad_goose_404.svg';
+import { ReactComponent as DropIcon } from './icons/water-drop.svg';
 
 import homePage1 from './homePage/homePage1.png';
 import homePage2 from './homePage/homePage2.png';
@@ -65,6 +66,7 @@ export const SVG: IIcons = {
   RadioButton,
   RadioButtonActive,
   NotFoundIcon,
+  DropIcon,
 };
 
 export const IMG: IImg = {
