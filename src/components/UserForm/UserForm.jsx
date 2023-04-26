@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { useAuth } from '../../hooks/useAuth';
+// import { useInput } from '../../hooks/useInput';
 import { updateInfo } from '../../redux/auth/authOperations';
 import plus from '../../images/icons/plusAvatar.svg';
 import avatarDefault from '../../images/avatar-default.png';
@@ -8,19 +9,23 @@ import * as SC from './UserForm.styled';
 
 export const UserForm = () => {
   const { user } = useAuth();
-  const [birthday, setBirthday] = useState(user.birthday ?? '');
+  console.log(user.birthday.slice(0, 10));
+
+  const [birthday, setBirthday] = useState(new Date(user.birthday) ?? '');
   const [avatarURL, setAvatarURL] = useState('');
   const [name, setName] = useState(user.name ?? '');
   const [skype, setSkype] = useState(user.skype ?? '');
   const [email, setEmail] = useState(user.email ?? '');
   const [phone, setPhone] = useState(user.phone ?? '');
 
-  // console.log(avatarURL);
+  // const name = useInput('', { isName: true });
+  // const email = useInput('', { isEmail: true });
+
   const dispatch = useDispatch();
 
   const handleChange = evt => {
     const { name, value, files } = evt.target;
-
+    console.log(value);
     switch (name) {
       case 'name':
         setName(value);
@@ -43,15 +48,15 @@ export const UserForm = () => {
   };
 
   const handleSubmit = () => {
-    const newUser = {
-      name,
-      email,
-      phone,
-      skype,
-      birthday,
-      avatarURL,
-    };
-    dispatch(updateInfo(newUser));
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('email', email);
+    formData.append('phone', phone);
+    formData.append('skype', skype);
+    formData.append('birthday', birthday);
+    formData.append('avatar', avatarURL);
+
+    dispatch(updateInfo(formData));
   };
 
   return (
@@ -68,7 +73,7 @@ export const UserForm = () => {
             id="avatar"
             type="file"
             onChange={handleChange}
-            accept="image/*,.png,.jpg,.gif,.web"
+            accept="image/*,.png,.jpg,.jpeg,.webp"
             name="avatarURL"
           />
         </SC.LabelImg>
@@ -108,7 +113,7 @@ export const UserForm = () => {
               input={true}
               selected={birthday}
               onChange={data => setBirthday(data)}
-              dateFormat="dd/MM/yyyy"
+              dateFormat="yyyy-MM-dd"
             />
           </SC.LabelBtn>
 
