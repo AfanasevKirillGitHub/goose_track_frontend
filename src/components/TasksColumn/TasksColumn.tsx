@@ -1,3 +1,4 @@
+import { ITask } from '../../helpers/interfaces/taskApiInterface/taskApiInterface';
 import { useModal } from '../../hooks/useModal';
 import { AddTaskBtn } from '../AddTaskBtn/AddTaskBtn';
 import { ColumnHeadBar } from '../ColumnHeadBar/ColumnHeadBar';
@@ -5,7 +6,13 @@ import { ColumnTasksList } from '../ColumnTasksList/ColumnTasksList';
 import { TaskModal } from '../TaskModal';
 import { Column } from './TasksColumn.styled';
 
-export const TasksColumn = ({ name, tasks, status }) => {
+interface ITaskColumnProps {
+  name: string;
+  status: string;
+  tasks: ITask[];
+}
+
+export const TasksColumn = ({ name, tasks, status }: ITaskColumnProps) => {
   const { isOpenModal, toggleModal } = useModal();
 
   const modalStatus = name;
@@ -20,7 +27,7 @@ export const TasksColumn = ({ name, tasks, status }) => {
       name = 'Done';
       break;
     default:
-      return;
+      return null;
   }
 
   return (

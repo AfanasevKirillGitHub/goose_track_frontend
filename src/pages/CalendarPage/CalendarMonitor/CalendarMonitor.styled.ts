@@ -125,13 +125,15 @@ export const TodayButton = styled.button`
   border: 1px solid rgba(220, 227, 229, 0.5);
 
   font-weight: 500;
-  font-size: 16px;
-  line-height: 1.125;
+  font-size: 12px;
+  line-height: 1.1667;
   background-color: ${props => props.theme.colors.white};
   color: #616161;
 
   @media screen and (min-width: 768px) {
     padding: 8px 16px;
+    font-size: 16px;
+    line-height: 1.125;
   }
 `;
 
