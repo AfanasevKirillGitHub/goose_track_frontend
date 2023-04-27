@@ -2,10 +2,13 @@ import { useValidation } from './useValidation';
 import { useState } from 'react';
 
 interface ISetings {
-  [key: string]: boolean | number | string;
+  [key: string]: boolean | number | string | Date;
 }
 
-export const useInput = (initialValue: string, validations: ISetings) => {
+export const useInput = (
+  initialValue: string | Date,
+  validations: ISetings
+) => {
   const [value, setValue] = useState(initialValue);
   const [isDirty, setIsDirty] = useState(false);
   const valid = useValidation(value, validations);
