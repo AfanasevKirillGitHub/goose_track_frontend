@@ -16,7 +16,7 @@ export const UserForm = () => {
     user.birthday ? new Date(user.birthday) : ''
   );
 
-  const [avatarURL, setAvatarURL] = useState(user.avatarURL ?? avatarDefault);
+   const [avatarURL, setAvatarURL] = useState(null);
 
   const name = useInput(user.name ?? '', { isName: true });
   const email = useInput(user.email ?? '', { isEmail: true });
