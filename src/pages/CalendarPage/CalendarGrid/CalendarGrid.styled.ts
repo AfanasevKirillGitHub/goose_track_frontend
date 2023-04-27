@@ -12,6 +12,9 @@ interface ICellWrapperProps {
   isWeekend?: boolean;
   isSelectedMonth?: boolean;
 }
+interface ITaskListItem {
+  design: string;
+}
 
 export const CalendarContainer = styled.div`
   width: 100%;
@@ -147,4 +150,31 @@ export const ShowDaywrapper = styled.div`
 export const TasksList = styled.ul`
   list-style: none;
   padding-left: 10px;
+`;
+
+export const TasksListItem = styled.li<ITaskListItem>`
+  background-color: ${p => {
+    switch (p.design) {
+      case 'low':
+        return p.theme.colors.blue5;
+      case 'medium':
+        return p.theme.colors.yellow;
+      case 'high':
+        return p.theme.colors.pink;
+      default:
+        return p.theme.colors.grey4;
+    }
+  }};
+`;
+
+export const TasksListItemDiv = styled.li`
+  display: inline-block;
+  :not(:last-child) {
+    margin-right: 5px;
+  }
+`;
+
+export const TasksListItemMany = styled(TasksListItem)<ITaskListItem>`
+  width: 20px;
+  height: 20px;
 `;
