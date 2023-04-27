@@ -1,9 +1,13 @@
+import { useModal } from '../../hooks/useModal';
+import { AddTaskBtn } from '../AddTaskBtn/AddTaskBtn';
 import { ColumnHeadBar } from '../ColumnHeadBar/ColumnHeadBar';
 import { ColumnTasksList } from '../ColumnTasksList/ColumnTasksList';
 import { TaskModal } from '../TaskModal';
 import { Column } from './TasksColumn.styled';
 
 export const TasksColumn = ({ name, tasks, status }) => {
+  const { isOpenModal, toggleModal } = useModal();
+
   const modalStatus = name;
   switch (name) {
     case 'todo':
@@ -23,7 +27,11 @@ export const TasksColumn = ({ name, tasks, status }) => {
     <Column>
       <ColumnHeadBar name={name}></ColumnHeadBar>
       <ColumnTasksList tasks={tasks} status={status}></ColumnTasksList>
-      <TaskModal status={modalStatus} data={null} />
+      {isOpenModal && (
+        <TaskModal status={modalStatus} data={null} toggleModal={toggleModal} />
+      )}
+
+      <AddTaskBtn onClick={toggleModal} />
     </Column>
   );
 };

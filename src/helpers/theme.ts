@@ -83,6 +83,7 @@ export const theme: ITheme = {
     hoverBackground: 'gold',
     backdropBackground: 'rgba(227,243,255, 0.8)',
     modalBackground: '#FFFFFF',
+    taskCardBackground: '#F7F6F9',
   },
   radii: {
     none: '0',
