@@ -1,17 +1,23 @@
 import styled from 'styled-components';
 
-interface IButton {
-  design?: boolean;
-  to?: boolean;
-}
+export const Form = styled.form`
+display: flex;
+flex-direction: column;
+align-items: center;
 
-export const Button = styled.button<IButton>`
+`
+
+export const Label = styled.label`
+display: flex;
+flex-direction: column;
+`
+
+export const Button = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
   margin-left: ${props =>
-    props.design ? "18" : props.theme.space[0]}px;
-    
+    props.design ? props.theme.space[4] : props.theme.space[0]}px;
   width: ${props => (props.design ? '108' : '141')}px;
   height: ${props => (props.design ? '37' : '46')}px;
   padding: ${props => props.theme.space[0]}px;
@@ -29,7 +35,6 @@ export const Button = styled.button<IButton>`
 
   svg {
     margin-left: ${props => props.theme.space[3]}px;
-   
   }
 
   :hover,

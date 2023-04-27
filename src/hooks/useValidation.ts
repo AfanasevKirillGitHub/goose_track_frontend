@@ -7,9 +7,11 @@ interface ISetings {
 export const useValidation = (value: string, validations: ISetings) => {
   const [emailError, setEmailError] = useState(false);
   const [confirmError, setConfirmError] = useState(false);
-  const [nameError, setNameError] = useState(false)
-  const [passwordError, setPasswordError] = useState(false)
-  const [validForm, setValidForm] = useState(false)
+  const [nameError, setNameError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
+  const [validForm, setValidForm] = useState(false);
+  const [skypeError, setSkypeError] = useState(false);
+  const [phoneError, setPhoneError] = useState(false);
 
   useEffect(() => {
     for (const validation in validations) {
@@ -27,36 +29,65 @@ export const useValidation = (value: string, validations: ISetings) => {
             : setConfirmError(true);
           break;
         case 'isName':
-          const reName = /^\p{L}+$/u
+          const reName = /^[\p{L}]{1,16}$/u;
           reName.test(String(value).toLowerCase())
-          ? setNameError(false)
-          : setNameError(true);
-          break
+            ? setNameError(false)
+            : setNameError(true);
+          break;
         case 'isPassword':
-          const rePassword = /^(?=.*)[^\s]{7,32}$/ 
+          const rePassword = /^(?=.*)[^\s]{7,32}$/;
           rePassword.test(String(value).toLowerCase())
-          ? setPasswordError(false)
-          : setPasswordError(true);
-          break
+            ? setPasswordError(false)
+            : setPasswordError(true);
+          break;
+        case 'maxLength':
+          value.length > +validations[validation]
+            ? setSkypeError(true)
+            : setSkypeError(false);
+          break;
+        case 'isPhone':
+          const rePhone = /^(\+38)?[0-9]{10}$/;
+          if (value === '' || rePhone.test(value)) {
+            setPhoneError(false);
+          } else {
+            setPhoneError(true);
+          }
+          break;
         default:
-          console.log('нет такой проверки');
+          return;
       }
     }
   }, [value, validations]);
 
-useEffect(() => {
-  if(emailError || nameError || passwordError || confirmError){
-    setValidForm(false)
-  } else{
-    setValidForm(true)
-  }
-},[emailError, nameError, passwordError, confirmError])
+  useEffect(() => {
+    if (
+      emailError ||
+      nameError ||
+      passwordError ||
+      confirmError ||
+      skypeError ||
+      phoneError
+    ) {
+      setValidForm(false);
+    } else {
+      setValidForm(true);
+    }
+  }, [
+    emailError,
+    nameError,
+    passwordError,
+    confirmError,
+    skypeError,
+    phoneError,
+  ]);
 
   return {
     emailError,
     confirmError,
     nameError,
     passwordError,
-    validForm
+    validForm,
+    skypeError,
+    phoneError,
   };
 };

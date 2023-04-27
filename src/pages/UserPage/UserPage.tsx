@@ -5,9 +5,9 @@ import { Header } from '../../components/Header/Header';
 import { Loader } from '../../components/Loader/Loader';
 import * as SC from './UserPage.styled';
 
-export const UserPage = () => {
+export const UserPage: React.FC = () => {
   return (
-    <SC.Wrapper>
+    <SC.Wrapper className="container">
       <AccountSidebar />
       <div>
         <Header />

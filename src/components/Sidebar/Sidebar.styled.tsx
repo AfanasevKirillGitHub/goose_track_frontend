@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const MenuContainer = styled.div`
+  background-color: ${props => props.theme.colors.white};
   @media screen and (max-width: 1439px) {
     position: fixed;
     left: 0;
@@ -9,27 +10,27 @@ export const MenuContainer = styled.div`
     z-index: 5;
     width: 100%;
     height: 100%;
-    background-color: rgba(227,243,255, 0.8);
-    
+    background-color: rgba(227, 243, 255, 0.8);
+
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    
+
     transition-property: opacity, visibility;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    
+
     &.is-open {
       opacity: 1;
       visibility: visible;
       pointer-events: initial;
     }
-    
+
     &.is-open > div {
       transform: translateX(0);
     }
   }
-  `;
+`;
 
 export const Sidebar = styled.div`
   display: flex;
@@ -104,7 +105,7 @@ export const Title = styled.h1`
   line-height: ${props => props.theme.lineHeights.xl};
   text-shadow: 0px 47px 355px rgba(0, 0, 0, 0.07),
     0px 9.4px 57.6875px rgba(0, 0, 0, 0.035);
-  
+
   @media screen and (min-width: 768px) and (max-width: 1439px) {
     font-size: ${props => props.theme.fontSizes.l};
     line-height: ${props => props.theme.lineHeights.xl};
@@ -154,7 +155,8 @@ export const Link = styled(NavLink)`
   line-height: ${props => props.theme.lineHeights.m};
   color: ${p => p.theme.colors.grey3};
   border-radius: ${props => props.theme.radii.normal};
-  transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out, border-color 0.25s ease-in-out, transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out,
+    border-color 0.25s ease-in-out, transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   svg {
     margin-right: ${props => props.theme.space[3]}px;
@@ -176,3 +178,48 @@ export const Link = styled(NavLink)`
     font-size: ${props => props.theme.fontSizes.m};
   }
 `;
+
+
+interface IButton {
+  design?: boolean;
+  to?: boolean;
+}
+
+export const ButtonReview = styled.button<IButton>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: ${props =>
+    props.design ? props.theme.space[4] : props.theme.space[0]}px;
+  width: ${props => (props.design ? '108' : '141')}px;
+  height: ${props => (props.design ? '37' : '46')}px;
+  padding: ${props => props.theme.space[0]}px;
+  border-radius: ${props => props.theme.radii.medium};
+  border: ${props => props.theme.borders.none};
+  color: ${p => p.theme.colors.white};
+  background-color: ${p => p.theme.colors.blue};
+  cursor: pointer;
+  font-size: ${props => (props.design ? '14px' : props.theme.fontSizes.l)};
+  line-height: ${props => props.theme.lineHeights.xl};
+  font-weight: ${props => props.theme.fontWeights.semiBold};
+  box-shadow: 0 0 15px rgba(236, 236, 236, 0.5);
+  transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out,
+    transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  svg {
+    margin-left: ${props => props.theme.space[3]}px;
+  }
+
+  :hover,
+  :focus {
+    color: ${p => p.theme.colors.blue};
+    background-color: ${p => p.theme.colors.hoverBackground};
+    transform: scale(1.02);
+  }
+
+  @media screen and (min-width: 768px) {
+    width: ${props => (props.design ? '108' : '141')}px;
+    height: ${props => (props.design ? '37' : '46')}px;
+  }
+`;
+

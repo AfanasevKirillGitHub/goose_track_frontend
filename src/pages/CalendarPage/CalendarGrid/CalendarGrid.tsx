@@ -25,60 +25,58 @@ export const CalendarGrid = ({ startDay, today }: IProps) => {
   const isMobileView = window.innerWidth < 768;
 
   return (
-    <main>
-      <SC.CalendarContainer>
-        <SC.WeekWrapper>
-          {[...Array(7)].map((_, idx) => (
-            <SC.DayOfWeekItem key={idx}>
-              <SC.DayOfWeek>
-                {isMobileView
-                  ? moment()
-                      .day(idx + 1)
-                      .format('dd')
-                      .slice(0, 1)
-                  : moment()
-                      .day(idx + 1)
-                      .format('ddd')
-                      .toUpperCase()}
-              </SC.DayOfWeek>
-            </SC.DayOfWeekItem>
-          ))}
-        </SC.WeekWrapper>
-        <SC.CalendarGrid>
-          {daysArray.map(dayItem => (
-            <SC.Link
-              to={`/user/calendar/day/${dayItem.format('YYYY-MM-DD')}`}
-              key={dayItem.format('DDMMYY')}
+    <SC.CalendarContainer>
+      <SC.WeekWrapper>
+        {[...Array(7)].map((_, idx) => (
+          <SC.DayOfWeekItem key={idx}>
+            <SC.DayOfWeek>
+              {isMobileView
+                ? moment()
+                    .day(idx + 1)
+                    .format('dd')
+                    .slice(0, 1)
+                : moment()
+                    .day(idx + 1)
+                    .format('ddd')
+                    .toUpperCase()}
+            </SC.DayOfWeek>
+          </SC.DayOfWeekItem>
+        ))}
+      </SC.WeekWrapper>
+      <SC.CalendarGrid>
+        {daysArray.map(dayItem => (
+          <SC.Link
+            to={`/user/calendar/day/${dayItem.format('YYYY-MM-DD')}`}
+            key={dayItem.format('DDMMYY')}
+          >
+            <SC.CellWrapper
+              isWeekend={dayItem.day() === 6 || dayItem.day() === 0}
+              isSelectedMonth={isSelectedMonth(dayItem)}
             >
-              <SC.CellWrapper
-                isWeekend={dayItem.day() === 6 || dayItem.day() === 0}
-                isSelectedMonth={isSelectedMonth(dayItem)}
-              >
-                <SC.TopRopperInCell justifyContent={'flex-end'}>
-                  <SC.ShowDaywrapper>
-                    <SC.DayWrapper>
-                      {isCurrentDay(dayItem) ? (
-                        <SC.CurrentDay>{dayItem.format('D')}</SC.CurrentDay>
-                      ) : (
-                        dayItem.format('D')
-                      )}
-                    </SC.DayWrapper>
-                  </SC.ShowDaywrapper>
-                  <SC.TasksList>
-                    {data
-                      ?.filter(
-                        ({ date }) => date === dayItem.format('YYYY-MM-DD')
-                      )
-                      .map(({ date, title }) => (
-                        <li key={date}>{title?.slice(0, 8)}</li>
-                      ))}
-                  </SC.TasksList>
-                </SC.TopRopperInCell>
-              </SC.CellWrapper>
-            </SC.Link>
-          ))}
-        </SC.CalendarGrid>
-      </SC.CalendarContainer>
-    </main>
+              <SC.TopRopperInCell justifyContent={'flex-end'}>
+                <SC.ShowDaywrapper>
+                  <SC.DayWrapper>
+                    {isCurrentDay(dayItem) ? (
+                      <SC.CurrentDay>{dayItem.format('D')}</SC.CurrentDay>
+                    ) : (
+                      dayItem.format('D')
+                    )}
+                  </SC.DayWrapper>
+                </SC.ShowDaywrapper>
+                <SC.TasksList>
+                  {data
+                    ?.filter(
+                      ({ date }) => date === dayItem.format('YYYY-MM-DD')
+                    )
+                    .map(({ date, title }) => (
+                      <li key={date}>{title?.slice(0, 8)}</li>
+                    ))}
+                </SC.TasksList>
+              </SC.TopRopperInCell>
+            </SC.CellWrapper>
+          </SC.Link>
+        ))}
+      </SC.CalendarGrid>
+    </SC.CalendarContainer>
   );
 };

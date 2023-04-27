@@ -80,7 +80,7 @@ export const Button = styled.button`
   width: 287px;
   height: 44px;
   padding: 14px;
-  margin-top: ${props => props.theme.space[5]}px;
+  margin-top: ${props => props.theme.space[4]}px;
 
   border: none;
   border-radius: ${props => props.theme.radii.medium};
@@ -137,16 +137,22 @@ export const Google = styled.a`
   justify-content: center;
   align-items: center;
   gap: 8px;
-  height: 45px;
   border: ${props => props.theme.borders.userInput};
-  padding: 22px;
-  border-radius: ${props => props.theme.radii.normal};
+  padding: 12px 16px;
+  border-radius: ${props => props.theme.radii.medium};
+  margin-top: ${props => props.theme.space[4]}px;
 
-  height: 24px;
   text-decoration: none;
 
   color: ${props => props.theme.colors.blue};
   font-family: ${props => props.theme.fontFamily.logo};
+
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  :hover,
+  :focus {
+    background-color: ${props => props.theme.colors.hoverYellow};
+  }
 `;
 
 export const GoogleName = styled.div`

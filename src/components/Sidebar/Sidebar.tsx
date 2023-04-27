@@ -1,12 +1,15 @@
-import { MouseEvent } from 'react';
+import { MouseEvent, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { accountPages } from '../../helpers/pages';
 import { LogoutBtn } from './LogoutBtn/LogoutBtn';
-import {AddReview} from '../review/addReview'
+import { AddReview } from '../review/addReview';
 import { SVG } from '../../images';
 import goose from '../../images/goose.png';
+import { Modal } from '../Modal/Modal';
 import * as SC from './Sidebar.styled';
 import { CloseSidebarBtn } from './CloseSidebarBtn/CloseSidebarBtn';
+
+
 
 export const AccountSidebar = () => {
   const { t } = useTranslation();
@@ -20,6 +23,12 @@ export const AccountSidebar = () => {
     if (event.target === event.currentTarget) {
       closeBurgerMenu();
     }
+  };
+
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  
+  const toggleModal = () => {
+    setIsOpenModal(!isOpenModal);
   };
 
   return (
@@ -47,8 +56,13 @@ export const AccountSidebar = () => {
             ))}
           </SC.NavList>
         </div>
-        <AddReview />
+        <SC.ButtonReview onClick={toggleModal} type='button'>Leave review</SC.ButtonReview>
         <LogoutBtn />
+        {isOpenModal && (
+        <Modal toggleModal={toggleModal}>
+            <AddReview />     
+        </Modal>
+      )}
       </SC.Sidebar>
     </SC.MenuContainer>
   );
