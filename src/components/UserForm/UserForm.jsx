@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { useAuth } from '../../hooks/useAuth';
 import { useInput } from '../../hooks/useInput';
 import { updateInfo } from '../../redux/auth/authOperations';
-import plus from '../../images/icons/plusAvatar.svg';
 import * as SC from './UserForm.styled';
 import { useTranslation } from 'react-i18next';
 import { SVG } from '../../images';
