@@ -22,7 +22,9 @@ export const Modal = ({ toggleModal, children }: IProps) => {
 
     return () => {
       window.removeEventListener('keydown', closeModal);
-      document.body.style.overflow = '';
+      // document.body.style.overflow = '';
+      const mobileMenu = document.querySelector('#menuContainer') as HTMLElement;
+      mobileMenu?.classList.contains('is-open') ? document.body.style.overflow = 'hidden' : document.body.style.overflow = '';
     };
   }, [toggleModal]);
 
