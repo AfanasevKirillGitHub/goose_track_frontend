@@ -1,3 +1,6 @@
+import { TaskColumnCard } from '../TaskColumnCard';
+import * as SC from './ColumnTasksList.styled';
+
 export const ColumnTasksList = ({ tasks, status }) => {
   const getTasksByStatus = () => {
     return tasks?.filter(task => task.status === status);
@@ -10,12 +13,12 @@ export const ColumnTasksList = ({ tasks, status }) => {
     Тут будуть рендиритися картки тудушок
     Передати tasksByStatus як проп
     */
-    <ul>
+    <SC.TaskList>
       {tasksByStatus?.map(task => (
-        <li style={{ listStyle: 'none' }} key={task.title}>
-          {task.title}
-        </li>
+        <SC.TaskElement key={task._id}>
+          <TaskColumnCard taskData={task} />
+        </SC.TaskElement>
       ))}
-    </ul>
+    </SC.TaskList>
   );
 };

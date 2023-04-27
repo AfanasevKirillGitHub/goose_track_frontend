@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useAddTasksMutation } from '../../redux/task/taskOperations';
+import {
+  useAddTasksMutation,
+  useUpdateTasksMutation,
+} from '../../redux/task/taskOperations';
 import { useParams } from 'react-router';
 import { toast } from 'react-toastify';
 import moment from 'moment';
@@ -26,28 +29,25 @@ export const TaskForm = ({ fieldsData, toggleModal }) => {
   // const lang = localStorage.getItem('i18nextLng') as string;
 
   //js
+  const modalType = fieldsData.title ? `edit` : `add`;
+
   const lang = localStorage.getItem('i18nextLng');
 
   const defaultEndTime = moment(addMinutes(30)).format('HH:mm');
 
   const { current } = useParams();
 
-  // const [title, setTitle] = useState(fieldsData?.title[lang] ?? '');
   const [title, setTitle] = useState(fieldsData?.title ?? '');
   const [start, setStart] = useState(fieldsData?.start ?? taskCreateTime);
   const [end, setEnd] = useState(fieldsData?.end ?? defaultEndTime);
   const [priority, setPriority] = useState(fieldsData?.priority ?? '');
 
   const [addTask, { isLoading: taskIsLoading }] = useAddTasksMutation();
-  // const [{ isLoading: taskIsLoading }] = useAddTasksMutation();
+  const [updateTask, { isLoading: isUpdatind }] = useUpdateTasksMutation();
 
-  const modalType = fieldsData.title ? `edit` : `add`;
-
-  // console.log('in form fieldsData :>> ', fieldsData);
+  console.log('isUpdatind :>> ', isUpdatind);
 
   const { register, handleSubmit } = useForm();
-
-  // console.log('errors :>> ', errors);
 
   const onError = (errors, e) => {
     const errorFields = Object.keys(errors);
@@ -74,15 +74,24 @@ export const TaskForm = ({ fieldsData, toggleModal }) => {
       return;
     }
 
-    // console.log('taskData :>> ', { data: taskData, lang });
-    console.log('formData :>> ', data);
+    // console.log('formData :>> ', data);
 
     const taskData = { ...data, status: fieldsData.status, date: current };
     console.log('formData :>> ', taskData);
-    // addTask({ data: taskData, lang });
 
-    addTask({ data: taskData, lang });
-    toggleModal();
+    switch (modalType) {
+      case 'edit':
+        updateTask({ taskData });
+        toggleModal();
+
+        break;
+
+      default:
+        addTask({ data: taskData, lang });
+        toggleModal();
+
+        break;
+    }
   };
 
   const onInput = e => {
