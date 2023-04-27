@@ -22,7 +22,7 @@ export const WrapperChange = styled.div`
 
 export const LogoImg = styled.img`
   margin: 0 auto;
-  padding-top: 232px;
+  padding-top: 180px;
   @media screen and (min-width: 768px) and (max-width: 1439px) {
     padding-top: 321px;
   }
@@ -46,7 +46,7 @@ export const ButtonList = styled.ul`
   list-style: none;
   display: flex;
   margin: 0 auto;
-  flex-direction: column;
+  flex-direction: column-reverse;
   @media screen and (min-width: 768px) {
     flex-direction: row;
   }
@@ -54,7 +54,7 @@ export const ButtonList = styled.ul`
 
 export const NavListItem = styled.li`
   @media screen and (max-width: 767px) {
-    &:not(:last-child) {
+    &:not(:first-child) {
       margin-top: 32px;
       margin-bottom: 200px;
     }
