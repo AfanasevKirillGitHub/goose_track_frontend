@@ -50,7 +50,7 @@ export const ItemBtn = styled.button`
     font-size: ${props => props.theme.fontSizes.m};
     line-height: ${props => props.theme.lineHeights.xl};
     font-weight: ${props => props.theme.fontWeights.semiBold};
-    box-shadow: 0 0 15px rgba(236, 236, 236, 0.5);
+    box-shadow: ${props => props.theme.shadows.button};
     transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out, transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
     :hover,

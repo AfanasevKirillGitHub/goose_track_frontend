@@ -37,30 +37,29 @@ export const Sidebar = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-
+  width: 225px;
+  
   @media screen and (max-width: 1439px) {
     position: fixed;
     left: 0;
     top: 0;
     z-index: 6;
-    width: 225px;
-    /* height: 100vh; */
     padding: 24px 20px;
     background-color: ${p => p.theme.colors.white};
-
+    
     overflow-y: scroll;
     transform: translateX(-100%);
-
+    
     transition-property: transform;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
-
+  
   @media screen and (min-width: 768px) {
     width: 289px;
     padding: 24px 32px;
   }
-
+  
   @media screen and (min-width: 1440px) {
     padding: 32px 24px;
   }
