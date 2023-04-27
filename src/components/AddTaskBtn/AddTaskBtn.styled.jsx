@@ -7,6 +7,7 @@ export const AddButton = styled.button`
   width: 100%;
   height: 52px;
   gap: 8px;
+  margin-top: auto;
 
   font-family: 'Inter';
   font-weight: 600;

@@ -6,8 +6,10 @@ export const ColumnList = styled.ul`
   width: 100%;
   gap: 16px;
   min-height: 100%;
+  margin-top: 16px;
+
   overflow: hidden;
-  overflow-x: scroll;
+  overflow-x: auto;
 
   scroll-snap-type: x mandatory;
 
