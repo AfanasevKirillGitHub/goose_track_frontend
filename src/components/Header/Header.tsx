@@ -7,14 +7,18 @@ import { ThemeToogle } from './ThemeToogle/ThemeToogle';
 import { OpenSidebarBtn } from '../Sidebar/OpenSidebarBtn/OpenSidebarBtn';
 import { ColorToggle } from './ColorToggle/ColorToggle';
 
-export const Header: React.FC = () => {
+interface IProps {
+  toggleBurgerMenu: () => void;
+}
+
+export const Header = ({ toggleBurgerMenu }: IProps) => {
   const { t } = useTranslation();
 
   const location = useLocation();
 
   return (
     <SC.Header>
-      <OpenSidebarBtn />
+      <OpenSidebarBtn openBurgerMenu={toggleBurgerMenu}/>
       <SC.HeaderTitle>
         {location.pathname === '/user/account' ? t`User Profile` : t`Calendar`}
       </SC.HeaderTitle>

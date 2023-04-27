@@ -1,15 +1,18 @@
 import { SVG } from '../../../images';
 import * as SC from './CloseSidebarBtn.styled';
 
-export const CloseSidebarBtn = () => {
-  const closeBurgerMenu = () => {
-    const mobileMenu = document.querySelector('#menuContainer') as HTMLElement;
-    mobileMenu.classList.toggle('is-open');
+interface IProps {
+  closeBurgerMenu: () => void;
+}
+
+export const CloseSidebarBtn = ({ closeBurgerMenu }: IProps ) => {
+  const closeSidebar = () => {
+    closeBurgerMenu();
     document.body.style.overflow = '';
   };
 
   return (
-    <SC.ButtonClose type="button" onClick={() => closeBurgerMenu()}>
+    <SC.ButtonClose type="button" onClick={closeSidebar}>
       <SVG.CloseIcon />
     </SC.ButtonClose>
   );

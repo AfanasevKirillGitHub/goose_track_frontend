@@ -6,17 +6,17 @@ import { Loader } from '../../components/Loader/Loader';
 import * as SC from './UserPage.styled';
 
   export const UserPage: React.FC = () => {
-  // const handleBurgerMenu = () => {
-  //   const mobileMenu = document.querySelector('#menuContainer') as HTMLElement;
-  //   mobileMenu.classList.toggle('is-open');
-  // };
+  const handleBurgerMenu = () => {
+    const mobileMenu = document.querySelector('#menuContainer') as HTMLElement;
+    mobileMenu.classList.toggle('is-open');
+  };
+
   return (
     <SC.Wrapper className="container">
-      <AccountSidebar />
-      {/* <AccountSidebar onToggleBurgerMenu={handleBurgerMenu}/> */}
+      <AccountSidebar toggleBurgerMenu={handleBurgerMenu} />
+      
       <div>
-        <Header />
-        {/* <Header onToggleBurgerMenu={handleBurgerMenu}/> */}
+        <Header toggleBurgerMenu={handleBurgerMenu} />
         <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
