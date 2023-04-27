@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import * as SC from './ColorToggle.styled';
+import { SVG } from '../../../images';
 
 export const ColorToggle: React.FC = () => {
   const [isMainColor, setMainColor] = useState(false);
@@ -9,10 +10,14 @@ export const ColorToggle: React.FC = () => {
   };
 
   return (
-    <SC.ColorPicker type="button" onClick={handleColorChange}>
-      <SC.Color
-        style={{ backgroundColor: isMainColor ? '#3EB489' : '#3E85F3' }}
-      ></SC.Color>
-    </SC.ColorPicker>
+    <>
+      <SC.ColorPicker
+        type="button"
+        onClick={handleColorChange}
+        name={isMainColor ? 'blue' : 'green'}
+      >
+        <SVG.DropIcon />
+      </SC.ColorPicker>
+    </>
   );
 };
