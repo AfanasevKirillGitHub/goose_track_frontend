@@ -82,6 +82,19 @@ export const Button = styled.button`
   padding: 14px;
   margin-top: ${props => props.theme.space[4]}px;
 
+  &:disabled {
+    background-color: rgba(62, 133, 243, 0.5);
+  }
+  &:disabled:hover {
+    background-color: rgba(62, 133, 243, 0.5);
+    color: ${p => p.theme.colors.white};
+    cursor: not-allowed;
+  }
+  &:disabled:focus {
+    background-color: rgba(62, 133, 243, 0.5);
+    color: ${p => p.theme.colors.white};
+  }
+
   border: none;
   border-radius: ${props => props.theme.radii.medium};
   background: ${props => props.theme.colors.blue};

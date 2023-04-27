@@ -16,13 +16,14 @@ export const UserForm = () => {
     user.birthday ? new Date(user.birthday) : ''
   );
 
-  const [avatarURL, setAvatarURL] = useState(null);
+  const [avatarURL, setAvatarURL] = useState(user.avatarURL ?? avatarDefault);
 
-  const name = useInput(user.name ?? '', { isName: true, maxLength: 16 });
+  const name = useInput(user.name ?? '', { isName: true });
   const email = useInput(user.email ?? '', { isEmail: true });
-  const skype = useInput(user.skype ?? '', { maxLength: 16 });
+  const skype = useInput(user.skype ?? '', { isSkype: true });
   const phone = useInput(user.phone ?? '', { isPhone: true });
-
+  const birthDay = useInput(birthday)
+  
   // const avatarURL = useInput(user.avatarURL ?? avatarDefault, {
   //   isEmail: true,
   // });
@@ -81,9 +82,10 @@ export const UserForm = () => {
         </SC.LabelImg>
 
         <SC.Title> {user?.name ?? ' '} </SC.Title>
-        <SC.User> User </SC.User>
+        <SC.User> {t('User')} </SC.User>
 
         <SC.InputList>
+        <SC.Div>
           <SC.LabelBtn htmlFor="username">
             {t('Name')}
             <SC.Input
@@ -102,19 +104,26 @@ export const UserForm = () => {
               required
             />
           </SC.LabelBtn>
-          {/* {name.isDirty && name.nameError && (
-            <SC.Notification style={{ color: 'red' }}>
-              {t('Enter your name pls')}
-            </SC.Notification>
-          )} */}
+          {name.isDirty && name.nameError && (
+              <SC.Notifications style={{ color: 'red' }}>
+                {t('Enter your name pls')}
+              </SC.Notifications>
+            )}
+            {name.isDirty && !name.nameError && (
+              <SC.Notifications style={{ color: 'green' }}>
+                {t('Name is valid')}
+              </SC.Notifications>
+            )}
+          </SC.Div>
 
+          <SC.Div>
           <SC.LabelBtn htmlFor="phone">
-            Phone
+            {t('Phone')}
             <SC.Input
               style={{
                 border:
                   (phone.isDirty && !phone.phoneError && '1px solid green') ||
-                  (phone.isDirty && phone.phoneError && '1px solid red'),
+                  (phone.isDirty && phone.phoneError && '1px solid red') 
               }}
               type="tel"
               name="phone"
@@ -124,20 +133,46 @@ export const UserForm = () => {
               onBlur={e => phone.onBlur(e)}
             ></SC.Input>
           </SC.LabelBtn>
+          {phone.isDirty && phone.phoneError && (
+              <SC.Notifications style={{ color: 'red' }}>
+                {t('Enter your phone pls')}
+              </SC.Notifications>
+            )}
+            {phone.isDirty && !phone.phoneError && (
+              <SC.Notifications style={{ color: 'green' }}>
+                {t('Phone is valid')}
+              </SC.Notifications>
+            )}
+          </SC.Div>
 
+          <SC.Div>
           <SC.LabelBtn htmlFor="birthday">
-            Birthday
+          {t('Birthday')}
             <SC.DatePick
               name="birthday"
               id="date"
               type="date"
               input={true}
+              birthDay={birthDay.isDirty}
               selected={birthday}
+              onBlur={e => birthDay.onBlur(e)}
               onChange={data => setBirthday(data)}
               dateFormat="yyyy-MM-dd"
             />
           </SC.LabelBtn>
+          {birthDay.isDirty && birthday === null && (
+              <SC.Notifications style={{ color: 'red' }}>
+                {t('Enter your birthday pls')}
+              </SC.Notifications>
+            )}
+            {birthDay.isDirty && birthday !== null && (
+              <SC.Notifications style={{ color: 'green' }}>
+                {t('birthday is valid')}
+              </SC.Notifications>
+            )}
+          </SC.Div>
 
+          <SC.Div>
           <SC.LabelBtn htmlFor="skype">
             Skype
             <SC.Input
@@ -154,7 +189,19 @@ export const UserForm = () => {
               onBlur={e => skype.onBlur(e)}
             />
           </SC.LabelBtn>
+          {skype.isDirty && skype.skypeError && (
+              <SC.Notifications style={{ color: 'red' }}>
+                {t('Enter your skype pls')}
+              </SC.Notifications>
+            )}
+            {skype.isDirty && !skype.skypeError && (
+              <SC.Notifications style={{ color: 'green' }}>
+                {t('Skype is valid')}
+              </SC.Notifications>
+            )}
+          </SC.Div>
 
+          <SC.Div>
           <SC.LabelBtn htmlFor="email">
             {t('Email')}
             <SC.Input
@@ -173,23 +220,30 @@ export const UserForm = () => {
               required
             />
           </SC.LabelBtn>
-          {/* {email.isDirty && email.emailError && (
-            <SC.Notification style={{ color: 'red' }}>
-              {t('Enter a valid Email')}
-            </SC.Notification>
-          )} */}
+          {(email.isDirty && email.emailError && (
+              <SC.Notifications style={{ color: 'red' }}>
+                {t('Enter a valid Email')}
+              </SC.Notifications>
+            )) ||
+              (email.isDirty && !email.emailError && (
+                <SC.Notifications style={{ color: 'green' }}>
+                  {t('Email is correct')}
+                </SC.Notifications>
+              ))}
+          </SC.Div>
+
         </SC.InputList>
 
         <SC.Btn
+          type="submit"
           disabled={
             !email.validForm ||
-            !name.validForm ||
-            !phone.validForm ||
-            !skype.validForm
+            !name.validForm 
+
           }
-          type="submit"
+
         >
-          Save changes
+          {t('Save changes')}
         </SC.Btn>
       </SC.Forms>
     </SC.Wrapper>

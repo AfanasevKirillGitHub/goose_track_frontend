@@ -29,7 +29,7 @@
   "Phone": "Номер телефону",
   "Enter a valid Email": "Введіть коректну адресу пошти",
   "Email is correct": "Адресу пошти прийнято",
-  "Enter a valid Password": "Введіть пароль від 6 символів",
+  "Enter a valid Password": "Введіть пароль від 7 символів",
   "Password is correct": "Пароль прийнято",
   "confirmPassword is correct": "Паролі співпадають",
   "confirmPassword is not correct": "Паролі не співпадають",
@@ -61,5 +61,12 @@
   "GooseTrack is": "GooseTrack — це універсальний інструмент продуктивності, який допомагає вам бути в курсі завдань, подій і термінів виконання. Попрощайтеся з розрізненими списками справ і привіт оптимізованій продуктивності з GooseTrack.",
   "My Account": "Кабінет",
   "Our team": "Наша команда",
-  "Best of the best": "Найкращі"
+  "Best of the best": "Найкращі",
+  "Save changes": "Зберегти зміни",
+  "Birthday": "День народження",
+  "User": "Користувач",
+  "Enter your skype pls": "Введіть ваш Skype",
+  "Skype is valid": "Skype прийнято",
+  "Enter your birthday pls": "Введіть вашу дату народження",
+  "birthday is valid": "Дату народження прийнято"
 }

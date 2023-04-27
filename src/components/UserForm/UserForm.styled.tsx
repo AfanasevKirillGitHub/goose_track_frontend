@@ -3,6 +3,10 @@ import styled from 'styled-components';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
+interface ICellBirhtDayProps {
+  birthDay:  boolean 
+}
+
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -93,13 +97,16 @@ export const Input = styled.input`
   }
 `;
 
-export const DatePick = styled(DatePicker)`
+export const DatePick = styled(DatePicker)<ICellBirhtDayProps>`
   width: 299px;
   height: 42px;
 
   padding-left: 18px;
 
-  border: ${p => p.theme.borders.userInput};
+  border: ${p => (!p.birthDay  && '1px solid rgba(17, 17, 17, 0.15)') || 
+  (p.birthDay && p.selected === null && "1px solid red") || 
+  (p.birthDay && p.selected !== null && "1px solid green")};
+
   border-radius: 8px;
   background-color: ${p => p.theme.colors.white};
 
@@ -234,6 +241,19 @@ export const Btn = styled.button`
   margin-right: auto;
   padding: 0;
 
+  &:disabled {
+    background-color: rgba(62, 133, 243, 0.5);
+  }
+  &:disabled:hover {
+    background-color: rgba(62, 133, 243, 0.5);
+    color: ${p => p.theme.colors.white};
+    cursor: not-allowed;
+  }
+  &:disabled:focus {
+    background-color: rgba(62, 133, 243, 0.5);
+    color: ${p => p.theme.colors.white};
+  }
+
   width: 195px;
   height: 46px;
 
@@ -266,6 +286,22 @@ export const Btn = styled.button`
 `;
 
 export const Notification = styled.span`
+  position: absolute;
+  font-size: 12px;
+  left: 20px;
+  bottom: -35%;
+`;
+export const Div = styled.div`
+  position: relative;
+  @media (max-width: 767px) {
+    margin-bottom: 24px;
+  }
+  @media (min-width: 768px) {
+    margin-bottom: 26px;
+  }
+`;
+
+export const Notifications = styled.span`
   position: absolute;
   font-size: 12px;
   left: 20px;
