@@ -4,11 +4,15 @@ import { NavLink } from 'react-router-dom';
 export const CalendarMonitorWrapper = styled.div`
   padding-top: 16px;
   padding-bottom: 16px;
+  padding-left: 20px;
+  padding-right: 20px;
   width: 100%;
 
   @media screen and (min-width: 768px) {
     display: flex;
     justify-content: space-between;
+    padding-left: 32px;
+    padding-right: 32px;
   }
 `;
 
