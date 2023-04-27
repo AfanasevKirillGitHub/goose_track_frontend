@@ -46,7 +46,7 @@ export const tasksApi = createApi({
     updateTasks: builder.mutation<any, any>({
       query: ({ updateInfo }) => ({
         method: 'PATCH',
-        url: `/${updateInfo.date}`,
+        url: `/${updateInfo._id}`,
         body: updateInfo,
       }),
 
