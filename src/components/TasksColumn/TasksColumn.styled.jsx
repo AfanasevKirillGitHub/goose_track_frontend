@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Column = styled.li`
   display: flex;
   flex-direction: column;
-  padding: 18px 23px 28px 20px;
+  padding: 18px 18px 10px 18px;
   min-width: 335px;
   width: 100%;
   max-height: 432px;
@@ -21,5 +21,6 @@ export const Column = styled.li`
   @media screen and (min-width: 768px) {
     min-width: 344px;
     max-height: 568px;
+    padding: 18px 23px 28px 20px;
   }
 `;
