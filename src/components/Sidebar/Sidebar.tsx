@@ -2,12 +2,12 @@ import { MouseEvent, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { accountPages } from '../../helpers/pages';
 import { LogoutBtn } from './LogoutBtn/LogoutBtn';
-import { AddReview } from '../review/addReview';
+import { CloseSidebarBtn } from './CloseSidebarBtn/CloseSidebarBtn';
+import { AddReview } from '../Reviews/addReview';
+import { Modal } from '../Modal/Modal';
 import { SVG } from '../../images';
 import goose from '../../images/goose.png';
-import { Modal } from '../Modal/Modal';
 import * as SC from './Sidebar.styled';
-import { CloseSidebarBtn } from './CloseSidebarBtn/CloseSidebarBtn';
 
 interface IProps {
   toggleBurgerMenu: () => void;

@@ -1,6 +1,6 @@
 import * as SC from './HomePage.styled';
 import { useTranslation } from 'react-i18next';
-import { GetReviews } from '../review/gettReviews';
+import { GetReviews } from '../Reviews/ReviewsSlider';
 
 import { IMG } from '../../images';
 
