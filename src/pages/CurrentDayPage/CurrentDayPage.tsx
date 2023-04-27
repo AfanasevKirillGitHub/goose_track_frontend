@@ -150,7 +150,7 @@ export const CurrentDayPage = () => {
             </SC.DayOfWeek>
           ))}
         </SC.WeekWrapper>
-        <TasksColumnsList items={STATUS} currentDate={current} />
+        <TasksColumnsList items={STATUS} currentDate={current!} />
       </SC.CurrDayWrapper>
     </SC.PageWrapper>
   );
