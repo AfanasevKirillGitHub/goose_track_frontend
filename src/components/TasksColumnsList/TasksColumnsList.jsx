@@ -1,6 +1,6 @@
 import { TasksColumn } from '../TasksColumn/TasksColumn';
 import { useFetchTasksQuery } from '../../redux/task/taskOperations';
-import { ColumnList } from '../TasksColumnsList/TasksColumnsList.styled';
+import { ColumnList } from './TasksColumnsList.styled';
 
 export const TasksColumnsList = ({ items, currentDate }) => {
   const { data } = useFetchTasksQuery();

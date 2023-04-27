@@ -19,9 +19,15 @@ interface ITaskListItem {
 export const CalendarContainer = styled.div`
   width: 100%;
   padding-top: 12px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
 
   @media screen and (min-width: 768px) {
     padding-top: 16px;
+    padding-bottom: 32px;
+    padding-left: 32px;
+    padding-right: 32px;
   }
 
   @media screen and (min-width: 1440px) {
