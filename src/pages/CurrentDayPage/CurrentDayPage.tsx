@@ -120,22 +120,26 @@ export const CurrentDayPage = () => {
     navigate(`/user/calendar/day/${dayItem.format('YYYY-MM-DD')}`);
   };
 
+  const isMobileView = window.innerWidth < 768;
+
   return (
-    <main style={{ width: '1151px' }}>
-      <SC.PageWrapper>
-        <CalendarMonitor
-          prevHandler={prevHandler}
-          nextHandler={nextHandler}
-          todayHandler={todayHandler}
-          today={today}
-          currentDay={true}
-          nextDisabled={nextDisabled}
-          prevDisabled={prevDisabled}
-        />
+    <SC.PageWrapper>
+      <CalendarMonitor
+        prevHandler={prevHandler}
+        nextHandler={nextHandler}
+        todayHandler={todayHandler}
+        today={today}
+        currentDay={true}
+        nextDisabled={nextDisabled}
+        prevDisabled={prevDisabled}
+      />
+      <SC.CurrDayWrapper>
         <SC.WeekWrapper>
           {daysArray.map(dayItem => (
             <SC.DayOfWeek key={dayItem.format('DDMMYY')}>
-              <span>{dayItem.format('ddd').toUpperCase()}</span>
+              <span>
+                {dayItem.format(isMobileView ? 'dd' : 'ddd').toUpperCase()}
+              </span>
               <SC.CellWrapper onClick={() => handleChangeDay(dayItem)}>
                 {isCurrentDay(dayItem) ? (
                   <SC.CurrentDay>{dayItem.format('D')}</SC.CurrentDay>
@@ -147,7 +151,7 @@ export const CurrentDayPage = () => {
           ))}
         </SC.WeekWrapper>
         <TasksColumnsList items={STATUS} currentDate={current} />
-      </SC.PageWrapper>
-    </main>
+      </SC.CurrDayWrapper>
+    </SC.PageWrapper>
   );
 };

@@ -4,11 +4,15 @@ import { NavLink } from 'react-router-dom';
 export const CalendarMonitorWrapper = styled.div`
   padding-top: 16px;
   padding-bottom: 16px;
+  padding-left: 20px;
+  padding-right: 20px;
   width: 100%;
 
   @media screen and (min-width: 768px) {
     display: flex;
     justify-content: space-between;
+    padding-left: 32px;
+    padding-right: 32px;
   }
 `;
 
@@ -98,6 +102,7 @@ export const ChevronButton = styled.button`
   background-color: transparent;
   padding: 7px;
   border: 1px solid rgba(220, 227, 229, 0.5);
+  background-color: ${props => props.theme.colors.white};
   color: #616161;
 
   border-top-right-radius: 8px;
@@ -122,6 +127,7 @@ export const TodayButton = styled.button`
   font-weight: 500;
   font-size: 16px;
   line-height: 1.125;
+  background-color: ${props => props.theme.colors.white};
   color: #616161;
 
   @media screen and (min-width: 768px) {

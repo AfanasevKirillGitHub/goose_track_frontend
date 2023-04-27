@@ -64,13 +64,27 @@ export const CalendarGrid = ({ startDay, today }: IProps) => {
                   </SC.DayWrapper>
                 </SC.ShowDaywrapper>
                 <SC.TasksList>
-                  {data
-                    ?.filter(
+                  {(function () {
+                    const dayTasks = data?.filter(
                       ({ date }) => date === dayItem.format('YYYY-MM-DD')
-                    )
-                    .map(({ date, title }) => (
-                      <li key={date}>{title?.slice(0, 8)}</li>
-                    ))}
+                    );
+                    return dayTasks?.map(todo => {
+                      return dayTasks.length <= 2 ? (
+                        <SC.TasksListItem
+                          key={todo.title}
+                          design={todo.priority}
+                        >
+                          {todo.title.slice(0, isMobileView ? 3 : 8)}
+                        </SC.TasksListItem>
+                      ) : (
+                        <SC.TasksListItemDiv>
+                          <SC.TasksListItemMany
+                            design={todo.priority}
+                          ></SC.TasksListItemMany>
+                        </SC.TasksListItemDiv>
+                      );
+                    });
+                  })()}
                 </SC.TasksList>
               </SC.TopRopperInCell>
             </SC.CellWrapper>

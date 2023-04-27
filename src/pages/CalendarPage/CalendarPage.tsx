@@ -5,7 +5,6 @@ import 'moment/locale/uk';
 import { useTranslation } from 'react-i18next';
 import { CalendarMonitor } from './CalendarMonitor/CalendarMonitor';
 import { CalendarGrid } from './CalendarGrid/CalendarGrid';
-import * as SC from './CalendarPage.styled';
 
 export const CalendarPage = () => {
   const { t } = useTranslation();
@@ -28,7 +27,7 @@ export const CalendarPage = () => {
   };
 
   return (
-    <SC.ShadowWrapper>
+    <>
       <CalendarMonitor
         prevHandler={prevHandler}
         nextHandler={nextHandler}
@@ -36,6 +35,6 @@ export const CalendarPage = () => {
         today={today}
       />
       <CalendarGrid startDay={startDay} today={today} />
-    </SC.ShadowWrapper>
+    </>
   );
 };

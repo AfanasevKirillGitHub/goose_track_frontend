@@ -10,8 +10,19 @@ export const PageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-left: 32px;
-  padding-right: 32px;
+`;
+
+export const CurrDayWrapper = styled.div`
+  padding-top: 16px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+
+  @media screen and (min-width: 768px) {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
 `;
 
 export const CellWrapper = styled.div<ICellWrapperProps>`
@@ -45,17 +56,22 @@ export const CurrentDay = styled.div`
 export const WeekWrapper = styled.ul`
   list-style: none;
   display: flex;
-
   justify-content: space-between;
   width: 100%;
+  padding: 14px 18px;
   border: 1px solid rgba(220, 227, 229, 0.8);
   border-radius: 8px;
-  padding: 10px 46px;
 
   font-weight: 600;
   font-size: 14px;
   line-height: 1.286;
+
+  background-color: ${props => props.theme.colors.white};
   color: #616161;
+
+  @media screen and (min-width: 768px) {
+    padding: 10px 46px;
+  }
 `;
 
 export const DayOfWeek = styled.li`

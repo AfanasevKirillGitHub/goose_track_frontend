@@ -12,13 +12,22 @@ interface ICellWrapperProps {
   isWeekend?: boolean;
   isSelectedMonth?: boolean;
 }
+interface ITaskListItem {
+  design: string;
+}
 
 export const CalendarContainer = styled.div`
   width: 100%;
   padding-top: 12px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
 
   @media screen and (min-width: 768px) {
     padding-top: 16px;
+    padding-bottom: 32px;
+    padding-left: 32px;
+    padding-right: 32px;
   }
 
   @media screen and (min-width: 1440px) {
@@ -83,16 +92,20 @@ export const DayOfWeek = styled.span`
 export const CellWrapper = styled.div<ICellWrapperProps>`
   min-width: 100%;
   min-height: 94px;
-  padding: 8px;
+  padding: 2px;
+  padding-top: 8px;
   background-color: ${p => (p.isWeekend ? '#FFFFFF' : '#FFFFFF')};
   color: ${p => (p.isSelectedMonth ? '#343434' : 'rgba(220, 227, 229, 0.8)')};
 
   @media screen and (min-width: 768px) {
     min-height: 144px;
+    padding: 4px;
   }
 
   @media screen and (min-width: 1440px) {
     min-height: 104px;
+    padding-left: 8px;
+    padding-right: 8px;
   }
 `;
 
@@ -146,5 +159,60 @@ export const ShowDaywrapper = styled.div`
 
 export const TasksList = styled.ul`
   list-style: none;
-  padding-left: 10px;
+  margin-top: 4px;
+`;
+
+export const TasksListItem = styled.li<ITaskListItem>`
+  background-color: ${p => {
+    switch (p.design) {
+      case 'low':
+        return p.theme.colors.blue4;
+      case 'medium':
+        return p.theme.colors.lightYellow;
+      case 'high':
+        return p.theme.colors.lightPink;
+      default:
+        return p.theme.colors.grey4;
+    }
+  }};
+  color: ${p => {
+    switch (p.design) {
+      case 'low':
+        return p.theme.colors.blue;
+      case 'medium':
+        return p.theme.colors.yellow;
+      case 'high':
+        return p.theme.colors.pink;
+      default:
+        return p.theme.colors.grey8;
+    }
+  }};
+  border-radius: ${props => props.theme.radii.normal};
+  font-size: ${props => props.theme.fontSizes.xxs};
+  font-weight: ${props => props.theme.fontWeights.bold};
+  padding: 4px 10px;
+
+  :not(:last-child) {
+    margin-bottom: 2px;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: ${props => props.theme.fontSizes.s};
+  }
+`;
+
+export const TasksListItemDiv = styled.li`
+  display: inline-block;
+  :not(:last-child) {
+    margin-right: 5px;
+  }
+  @media screen and (max-width: 767px) {
+    :nth-child(n + 3) {
+      display: none;
+    }
+  }
+`;
+
+export const TasksListItemMany = styled(TasksListItem)<ITaskListItem>`
+  width: 20px;
+  height: 20px;
 `;
