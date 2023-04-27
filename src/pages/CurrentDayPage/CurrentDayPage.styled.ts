@@ -65,6 +65,8 @@ export const WeekWrapper = styled.ul`
   font-weight: 600;
   font-size: 14px;
   line-height: 1.286;
+
+  background-color: ${props => props.theme.colors.white};
   color: #616161;
 
   @media screen and (min-width: 768px) {

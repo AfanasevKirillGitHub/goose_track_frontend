@@ -92,16 +92,20 @@ export const DayOfWeek = styled.span`
 export const CellWrapper = styled.div<ICellWrapperProps>`
   min-width: 100%;
   min-height: 94px;
-  padding: 8px;
+  padding: 2px;
+  padding-top: 8px;
   background-color: ${p => (p.isWeekend ? '#FFFFFF' : '#FFFFFF')};
   color: ${p => (p.isSelectedMonth ? '#343434' : 'rgba(220, 227, 229, 0.8)')};
 
   @media screen and (min-width: 768px) {
     min-height: 144px;
+    padding: 4px;
   }
 
   @media screen and (min-width: 1440px) {
     min-height: 104px;
+    padding-left: 8px;
+    padding-right: 8px;
   }
 `;
 
@@ -155,7 +159,7 @@ export const ShowDaywrapper = styled.div`
 
 export const TasksList = styled.ul`
   list-style: none;
-  padding-left: 10px;
+  margin-top: 4px;
 `;
 
 export const TasksListItem = styled.li<ITaskListItem>`
@@ -186,8 +190,11 @@ export const TasksListItem = styled.li<ITaskListItem>`
   border-radius: ${props => props.theme.radii.normal};
   font-size: ${props => props.theme.fontSizes.xxs};
   font-weight: ${props => props.theme.fontWeights.bold};
-  margin-top:2px;
   padding: 4px 10px;
+
+  :not(:last-child) {
+    margin-bottom: 2px;
+  }
   @media screen and (min-width: 768px) {
     font-size: ${props => props.theme.fontSizes.s};
   }
@@ -197,6 +204,11 @@ export const TasksListItemDiv = styled.li`
   display: inline-block;
   :not(:last-child) {
     margin-right: 5px;
+  }
+  @media screen and (max-width: 767px) {
+    :nth-child(n + 3) {
+      display: none;
+    }
   }
 `;
 
