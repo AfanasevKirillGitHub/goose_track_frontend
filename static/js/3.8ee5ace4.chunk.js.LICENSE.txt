@@ -4,6 +4,16 @@ object-assign
 @license MIT
 */
 
+/*!
+ * OverlayScrollbars
+ * Version: 2.0.3
+ *
+ * Copyright (c) Rene Haas | KingSora.
+ * https://github.com/KingSora
+ *
+ * Released under the MIT license.
+ */
+
 /** @license React v16.14.0
  * react.production.min.js
  *
