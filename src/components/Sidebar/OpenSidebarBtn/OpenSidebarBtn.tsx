@@ -1,14 +1,18 @@
 import { SVG } from '../../../images';
 import * as SC from './OpenSidebarBtn.styled';
 
-export const OpenSidebarBtn = () => {
-  const openBurgerMenu = () => {
-    const mobileMenu = document.querySelector('#menuContainer') as HTMLElement;
-    mobileMenu.classList.toggle('is-open');
+interface IProps {
+  openBurgerMenu: () => void;
+}
+
+export const OpenSidebarBtn = ({ openBurgerMenu }: IProps ) => {
+  const openSidebar = () => {
+    openBurgerMenu();
+    document.body.style.overflow = 'hidden';
   };
 
   return (
-    <SC.ButtonOpen type="button" onClick={() => openBurgerMenu()}>
+    <SC.ButtonOpen type="button" onClick={openSidebar}>
       <SVG.BurgerMenu />
     </SC.ButtonOpen>
   );
