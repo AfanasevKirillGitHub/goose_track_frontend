@@ -162,15 +162,35 @@ export const TasksListItem = styled.li<ITaskListItem>`
   background-color: ${p => {
     switch (p.design) {
       case 'low':
-        return p.theme.colors.blue5;
+        return p.theme.colors.blue4;
+      case 'medium':
+        return p.theme.colors.lightYellow;
+      case 'high':
+        return p.theme.colors.lightPink;
+      default:
+        return p.theme.colors.grey4;
+    }
+  }};
+  color: ${p => {
+    switch (p.design) {
+      case 'low':
+        return p.theme.colors.blue;
       case 'medium':
         return p.theme.colors.yellow;
       case 'high':
         return p.theme.colors.pink;
       default:
-        return p.theme.colors.grey4;
+        return p.theme.colors.grey8;
     }
   }};
+  border-radius: ${props => props.theme.radii.normal};
+  font-size: ${props => props.theme.fontSizes.xxs};
+  font-weight: ${props => props.theme.fontWeights.bold};
+  margin-top:2px;
+  padding: 4px 10px;
+  @media screen and (min-width: 768px) {
+    font-size: ${props => props.theme.fontSizes.s};
+  }
 `;
 
 export const TasksListItemDiv = styled.li`
