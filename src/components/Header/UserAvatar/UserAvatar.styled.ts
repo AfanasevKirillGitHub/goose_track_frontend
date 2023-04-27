@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
+interface IWrapper {
+  invert: boolean;
+}
+
+export const Wrapper = styled.div<IWrapper>`
   display: flex;
   align-items: center;
   gap: 14px;

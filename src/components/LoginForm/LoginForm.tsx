@@ -23,8 +23,8 @@ export const LoginForm = () => {
     evt.preventDefault();
 
     const payload: ICredentials = {
-      email: email.value.toLowerCase(),
-      password: password.value,
+      email: (email.value as string).toLowerCase(),
+      password: password.value as string,
     };
     dispatch(signIn(payload));
   };
@@ -52,7 +52,7 @@ export const LoginForm = () => {
                 onChange={e => email.onChange(e)}
                 onBlur={e => email.onBlur(e)}
                 type="email"
-                value={email.value}
+                value={email.value as string}
                 name="email"
                 placeholder={t('Example@gmail.com')!}
                 required
@@ -85,7 +85,7 @@ export const LoginForm = () => {
                 onChange={e => password.onChange(e)}
                 onBlur={e => password.onBlur(e)}
                 type={passwordType}
-                value={password.value}
+                value={password.value as string}
                 name="password"
                 placeholder={t('Password')!}
                 required

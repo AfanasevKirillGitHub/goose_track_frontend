@@ -1,11 +1,13 @@
 import { useDispatch } from 'react-redux';
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import { useAuth } from '../../hooks/useAuth';
 import { useInput } from '../../hooks/useInput';
 import { updateInfo } from '../../redux/auth/authOperations';
 import * as SC from './UserForm.styled';
 import { useTranslation } from 'react-i18next';
 import { SVG } from '../../images';
+import { ICredentials } from '../../helpers/interfaces/auth/authInterfaces';
+import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit';
 
 export const UserForm = () => {
   const { t } = useTranslation();
@@ -15,28 +17,21 @@ export const UserForm = () => {
     user.birthday ? new Date(user.birthday) : ''
   );
 
-  const [avatarURL, setAvatarURL] = useState(null);
+  const [avatarURL, setAvatarURL] = useState<File | null>(null);
 
   const name = useInput(user.name ?? '', { isName: true });
   const email = useInput(user.email ?? '', { isEmail: true });
   const skype = useInput(user.skype ?? '', { isSkype: true });
   const phone = useInput(user.phone ?? '', { isPhone: true });
-  const birthDay = useInput(birthday);
+  const birthDay = useInput(birthday, {});
 
-  // const avatarURL = useInput(user.avatarURL ?? avatarDefault, {
-  //   isEmail: true,
-  // });
-  // const birthday = useInput(user.birthday ? new Date(user.birthday) : '', {
-  //   isEmail: true,
-  // });
+  const dispatch = useDispatch<ThunkDispatch<any, any, AnyAction>>();
 
-  const dispatch = useDispatch();
-
-  const handleChange = evt => {
+  const handleChange = (evt: ChangeEvent<HTMLInputElement>) => {
     const { name, files } = evt.target;
     switch (name) {
       case 'avatarURL':
-        setAvatarURL(files[0]);
+        setAvatarURL(files![0] as File);
         return;
       default:
         return;
@@ -45,14 +40,17 @@ export const UserForm = () => {
 
   const handleSubmit = () => {
     const formData = new FormData();
-    formData.append('name', name.value);
-    formData.append('email', email.value);
-    formData.append('phone', phone.value);
-    formData.append('skype', skype.value);
-    formData.append('birthday', birthday);
-    formData.append('avatar', avatarURL);
+    formData.append('name', name.value as string);
+    formData.append('email', email.value as string);
+    formData.append('phone', phone.value as string);
+    formData.append('skype', skype.value as string);
+    formData.append('birthday', birthday as string);
+    formData.append(
+      'avatar',
+      avatarURL ? (avatarURL as File) : (user.avatarURL as string)
+    );
 
-    dispatch(updateInfo(formData));
+    dispatch(updateInfo(formData as ICredentials));
   };
 
   return (
@@ -98,12 +96,12 @@ export const UserForm = () => {
                     (name.isDirty && name.nameError && '1px solid red'),
                 }}
                 type="text"
-                value={name.value}
+                value={name.value as string}
                 name="name"
                 id="name"
                 onChange={e => name.onChange(e)}
                 onBlur={e => name.onBlur(e)}
-                placeholder={t('Enter your name')}
+                placeholder={t('Enter your name')!}
                 required
               />
             </SC.LabelBtn>
@@ -131,7 +129,7 @@ export const UserForm = () => {
                 type="tel"
                 name="phone"
                 id="phone"
-                value={phone.value}
+                value={phone.value as string}
                 onChange={e => phone.onChange(e)}
                 onBlur={e => phone.onBlur(e)}
               ></SC.Input>
@@ -157,9 +155,9 @@ export const UserForm = () => {
                 type="date"
                 input={true}
                 birthDay={birthDay.isDirty}
-                selected={birthday}
+                selected={birthday as Date}
                 onBlur={e => birthDay.onBlur(e)}
-                onChange={data => setBirthday(data)}
+                onChange={data => setBirthday(data as Date)}
                 dateFormat="yyyy-MM-dd"
               />
             </SC.LabelBtn>
@@ -187,7 +185,7 @@ export const UserForm = () => {
                 type="text"
                 name="skype"
                 id="skype"
-                value={skype.value}
+                value={skype.value as string}
                 onChange={e => skype.onChange(e)}
                 onBlur={e => skype.onBlur(e)}
               />
@@ -216,10 +214,10 @@ export const UserForm = () => {
                 type="email"
                 name="email"
                 id="email"
-                value={email.value}
+                value={email.value as string}
                 onChange={e => email.onChange(e)}
                 onBlur={e => email.onBlur(e)}
-                placeholder={t('Enter your email')}
+                placeholder={t('Enter your email')!}
                 required
               />
             </SC.LabelBtn>
