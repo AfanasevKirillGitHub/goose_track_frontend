@@ -62,13 +62,13 @@ export const TaskForm = ({ fieldsData, toggleModal }) => {
     const isValidStartTime = start >= taskCreateTime;
     const isValidEndTime = start <= end;
 
-    if (!isValidStartTime) {
+    if (!isValidStartTime && modalType === 'add') {
       toast.error("Start time can't be in past!");
       setStart(taskCreateTime);
       return;
     }
 
-    if (!isValidEndTime) {
+    if (!isValidEndTime && modalType === 'add') {
       toast.error("End time can't be lower of start time!");
       setEnd(taskCreateTime);
       return;
@@ -76,17 +76,20 @@ export const TaskForm = ({ fieldsData, toggleModal }) => {
 
     // console.log('formData :>> ', data);
 
-    const taskData = { ...data, status: fieldsData.status, date: current };
-    console.log('formData :>> ', taskData);
-
     switch (modalType) {
       case 'edit':
-        updateTask({ taskData });
+        updateTask({ ...fieldsData, ...data });
         toggleModal();
 
         break;
 
       default:
+        const taskData = {
+          ...data,
+          status: fieldsData.status,
+          date: current,
+        };
+        // console.log('formData :>> ', taskData);
         addTask({ data: taskData, lang });
         toggleModal();
 
