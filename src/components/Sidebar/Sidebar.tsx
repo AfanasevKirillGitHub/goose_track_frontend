@@ -1,4 +1,4 @@
-import { MouseEvent, useState, useEffect } from 'react';
+import { MouseEvent, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { accountPages } from '../../helpers/pages';
 import { LogoutBtn } from './LogoutBtn/LogoutBtn';
@@ -15,27 +15,6 @@ interface IProps {
 
 export const AccountSidebar = ({ toggleBurgerMenu }: IProps ) => {
   const { t } = useTranslation();
-
-// ======================== for first rending Sidebar
-  document.body.style.overflow = '';
-
-// ======================== for closing Sidebar by Escape
-  useEffect(() => {
-    const closeBurgerMenu = (evt: Event): void => {
-      if (evt instanceof KeyboardEvent && evt.code === 'Escape') {
-        toggleBurgerMenu();
-        document.body.style.overflow = '';
-      }
-    };
-    
-    window.addEventListener('keydown', closeBurgerMenu);
-    document.body.style.overflow = 'hidden';
-
-    return () => {
-      window.removeEventListener('keydown', closeBurgerMenu);
-      document.body.style.overflow = '';
-    };
-  }, [toggleBurgerMenu]);
 
 // ======================== for closing Sidebar by navigate on accountPages if media screen less 1440 px
   const [isDesktop, setIsDesktop] = useState(false);
