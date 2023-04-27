@@ -2,8 +2,16 @@ import { TasksColumn } from '../TasksColumn/TasksColumn';
 import { useFetchTasksQuery } from '../../redux/task/taskOperations';
 import { ColumnList } from './TasksColumnsList.styled';
 
-export const TasksColumnsList = ({ items, currentDate }) => {
-  const { data } = useFetchTasksQuery();
+interface ITasksColumnsListProps {
+  items: string[];
+  currentDate: string;
+}
+
+export const TasksColumnsList = ({
+  items,
+  currentDate,
+}: ITasksColumnsListProps) => {
+  const { data } = useFetchTasksQuery(null);
 
   const getCurrentDayTasks = () => {
     return data?.filter(task => task.date === currentDate);
@@ -17,7 +25,7 @@ export const TasksColumnsList = ({ items, currentDate }) => {
         <TasksColumn
           key={item}
           name={item}
-          tasks={currentDayTasks}
+          tasks={currentDayTasks!}
           status={item}
         />
       ))}

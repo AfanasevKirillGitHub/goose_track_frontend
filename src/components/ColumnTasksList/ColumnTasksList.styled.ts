@@ -1,17 +1,18 @@
 import styled from 'styled-components';
+import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
+import { IScroll } from '../../helpers/scrollbars';
 
-export const TaskList = styled.ul`
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  max-height: 335px;
-  overflow: hidden;
-  overflow-y: auto;
+interface IOverlayProps {
+  element: string;
+  options: { scrollbars: IScroll };
+}
+
+export const TaskList = styled(OverlayScrollbarsComponent)<IOverlayProps>`
+  max-height: 290px;
 
   margin-bottom: 8;
 
   @media screen and (min-width: 768px) {
-    gap: 18px;
     max-height: 378px;
     margin-bottom: ${p => p.theme.space[5]}px;
 
@@ -21,4 +22,13 @@ export const TaskList = styled.ul`
 
 export const TaskElement = styled.li`
   list-style: none;
+  :not(:last-child) {
+    margin-bottom: 14px;
+  }
+
+  @media screen and (min-width: 768px) {
+    :not(:last-child) {
+      margin-bottom: 18px;
+    }
+  }
 `;

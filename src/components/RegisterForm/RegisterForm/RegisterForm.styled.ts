@@ -142,7 +142,7 @@ export const Notification = styled.span`
   position: absolute;
   font-size: 12px;
   left: 20px;
-  bottom: -35%;
+  bottom: -30%;
 `;
 
 export const Google = styled.a`
@@ -151,7 +151,7 @@ export const Google = styled.a`
   align-items: center;
   gap: 8px;
   border: ${props => props.theme.borders.userInput};
-  padding: 12px 16px;
+  padding: 10px 16px;
   border-radius: ${props => props.theme.radii.medium};
   margin-top: ${props => props.theme.space[4]}px;
 
@@ -165,6 +165,10 @@ export const Google = styled.a`
   :hover,
   :focus {
     background-color: ${props => props.theme.colors.hoverYellow};
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 12px 16px;
   }
 `;
 
@@ -223,5 +227,9 @@ export const TitleDiv = styled.div`
 `;
 
 export const Span = styled.span`
-  font-size: ${props => props.theme.fontSizes.xl};
+  font-size: ${props => props.theme.fontSizes.s};
+
+  @media screen and (min-width: 768px) {
+    font-size: ${props => props.theme.fontSizes.xl};
+  }
 `;

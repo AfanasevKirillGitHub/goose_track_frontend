@@ -8,6 +8,8 @@
   src: url('../assets/fonts/Inter.ttf');
 }
 
+@import 'overlayscrollbars/overlayscrollbars.css';
+
 *,
 *::before,
 *::after {

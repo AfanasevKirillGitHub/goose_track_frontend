@@ -1,7 +1,17 @@
 import { TaskColumnCard } from '../TaskColumnCard';
 import * as SC from './ColumnTasksList.styled';
+import { scrollbars } from '../../helpers/scrollbars';
+import { ITask } from '../../helpers/interfaces/taskApiInterface/taskApiInterface';
 
-export const ColumnTasksList = ({ tasks, status }) => {
+interface IColumnTasksListProps {
+  tasks: ITask[];
+  status: string;
+}
+
+export const ColumnTasksList: React.FC<IColumnTasksListProps> = ({
+  tasks,
+  status,
+}: IColumnTasksListProps) => {
   const getTasksByStatus = () => {
     return tasks?.filter(task => task.status === status);
   };
@@ -9,11 +19,7 @@ export const ColumnTasksList = ({ tasks, status }) => {
   const tasksByStatus = getTasksByStatus();
 
   return (
-    /*
-    Тут будуть рендиритися картки тудушок
-    Передати tasksByStatus як проп
-    */
-    <SC.TaskList>
+    <SC.TaskList element="ul" options={{ scrollbars }}>
       {tasksByStatus?.map(task => (
         <SC.TaskElement key={task._id}>
           <TaskColumnCard taskData={task} />
