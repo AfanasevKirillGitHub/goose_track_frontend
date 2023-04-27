@@ -1,4 +1,4 @@
-import { MouseEvent, useState } from 'react';
+import { MouseEvent, useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { accountPages } from '../../helpers/pages';
 import { LogoutBtn } from './LogoutBtn/LogoutBtn';
@@ -9,22 +9,59 @@ import { Modal } from '../Modal/Modal';
 import * as SC from './Sidebar.styled';
 import { CloseSidebarBtn } from './CloseSidebarBtn/CloseSidebarBtn';
 
+interface IProps {
+  toggleBurgerMenu: () => void;
+}
 
-
-export const AccountSidebar = () => {
+export const AccountSidebar = ({ toggleBurgerMenu }: IProps ) => {
   const { t } = useTranslation();
 
-  const closeBurgerMenu = () => {
-    const mobileMenu = document.querySelector('#menuContainer') as HTMLElement;
-    mobileMenu.classList.toggle('is-open');
-  };
+// ======================== for first rending Sidebar
+  document.body.style.overflow = '';
 
+// ======================== for closing Sidebar by Escape
+  useEffect(() => {
+    const closeBurgerMenu = (evt: Event): void => {
+      if (evt instanceof KeyboardEvent && evt.code === 'Escape') {
+        toggleBurgerMenu();
+        document.body.style.overflow = '';
+      }
+    };
+    
+    window.addEventListener('keydown', closeBurgerMenu);
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      window.removeEventListener('keydown', closeBurgerMenu);
+      document.body.style.overflow = '';
+    };
+  }, [toggleBurgerMenu]);
+
+// ======================== for closing Sidebar by navigate on accountPages if media screen less 1440 px
+  const [isDesktop, setIsDesktop] = useState(false);
+  
+  const navigateByAccountPages = () => {
+    if (window.innerWidth >= 1440) {
+      return setIsDesktop(true);
+    }
+
+    return !isDesktop && closeSidebar();
+  }
+
+// ======================== for closing Sidebar by touching overlay
   const closeOnClickByOverlay = (event: MouseEvent<HTMLElement>) => {
     if (event.target === event.currentTarget) {
-      closeBurgerMenu();
+      closeSidebar();
     }
   };
+  
+// ======================== for closing Sidebar by using "toggleBurgerMenu" and NOT hidden overlay
+  const closeSidebar = () => {
+    toggleBurgerMenu();
+    document.body.style.overflow = '';
+  };
 
+// ======================== for leaving reviews
   const [isOpenModal, setIsOpenModal] = useState(false);
   
   const toggleModal = () => {
@@ -40,7 +77,7 @@ export const AccountSidebar = () => {
             <SC.Title>
               G<SC.Span>oo</SC.Span>seTrack
             </SC.Title>
-            <CloseSidebarBtn />
+            <CloseSidebarBtn closeBurgerMenu={toggleBurgerMenu} />
           </SC.LogoWrapper>
 
           <SC.NavTitle>{t`User Panel`}</SC.NavTitle>
@@ -48,7 +85,7 @@ export const AccountSidebar = () => {
           <SC.NavList>
             {accountPages.map(({ href, name, id }) => (
               <li key={id}>
-                <SC.Link to={href} onClick={() => closeBurgerMenu()}>
+                <SC.Link to={href} onClick={navigateByAccountPages}>
                   {href === 'account' ? <SVG.UserCheck /> : <SVG.Calendar />}{' '}
                   {t(`navigation.${name}`)}
                 </SC.Link>
@@ -56,7 +93,9 @@ export const AccountSidebar = () => {
             ))}
           </SC.NavList>
         </div>
+
         <SC.ButtonReview onClick={toggleModal} type='button'>Leave review</SC.ButtonReview>
+
         <LogoutBtn />
         {isOpenModal && (
         <Modal toggleModal={toggleModal}>
