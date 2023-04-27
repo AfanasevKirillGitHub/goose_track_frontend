@@ -26,9 +26,9 @@ export const RegisterForm = () => {
     event.preventDefault();
 
     const payload: ICredentials = {
-      name: name.value,
-      email: email.value.toLowerCase(),
-      password: password.value,
+      name: name.value as string,
+      email: (email.value as string).toLowerCase(),
+      password: password.value as string,
     };
 
     dispatch(signUp(payload));
@@ -57,7 +57,7 @@ export const RegisterForm = () => {
                 }}
                 onChange={e => name.onChange(e)}
                 onBlur={e => name.onBlur(e)}
-                value={name.value}
+                value={name.value as string}
                 type="text"
                 name="name"
                 id="name"
@@ -90,7 +90,7 @@ export const RegisterForm = () => {
                       '1px solid red') as string),
                 }}
                 type="email"
-                value={email.value}
+                value={email.value as string}
                 onChange={e => email.onChange(e)}
                 onBlur={e => email.onBlur(e)}
                 name="email"
@@ -123,7 +123,7 @@ export const RegisterForm = () => {
                       '1px solid red') as string),
                 }}
                 type={passwordType}
-                value={password.value}
+                value={password.value as string}
                 onChange={e => password.onChange(e)}
                 onBlur={e => password.onBlur(e)}
                 name="password"
@@ -169,7 +169,7 @@ export const RegisterForm = () => {
                       '1px solid red') as string),
                 }}
                 type={confirmPasswordType}
-                value={confirmPassword.value}
+                value={confirmPassword.value as string}
                 onChange={e => confirmPassword.onChange(e)}
                 onBlur={e => confirmPassword.onBlur(e)}
                 name="confirmPassword"

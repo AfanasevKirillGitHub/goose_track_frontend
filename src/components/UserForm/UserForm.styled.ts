@@ -5,6 +5,13 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 interface ICellBirhtDayProps {
   birthDay: boolean;
+  selected: Date;
+  type: string;
+  input: boolean;
+}
+
+interface IInput {
+  style?: any;
 }
 
 export const Wrapper = styled.div`
@@ -97,7 +104,7 @@ export const InputList = styled.div`
   }
 `;
 
-export const Input = styled.input`
+export const Input = styled.input<IInput>`
   width: 299px;
   height: 42px;
 

@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 
 interface ISetings {
-  [key: string]: boolean | number | string;
+  [key: string]: boolean | number | string | Date;
 }
 
-export const useValidation = (value: string, validations: ISetings) => {
+export const useValidation = (value: string | Date, validations: ISetings) => {
   const [emailError, setEmailError] = useState(false);
   const [confirmError, setConfirmError] = useState(false);
   const [nameError, setNameError] = useState(false);
@@ -29,9 +29,10 @@ export const useValidation = (value: string, validations: ISetings) => {
             : setConfirmError(true);
           break;
         case 'isName':
-          const reName = /^[a-zA-Zа-яА-Яіїєґ']{2,}( [a-zA-Zа-яА-Яіїєґ']{2,}){0,1}$/u;
+          const reName =
+            /^[a-zA-Zа-яА-Яіїєґ']{2,}( [a-zA-Zа-яА-Яіїєґ']{2,}){0,1}$/u;
           reName.test(String(value).toLowerCase())
-            ? setNameError(false) 
+            ? setNameError(false)
             : setNameError(true);
           break;
         case 'isPassword':
@@ -45,10 +46,10 @@ export const useValidation = (value: string, validations: ISetings) => {
           reSkype.test(String(value).toLowerCase())
             ? setSkypeError(false)
             : setSkypeError(true);
-          break;  
+          break;
         case 'isPhone':
           const rePhone = /^(\+38)?[0-9]{10}$/;
-          if (rePhone.test(value)) {
+          if (rePhone.test(value as string)) {
             setPhoneError(false);
           } else {
             setPhoneError(true);
