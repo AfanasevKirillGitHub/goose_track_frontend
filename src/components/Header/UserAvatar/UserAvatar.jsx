@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '../../../hooks/useAuth';
-import avatarDefault from '../../../images/avatar-default.png';
 import * as SC from './UserAvatar.styled';
+import { SVG } from '../../../images';
 
 export const UserAvatar = ({ invert }) => {
   const { user } = useAuth();
@@ -16,7 +16,9 @@ export const UserAvatar = ({ invert }) => {
         </SC.AvatarUser>
       ) : (
         <SC.AvatarDefault>
-          <SC.Avatar src={avatarDefault} alt="Default Avatar" />
+          <SC.IconWrapper>
+            <SVG.UserAvatar />
+          </SC.IconWrapper>
         </SC.AvatarDefault>
       )}
     </SC.Wrapper>

@@ -4,7 +4,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
 interface ICellBirhtDayProps {
-  birthDay:  boolean 
+  birthDay: boolean;
 }
 
 export const Wrapper = styled.div`
@@ -37,13 +37,38 @@ export const Title = styled.h2`
   font-style: normal;
 
   font-weight: ${p => p.theme.fontWeights.bold};
-  font-size: ${p => p.theme.fontSizes.l};
-  line-height: 1;
+  font-size: ${p => p.theme.fontSizes.s};
+  line-height: ${p => p.theme.lineHeights.s};
 
   color: ${p => p.theme.colors.black2};
 
+  @media screen and (max-width: 767px) {
+    margin-top: 59px;
+  }
+
   @media screen and (min-width: 768px) {
     margin-bottom: 8px;
+  }
+`;
+
+export const User = styled.p`
+  margin-bottom: 40px;
+  width: 28px;
+  height: 14px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: ${p => p.theme.fontWeights.semiBold};
+  font-size: ${p => p.theme.fontSizes.xs};
+  line-height: 1.1667;
+
+  color: ${p => p.theme.colors.grey};
+
+  @media screen and (min-width: 768px) {
+    width: 32px;
+    height: 18px;
+    font-size: ${p => p.theme.fontSizes.s};
+    line-height: 1.29px;
   }
 `;
 
@@ -103,9 +128,10 @@ export const DatePick = styled(DatePicker)<ICellBirhtDayProps>`
 
   padding-left: 18px;
 
-  border: ${p => (!p.birthDay  && '1px solid rgba(17, 17, 17, 0.15)') || 
-  (p.birthDay && p.selected === null && "1px solid red") || 
-  (p.birthDay && p.selected !== null && "1px solid green")};
+  border: ${p =>
+    (!p.birthDay && '1px solid rgba(17, 17, 17, 0.15)') ||
+    (p.birthDay && p.selected === null && '1px solid red') ||
+    (p.birthDay && p.selected !== null && '1px solid green')};
 
   border-radius: 8px;
   background-color: ${p => p.theme.colors.white};
@@ -140,11 +166,59 @@ export const InputFile = styled.input`
 export const ImgAvatar = styled.img`
   text-align: center;
 
+  @media screen and (min-width: 768px) {
+  }
+  @media screen and (min-width: 1440px) {
+  }
+`;
+
+export const IconBtn = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 14px;
+  height: 14px;
+  background-color: ${props => props.theme.colors.blue};
+  border-radius: 50%;
+  color: ${props => props.theme.colors.white};
+
+  @media screen and (min-width: 768px) {
+    width: 24px;
+    height: 24px;
+  }
+`;
+
+export const IconWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media screen and (max-width: 767px) {
+    width: 8px;
+    height: 8px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 18px;
+    height: 18px;
+  }
+`;
+
+export const Container = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 72px;
   height: 72px;
-
   border: ${p => p.theme.borders.avatar};
   border-radius: 50%;
+  overflow: hidden;
+
+  @media screen and (max-width: 767px) {
+    position: absolute;
+    top: -36px;
+    left: 132px;
+    background-color: ${props => props.theme.colors.white};
+  }
 
   @media screen and (min-width: 768px) {
     margin-top: 40px;
@@ -159,37 +233,15 @@ export const ImgAvatar = styled.img`
   }
 `;
 
-export const ImgBtn = styled.img`
-  width: 24px;
-  height: 24px;
-`;
-
-export const User = styled.p`
-  margin-bottom: 40px;
-  width: 28px;
-  height: 14px;
-
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: ${p => p.theme.fontWeights.semiBold};
-  font-size: ${p => p.theme.fontSizes.xs};
-  line-height: 1.17px;
-
-  color: ${p => p.theme.colors.grey};
-
-  @media screen and (min-width: 768px) {
-    width: 32px;
-    height: 18px;
-    font-size: ${p => p.theme.fontSizes.s};
-    line-height: 1.29px;
-  }
-`;
-export const Container = styled.div``;
-
 export const LabelImg = styled.label`
   position: absolute;
   left: 188px;
   top: 55px;
+
+  @media screen and (max-width: 767px) {
+    left: 177px;
+    top: 23px;
+  }
 
   @media screen and (min-width: 768px) {
     left: 200px;

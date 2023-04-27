@@ -35,6 +35,9 @@ export const AvatarUser = styled.div`
 `;
 
 export const AvatarDefault = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 50%;
   border: 2px solid #3e85f3;
   padding: 2px;
@@ -49,4 +52,18 @@ export const AvatarDefault = styled.div`
 
 export const Avatar = styled.img`
   border-radius: 50%;
+`;
+
+export const IconWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 16px;
+  height: 16px;
+
+  @media screen and (min-width: 768px) {
+    width: 32px;
+    height: 32px;
+  }
 `;
