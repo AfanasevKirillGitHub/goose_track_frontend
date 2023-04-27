@@ -1,7 +1,6 @@
 import { useAuth } from '../../hooks/useAuth';
 import * as SC from './TaskColumnCard.styled';
 import EllipsisText from 'react-ellipsis-text';
-import avatarDefault from '../../images/avatar-default.png';
 import { SVG } from '../../images';
 import { TaskToolbar } from './TaskToolbar';
 

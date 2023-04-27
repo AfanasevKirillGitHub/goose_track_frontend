@@ -45,6 +45,8 @@ export const TaskForm = ({ fieldsData, toggleModal }) => {
   const [addTask, { isLoading: taskIsLoading }] = useAddTasksMutation();
   const [updateTask, { isLoading: isUpdatind }] = useUpdateTasksMutation();
 
+  console.log('isUpdatind :>> ', isUpdatind);
+
   const { register, handleSubmit } = useForm();
 
   const onError = (errors, e) => {
