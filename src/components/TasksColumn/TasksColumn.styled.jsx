@@ -7,7 +7,6 @@ export const Column = styled.li`
   min-width: 335px;
   width: 100%;
   max-height: 432px;
-  margin-top: 16px;
   list-style: none;
   overflow-y: auto;
 
