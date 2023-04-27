@@ -13,7 +13,7 @@ export const TaskToolbar = ({ taskData }) => {
   const { isOpenModal, toggleModal } = useModal();
 
   const [deleteTask, { isLoading: isDeletting }] = useRemoveTasksMutation();
-  const [updateTask, { isLoading: isUpdatind }] = useUpdateTasksMutation();
+  const [{ isLoading: isUpdatind }] = useUpdateTasksMutation();
 
   // const del = id => {
   //   console.log('id :>> ', id);
