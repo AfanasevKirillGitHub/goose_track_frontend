@@ -29,9 +29,9 @@ export const useValidation = (value: string, validations: ISetings) => {
             : setConfirmError(true);
           break;
         case 'isName':
-          const reName = /^[\p{L}]{1,16}$/u;
+          const reName = /^[a-zA-Zа-яА-Яіїєґ']{2,}( [a-zA-Zа-яА-Яіїєґ']{2,}){0,1}$/u;
           reName.test(String(value).toLowerCase())
-            ? setNameError(false)
+            ? setNameError(false) 
             : setNameError(true);
           break;
         case 'isPassword':
@@ -40,14 +40,15 @@ export const useValidation = (value: string, validations: ISetings) => {
             ? setPasswordError(false)
             : setPasswordError(true);
           break;
-        case 'maxLength':
-          value.length > +validations[validation]
-            ? setSkypeError(true)
-            : setSkypeError(false);
-          break;
+        case 'isSkype':
+          const reSkype = /^.{1,16}$/;
+          reSkype.test(String(value).toLowerCase())
+            ? setSkypeError(false)
+            : setSkypeError(true);
+          break;  
         case 'isPhone':
           const rePhone = /^(\+38)?[0-9]{10}$/;
-          if (value === '' || rePhone.test(value)) {
+          if (rePhone.test(value)) {
             setPhoneError(false);
           } else {
             setPhoneError(true);
