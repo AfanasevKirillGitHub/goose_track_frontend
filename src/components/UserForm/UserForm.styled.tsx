@@ -132,23 +132,15 @@ export const InputFile = styled.input`
 
 export const ImgAvatar = styled.img`
   text-align: center;
-
+  /* 
   width: 72px;
-  height: 72px;
-
-  border: ${p => p.theme.borders.avatar};
-  border-radius: 50%;
+  height: 72px; */
 
   @media screen and (min-width: 768px) {
-    margin-top: 40px;
-    margin-bottom: 14px;
-
-    width: 124px;
-    height: 124px;
+    /* width: 124px;
+    height: 124px; */
   }
   @media screen and (min-width: 1440px) {
-    margin-top: 60px;
-    margin-bottom: 20px;
   }
 `;
 
@@ -177,7 +169,28 @@ export const User = styled.p`
     line-height: 1.29px;
   }
 `;
-export const Container = styled.div``;
+export const Container = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border: ${p => p.theme.borders.avatar};
+  border-radius: 50%;
+  overflow: hidden;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 40px;
+    margin-bottom: 14px;
+
+    width: 124px;
+    height: 124px;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-top: 60px;
+    margin-bottom: 20px;
+  }
+`;
 
 export const LabelImg = styled.label`
   position: absolute;

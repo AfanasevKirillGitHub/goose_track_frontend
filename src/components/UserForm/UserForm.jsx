@@ -4,9 +4,9 @@ import { useAuth } from '../../hooks/useAuth';
 import { useInput } from '../../hooks/useInput';
 import { updateInfo } from '../../redux/auth/authOperations';
 import plus from '../../images/icons/plusAvatar.svg';
-import avatarDefault from '../../images/avatar-default.png';
 import * as SC from './UserForm.styled';
 import { useTranslation } from 'react-i18next';
+import { SVG } from '../../images';
 
 export const UserForm = () => {
   const { t } = useTranslation();
@@ -61,8 +61,10 @@ export const UserForm = () => {
         <SC.Container>
           {avatarURL ? (
             <SC.ImgAvatar src={URL.createObjectURL(avatarURL)} alt="avatar" />
+          ) : user.avatarURL ? (
+            <SC.ImgAvatar src={user.avatarURL} alt="avatar" />
           ) : (
-            <SC.ImgAvatar src={user.avatarURL ?? avatarDefault} alt="avatar" />
+            <SVG.UserAvatar />
           )}
         </SC.Container>
 
