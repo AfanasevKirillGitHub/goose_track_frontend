@@ -11,6 +11,8 @@ export const TaskList = styled.ul`
     gap: 18px;
 
     margin-bottom: ${p => p.theme.space[5]}px;
+
+    background-color: white;
   }
 `;
 

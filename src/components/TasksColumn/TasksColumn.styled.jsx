@@ -10,4 +10,6 @@ export const Column = styled.li`
 
   border: 1px solid rgba(220, 227, 229, 0.8);
   border-radius: 8px;
+
+  background-color: ${p => p.theme.colors.white};
 `;
