@@ -15,7 +15,8 @@ export const UserForm = () => {
   const [birthday, setBirthday] = useState(
     user.birthday ? new Date(user.birthday) : ''
   );
-  const [avatarURL, setAvatarURL] = useState(user.avatarURL ?? avatarDefault);
+
+  const [avatarURL, setAvatarURL] = useState(null);
 
   const name = useInput(user.name ?? '', { isName: true, maxLength: 16 });
   const email = useInput(user.email ?? '', { isEmail: true });
@@ -58,7 +59,11 @@ export const UserForm = () => {
     <SC.Wrapper>
       <SC.Forms autoComplete="off" onSubmit={handleSubmit}>
         <SC.Container>
-          <SC.ImgAvatar src={user.avatarURL ?? avatarDefault} alt="avatar" />
+          {avatarURL ? (
+            <SC.ImgAvatar src={URL.createObjectURL(avatarURL)} alt="avatar" />
+          ) : (
+            <SC.ImgAvatar src={user.avatarURL ?? avatarDefault} alt="avatar" />
+          )}
         </SC.Container>
 
         <SC.LabelImg htmlFor="avatar">
