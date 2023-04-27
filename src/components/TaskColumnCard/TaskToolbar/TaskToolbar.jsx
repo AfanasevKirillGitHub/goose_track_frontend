@@ -1,9 +1,9 @@
 import { useModal } from '../../../hooks/useModal';
 import { SVG } from '../../../images';
-// import {
-//   useRemoveTasksMutation,
-//   useUpdateTasksMutation,
-// } from '../../../redux/task/taskOperations';
+import {
+  useRemoveTasksMutation,
+  useUpdateTasksMutation,
+} from '../../../redux/task/taskOperations';
 import { TaskModal } from '../../TaskModal';
 import * as SC from './TaskToolbar.styled';
 
@@ -12,8 +12,8 @@ export const TaskToolbar = ({ taskData }) => {
 
   const { isOpenModal, toggleModal } = useModal();
 
-  // const [deleteTask, { isLoading: isDeletting }] = useRemoveTasksMutation();
-  // const [updateTask, { isLoading: isUpdatind }] = useUpdateTasksMutation();
+  const [deleteTask, { isLoading: isDeletting }] = useRemoveTasksMutation();
+  const [{ isLoading: isUpdatind }] = useUpdateTasksMutation();
 
   // const del = id => {
   //   console.log('id :>> ', id);
@@ -38,9 +38,8 @@ export const TaskToolbar = ({ taskData }) => {
         </SC.TaskToolbarBtn>
         <SC.TaskToolbarBtn
           type="button"
-          // onClick={() => deleteTask(taskData._id)}
-          // onClick={() => del(taskData._id)}
-          // disabled={isDeletting || isUpdatind}
+          onClick={() => deleteTask(taskData._id)}
+          disabled={isDeletting || isUpdatind}
         >
           <SVG.Delete />
         </SC.TaskToolbarBtn>
