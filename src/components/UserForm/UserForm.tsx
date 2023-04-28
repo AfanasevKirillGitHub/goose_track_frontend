@@ -8,6 +8,8 @@ import { useTranslation } from 'react-i18next';
 import { SVG } from '../../images';
 import { ICredentials } from '../../helpers/interfaces/auth/authInterfaces';
 import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit';
+import { AddReview } from '../Reviews/addReview';
+import { Modal } from '../Modal/Modal';
 
 export const UserForm = () => {
   const { t } = useTranslation();
@@ -53,6 +55,12 @@ export const UserForm = () => {
     dispatch(updateInfo(formData as ICredentials));
   };
 
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  
+  const toggleModal = () => {
+    setIsOpenModal(!isOpenModal);
+  };
+
   return (
     <SC.Wrapper>
       <SC.Form autoComplete="off" onSubmit={handleSubmit}>
@@ -81,7 +89,7 @@ export const UserForm = () => {
             name="avatarURL"
           />
         </SC.AvatarButton>
-
+       
         <SC.UserName> {user?.name ?? ' '} </SC.UserName>
         <SC.UserText> {t('User')} </SC.UserText>
 
@@ -234,9 +242,18 @@ export const UserForm = () => {
           </SC.DivNotifications>
         </SC.InputList>
 
-        <SC.SubmitButton type="submit" disabled={!email.validForm || !name.validForm}>
+        <SC.ButtonsWrapper>
+          <SC.SubmitButton type="submit" disabled={!email.validForm || !name.validForm}>
           {t('Save changes')}
-        </SC.SubmitButton>
+          </SC.SubmitButton>
+          <SC.ButtonReview onClick={toggleModal} type='button'>{t('Leave review')}</SC.ButtonReview>
+        </SC.ButtonsWrapper>
+
+        {isOpenModal && (
+        <Modal toggleModal={toggleModal}>
+            <AddReview />     
+        </Modal>
+        )}
       </SC.Form>
     </SC.Wrapper>
   );

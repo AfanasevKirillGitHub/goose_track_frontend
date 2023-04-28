@@ -14,6 +14,11 @@ interface IInput {
   style?: any;
 }
 
+interface IButton {
+  design?: boolean;
+  to?: boolean;
+}
+
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -21,16 +26,16 @@ export const Wrapper = styled.div`
   margin-left: auto;
   margin-right: auto;
   width: 335px;
-  height: 700px;
+  height: 730px;
   background: ${p => p.theme.colors.white};
   border-radius: 16px;
   @media screen and (min-width: 768px) {
     width: 704px;
-    height: 880px;
+    height: 920px;
   }
   @media screen and (min-width: 1440px) {
     width: 1087px;
-    height: 752px;
+    height: 760px;
   }
 `;
 
@@ -192,7 +197,7 @@ export const Input = styled.input<IInput>`
   height: 42px;
   padding: 12px 14px;
   border: ${p => p.theme.borders.userInput};
-  border-radius: 8px;
+  border-radius:${p => p.theme.radii.normal}; 
   background-color: ${p => p.theme.colors.white};
   font-family: 'Inter';
   font-weight: ${p => p.theme.fontWeights.semiBold};
@@ -249,7 +254,7 @@ export const DatePick = styled(DatePicker)<ICellBirhtDayProps>`
 export const SubmitButton = styled.button`
   margin-left: auto;
   margin-right: auto;
-  margin-top: 30px;
+  margin-top: 20px;
   padding: 0;
   width: 195px;
   height: 46px;
@@ -282,10 +287,10 @@ export const SubmitButton = styled.button`
   @media screen and (min-width: 768px) {
     width: 262px;
     height: 48px;
-    margin-top: 40px;
+    margin-top: 25px;
   }
   @media screen and (min-width: 1440px) {
-    margin-top: 88px;
+    margin-top: 50px;
   }
 `;
 
@@ -294,6 +299,44 @@ export const Notifications = styled.span`
   font-size: 12px;
   left: 20px;
   bottom: -35%;
+`;
+
+export const ButtonsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const ButtonReview = styled.button<IButton>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 8px 10px;
+  border-radius: ${props => props.theme.radii.medium};
+  border: ${props => props.theme.borders.none};
+  color: ${p => p.theme.colors.blue};
+  background-color: ${p => p.theme.colors.white};
+  cursor: pointer;
+  font-size: ${props => (props.design ? '14px' : props.theme.fontSizes.m)};
+  line-height: ${props => props.theme.lineHeights.xl};
+  font-weight: ${props => props.theme.fontWeights.semiBold};
+  box-shadow: 0 0 15px rgba(236, 236, 236, 0.5);
+  transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out,
+    transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  :hover,
+  :focus {
+    color: ${p => p.theme.colors.blue};
+    background-color: ${p => p.theme.colors.hoverBackground};
+    transform: scale(1.02);
+  }
+
+  @media screen and (min-width: 768px) {
+    width: ${props => (props.design ? '150' : '170')}px;
+    height: ${props => (props.design ? '37' : '46')}px;
+  }
 `;
 
 
