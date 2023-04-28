@@ -13,7 +13,7 @@ import storage from 'redux-persist/lib/storage';
 import { tasksApi } from './task/taskOperations';
 import { reviewsApi } from './review/reviewOperations';
 import { authSlice } from './auth/authReducer';
-import { themeReducer } from './theme/theme.reducer';
+import { themeSlice } from './theme/themeReducer';
 
 const authPersistConfig = {
   key: 'auth',
@@ -21,12 +21,17 @@ const authPersistConfig = {
   whitelist: ['token'],
 };
 
+const themePersistConfig = {
+  key: 'theme',
+  storage,
+};
+
 export const store = configureStore({
   reducer: {
     [tasksApi.reducerPath]: tasksApi.reducer,
     [reviewsApi.reducerPath]: reviewsApi.reducer,
     [authSlice.name]: persistReducer(authPersistConfig, authSlice.reducer)!,
-    theme: themeReducer,
+    [themeSlice.name]: persistReducer(themePersistConfig, themeSlice.reducer)!,
   },
   middleware: getDefaultMiddleware => [
     ...getDefaultMiddleware({
@@ -42,4 +47,5 @@ export const store = configureStore({
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
+
 export const persistor = persistStore(store);

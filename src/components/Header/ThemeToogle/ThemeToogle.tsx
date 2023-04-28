@@ -1,16 +1,15 @@
 import { SVG } from '../../../images';
 import { useSelector, useDispatch } from 'react-redux';
-import { themeAction } from '../../../redux/theme/theme.action';
-
+import { getTheme, changeTheme } from '../../../redux/theme/themeReducer';
 import * as SC from './ThemeToogle.styled';
 
 export const ThemeToogle = () => {
   const dispatch = useDispatch();
-  const currentTheme = useSelector(state => state.theme);
+  const currentTheme = useSelector(getTheme);
 
-  let newTheme;
+  let newTheme: string;
 
-  const getNewTheme = currentTheme => {
+  const getNewTheme = (currentTheme: string) => {
     switch (currentTheme) {
       case 'darkblue':
         newTheme = 'lightblue';
@@ -36,7 +35,7 @@ export const ThemeToogle = () => {
     <>
       <SC.ToogleBtn
         type="button"
-        onClick={() => dispatch(themeAction(newTheme))}
+        onClick={() => dispatch(changeTheme(newTheme))}
       >
         {currentTheme === 'darkblue' || currentTheme === 'darkgreen' ? (
           <SVG.SunIcon />
