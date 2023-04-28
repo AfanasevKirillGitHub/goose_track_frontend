@@ -235,7 +235,7 @@ export const DatePick = styled(DatePicker)<ICellBirhtDayProps>`
   padding-left: 18px;
   margin-top: 8px;
   border: ${p =>
-    (!p.birthDay && '1px solid rgba(17, 17, 17, 0.15)') ||
+    (!p.birthDay && p.theme.borders.userInput) ||
     (p.birthDay && p.selected === null && '1px solid red') ||
     (p.birthDay && p.selected !== null && '1px solid green')};
   border-radius: 8px;
