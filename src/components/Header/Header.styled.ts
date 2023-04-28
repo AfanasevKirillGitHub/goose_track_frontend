@@ -15,19 +15,7 @@ export const Header = styled.header`
   }
 `;
 
-export const HeaderTitle = styled.h1`
-  display: none;
 
-  @media (min-width: 1440px) {
-    display: block;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 32px;
-    color: ${p => p.theme.colors.columnHeader};
-  }
-`;
 
 export const UserInfo = styled.div`
   display: flex;

@@ -110,6 +110,7 @@ export const UserText = styled.p`
 
 export const AvatarButton = styled.label`
   position: absolute;
+  cursor: pointer;
   @media screen and (max-width: 767px) {
     left: 177px;
     top: 23px;
@@ -201,7 +202,9 @@ export const Input = styled.input<IInput>`
   font-weight: ${p => p.theme.fontWeights.semiBold};
   font-size: ${p => p.theme.fontSizes.s};
   line-height: ${p => p.theme.lineHeights.xl};
+
   color: ${p => p.theme.colors.black};
+
   margin-top: 8px;
   @media screen and (min-width: 768px) {
     width: 354px;

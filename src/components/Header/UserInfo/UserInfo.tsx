@@ -16,7 +16,7 @@ export const UserInfo = () => {
       </SC.UserInfo>
       {showModal && (
         <ModalUserInfo toggleModal={toggleModal}>
-          <UserAvatar />
+          <UserAvatar invert={false} />
         </ModalUserInfo>
       )}
     </>
