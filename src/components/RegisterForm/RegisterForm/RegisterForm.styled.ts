@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: ${props => props.theme.colors.blue2};
+  background-color: ${props => props.theme.colors.loginBackground};
 `;
 
 export const InnerDiv = styled.div`
@@ -48,7 +48,7 @@ export const Label = styled.label`
   font-size: ${props => props.theme.fontSizes.xs};
   font-weight: ${props => props.theme.fontWeights.semiBold};
   line-height: ${props => props.theme.lineHeights.l};
-  color: ${props => props.theme.colors.black2};
+  color: ${props => props.theme.colors.columnHeader};
   @media (min-width: 768px) {
     font-size: ${props => props.theme.fontSizes.s};
   }
@@ -61,6 +61,8 @@ export const Input = styled.input`
   border-radius: ${props => props.theme.radii.normal};
   margin-top: ${props => props.theme.space[3]}px;
   padding: 14px;
+  background-color: ${props => props.theme.colors.white};
+  color: ${props => props.theme.colors.black};
   &::placeholder {
     font-weight: ${props => props.theme.fontWeights.regular};
     font-size: ${props => props.theme.fontSizes.s};
@@ -83,22 +85,23 @@ export const Button = styled.button`
   margin-top: ${props => props.theme.space[4]}px;
 
   &:disabled {
-    background-color: rgba(62, 133, 243, 0.5);
+    background-color: ${p => p.theme.colors.disabledButton};
   }
   &:disabled:hover {
-    background-color: rgba(62, 133, 243, 0.5);
+    background-color: ${p => p.theme.colors.disabledButton};
     color: ${p => p.theme.colors.white};
     cursor: not-allowed;
   }
   &:disabled:focus {
-    background-color: rgba(62, 133, 243, 0.5);
+    background-color: ${p => p.theme.colors.disabledButton};
     color: ${p => p.theme.colors.white};
   }
 
   border: none;
   border-radius: ${props => props.theme.radii.medium};
   background: ${props => props.theme.colors.blue};
-  color: ${props => props.theme.colors.white};
+  color: ${props => props.theme.colors.white3};
+  background-color: ${p => p.theme.colors.blue};
   box-shadow: ${props => props.theme.shadows.button};
 
   font-weight: ${props => props.theme.fontWeights.semiBold};

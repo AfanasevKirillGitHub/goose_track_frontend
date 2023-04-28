@@ -36,7 +36,7 @@ export const Title = styled.h1`
   font-family: ${props => props.theme.fontFamily.logo};
   font-size: ${props => props.theme.fontSizes.bxxxl};
   font-weight: ${props => props.theme.fontWeights.regular};
-  color: ${props => props.theme.colors.white};
+  color: ${props => props.theme.colors.white3};
   @media screen and (min-width: 768px) {
     font-size: ${props => props.theme.fontSizes.homePageLogo};
   }
@@ -76,10 +76,16 @@ export const Button = styled(NavLink)`
   justify-content: center;
   border-radius: ${props => props.theme.radii.medium};
   border: ${props => props.theme.borders.none};
-  color: ${props => (props.to === '/login' ? '#3E85F3' : '#FFFFFF')};
+  color: ${props =>
+    props.to === '/login'
+      ? props.theme.colors.currentDay
+      : props.theme.colors.white3};
   font-size: ${props => props.theme.fontSizes.s};
   font-weight: ${props => props.theme.fontWeights.semiBold};
-  background-color: ${props => (props.to === '/login' ? '#FFFFFF' : '#3E85F3')};
+  background-color: ${props =>
+    props.to === '/login'
+      ? props.theme.colors.white3
+      : props.theme.colors.currentDay};
 
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -153,9 +159,9 @@ export const ItemTitle = styled.h2`
   text-transform: uppercase;
   font-size: ${props => props.theme.fontSizes.bxl};
   font-weight: ${props => props.theme.fontWeights.bold};
-  color: ${props => props.theme.colors.blue};
+  color: ${props => props.theme.colors.navLink};
   line-height: ${props => props.theme.lineHeights.l};
-  background-color: ${props => props.theme.colors.blue2};
+  background-color: ${props => props.theme.colors.mainH2};
   border-radius: ${props => props.theme.radii.big2};
   padding: 8px 18px;
 `;
@@ -163,7 +169,7 @@ export const ItemTitle = styled.h2`
 export const ItemSubtitle = styled.p`
   font-size: ${props => props.theme.fontSizes.bxl};
   font-weight: ${props => props.theme.fontWeights.bold};
-  color: ${props => props.theme.colors.black4};
+  color: ${props => props.theme.colors.black};
   line-height: ${props => props.theme.lineHeights.l};
   @media screen and (max-width: 767px) {
     margin-top: 8px;
@@ -177,6 +183,8 @@ export const ItemText = styled.p`
   font-size: ${props => props.theme.fontSizes.s};
   font-weight: ${props => props.theme.fontWeights.medium};
   line-height: ${props => props.theme.lineHeights.xl};
+  color: ${props => props.theme.colors.black};
+
   @media screen and (max-width: 767px) {
     margin-top: 14px;
   }
