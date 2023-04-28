@@ -3,7 +3,13 @@ import { useAuth } from '../../../hooks/useAuth';
 import * as SC from './UserAvatar.styled';
 import { SVG } from '../../../images';
 
-export const UserAvatar = ({ invert }) => {
+interface IUserAvatarProps {
+  invert: boolean;
+}
+
+export const UserAvatar: React.FC<IUserAvatarProps> = ({
+  invert,
+}: IUserAvatarProps) => {
   const { user } = useAuth();
   const { t } = useTranslation();
 
