@@ -178,6 +178,7 @@ export const Link = styled(NavLink)`
   }
 `;
 
+
 interface IButton {
   design?: boolean;
   to?: boolean;
@@ -220,3 +221,4 @@ export const ButtonReview = styled.button<IButton>`
     height: ${props => (props.design ? '37' : '46')}px;
   }
 `;
+

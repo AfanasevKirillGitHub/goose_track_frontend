@@ -8,6 +8,8 @@ import { useTranslation } from 'react-i18next';
 import { SVG } from '../../images';
 import { ICredentials } from '../../helpers/interfaces/auth/authInterfaces';
 import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit';
+import { AddReview } from '../Reviews/addReview';
+import { Modal } from '../Modal/Modal';
 
 export const UserForm = () => {
   const { t } = useTranslation();
@@ -53,10 +55,16 @@ export const UserForm = () => {
     dispatch(updateInfo(formData as ICredentials));
   };
 
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  
+  const toggleModal = () => {
+    setIsOpenModal(!isOpenModal);
+  };
+
   return (
     <SC.Wrapper>
-      <SC.Forms autoComplete="off" onSubmit={handleSubmit}>
-        <SC.Container>
+      <SC.Form autoComplete="off" onSubmit={handleSubmit}>
+        <SC.ContainerAvatar>
           {avatarURL ? (
             <SC.ImgAvatar src={URL.createObjectURL(avatarURL)} alt="avatar" />
           ) : user.avatarURL ? (
@@ -64,14 +72,14 @@ export const UserForm = () => {
           ) : (
             <SVG.UserAvatar />
           )}
-        </SC.Container>
+        </SC.ContainerAvatar>
 
-        <SC.LabelImg htmlFor="avatar">
-          <SC.IconBtn>
-            <SC.IconWrapper>
+        <SC.AvatarButton htmlFor="avatar">
+          <SC.IconWrapper>
+            <SC.Icon>
               <SVG.AddIcon />
-            </SC.IconWrapper>
-          </SC.IconBtn>
+            </SC.Icon>
+          </SC.IconWrapper>
 
           <SC.InputFile
             id="avatar"
@@ -80,13 +88,13 @@ export const UserForm = () => {
             accept="image/*,.png,.jpg,.jpeg,.webp"
             name="avatarURL"
           />
-        </SC.LabelImg>
-
-        <SC.Title> {user?.name ?? ' '} </SC.Title>
-        <SC.User> {t('User')} </SC.User>
+        </SC.AvatarButton>
+       
+        <SC.UserName> {user?.name ?? ' '} </SC.UserName>
+        <SC.UserText> {t('User')} </SC.UserText>
 
         <SC.InputList>
-          <SC.Div>
+          <SC.DivNotifications>
             <SC.LabelBtn htmlFor="username">
               {t('Name')}
               <SC.Input
@@ -115,9 +123,9 @@ export const UserForm = () => {
                 {t('Name is valid')}
               </SC.Notifications>
             )}
-          </SC.Div>
+          </SC.DivNotifications>
 
-          <SC.Div>
+          <SC.DivNotifications>
             <SC.LabelBtn htmlFor="phone">
               {t('Phone')}
               <SC.Input
@@ -144,9 +152,9 @@ export const UserForm = () => {
                 {t('Phone is valid')}
               </SC.Notifications>
             )}
-          </SC.Div>
+          </SC.DivNotifications>
 
-          <SC.Div>
+          <SC.DivNotifications>
             <SC.LabelBtn htmlFor="birthday">
               {t('Birthday')}
               <SC.DatePick
@@ -171,9 +179,9 @@ export const UserForm = () => {
                 {t('birthday is valid')}
               </SC.Notifications>
             )}
-          </SC.Div>
+          </SC.DivNotifications>
 
-          <SC.Div>
+          <SC.DivNotifications>
             <SC.LabelBtn htmlFor="skype">
               Skype
               <SC.Input
@@ -200,9 +208,9 @@ export const UserForm = () => {
                 {t('Skype is valid')}
               </SC.Notifications>
             )}
-          </SC.Div>
+          </SC.DivNotifications>
 
-          <SC.Div>
+          <SC.DivNotifications>
             <SC.LabelBtn htmlFor="email">
               {t('Email')}
               <SC.Input
@@ -231,13 +239,22 @@ export const UserForm = () => {
                   {t('Email is correct')}
                 </SC.Notifications>
               ))}
-          </SC.Div>
+          </SC.DivNotifications>
         </SC.InputList>
 
-        <SC.Btn type="submit" disabled={!email.validForm || !name.validForm}>
+        <SC.ButtonsWrapper>
+          <SC.SubmitButton type="submit" disabled={!email.validForm || !name.validForm}>
           {t('Save changes')}
-        </SC.Btn>
-      </SC.Forms>
+          </SC.SubmitButton>
+          <SC.ButtonReview onClick={toggleModal} type='button'>{t('Leave review')}</SC.ButtonReview>
+        </SC.ButtonsWrapper>
+
+        {isOpenModal && (
+        <Modal toggleModal={toggleModal}>
+            <AddReview />     
+        </Modal>
+        )}
+      </SC.Form>
     </SC.Wrapper>
   );
 };

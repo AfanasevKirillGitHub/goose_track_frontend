@@ -77,7 +77,7 @@ export const CalendarGrid = ({ startDay, today }: IProps) => {
                           {todo.title.slice(0, isMobileView ? 2 : 8)}...
                         </SC.TasksListItem>
                       ) : (
-                        <SC.TasksListItemDiv>
+                        <SC.TasksListItemDiv key={todo.title}>
                           <SC.TasksListItemMany
                             design={todo.priority}
                           ></SC.TasksListItemMany>

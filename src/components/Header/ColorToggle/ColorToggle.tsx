@@ -1,15 +1,16 @@
 import * as SC from './ColorToggle.styled';
 import { SVG } from '../../../images';
 import { useSelector, useDispatch } from 'react-redux';
-import { themeAction } from '../../../redux/theme/theme.action';
+
+import { getTheme, changeTheme } from '../../../redux/theme/themeReducer';
 
 export const ColorToggle = () => {
   const dispatch = useDispatch();
-  const currentTheme = useSelector(state => state.theme);
+  const currentTheme = useSelector(getTheme);
 
-  let newTheme;
+  let newTheme: string;
 
-  const getNewTheme = currentTheme => {
+  const getNewTheme = (currentTheme: string) => {
     switch (currentTheme) {
       case 'darkblue':
         newTheme = 'darkgreen';
@@ -35,7 +36,7 @@ export const ColorToggle = () => {
     <>
       <SC.ColorPicker
         type="button"
-        onClick={() => dispatch(themeAction(newTheme))}
+        onClick={() => dispatch(changeTheme(newTheme))}
       >
         <SVG.DropIcon />
       </SC.ColorPicker>

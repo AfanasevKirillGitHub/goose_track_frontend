@@ -214,7 +214,9 @@ export const TasksListItemDiv = styled.li`
   }
 `;
 
-export const TasksListItemMany = styled(TasksListItem)<ITaskListItem>`
+export const TasksListItemMany = styled(TasksListItem).attrs(() => ({
+  as: 'div',
+}))<ITaskListItem>`
   width: 20px;
   height: 20px;
 `;

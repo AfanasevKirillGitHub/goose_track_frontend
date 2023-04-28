@@ -1,8 +1,8 @@
 import { lazy, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
-// import { ThunkDispatch } from '@reduxjs/toolkit';
+import { ThunkDispatch } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
-// import { AnyAction } from 'redux';
+import { AnyAction } from 'redux';
 import { Layout } from '../Layout/Layout';
 import { useAuth } from '../../hooks/useAuth';
 import { refreshUser } from '../../redux/auth/authOperations';
@@ -10,6 +10,7 @@ import { Loader } from '../Loader/Loader';
 import { PrivateRout } from '../PrivateRoute/PrivateRoute';
 import { RestrictedRout } from '../RestrictedRoute/RestrictedRoute';
 import CalendarRedirect from '../../pages/CalendarPage/CalendarRedirect';
+import { ITheme } from '../../helpers/theme';
 
 import { ThemeProvider } from 'styled-components';
 import {
@@ -19,6 +20,7 @@ import {
   lightgreen,
 } from '../../helpers/theme';
 import { useSelector } from 'react-redux';
+import { getTheme } from '../../redux/theme/themeReducer';
 
 const HomePage = lazy(() =>
   import('../../pages/HomePage/HomePage').then(module => ({
@@ -77,11 +79,11 @@ const NotFoundPage = lazy(() =>
 );
 
 export const App = () => {
-  const currentTheme = useSelector(state => state.theme);
+  const currentTheme = useSelector(getTheme);
 
-  let choosenTheme;
+  let choosenTheme: ITheme = lightblue;
 
-  const getNewTheme = currentTheme => {
+  const getNewTheme = (currentTheme: string) => {
     switch (currentTheme) {
       case 'darkblue':
         choosenTheme = darkblue;
@@ -103,9 +105,7 @@ export const App = () => {
 
   getNewTheme(currentTheme);
 
-  // const dispatch = useDispatch<ThunkDispatch<any, any, AnyAction>>();
-  const dispatch = useDispatch();
-
+  const dispatch = useDispatch<ThunkDispatch<any, any, AnyAction>>();
   const { isRefreshing } = useAuth();
 
   useEffect(() => {
