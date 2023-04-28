@@ -29,6 +29,8 @@ export const CalendarMonitor = ({
 
   const { pathname } = useLocation();
 
+  today.locale(t(`lang`)!);
+
   return (
     <SC.CalendarMonitorWrapper>
       <SC.LeftWrapper>
