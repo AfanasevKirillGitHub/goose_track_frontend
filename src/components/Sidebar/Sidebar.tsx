@@ -3,8 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { accountPages } from '../../helpers/pages';
 import { LogoutBtn } from './LogoutBtn/LogoutBtn';
 import { CloseSidebarBtn } from './CloseSidebarBtn/CloseSidebarBtn';
-import { AddReview } from '../Reviews/addReview';
-import { Modal } from '../Modal/Modal';
 import { SVG } from '../../images';
 import goose from '../../images/goose.png';
 import * as SC from './Sidebar.styled';
@@ -40,13 +38,6 @@ export const AccountSidebar = ({ toggleBurgerMenu }: IProps ) => {
     document.body.style.overflow = '';
   };
 
-// ======================== for leaving reviews
-  const [isOpenModal, setIsOpenModal] = useState(false);
-  
-  const toggleModal = () => {
-    setIsOpenModal(!isOpenModal);
-  };
-
   return (
     <SC.MenuContainer id="menuContainer" onClick={closeOnClickByOverlay}>
       <SC.Sidebar id="sidebar">
@@ -73,14 +64,8 @@ export const AccountSidebar = ({ toggleBurgerMenu }: IProps ) => {
           </SC.NavList>
         </div>
 
-        <SC.ButtonReview onClick={toggleModal} type='button'>Leave review</SC.ButtonReview>
-
         <LogoutBtn />
-        {isOpenModal && (
-        <Modal toggleModal={toggleModal}>
-            <AddReview />     
-        </Modal>
-      )}
+
       </SC.Sidebar>
     </SC.MenuContainer>
   );

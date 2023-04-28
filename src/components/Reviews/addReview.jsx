@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { useAddReviewMutation } from '../../redux/review/reviewOperations';
 import * as SC from './addReview.styled';
+import { useTranslation } from 'react-i18next';
 
 export const AddReview = () => {
     const [addReview, { isLoading }] = useAddReviewMutation();
     const [review, setReview] = useState('');
-    const [stars, setStars] = useState('')
+    const [stars, setStars] = useState('');
+    const { t } = useTranslation();
 
     const handlInputChange = evt => {
         const {value,name} = evt.target;
@@ -30,14 +32,14 @@ export const AddReview = () => {
     return (
         <SC.Form onSubmit={handleSubmit}>
             <SC.Label>
-                leave your review
-                <textarea onChange={handlInputChange} value={review} name='review'  maxlength="189" cols="25" rows="7"></textarea>
+            {t('Leave your review')}
+                <SC.Textarea onChange={handlInputChange} value={review} name='review'  maxLength="200" cols="30" rows="7"></SC.Textarea>
              </SC.Label>
             <SC.Label>
-                stars
-                <input onChange={handlInputChange} type="number" value={stars} name='stars' min='1' max='5' />
+            {t('Rating')}
+                <SC.Rating onChange={handlInputChange} type="number" value={stars} name='stars' min='1' max='5' />
             </SC.Label>
-          <SC.Button type="submit" disabled={isLoading || review==='' ||stars===''} >add review</SC.Button>
+          <SC.Button type="submit" disabled={isLoading || review==='' ||stars===''} > {t('Add review')}</SC.Button>
         </SC.Form>
     )
 }
