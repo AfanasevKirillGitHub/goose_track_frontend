@@ -35,15 +35,15 @@ export const CalendarContainer = styled.div`
 `;
 
 export const CalendarGrid = styled.div<ICalendarGridProps>`
-  border: 1px solid rgba(220, 227, 229, 0.8);
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-gap: 1px;
   background-color: ${p =>
     p.isHeader ? 'rgba(220, 227, 229, 0.8)' : 'rgba(220, 227, 229, 0.8)'};
   ${p => p.isHeader && 'border-bottom: 1px solid #4d4c4d'}
-  width:100%;
-  border: 1px solid rgba(220, 227, 229, 0.8);
+
+  width: 100%;
+  border: ${props => props.theme.borders.task};
   border-radius: ${props => props.theme.radii.normal};
 
   overflow: hidden;
@@ -57,7 +57,7 @@ export const WeekWrapper = styled.ul<ICellWrapperProps>`
   margin-bottom: 15px;
   padding: 14px 0;
 
-  border: 1px solid rgba(220, 227, 229, 0.8);
+  border: ${props => props.theme.borders.task};
   border-radius: ${props => props.theme.radii.normal};
 
   background-color: ${props => props.theme.colors.white};
@@ -76,7 +76,7 @@ export const DayOfWeekItem = styled.li`
 
   &:nth-last-child(2) > span,
   &:nth-last-child(1) > span {
-    color: ${props => props.theme.colors.blue};
+    color: ${props => props.theme.colors.currentDay};
   }
 `;
 
@@ -86,7 +86,7 @@ export const DayOfWeek = styled.span`
   line-height: 1.125;
   text-transform: uppercase;
 
-  color: #616161;
+  color: ${props => props.theme.colors.grey};
 `;
 
 export const CellWrapper = styled.div<ICellWrapperProps>`
@@ -94,8 +94,10 @@ export const CellWrapper = styled.div<ICellWrapperProps>`
   min-height: 94px;
   padding: 2px;
   padding-top: 8px;
-  background-color: ${p => (p.isWeekend ? '#FFFFFF' : '#FFFFFF')};
-  color: ${p => (p.isSelectedMonth ? '#343434' : 'rgba(220, 227, 229, 0.8)')};
+  /* background-color: ${p => (p.isWeekend ? '#FFFFFF' : '#FFFFFF')}; */
+  background-color: ${p => p.theme.colors.white};
+  color: ${p =>
+    p.isSelectedMonth ? p.theme.colors.black5 : p.theme.colors.grey6};
 
   @media screen and (min-width: 768px) {
     min-height: 144px;
@@ -141,8 +143,8 @@ export const CurrentDay = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${props => props.theme.colors.blue};
-  color: ${props => props.theme.colors.white};
+  background-color: ${props => props.theme.colors.currentDay};
+  color: ${props => props.theme.colors.white3};
   border-radius: 6px;
   width: 100%;
   height: 100%;
@@ -164,7 +166,6 @@ export const TasksList = styled.ul`
 
 export const TasksListItem = styled.li<ITaskListItem>`
   background-color: ${p => {
-    console.log(p);
     switch (p.design) {
       case 'low':
         return p.theme.colors.blue4;

@@ -36,7 +36,8 @@ export const TextWrapperOutline = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #3e85f3;
+  background-color: ${props => props.theme.colors.currentDay};
+
   color: ${props => props.theme.colors.white};
   padding: 8px 12px;
   border-radius: 8px;
@@ -59,7 +60,7 @@ export const TextWrapper = styled.span`
 
   text-transform: uppercase;
 
-  color: #ffffff;
+  color: ${props => props.theme.colors.white3};
   min-width: 24px;
 
   &:not(:last-of-type) {
@@ -128,7 +129,7 @@ export const TodayButton = styled.button`
   font-size: 12px;
   line-height: 1.1667;
   background-color: ${props => props.theme.colors.white};
-  color: #616161;
+  color: ${props => props.theme.colors.grey};
 
   @media screen and (min-width: 768px) {
     padding: 8px 16px;
@@ -155,12 +156,12 @@ export const Link = styled(NavLink)`
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  color: #3e85f3;
+  color: ${props => props.theme.colors.navLink};
   padding: 9px 16px;
-  background-color: #e3f3ff;
+  background-color: ${props => props.theme.colors.blue3};
   min-width: 82px;
   &.active.act {
-    background-color: #3e85f350;
+    background-color: ${props => props.theme.colors.blue7};
   }
 `;
 

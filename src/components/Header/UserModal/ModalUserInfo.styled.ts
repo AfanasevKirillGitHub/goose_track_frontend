@@ -18,7 +18,7 @@ export const ModalUserInfo = styled.div`
   position: absolute;
   width: 197px;
   height: 189px;
-  background: #ffffff;
+  background: ${p => p.theme.colors.modalBackground};
   box-shadow: 0px 4px 16px rgba(17, 17, 17, 0.1);
   border-radius: 8px;
   top: 60px;
@@ -52,8 +52,8 @@ export const Link = styled(NavLink)`
   font-weight: 500;
   font-size: 14px;
   line-height: 17px;
-  border: 1px solid rgba(220, 227, 229, 0.3);
-  color: #84828a;
+  border: ${p => p.theme.borders.modalLink};
+  color: ${p => p.theme.colors.grey3};
   /* border-radius: ${props => props.theme.radii.normal}; */
   transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out,
     border-color 0.25s ease-in-out, transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -66,7 +66,7 @@ export const Link = styled(NavLink)`
   :hover,
   :focus-visible {
     background: gold;
-    color: #3e85f3;
+    color: ${p => p.theme.colors.blue};
   }
 
   @media screen and (min-width: 768px) {

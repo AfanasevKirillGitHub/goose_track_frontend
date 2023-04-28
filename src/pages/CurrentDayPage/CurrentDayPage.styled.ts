@@ -38,14 +38,14 @@ export const CellWrapper = styled.div<ICellWrapperProps>`
   font-weight: 700;
   font-size: 16px;
   line-height: 1.125;
-  color: #343434;
+  color: ${props => props.theme.colors.black};
 `;
 
 export const CurrentDay = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${props => props.theme.colors.blue};
+  background-color: ${props => props.theme.colors.currentDay};
   color: ${props => props.theme.colors.white};
   border-radius: ${props => props.theme.radii.normal};
 
@@ -67,7 +67,7 @@ export const WeekWrapper = styled.ul`
   line-height: 1.286;
 
   background-color: ${props => props.theme.colors.white};
-  color: #616161;
+  color: ${props => props.theme.colors.grey3};
 
   @media screen and (min-width: 768px) {
     padding: 10px 46px;

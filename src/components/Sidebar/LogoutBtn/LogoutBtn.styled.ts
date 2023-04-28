@@ -9,15 +9,14 @@ export const Button = styled.button<IButton>`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: ${props =>
-    props.design ? "18" : props.theme.space[0]}px;
-    
+  margin-left: ${props => (props.design ? '18' : props.theme.space[0])}px;
+
   width: ${props => (props.design ? '108' : '141')}px;
   height: ${props => (props.design ? '37' : '46')}px;
   padding: ${props => props.theme.space[0]}px;
   border-radius: ${props => props.theme.radii.medium};
   border: ${props => props.theme.borders.none};
-  color: ${p => p.theme.colors.white};
+  color: ${p => p.theme.colors.white3};
   background-color: ${p => p.theme.colors.blue};
   cursor: pointer;
   font-size: ${props => (props.design ? '14px' : props.theme.fontSizes.l)};
@@ -29,7 +28,6 @@ export const Button = styled.button<IButton>`
 
   svg {
     margin-left: ${props => props.theme.space[3]}px;
-   
   }
 
   :hover,

@@ -22,7 +22,7 @@ export const TaskTitle = styled.h3`
   font-weight: ${p => p.theme.fontWeights.medium};
   line-height: ${p => p.theme.lineHeights.l};
 
-  color: ${p => p.theme.colors.black2};
+  color: ${p => p.theme.colors.columnHeader};
 
   @media screen and (min-width: 768px) {
     margin-bottom: 32px;

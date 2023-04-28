@@ -10,7 +10,7 @@ export const MenuContainer = styled.div`
     z-index: 5;
     width: 100%;
     height: 100%;
-    background-color: rgba(227, 243, 255, 0.8);
+    background-color: ${props => props.theme.colors.backdropBackground};
 
     opacity: 0;
     visibility: hidden;
@@ -38,7 +38,7 @@ export const Sidebar = styled.div`
   justify-content: space-between;
   height: 100%;
   width: 225px;
-  
+
   @media screen and (max-width: 1439px) {
     position: fixed;
     left: 0;
@@ -46,20 +46,20 @@ export const Sidebar = styled.div`
     z-index: 6;
     padding: 24px 20px;
     background-color: ${p => p.theme.colors.white};
-    
+
     overflow-y: scroll;
     transform: translateX(-100%);
-    
+
     transition-property: transform;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
-  
+
   @media screen and (min-width: 768px) {
     width: 289px;
     padding: 24px 32px;
   }
-  
+
   @media screen and (min-width: 1440px) {
     padding: 32px 24px;
   }
@@ -126,7 +126,7 @@ export const NavTitle = styled.h2`
   font-weight: ${props => props.theme.fontWeights.semiBold};
   font-size: ${props => props.theme.fontSizes.xs};
   line-height: ${props => props.theme.lineHeights.m};
-  color: #7e7d82;
+  color: ${props => props.theme.colors.grey};
 
   @media screen and (min-width: 768px) {
     margin-bottom: ${props => props.theme.space[5]}px;
@@ -162,13 +162,13 @@ export const Link = styled(NavLink)`
   }
 
   &.active {
-    color: ${p => p.theme.colors.blue};
+    color: ${p => p.theme.colors.navLink};
     background: ${p => p.theme.colors.blue3};
   }
 
   :hover:not(.active),
   :focus-visible:not(.active) {
-    color: ${p => p.theme.colors.blue};
+    color: ${p => p.theme.colors.navLink};
     background: ${p => p.theme.colors.hoverBackground};
   }
 
@@ -177,7 +177,6 @@ export const Link = styled(NavLink)`
     font-size: ${props => props.theme.fontSizes.m};
   }
 `;
-
 
 interface IButton {
   design?: boolean;
@@ -195,7 +194,7 @@ export const ButtonReview = styled.button<IButton>`
   padding: ${props => props.theme.space[0]}px;
   border-radius: ${props => props.theme.radii.medium};
   border: ${props => props.theme.borders.none};
-  color: ${p => p.theme.colors.white};
+  color: ${p => p.theme.colors.white3};
   background-color: ${p => p.theme.colors.blue};
   cursor: pointer;
   font-size: ${props => (props.design ? '14px' : props.theme.fontSizes.l)};
@@ -221,4 +220,3 @@ export const ButtonReview = styled.button<IButton>`
     height: ${props => (props.design ? '37' : '46')}px;
   }
 `;
-

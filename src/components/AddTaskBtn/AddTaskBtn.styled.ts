@@ -9,18 +9,18 @@ export const AddButton = styled.button`
   gap: 8px;
   margin-top: auto;
 
-  font-family: 'Inter';
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 1.29;
+  font-family: ${p => p.theme.fontFamily.main};
+  font-weight: ${p => p.theme.fontWeights.semiBold};
+  font-size: ${p => p.theme.fontSizes.s};
+  line-height: ${p => p.theme.lineHeights.xl};
 
   text-align: center;
 
-  color: #111111;
+  color: ${p => p.theme.colors.black2};
 
-  background-color: #e3f3ff;
-  border: 1px dashed #3e85f3;
-  border-radius: 8px;
+  background-color: ${p => p.theme.colors.blue3};
+  border: ${p => p.theme.borders.addButton};
+  border-radius: ${p => p.theme.radii.normal};
 
   cursor: pointer;
 `;

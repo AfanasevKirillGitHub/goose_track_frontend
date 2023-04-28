@@ -25,7 +25,7 @@ export const HeaderTitle = styled.h1`
     font-weight: 700;
     font-size: 32px;
     line-height: 32px;
-    color: #111;
+    color: ${p => p.theme.colors.columnHeader};
   }
 `;
 

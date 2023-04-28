@@ -43,6 +43,8 @@ const globalStyles: ITheme = {
     xxs: 1,
   },
   colors: {
+    white3: '#FFFFFF',
+
     lightYellow: '#FCF0D4',
     yellow: '#F3B249',
     hoverYellow: '#ffee00',
@@ -80,13 +82,14 @@ export const lightblue: ITheme = {
     black5: '#343434',
     // black6: 'rgba(17, 17, 17, 0.7)',
     // black7: 'rgba(17, 17, 17, 0.9)',
+    columnHeader: '#111111',
 
     grey: '#616161',
     grey2: '#EFEFEF',
     grey3: '#84828A',
     grey4: '#DCE3E5',
     // grey5: '#F6F6F6',
-    // grey6: 'rgba(220, 227, 229, 0.8)',
+    grey6: 'rgba(220, 227, 229, 0.8)',
     // grey7: 'rgba(246, 246, 246, 1)',
     grey8: '#F7F7F7',
 
@@ -96,6 +99,9 @@ export const lightblue: ITheme = {
     blue4: '#CEEEFD',
     blue5: '#72C2F8',
     // blue6: '#CAE8FF',
+    blue7: '#3e85f350',
+    navLink: '#3E85F3',
+    currentDay: '#3E85F3',
 
     hoverBackground: 'gold',
     backdropBackground: 'rgba(227,243,255, 0.8)',
@@ -113,6 +119,9 @@ export const lightblue: ITheme = {
     review: '1px solid rgba(17, 17, 17, 0.1)',
     // addTask: '1px solid rgba(62, 133, 243, 1)',
     task: '1px solid rgba(220, 227, 229, 0.8)',
+    addButton: '1px dashed #3e85f3',
+    modalLink: '1px solid rgba(220, 227, 229, 0.3)',
+    modalInput: 'none',
   },
   shadows: {
     button: '4px 2px 16px 0px rgba(136, 165, 191, 0.48)',
@@ -137,13 +146,14 @@ export const darkblue: ITheme = {
     black5: '#FFFFFF',
     // black6: 'rgba(17, 17, 17, 0.7)',
     // black7: 'rgba(17, 17, 17, 0.9)',
+    columnHeader: '#FFFFFF',
 
     grey: '#FFFFFF',
     grey2: '#EFEFEF',
     grey3: '#FFFFFF',
     grey4: '#DCE3E5',
     // grey5: '#F6F6F6',
-    // grey6: 'rgba(220, 227, 229, 0.8)',
+    grey6: 'rgba(220, 227, 229, 0.2)',
     // grey7: 'rgba(246, 246, 246, 1)',
     grey8: '#171820',
 
@@ -153,6 +163,9 @@ export const darkblue: ITheme = {
     blue4: '#CEEEFD',
     blue5: '#72C2F8',
     // blue6: '#CAE8FF',
+    blue7: '#21222C',
+    navLink: '#FFFFFF',
+    currentDay: '#3E85F3',
 
     lightYellow: '#FCF0D4',
     yellow: '#F3B249',
@@ -179,6 +192,9 @@ export const darkblue: ITheme = {
     review: '1px solid rgba(17, 17, 17, 0.1)',
     // addTask: '1px solid rgba(62, 133, 243, 1)',
     task: '1px solid rgba(255, 255, 255, 0.15)',
+    addButton: 'none',
+    modalLink: '1px solid rgba(255, 255, 255, 0.05)',
+    modalInput: '1px solid rgba(255, 255, 255, 0.15)',
   },
   shadows: {
     button: '4px 2px 16px 0px rgba(136, 165, 191, 0.48)',
@@ -197,19 +213,20 @@ export const lightgreen: ITheme = {
     white2: '#F7F6F9',
 
     black: '#000000',
-    black2: '#111111',
+    black2: '#FFFFFF',
     // black3: '#13151A',
     black4: '#171820',
     black5: '#343434',
     // black6: 'rgba(17, 17, 17, 0.7)',
     // black7: 'rgba(17, 17, 17, 0.9)',
+    columnHeader: '#111111',
 
     grey: '#616161',
     grey2: '#EFEFEF',
     grey3: '#84828A',
     grey4: '#DCE3E5',
     // grey5: '#F6F6F6',
-    // grey6: 'rgba(220, 227, 229, 0.8)',
+    grey6: 'rgba(220, 227, 229, 0.8)',
     // grey7: 'rgba(246, 246, 246, 1)',
     grey8: '#F7F7F7',
 
@@ -219,6 +236,9 @@ export const lightgreen: ITheme = {
     blue4: '#CEEEFD',
     blue5: '#3EB489',
     // blue6: '#CAE8FF',
+    blue7: '#61C9A3',
+    navLink: '#FFFFFF',
+    currentDay: '#3EB489',
 
     hoverBackground: 'gold',
     backdropBackground: 'rgba(232, 250, 233, 0.8)',
@@ -231,11 +251,14 @@ export const lightgreen: ITheme = {
 
   borders: {
     none: 'none',
-    avatar: '2px solid rgba(62, 180, 137, 1)',
+    avatar: '2px solid #3EB489',
     userInput: '1px solid rgba(17, 17, 17, 0.15)',
     review: '1px solid rgba(17, 17, 17, 0.1)',
     addTask: '1px solid rgba(62, 133, 243, 1)',
     task: '1px solid rgba(220, 227, 229, 0.8)',
+    addButton: '1px dashed #3EB489',
+    modalLink: '1px solid rgba(220, 227, 229, 0.3)',
+    modalInput: 'none',
   },
   shadows: {
     button: '4px 2px 16px 0px rgba(136, 165, 191, 0.48)',
@@ -260,22 +283,26 @@ export const darkgreen: ITheme = {
     black5: '#FFFFFF',
     // black6: 'rgba(17, 17, 17, 0.7)',
     // black7: 'rgba(17, 17, 17, 0.9)',
+    columnHeader: '#FFFFFF',
 
     grey: '#FFFFFF',
     grey2: '#EFEFEF',
     grey3: '#FFFFFF',
     grey4: '#DCE3E5',
     // grey5: '#F6F6F6',
-    // grey6: 'rgba(220, 227, 229, 0.8)',
+    grey6: 'rgba(220, 227, 229, 0.2)',
     // grey7: 'rgba(246, 246, 246, 1)',
     grey8: '#171820',
 
     blue: '#3EB489',
     blue2: '#83D7B8',
-    blue3: '#83D7B8',
+    blue3: '#3EB489',
     blue4: '#CEEEFD',
     blue5: '#3EB489',
     // blue6: '#CAE8FF',
+    blue7: '#21222C',
+    navLink: '#FFFFFF',
+    currentDay: '#3EB489',
 
     hoverBackground: 'gold',
     backdropBackground: 'rgba(22,24,25, 0.8)',
@@ -288,11 +315,14 @@ export const darkgreen: ITheme = {
 
   borders: {
     none: 'none',
-    avatar: '2px solid rgba(62, 180, 137, 1)',
+    avatar: '2px solid #3EB489',
     userInput: '1px solid rgba(255, 255, 255, 0.15)',
     review: '1px solid rgba(17, 17, 17, 0.1)',
     // addTask: '1px solid rgba(62, 133, 243, 1)',
     task: '1px solid rgba(255, 255, 255, 0.15)',
+    addButton: 'none',
+    modalLink: '1px solid rgba(255, 255, 255, 0.05)',
+    modalInput: '1px solid rgba(255, 255, 255, 0.15)',
   },
   shadows: {
     button: '4px 2px 16px 0px rgba(136, 165, 191, 0.48)',

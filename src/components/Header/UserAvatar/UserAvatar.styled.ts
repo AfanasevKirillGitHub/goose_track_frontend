@@ -19,7 +19,7 @@ export const Text = styled.p`
   font-weight: 700;
   font-size: 14px;
   line-height: 18px;
-  color: #343434;
+  color: ${p => p.theme.colors.black5};
 
   @media (min-width: 768px) {
     font-size: 18px;
@@ -28,7 +28,7 @@ export const Text = styled.p`
 
 export const AvatarUser = styled.div`
   border-radius: 50%;
-  border: 2px solid #3e85f3;
+  border: ${p => p.theme.borders.avatar};
   width: 32px;
   height: 32px;
 
@@ -43,7 +43,7 @@ export const AvatarDefault = styled.div`
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  border: 2px solid #3e85f3;
+  border: ${p => p.theme.borders.avatar};
   padding: 2px;
   width: 32px;
   height: 32px;
