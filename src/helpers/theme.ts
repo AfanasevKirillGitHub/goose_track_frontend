@@ -92,6 +92,7 @@ export const lightblue: ITheme = {
     grey6: 'rgba(220, 227, 229, 0.8)',
     // grey7: 'rgba(246, 246, 246, 1)',
     grey8: '#F7F7F7',
+    grey9: '#DCE3E5',
 
     blue: '#3E85F3',
     blue2: '#DCEBF7',
@@ -102,6 +103,11 @@ export const lightblue: ITheme = {
     blue7: '#3e85f350',
     navLink: '#3E85F3',
     currentDay: '#3E85F3',
+    monitorLink: '#E3F3FF',
+    monitorActiveLink: '#CAE8FF',
+    loginBackground: '#DCEBF7',
+    disabledButton: 'rgba(62, 133, 243, 0.5)',
+    mainH2: '#DCEBF7',
 
     hoverBackground: 'gold',
     backdropBackground: 'rgba(227,243,255, 0.8)',
@@ -156,6 +162,7 @@ export const darkblue: ITheme = {
     grey6: 'rgba(220, 227, 229, 0.2)',
     // grey7: 'rgba(246, 246, 246, 1)',
     grey8: '#171820',
+    grey9: 'rgba(255, 255, 255, 0.15)',
 
     blue: '#3E85F3',
     blue2: '#DCEBF7',
@@ -166,6 +173,11 @@ export const darkblue: ITheme = {
     blue7: '#21222C',
     navLink: '#FFFFFF',
     currentDay: '#3E85F3',
+    monitorLink: '#21222C',
+    monitorActiveLink: '#3E85F3',
+    loginBackground: '#171820',
+    disabledButton: 'rgba(62, 133, 243, 0.5)',
+    mainH2: '#3E85F3',
 
     lightYellow: '#FCF0D4',
     yellow: '#F3B249',
@@ -229,6 +241,7 @@ export const lightgreen: ITheme = {
     grey6: 'rgba(220, 227, 229, 0.8)',
     // grey7: 'rgba(246, 246, 246, 1)',
     grey8: '#F7F7F7',
+    grey9: '#DCE3E5',
 
     blue: '#3EB489',
     blue2: '#83D7B8',
@@ -239,6 +252,11 @@ export const lightgreen: ITheme = {
     blue7: '#61C9A3',
     navLink: '#FFFFFF',
     currentDay: '#3EB489',
+    monitorLink: '#83D7B8',
+    monitorActiveLink: '#61C9A3',
+    loginBackground: '#83D7B8',
+    disabledButton: 'rgba(62, 243, 133, 0.35)',
+    mainH2: '#83D7B8',
 
     hoverBackground: 'gold',
     backdropBackground: 'rgba(232, 250, 233, 0.8)',
@@ -293,6 +311,7 @@ export const darkgreen: ITheme = {
     grey6: 'rgba(220, 227, 229, 0.2)',
     // grey7: 'rgba(246, 246, 246, 1)',
     grey8: '#171820',
+    grey9: 'rgba(255, 255, 255, 0.15)',
 
     blue: '#3EB489',
     blue2: '#83D7B8',
@@ -303,6 +322,11 @@ export const darkgreen: ITheme = {
     blue7: '#21222C',
     navLink: '#FFFFFF',
     currentDay: '#3EB489',
+    monitorLink: '#21222C',
+    monitorActiveLink: '#3EB489',
+    loginBackground: '#171820',
+    disabledButton: 'rgba(62, 243, 133, 0.35)',
+    mainH2: '#3EB489',
 
     hoverBackground: 'gold',
     backdropBackground: 'rgba(22,24,25, 0.8)',
