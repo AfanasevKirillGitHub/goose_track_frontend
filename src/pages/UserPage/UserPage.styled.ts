@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+export const FullPageWrapper = styled.div`
+  background-color: ${props => props.theme.colors.white};
+`;
+
 export const Wrapper = styled.div`
   padding-left: 0;
   padding-right: 0;
