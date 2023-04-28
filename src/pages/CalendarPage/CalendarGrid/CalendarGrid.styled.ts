@@ -164,6 +164,7 @@ export const TasksList = styled.ul`
 
 export const TasksListItem = styled.li<ITaskListItem>`
   background-color: ${p => {
+    console.log(p);
     switch (p.design) {
       case 'low':
         return p.theme.colors.blue4;
