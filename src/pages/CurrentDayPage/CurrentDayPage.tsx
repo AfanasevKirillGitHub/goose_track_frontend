@@ -2,24 +2,22 @@ import moment from 'moment';
 import 'moment/locale/uk';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import { CalendarMonitor } from '../CalendarPage/CalendarMonitor/CalendarMonitor';
 import * as SC from './CurrentDayPage.styled';
 import { useNavigate } from 'react-router-dom';
 import { TasksColumnsList } from '../../components/TasksColumnsList/TasksColumnsList';
+import { useTranslation } from 'react-i18next';
 
 export const CurrentDayPage = () => {
   const { current } = useParams();
   const navigate = useNavigate();
   const { t } = useTranslation();
-  // const lang = localStorage.getItem('i18nextLng');
-
   const STATUS = ['todo', 'inprogress', 'done'];
 
   moment.updateLocale('en', { day: { dow: 1 } });
-  moment.locale(t(`lang`)!);
 
   const [today, setToday] = useState(moment(current));
+  today.locale(t(`lang`)!);
 
   const totalDays = 7;
   const startDay = today.clone().startOf('isoWeek');
