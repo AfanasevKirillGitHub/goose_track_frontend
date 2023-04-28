@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
+export const HomePageWrapper = styled.div`
+  background-color: ${props => props.theme.colors.white};
+`;
+
 export const Header = styled.div`
   display: flex;
   flex-direction: column;

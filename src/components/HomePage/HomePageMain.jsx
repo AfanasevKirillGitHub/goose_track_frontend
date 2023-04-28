@@ -4,8 +4,6 @@ import { GetReviews } from '../Reviews/ReviewsSlider';
 
 import { IMG } from '../../images';
 
-
-
 export const HomePageMain = () => {
   const { t } = useTranslation();
 
