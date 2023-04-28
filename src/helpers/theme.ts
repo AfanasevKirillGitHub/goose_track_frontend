@@ -43,11 +43,11 @@ const globalStyles: ITheme = {
     xxs: 1,
   },
   colors: {
-    // lightYellow: '#FCF0D4',
+    lightYellow: '#FCF0D4',
     yellow: '#F3B249',
     hoverYellow: '#ffee00',
 
-    // lightPink: '#FFD2DD',
+    lightPink: '#FFD2DD',
     pink: '#EA3D65',
 
     orange: '#FFAC33',
@@ -93,7 +93,7 @@ export const lightblue: ITheme = {
     blue: '#3E85F3',
     blue2: '#DCEBF7',
     blue3: '#E3F3FF',
-    // blue4: '#CEEEFD',
+    blue4: '#CEEEFD',
     blue5: '#72C2F8',
     // blue6: '#CAE8FF',
 
@@ -150,11 +150,11 @@ export const darkblue: ITheme = {
     blue: '#3E85F3',
     blue2: '#DCEBF7',
     blue3: '#3E85F3',
-    // blue4: '#CEEEFD',
+    blue4: '#CEEEFD',
     blue5: '#72C2F8',
     // blue6: '#CAE8FF',
 
-    // lightYellow: '#FCF0D4',
+    lightYellow: '#FCF0D4',
     yellow: '#F3B249',
     hoverYellow: '#ffee00',
 
@@ -216,7 +216,7 @@ export const lightgreen: ITheme = {
     blue: '#3EB489',
     blue2: '#83D7B8',
     blue3: '#83D7B8',
-    // blue4: '#CEEEFD',
+    blue4: '#CEEEFD',
     blue5: '#3EB489',
     // blue6: '#CAE8FF',
 
@@ -273,7 +273,7 @@ export const darkgreen: ITheme = {
     blue: '#3EB489',
     blue2: '#83D7B8',
     blue3: '#83D7B8',
-    // blue4: '#CEEEFD',
+    blue4: '#CEEEFD',
     blue5: '#3EB489',
     // blue6: '#CAE8FF',
 
