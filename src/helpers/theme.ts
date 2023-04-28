@@ -20,6 +20,7 @@ const globalStyles: ITheme = {
     l: '18px',
     xl: '20px',
     xxxl: '24px',
+    xxl: '28px',
     bxl: '32px',
     bxxl: '40px',
     bxxxl: '44px',
@@ -233,7 +234,7 @@ export const lightgreen: ITheme = {
     avatar: '2px solid rgba(62, 180, 137, 1)',
     userInput: '1px solid rgba(17, 17, 17, 0.15)',
     review: '1px solid rgba(17, 17, 17, 0.1)',
-    // addTask: '1px solid rgba(62, 133, 243, 1)',
+    addTask: '1px solid rgba(62, 133, 243, 1)',
     task: '1px solid rgba(220, 227, 229, 0.8)',
   },
   shadows: {
