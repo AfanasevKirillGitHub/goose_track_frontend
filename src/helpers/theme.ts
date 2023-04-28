@@ -2,7 +2,7 @@ interface IInnerTheme {
   [key: string]: string | number;
 }
 
-interface ITheme {
+export interface ITheme {
   readonly [key: string]: IInnerTheme | number[];
 }
 
