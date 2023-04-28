@@ -20,6 +20,7 @@ export const Field = styled.span`
 export const Label = styled.span`
   display: block;
   margin-bottom: ${p => p.theme.space[3]}px;
+  color: ${p => p.theme.colors.black};
   font-size: ${p => p.theme.fontSizes.xs};
 `;
 
@@ -49,13 +50,10 @@ export const Input = styled.input`
 
   color: ${p => p.theme.colors.grey};
   background-color: ${p => p.theme.colors.grey8};
+  outline: ${p => p.theme.borders.modalInput};
 
   border: none;
   border-radius: ${props => props.theme.radii.normal};
-
-  &:focus {
-    outline: none;
-  }
 
   &::placeholder {
     font-size: ${p => p.theme.fontSizes.s};

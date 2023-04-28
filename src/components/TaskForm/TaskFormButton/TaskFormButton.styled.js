@@ -17,7 +17,7 @@ export const Button = styled.button`
   line-height: ${props => props.theme.lineHeights.xl};
 
   color: ${p => {
-    return p.type === 'button' ? p.theme.colors.black : p.theme.colors.white;
+    return p.type === 'button' ? p.theme.colors.black1 : p.theme.colors.white3;
   }};
   background-color: ${p => {
     return p.type === 'button' ? p.theme.colors.grey2 : p.theme.colors.blue;

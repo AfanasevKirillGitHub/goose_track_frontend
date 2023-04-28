@@ -35,11 +35,12 @@ export const CloseBtn = styled.button`
   border: none;
   outline: none;
   cursor: pointer;
-  transition: color 0.25s ease-in-out, transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 0.25s ease-in-out,
+    transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   :hover,
   :focus {
-      color: ${p => p.theme.colors.blue};
-      transform: scale(1.1);
-    }
+    color: ${p => p.theme.colors.blue};
+    transform: scale(1.1);
+  }
 `;

@@ -16,7 +16,7 @@ export const TaskList = styled(OverlayScrollbarsComponent)<IOverlayProps>`
     max-height: 378px;
     margin-bottom: ${p => p.theme.space[5]}px;
 
-    background-color: white;
+    background-color: ${p => p.theme.colors.white};
   }
 `;
 
