@@ -87,7 +87,7 @@ export const Button = styled.button`
   border: none;
   border-radius: ${props => props.theme.radii.medium};
   background: ${props => props.theme.colors.blue};
-  color: ${props => props.theme.colors.white};
+  color: ${props => props.theme.colors.white3};
   box-shadow: ${props => props.theme.shadows.button};
 
   font-weight: ${props => props.theme.fontWeights.semiBold};
