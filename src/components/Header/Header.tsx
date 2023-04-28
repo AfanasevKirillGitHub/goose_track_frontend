@@ -6,6 +6,7 @@ import { UserInfo } from './UserInfo/UserInfo';
 import { ThemeToogle } from './ThemeToogle/ThemeToogle';
 import { OpenSidebarBtn } from '../Sidebar/OpenSidebarBtn/OpenSidebarBtn';
 import { ColorToggle } from './ColorToggle/ColorToggle';
+import { MotivationGoose } from './MotivationGoose/MotivationGoose';
 
 interface IProps {
   toggleBurgerMenu: () => void;
@@ -18,10 +19,11 @@ export const Header = ({ toggleBurgerMenu }: IProps) => {
 
   return (
     <SC.Header>
-      <OpenSidebarBtn openBurgerMenu={toggleBurgerMenu}/>
+      <OpenSidebarBtn openBurgerMenu={toggleBurgerMenu} />
       <SC.HeaderTitle>
         {location.pathname === '/user/account' ? t`User Profile` : t`Calendar`}
       </SC.HeaderTitle>
+      <MotivationGoose/>
       <SC.UserInfo>
         <ColorToggle />
         <ThemeToogle />
