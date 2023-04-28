@@ -9,10 +9,10 @@ export const ColorPicker = styled.button`
   border-radius: ${props => props.theme.radii.normal};
   overflow: hidden;
   cursor: pointer;
-  color: ${props =>
-    props.name === 'blue' ? props.theme.colors.blue : '#3EB489'};
+  color: ${props => props.theme.colors.blue};
+
   svg {
-    fill: currentColor;
+    fill: ${props => props.theme.colors.colorSwitcher};
   }
 `;
 
