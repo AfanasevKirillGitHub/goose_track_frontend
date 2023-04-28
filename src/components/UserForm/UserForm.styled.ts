@@ -77,9 +77,7 @@ export const ContainerAvatar = styled.div`
   }
 `;
 
-export const ImgAvatar = styled.img`
-
-`;
+export const ImgAvatar = styled.img``;
 
 export const UserName = styled.h2`
   margin-bottom: 4px;
@@ -112,6 +110,7 @@ export const UserText = styled.p`
 
 export const AvatarButton = styled.label`
   position: absolute;
+  cursor: pointer;
   @media screen and (max-width: 767px) {
     left: 177px;
     top: 23px;
@@ -197,12 +196,12 @@ export const Input = styled.input<IInput>`
   height: 42px;
   padding: 12px 14px;
   border: ${p => p.theme.borders.userInput};
-  border-radius:${p => p.theme.radii.normal}; 
+  border-radius: ${p => p.theme.radii.normal};
   background-color: ${p => p.theme.colors.white};
   font-family: 'Inter';
   font-weight: ${p => p.theme.fontWeights.semiBold};
   font-size: ${p => p.theme.fontSizes.s};
-  line-height:  ${p => p.theme.lineHeights.xl};
+  line-height: ${p => p.theme.lineHeights.xl};
   color: ${p => p.theme.colors.black2};
   margin-top: 8px;
   @media screen and (min-width: 768px) {
@@ -338,5 +337,3 @@ export const ButtonReview = styled.button<IButton>`
     height: ${props => (props.design ? '37' : '46')}px;
   }
 `;
-
-
