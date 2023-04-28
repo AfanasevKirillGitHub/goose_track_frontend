@@ -22,7 +22,6 @@ import { ReactComponent as RadioButtonActive } from './icons/rb-active.svg';
 import { ReactComponent as NotFoundIcon } from './icons/sad_goose_404.svg';
 import { ReactComponent as DropIcon } from './icons/water-drop.svg';
 
-
 import homePage1 from './homePage/homePage1.png';
 import homePage2 from './homePage/homePage2.png';
 import homePage3 from './homePage/homePage3.png';
@@ -32,10 +31,20 @@ import homePageM3 from './homePage/homePageM3.png';
 import homePageD1 from './homePage/homePageD1.png';
 import homePageD2 from './homePage/homePageD2.png';
 import homePageD3 from './homePage/homePageD3.png';
+import greenHomePage1 from './homePage/greenHomePage1.png';
+import greenHomePageD1 from './homePage/greenHomePageD1.png';
+import greenHomePageM1 from './homePage/greenHomePageM1.png';
+import greenHomePage2 from './homePage/greenHomePage2.png';
+import greenHomePageD2 from './homePage/greenHomePageD2.png';
+import greenHomePageM2 from './homePage/greenHomePageM2.png';
+import greenHomePage3 from './homePage/greenHomePage3.png';
+import greenHomePageD3 from './homePage/greenHomePageD3.png';
+import greenHomePageM3 from './homePage/greenHomePageM3.png';
+
 import team from './homePage/team-desc.png';
 import teamD from './homePage/team-tab.png';
 import teamM from './homePage/team-mob.png';
-import DefaultAvatar from './gus.svg'
+import DefaultAvatar from './gus.svg';
 
 interface IIcons {
   [key: string]: React.FC;
@@ -81,8 +90,17 @@ export const IMG: IImg = {
   homePageD1,
   homePageD2,
   homePageD3,
+  greenHomePage1,
+  greenHomePageD1,
+  greenHomePageM1,
+  greenHomePage2,
+  greenHomePageD2,
+  greenHomePageM2,
+  greenHomePage3,
+  greenHomePageD3,
+  greenHomePageM3,
   team,
   teamD,
   teamM,
-  DefaultAvatar
+  DefaultAvatar,
 };
