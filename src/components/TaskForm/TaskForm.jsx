@@ -12,22 +12,32 @@ import { SVG } from '../../images';
 import * as SC from './TaskForm.Styled';
 import { TaskFormButton } from './TaskFormButton';
 import { PRIORITY } from '../../helpers/enums';
-
-const taskCreateTime = moment(Date.now()).format('HH:mm');
+import { t } from 'i18next';
 
 export const TaskForm = ({ fieldsData, toggleModal }) => {
-  const addMinutes = minutes => +Date.now() + minutes * 60 * 1000;
+  // console.log('fieldsData :>> ', fieldsData);
+  const { current } = useParams();
+  const taskDay = fieldsData?.date ? fieldsData.date : current;
+  console.log('taskDay :>> ', taskDay);
+
+  const dayNow = moment(Date.now()).format('YYYY-MM-DD');
+  console.log('dayNow :>> ', dayNow);
+
   //ts
   // const lang = localStorage.getItem('i18nextLng') as string;
 
   //js
-  const modalType = fieldsData.title ? `edit` : `add`;
-
   const lang = localStorage.getItem('i18nextLng');
 
-  const defaultEndTime = moment(addMinutes(30)).format('HH:mm');
+  const modalType = fieldsData.title ? `edit` : `add`;
 
-  const { current } = useParams();
+  const taskCreateTime = fieldsData?.start
+    ? fieldsData.start
+    : moment(Date.now()).format('HH:mm');
+
+  const addMinutes = minutes => Date.now() + minutes * 60 * 1000;
+
+  const defaultEndTime = moment(addMinutes(60)).format('HH:mm');
 
   const [title, setTitle] = useState(fieldsData?.title ?? '');
   const [start, setStart] = useState(fieldsData?.start ?? taskCreateTime);
@@ -43,35 +53,52 @@ export const TaskForm = ({ fieldsData, toggleModal }) => {
     const errorFields = Object.keys(errors);
     const notifyErrors = () =>
       errorFields.forEach(errorField => {
-        toast.error(`Field ${errorField} ${errors[errorField]?.message}`);
+        toast.error(
+          `${t('taskModalMsg.Field')} ${errorField} ${
+            errors[errorField]?.message
+          }`
+        );
       });
 
     notifyErrors();
   };
+
+  const isValidStartTime = (day, time) => {
+    if (day === dayNow && time >= taskCreateTime) return true;
+    if (day > dayNow) return true;
+  };
+  const isValidEndTime = start <= end;
+
   const onSubmit = (data, e) => {
-    const isValidStartTime = start >= taskCreateTime;
-    const isValidEndTime = start <= end;
-
-    if (!isValidStartTime && modalType === 'add') {
-      toast.error("Start time can't be in past!");
-      setStart(taskCreateTime);
-      return;
-    }
-
-    if (!isValidEndTime && modalType === 'add') {
-      toast.error("End time can't be lower of start time!");
-      setEnd(taskCreateTime);
-      return;
-    }
-
     switch (modalType) {
       case 'edit':
+        if (!isValidStartTime(taskDay, start)) {
+          toast.error(t('taskModalMsg.editInPast'));
+          setStart(taskCreateTime);
+          return;
+        }
+        if (!isValidEndTime) {
+          toast.error(t('taskModalMsg.endTimeWrong'));
+          setEnd(defaultEndTime);
+          return;
+        }
         updateTask({ ...fieldsData, ...data });
         toggleModal();
 
         break;
 
       default:
+        if (!isValidStartTime(taskDay, start)) {
+          toast.error(t('taskModalMsg.startTimeInPast'));
+          setStart(taskCreateTime);
+          return;
+        }
+
+        if (!isValidEndTime) {
+          toast.error(t('taskModalMsg.endTimeWrong'));
+          setEnd(defaultEndTime);
+          return;
+        }
         const taskData = {
           ...data,
           status: fieldsData.status,
@@ -85,7 +112,6 @@ export const TaskForm = ({ fieldsData, toggleModal }) => {
   };
 
   const onInput = e => {
-    console.log('e.target.name :>> ', e.target.name);
     switch (e.target.name) {
       case 'title':
         setTitle(e.target.value);
@@ -107,45 +133,49 @@ export const TaskForm = ({ fieldsData, toggleModal }) => {
   return (
     <SC.Form onSubmit={handleSubmit(onSubmit, onError)}>
       <SC.Field>
-        <SC.Label>Title</SC.Label>
+        <SC.Label>{t('Title')}</SC.Label>
         <SC.Input
           type="text"
-          placeholder="Enter text"
+          placeholder={t('Enter text')}
           {...register('title', {
-            required: ' is requared!',
+            required: t('taskModalMsg.requared'),
             maxLength: {
               value: 250,
-              message: `must be lower then 250 chars!`,
+              message: t('taskModalMsg.maxLength'),
             },
           })}
           name="title"
           value={title}
           onInput={onInput}
+          // disabled={!isValidStartTime(taskDay, start)}
         />
       </SC.Field>
 
       {/* Блок TIME */}
       <SC.Time>
         <SC.Field>
-          <SC.Label>Start</SC.Label>
+          <SC.Label>{t('Start')}</SC.Label>
           <SC.Input
             type="time"
             {...register('start', {
-              required: 'is requared!',
+              required: t('taskModalMsg.requared'),
             })}
             value={start}
             onInput={onInput}
+            // disabled={!isValidStartTime(taskDay, start)}
           />
         </SC.Field>
+
         <SC.Field>
-          <SC.Label>End</SC.Label>
+          <SC.Label>{t('End')}</SC.Label>
           <SC.Input
             {...register('end', {
-              required: 'is requared!',
+              required: t('taskModalMsg.requared'),
             })}
             type="time"
             value={end}
             onInput={onInput}
+            // disabled={!isValidStartTime(taskDay, start)}
           />
         </SC.Field>
       </SC.Time>
@@ -166,35 +196,41 @@ export const TaskForm = ({ fieldsData, toggleModal }) => {
                   {...register('priority', {
                     validate: {
                       priority: value =>
-                        PRIORITY.includes(value) || 'is not valid',
+                        PRIORITY.includes(value) ||
+                        t('taskModalMsg.priorityIsNotValid'),
                     },
                   })}
                   type="radio"
                   value={name}
                   defaultChecked={isSelected}
                   onChange={e => setPriority(e.target.value)}
+                  // disabled={!isValidStartTime(taskDay, start)}
                 />
                 <SC.CustomRadioButton name={name}>
                   {isSelected ? <SVG.RadioButtonActive /> : <SVG.RadioButton />}
                 </SC.CustomRadioButton>
-                {name}
+                {t(name)}
               </SC.PriorityLabel>
             </SC.PriorityItem>
           );
         })}
       </SC.PriorityList>
+
       <SC.Buttons>
-        <TaskFormButton type="submit" disabled={taskIsLoading || isUpdatind}>
-          {modalType === 'add' ? (
-            <SVG.AddIcon width="18px" height="18px" />
-          ) : (
-            <SVG.EditIcon />
-          )}
-          {modalType}
-        </TaskFormButton>
-        {modalType === 'add' && (
+        {isValidStartTime(taskDay, start) && (
+          <TaskFormButton type="submit" disabled={taskIsLoading || isUpdatind}>
+            {modalType === 'add' ? (
+              <SVG.AddIcon width="18px" height="18px" />
+            ) : (
+              <SVG.EditIcon />
+            )}
+            {t(modalType)}
+          </TaskFormButton>
+        )}
+
+        {(modalType === 'add' || !isValidStartTime(taskDay, start)) && (
           <TaskFormButton type="button" onClick={toggleModal}>
-            Cancel
+            {t('Cancel')}
           </TaskFormButton>
         )}
       </SC.Buttons>

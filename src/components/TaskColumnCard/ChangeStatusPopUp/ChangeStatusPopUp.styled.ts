@@ -64,6 +64,7 @@ export const PopupButton = styled.button`
   justify-content: space-between;
   padding: 0;
   margin: 0;
+  gap: ${p => p.theme.space[3]}px;
 
   border: none;
   outline: none;
@@ -80,12 +81,13 @@ export const PopupButton = styled.button`
 
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  &:hover {
+  &:hover &:not(:disabled) {
     color: ${p => p.theme.colors.blue};
   }
 
   &:disabled {
     cursor: default;
+    color: ${p => p.theme.colors.grey4};
   }
 
   @media screen and (min-width: 768px) {

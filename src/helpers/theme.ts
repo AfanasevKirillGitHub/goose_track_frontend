@@ -55,6 +55,7 @@ const globalStyles: ITheme = {
     orange: '#FFAC33',
 
     popup: '#616161',
+    disabled: '#aaaaaa',
   },
   radii: {
     none: '0',
