@@ -16,16 +16,16 @@ export const UserAvatar: React.FC<IUserAvatarProps> = ({
   return (
     <SC.Wrapper invert={invert}>
       <SC.Text>{t(`${user.name}`)}</SC.Text>
-      {user.avatarURL !== null ? (
-        <SC.AvatarUser>
-          <SC.Avatar src={user.avatarURL} alt="User Avatar" />
-        </SC.AvatarUser>
-      ) : (
+      {user.avatarURL === null || user.avatarURL === 'null' ? (
         <SC.AvatarDefault>
           <SC.IconWrapper>
             <SVG.UserAvatar />
           </SC.IconWrapper>
         </SC.AvatarDefault>
+      ) : (
+        <SC.AvatarUser>
+          <SC.Avatar src={user.avatarURL} alt="User Avatar" />
+        </SC.AvatarUser>
       )}
     </SC.Wrapper>
   );
