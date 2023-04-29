@@ -133,13 +133,22 @@ export const ListItem = styled.li`
     }
   }
   @media screen and (min-width: 1440px) {
-    width: 1107px;
+    /* width: 1107px; */
+    width: 1184px;
     display: flex;
     justify-content: space-between;
     &:nth-child(2n) {
       flex-direction: row-reverse;
       align-items: center;
-    }
+    };
+
+    &:nth-child(odd) > div {
+      margin-left: 77px;
+    };
+
+    &:nth-child(even) > div {
+      margin-right: 77px;
+    };
   }
 `;
 
