@@ -10,6 +10,7 @@ import { ICredentials } from '../../helpers/interfaces/auth/authInterfaces';
 import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit';
 import { AddReview } from '../Reviews/addReview';
 import { Modal } from '../Modal/Modal';
+import DefaultAvatar from '../../images/icons/user.svg';
 
 export const UserForm = () => {
   const { t } = useTranslation();
@@ -67,10 +68,15 @@ export const UserForm = () => {
         <SC.ContainerAvatar>
           {avatarURL ? (
             <SC.ImgAvatar src={URL.createObjectURL(avatarURL)} alt="avatar" />
-          ) : user.avatarURL ? (
-            <SC.ImgAvatar src={user.avatarURL} alt="avatar" />
           ) : (
-            <SVG.UserAvatar />
+            <SC.ImgAvatar
+              src={
+                user.avatarURL === null || user.avatarURL === 'null'
+                  ? DefaultAvatar
+                  : user.avatarURL
+              }
+              alt="avatar"
+            />
           )}
         </SC.ContainerAvatar>
 

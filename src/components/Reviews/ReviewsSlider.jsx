@@ -33,17 +33,17 @@ export const GetReviews = () => {
   };
 
   const { data } = useFetchReviewsQuery();
-  
+
   // const useSlideButtons = () => {
   //   const SlideBtnPrev = document.querySelector('.slick-prev');
   //   const SlideBtnNext = document.querySelector('.slick-next');
-    
+
   //   SlideBtnPrev.style.backgroundColor = "teal";
   //   SlideBtnNext.style.backgroundColor = "teal";
   // }
 
   // useSlideButtons();
-
+  console.log(data);
   return (
     <SC.ContainerReviews>
       <SC.TitleReviews> Reviews </SC.TitleReviews>
@@ -53,9 +53,11 @@ export const GetReviews = () => {
           return (
             <SC.WrapperReview key={item._id}>
               <SC.WrapperUser>
-                {item.imgUrl !== "null" ?
-                  <SC.ReviewerAvatar src={item.imgUrl} alt="Avatar" /> : <SC.ReviewerAvatar src={IMG.DefaultAvatar} alt="Avatar" />
-                }
+                {item.imgUrl === 'null' || item.imgUrl === null ? (
+                  <SC.ReviewerAvatar src={IMG.DefaultAvatar} alt="Avatar" />
+                ) : (
+                  <SC.ReviewerAvatar src={item.imgUrl} alt="Avatar" />
+                )}
                 <SC.GradeReview>
                   <SC.ReviewerName>{item.name}</SC.ReviewerName>
                   <Stars countOfStars={item.stars} />
@@ -63,7 +65,7 @@ export const GetReviews = () => {
               </SC.WrapperUser>
               <SC.TextReview>{item.reviewText}</SC.TextReview>
             </SC.WrapperReview>
-            
+
             // <SC.WrapperReview key={item._id}>
             //   <SC.WrapperUser>
             //     {item.imgUrl !== "null" ?
