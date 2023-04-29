@@ -3,7 +3,6 @@ import { ReactComponent as Calendar } from './icons/calendar-check.svg';
 import { ReactComponent as Chevron } from './icons/chevron.svg';
 import { ReactComponent as CloseIcon } from './icons/close.svg';
 import { ReactComponent as Delete } from './icons/delete.svg';
-import { ReactComponent as Ellipse } from './icons/ellipse.svg';
 import { ReactComponent as LogInIcon } from './icons/log-in.svg';
 import { ReactComponent as LogOutIcon } from './icons/log-out.svg';
 import { ReactComponent as BurgerMenu } from './icons/menu.svg';
@@ -62,7 +61,6 @@ export const SVG: IIcons = {
   Chevron,
   CloseIcon,
   Delete,
-  Ellipse,
   LogInIcon,
   LogOutIcon,
   BurgerMenu,
