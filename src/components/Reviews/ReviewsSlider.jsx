@@ -13,7 +13,7 @@ export const GetReviews = () => {
     speed: 500,
     slidesToShow: 2,
     slidesToScroll: 2,
-    // autoplay: true,
+    autoplay: true,
     autoplaySpeed: 3000,
     pauseOnHover: true,
     arrows: true,

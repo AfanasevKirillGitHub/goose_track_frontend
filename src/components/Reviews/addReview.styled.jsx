@@ -31,20 +31,20 @@ export const Textarea = styled.textarea`
     }
 `
 
-export const Rating = styled.input`
-   outline: none;
-   margin-bottom:20px;
-   margin-top:10px;
-   padding: 4px 6px;
-   text-align:center;
-   border-radius: ${p => p.theme.radii.medium};
-   font-size: ${props => (props.design ? '14px' : props.theme.fontSizes.s)};
-   font-weight: ${props => props.theme.fontWeights.semiBold};
-   :focus {
-        outline: none;
-        border-color:${p => p.theme.colors.blue};
-   }
-`
+// export const Rating = styled.input`
+//    outline: none;
+//    margin-bottom:20px;
+//    margin-top:10px;
+//    padding: 4px 6px;
+//    text-align:center;
+//    border-radius: ${p => p.theme.radii.medium};
+//    font-size: ${props => (props.design ? '14px' : props.theme.fontSizes.s)};
+//    font-weight: ${props => props.theme.fontWeights.semiBold};
+//    :focus {
+//         outline: none;
+//         border-color:${p => p.theme.colors.blue};
+//    }
+// `
 
 export const Button = styled.button`
   display: flex;
