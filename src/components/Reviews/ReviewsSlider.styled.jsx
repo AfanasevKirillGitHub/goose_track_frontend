@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+// import ReactStars from 'react-stars';
 
 export const ContainerReviews = styled.div`
     width: 100%;
@@ -44,11 +45,11 @@ export const WrapperReview = styled.div`
     border: ${props => props.theme.borders.review};
     border-radius: ${props => props.theme.radii.normal};
     padding: 24px;
-    height: 194px;
+    height: 216px;
 
     @media screen and (min-width: 768px) {
         padding: 32px;
-        height: 187px;
+        height: 196px;
     }
 `;
 
@@ -60,6 +61,18 @@ export const ReviewerAvatar = styled.img`
 
 export const WrapperUser = styled.div`
     display: flex;
+    margin-bottom: 24px;
+
+    @media screen and (min-width: 768px) {
+        margin-bottom: 24px;
+    }
+`;
+
+export const GradeReview = styled.div`
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-left: 18px;
 `;
 
 export const ReviewerName = styled.h3`
@@ -71,14 +84,11 @@ export const ReviewerName = styled.h3`
     color: ${p => p.theme.colors.black5};
 `;
 
-export const ReviewerGrade = styled.p`
-    font-family: ${props => props.theme.fontFamily.main};
-    font-style: normal;
-    font-weight: ${props => props.theme.fontWeights.bold};
-    font-size: ${props => props.theme.fontSizes.l};
-    line-height: ${props => props.theme.lineHeights.xxs};
-    color: ${p => p.theme.colors.black5};
-`;
+// export const StarsGrade = styled(ReactStars)`
+//     display: flex;
+//     justify-content: space-between;
+//     width: 110px;
+// `;
 
 export const TextReview = styled.p`
     font-family: ${props => props.theme.fontFamily.main};

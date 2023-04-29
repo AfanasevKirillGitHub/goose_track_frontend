@@ -3,14 +3,12 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { useFetchReviewsQuery } from '../../redux/review/reviewOperations';
 import { IMG } from '../../images';
-// import { Stars } from './Stars/Stars';
-import ReactStars from 'react-stars';
+import { Stars } from './Stars/Stars';
 
 import * as SC from './ReviewsSlider.styled';
 
 export const GetReviews = () => {
   const settings = {
-    // dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 2,
@@ -18,60 +16,68 @@ export const GetReviews = () => {
     // autoplay: true,
     autoplaySpeed: 3000,
     pauseOnHover: true,
-    // arrows: true,
+    arrows: true,
     adaptiveHeight: true,
-    centerPadding: '60px',
 
     responsive: [
       {
         breakpoint: 1440,
         settings: {
-          // dots: true,
           slidesToShow: 1,
           slidesToScroll: 1,
           infinite: true,
           adaptiveHeight: true,
-          centerPadding: '60px',
         },
       },
     ],
   };
 
-  
   const { data } = useFetchReviewsQuery();
+  
+  // const useSlideButtons = () => {
+  //   const SlideBtnPrev = document.querySelector('.slick-prev');
+  //   const SlideBtnNext = document.querySelector('.slick-next');
+    
+  //   SlideBtnPrev.style.backgroundColor = "teal";
+  //   SlideBtnNext.style.backgroundColor = "teal";
+  // }
 
-  console.log(data)
+  // useSlideButtons();
+
   return (
     <SC.ContainerReviews>
       <SC.TitleReviews> Reviews </SC.TitleReviews>
+
       <Slider {...settings}>
         {data?.rewiew.map(item => {
           return (
-            // <SC.WrapperReview>
-            //   <SC.WrapperUser>
-            //     {item.imgUrl !== "null" ?
-            //       <SC.ReviewerAvatar src={item.imgUrl} alt="Avatar" /> : <SC.ReviewerAvatar src={IMG.DefaultAvatar} alt="Avatar" />
-            //     }
-            //     <>
-            //       <SC.ReviewerName>{item.name}</SC.ReviewerName>
-            //       <SC.ReviewerGrade>grade: {item.stars}</SC.ReviewerGrade>
-            //       {/* <Stars countOfStars={item.stars} /> */}
-            //     </>
-            //   </SC.WrapperUser>
-            //   <SC.TextReview>{item.reviewText}</SC.TextReview>
-            // </SC.WrapperReview>
             <SC.WrapperReview key={item._id}>
-              {item.imgUrl !== "null" ?
-                <SC.ReviewerAvatar src={item.imgUrl} alt="Avatar" /> :
-                <SC.ReviewerAvatar src={IMG.DefaultAvatar} alt="Avatar" />
-              }
-              <SC.ReviewerName>{item.name}</SC.ReviewerName>
-              <ReactStars
-                edit={false}
-                value={item.stars}
-              />
+              <SC.WrapperUser>
+                {item.imgUrl !== "null" ?
+                  <SC.ReviewerAvatar src={item.imgUrl} alt="Avatar" /> : <SC.ReviewerAvatar src={IMG.DefaultAvatar} alt="Avatar" />
+                }
+                <SC.GradeReview>
+                  <SC.ReviewerName>{item.name}</SC.ReviewerName>
+                  <Stars countOfStars={item.stars} />
+                </SC.GradeReview>
+              </SC.WrapperUser>
               <SC.TextReview>{item.reviewText}</SC.TextReview>
             </SC.WrapperReview>
+            
+            // <SC.WrapperReview key={item._id}>
+            //   <SC.WrapperUser>
+            //     {item.imgUrl !== "null" ?
+            //       <SC.ReviewerAvatar src={item.imgUrl} alt="Avatar" /> :
+            //       <SC.ReviewerAvatar src={IMG.DefaultAvatar} alt="Avatar" />
+            //     }
+            //     <SC.GradeReview>
+            //       <SC.ReviewerName>{item.name}</SC.ReviewerName>
+            //       <SC.StarsGrade edit={false} value={item.stars} />
+            //     </SC.GradeReview>
+            //   </SC.WrapperUser>
+
+            //   <SC.TextReview>{item.reviewText}</SC.TextReview>
+            // </SC.WrapperReview>
           );
         })}
       </Slider>
