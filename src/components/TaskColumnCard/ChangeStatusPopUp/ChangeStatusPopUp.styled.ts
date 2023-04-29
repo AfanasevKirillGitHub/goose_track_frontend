@@ -36,7 +36,7 @@ export const PopupContent = styled.ul`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
 
   padding-top: 12px;
   padding-bottom: 14px;
@@ -48,13 +48,6 @@ export const PopupContent = styled.ul`
     padding-bottom: 20px;
     padding-left: 24px;
     padding-right: 24px;
-
-    gap: 14px;
-
-    font-style: ${p => p.theme.fontFamily.main};
-    font-size: ${p => p.theme.fontSizes.s};
-    font-weight: ${p => p.theme.fontWeights.medium};
-    line-height: ${p => p.theme.lineHeights.l};
   }
 `;
 
@@ -92,5 +85,12 @@ export const PopupButton = styled.button`
 
   &:disabled {
     cursor: default;
+  }
+
+  @media screen and (min-width: 768px) {
+    font-style: ${p => p.theme.fontFamily.main};
+    font-size: ${p => p.theme.fontSizes.s};
+    font-weight: ${p => p.theme.fontWeights.medium};
+    line-height: ${p => p.theme.lineHeights.l};
   }
 `;

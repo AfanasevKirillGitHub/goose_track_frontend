@@ -1,4 +1,3 @@
-import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import { SVG } from '../../../images';
 import * as SC from './ChangeStatusPopUp.styled';
@@ -7,7 +6,7 @@ import { useMediaQuery } from '@react-hook/media-query';
 import { useUpdateTasksMutation } from '../../../redux/task/taskOperations';
 
 export const ChangeStatusPopUp = ({ taskData }) => {
-  const [updateTask, { isLoading: isUpdatind }] = useUpdateTasksMutation();
+  const [updateTask] = useUpdateTasksMutation();
 
   const tablet = useMediaQuery('screen and (min-width: 768px)');
 
@@ -24,7 +23,7 @@ export const ChangeStatusPopUp = ({ taskData }) => {
           <SVG.ArrowCircle />
         </SC.TaskToolbarBtn>
       }
-      position={tablet ? 'top left' : 'top center'}
+      position={tablet ? 'top center' : 'top center'}
       arrow={false}
       offsetY={tablet ? 14 : 27}
       lockScroll
@@ -35,7 +34,7 @@ export const ChangeStatusPopUp = ({ taskData }) => {
         height: tablet ? '90px' : '70px',
         padding: 0,
         borderRadius: '8px',
-        boxShadow: '0px 4px 16px 0px rgba(242, 243, 245, 0.1)',
+        boxShadow: '0px 4px 16px rgba(17, 17, 17, 0.1)',
       }}
     >
       <SC.PopupContent>
@@ -58,7 +57,11 @@ export const ChangeStatusPopUp = ({ taskData }) => {
           return (
             <SC.PopupItem key={status}>
               <SC.PopupButton onClick={() => changeStatus(status)}>
-                {buttonName} <SVG.ArrowCircle width="12px" height="12px" />
+                {buttonName}{' '}
+                <SVG.ArrowCircle
+                  width={tablet ? '14px' : '12px'}
+                  height={tablet ? '14px' : '12px'}
+                />
               </SC.PopupButton>
             </SC.PopupItem>
           );
