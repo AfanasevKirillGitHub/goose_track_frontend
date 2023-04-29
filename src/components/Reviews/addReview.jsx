@@ -36,7 +36,7 @@ export const AddReview = () => {
                 <SC.Textarea onChange={handlInputChange} value={review} name='review'  maxLength="200" cols="30" rows="7"></SC.Textarea>
              </SC.Label>
             <SC.Label>
-            {t('Rating')}
+            {t('Rating (1-5)')}
                 <SC.Rating onChange={handlInputChange} type="number" value={stars} name='stars' min='1' max='5' />
             </SC.Label>
           <SC.Button type="submit" disabled={isLoading || review==='' ||stars===''} > {t('Add review')}</SC.Button>
