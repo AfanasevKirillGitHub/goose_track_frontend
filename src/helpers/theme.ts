@@ -53,6 +53,8 @@ const globalStyles: ITheme = {
     pink: '#EA3D65',
 
     orange: '#FFAC33',
+
+    popup: '#616161',
   },
   radii: {
     none: '0',
