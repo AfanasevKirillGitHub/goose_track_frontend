@@ -64,7 +64,15 @@ export const routes = [
   {
     element: <Layout />,
     children: [
-      { path: '/', element: <HomePage /> },
+      {
+        path: '/',
+        element: (
+          <RestrictedRout
+            redirectTo="/user/calendar"
+            component={<HomePage />}
+          />
+        ),
+      },
       {
         path: '/login',
         element: (
