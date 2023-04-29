@@ -339,3 +339,58 @@ export const ButtonReview = styled.button<IButton>`
     height: ${props => (props.design ? '37' : '46')}px;
   }
 `;
+
+export const DatePickerWrapper = styled.div`
+  & .react-datepicker {
+    background-color: ${p => p.theme.colors.blue};
+    color: ${p => p.theme.colors.white};
+    border-radius: ${props => props.theme.radii.medium};
+  }
+
+  & .react-datepicker .react-datepicker__header {
+    background-color: ${p => p.theme.colors.blue};
+    color: ${p => p.theme.colors.white};
+    border-radius: 16px 16px 0 0;
+    border-bottom: 1px solid #FFFFFF;
+  }
+
+  & .react-datepicker__navigation-icon {
+    ::before {
+    border-color: ${p => p.theme.colors.white};
+    }
+  }
+
+  & .react-datepicker__current-month {
+    color: ${p => p.theme.colors.white};
+  }
+
+  & .react-datepicker__day {
+    background-color: ${p => p.theme.colors.blue};
+    color: ${p => p.theme.colors.white};
+    :hover,
+    :focus {
+    background-color: ${p => p.theme.colors.lightYellow};
+    color: ${p => p.theme.colors.blue};
+    border-radius: ${props => props.theme.radii.round};
+  }
+  }
+  
+  & .react-datepicker__day-name {
+    color: ${p => p.theme.colors.white};
+  }
+
+  & .react-datepicker__day--selected {
+    background-color: ${p => p.theme.colors.white};
+    color: ${p => p.theme.colors.blue};
+    border-radius: ${props => props.theme.radii.round};
+  }
+
+  & .react-datepicker__day--weekend {
+    color: ${p => p.theme.colors.lightYellow};
+  }
+
+  & .react-datepicker__day--outside-month {
+    color: ${p => p.theme.colors.blue};
+  }
+
+`;
