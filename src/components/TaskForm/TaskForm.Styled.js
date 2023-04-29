@@ -67,6 +67,10 @@ export const Input = styled.input`
   &::-webkit-calendar-picker-indicator {
     display: none;
   }
+
+  &:disabled {
+    color: ${p => p.theme.colors.disabled};
+  }
 `;
 
 export const Time = styled.div`
@@ -108,7 +112,12 @@ export const RadioButton = styled.input`
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
+
+  &:disabled {
+    color: ${p => p.theme.colors.disabled};
+  }
 `;
+
 export const CustomRadioButton = styled.span`
   display: flex;
   align-items: center;

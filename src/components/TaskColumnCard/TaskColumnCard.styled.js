@@ -53,6 +53,11 @@ export const TaskAvatar = styled.div`
   background-color: ${p => p.theme.colors.white};
 `;
 
+export const TaskImage = styled.img`
+  width: 100%;
+  height: 100%;
+`;
+
 export const TaskPriority = styled.div`
   padding-top: ${p => p.theme.space[1]}px;
   padding-bottom: ${p => p.theme.space[1]}px;

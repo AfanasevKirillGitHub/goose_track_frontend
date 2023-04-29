@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { ITask } from '../../helpers/interfaces/taskApiInterface/taskApiInterface';
 import { useModal } from '../../hooks/useModal';
 import { AddTaskBtn } from '../AddTaskBtn/AddTaskBtn';
@@ -14,17 +15,18 @@ interface ITaskColumnProps {
 
 export const TasksColumn = ({ name, tasks, status }: ITaskColumnProps) => {
   const { isOpenModal, toggleModal } = useModal();
+  const { t } = useTranslation();
 
   const modalStatus = name;
   switch (name) {
     case 'todo':
-      name = 'To do';
+      name = t('To do');
       break;
     case 'inprogress':
-      name = 'In progress';
+      name = t('In progress');
       break;
     case 'done':
-      name = 'Done';
+      name = t('Done');
       break;
     default:
       return null;

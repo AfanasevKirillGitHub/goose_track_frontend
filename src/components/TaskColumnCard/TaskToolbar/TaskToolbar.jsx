@@ -9,27 +9,14 @@ import { ChangeStatusPopUp } from '../ChangeStatusPopUp';
 import * as SC from './TaskToolbar.styled';
 
 export const TaskToolbar = ({ taskData }) => {
-  // console.log('TaskToolbar taskData :>> ', taskData);
-
   const { isOpenModal, toggleModal } = useModal();
 
   const [deleteTask, { isLoading: isDeletting }] = useRemoveTasksMutation();
   const [{ isLoading: isUpdatind }] = useUpdateTasksMutation();
 
-  // const del = id => {
-  //   console.log('id :>> ', id);
-  // };
-
   return (
     <>
       <SC.TaskToolbar>
-        {/* <SC.TaskToolbarBtn
-            type="button"
-            onClick={togglePopUp}
-            // disabled={isDeletting || isUpdatind}
-          >
-            <SVG.ArrowCircle />
-          </SC.TaskToolbarBtn> */}
         <ChangeStatusPopUp taskData={taskData} />
 
         <SC.TaskToolbarBtn

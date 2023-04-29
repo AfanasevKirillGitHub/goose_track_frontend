@@ -4,11 +4,13 @@ import * as SC from './ChangeStatusPopUp.styled';
 import { STATUS } from '../../../helpers/enums';
 import { useMediaQuery } from '@react-hook/media-query';
 import { useUpdateTasksMutation } from '../../../redux/task/taskOperations';
+import { useTranslation } from 'react-i18next';
 
 export const ChangeStatusPopUp = ({ taskData }) => {
-  const [updateTask] = useUpdateTasksMutation();
+  const [updateTask, { isLoading: isUpdatind }] = useUpdateTasksMutation();
 
   const tablet = useMediaQuery('screen and (min-width: 768px)');
+  const { t } = useTranslation();
 
   const changeStatus = data => {
     const updatedTask = { ...taskData, status: data };
@@ -30,7 +32,7 @@ export const ChangeStatusPopUp = ({ taskData }) => {
       closeOnDocumentClick
       closeOnEscape
       contentStyle={{
-        width: tablet ? '147px' : '115px',
+        width: 'auto',
         height: tablet ? '90px' : '70px',
         padding: 0,
         borderRadius: '8px',
@@ -42,13 +44,13 @@ export const ChangeStatusPopUp = ({ taskData }) => {
           let buttonName = status;
           switch (buttonName) {
             case 'todo':
-              buttonName = 'To do';
+              buttonName = t('To do');
               break;
             case 'inprogress':
-              buttonName = 'In progress';
+              buttonName = t('In progress');
               break;
             case 'done':
-              buttonName = 'Done';
+              buttonName = t('Done');
               break;
             default:
               return null;
@@ -56,7 +58,10 @@ export const ChangeStatusPopUp = ({ taskData }) => {
 
           return (
             <SC.PopupItem key={status}>
-              <SC.PopupButton onClick={() => changeStatus(status)}>
+              <SC.PopupButton
+                onClick={() => changeStatus(status)}
+                disabled={isUpdatind}
+              >
                 {buttonName}{' '}
                 <SVG.ArrowCircle
                   width={tablet ? '14px' : '12px'}

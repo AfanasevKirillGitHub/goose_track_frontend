@@ -3,14 +3,12 @@ import * as SC from './TaskColumnCard.styled';
 import EllipsisText from 'react-ellipsis-text';
 import { SVG } from '../../images';
 import { TaskToolbar } from './TaskToolbar';
+import { t } from 'i18next';
 
 export const TaskColumnCard = ({ taskData }) => {
-  //   console.log('taskData :>> ', taskData);
-
   const {
     user: { avatarURL },
   } = useAuth();
-  //   console.log('user :>> ', avatarURL);
 
   return (
     <SC.TaskCard>
@@ -21,21 +19,17 @@ export const TaskColumnCard = ({ taskData }) => {
         <SC.TaskWrapper>
           <SC.TaskAvatar>
             {avatarURL ? (
-              <img src={avatarURL} alt="user" />
+              <SC.TaskImage src={avatarURL} alt="user" />
             ) : (
               <SVG.UserAvatar width="16px" higth="16px" />
             )}
           </SC.TaskAvatar>
           <SC.TaskPriority name={taskData.priority}>
-            {taskData.priority}
+            {t(taskData.priority)}
           </SC.TaskPriority>
         </SC.TaskWrapper>
         <TaskToolbar taskData={taskData} />
       </SC.TaskWrapper>
-      {/* <p>{taskData.priority}</p>
-      <p>{taskData.status}</p>
-      <p>{taskData.start}</p>
-      <p>{taskData.end}</p> */}
     </SC.TaskCard>
   );
 };

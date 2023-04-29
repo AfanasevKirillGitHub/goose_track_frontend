@@ -73,5 +73,27 @@
   "Leave your review": "Leave your review",
   "Rating (1-5)": "Rating (1-5)",
   "Add review": "Add review",
-  "Add task": "Add task"
+  "Add task": "Add task",
+  "To do": "To do",
+  "In progress": "In progress",
+  "Done": "Done",
+  "Title": "Title",
+  "Enter text": "Enter text",
+  "Start": "Start",
+  "end": "End",
+  "add": "Add",
+  "Edit": "Edit",
+  "Cancel": "Cancel",
+  "low": "low",
+  "medium": "medium",
+  "high": "high",
+  "taskModalMsg": {
+    "startTimeInPast": "Yoy can't add a task to the past!",
+    "endTimeWrong": "End time can't be lower of start time!",
+    "editInPast": "You can't edit a task in the past!",
+    "Field": "Field",
+    "requared": "is requared!",
+    "maxLength": "must be lower then 250 chars!",
+    "priorityIsNotValid": "is not valid!"
+  }
 }
