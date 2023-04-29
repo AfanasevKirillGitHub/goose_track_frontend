@@ -46,7 +46,7 @@ export const CurrentDay = styled.div`
   align-items: center;
   justify-content: center;
   background-color: ${props => props.theme.colors.currentDay};
-  color: ${props => props.theme.colors.white};
+  color: ${props => props.theme.colors.white3};
   border-radius: ${props => props.theme.radii.normal};
 
   width: 100%;
