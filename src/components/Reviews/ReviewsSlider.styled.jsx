@@ -5,20 +5,20 @@ export const ContainerReviews = styled.div`
     height: 100%;
     margin-left: auto;
     margin-right: auto;
-    /* padding: 0px 20px 64px 20px; */
 
     @media screen and (min-width: 375px) {
         width: 335px;
-        padding: 0px 20px 64px 20px;
+        padding-bottom: 64px;
     }
 
     @media screen and (min-width: 768px) {
         width: 580px;
-        padding: 0px 94px 100px 94px;
+        padding-bottom: 100px;
     }
 
     @media screen and (min-width: 1440px) {
-        /* padding: 30px 128px 118px 128px; */
+        width: 1184px;
+        padding-bottom: 118px;
     }
 `;
 
@@ -44,10 +44,22 @@ export const WrapperReview = styled.div`
     border: ${props => props.theme.borders.review};
     border-radius: ${props => props.theme.radii.normal};
     padding: 24px;
+    height: 194px;
 
     @media screen and (min-width: 768px) {
         padding: 32px;
+        height: 187px;
     }
+`;
+
+export const ReviewerAvatar = styled.img`
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    `;
+
+export const WrapperUser = styled.div`
+    display: flex;
 `;
 
 export const ReviewerName = styled.h3`
@@ -59,13 +71,7 @@ export const ReviewerName = styled.h3`
     color: ${p => p.theme.colors.black5};
 `;
 
-export const ReviewerAvatar = styled.img`
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-`;
-
-export const GradeReview = styled.p`
+export const ReviewerGrade = styled.p`
     font-family: ${props => props.theme.fontFamily.main};
     font-style: normal;
     font-weight: ${props => props.theme.fontWeights.bold};
