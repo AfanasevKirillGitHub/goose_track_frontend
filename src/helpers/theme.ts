@@ -80,7 +80,7 @@ export const lightblue: ITheme = {
     // black3: '#13151A',
     black4: '#171820',
     black5: '#343434',
-    // black6: 'rgba(17, 17, 17, 0.7)',
+    black6: 'rgba(17, 17, 17, 0.7)',
     // black7: 'rgba(17, 17, 17, 0.9)',
     columnHeader: '#111111',
 
@@ -150,7 +150,7 @@ export const darkblue: ITheme = {
     // black3: '#13151A',
     black4: '#171820',
     black5: '#FFFFFF',
-    // black6: 'rgba(17, 17, 17, 0.7)',
+    black6: '#FFFFFF',
     // black7: 'rgba(17, 17, 17, 0.9)',
     columnHeader: '#FFFFFF',
 
@@ -229,7 +229,7 @@ export const lightgreen: ITheme = {
     // black3: '#13151A',
     black4: '#171820',
     black5: '#343434',
-    // black6: 'rgba(17, 17, 17, 0.7)',
+    black6: 'rgba(17, 17, 17, 0.7)',
     // black7: 'rgba(17, 17, 17, 0.9)',
     columnHeader: '#111111',
 
@@ -299,7 +299,7 @@ export const darkgreen: ITheme = {
     // black3: '#13151A',
     black4: '#171820',
     black5: '#FFFFFF',
-    // black6: 'rgba(17, 17, 17, 0.7)',
+    black6: '#FFFFFF',
     // black7: 'rgba(17, 17, 17, 0.9)',
     columnHeader: '#FFFFFF',
 
