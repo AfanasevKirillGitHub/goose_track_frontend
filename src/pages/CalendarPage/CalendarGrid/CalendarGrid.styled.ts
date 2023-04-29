@@ -172,7 +172,7 @@ export const TasksListItem = styled.li<ITaskListItem>`
   background-color: ${p => {
     switch (p.design) {
       case 'low':
-        return p.theme.colors.blue4;
+        return p.theme.colors.blue2;
       case 'medium':
         return p.theme.colors.lightYellow;
       case 'high':
@@ -184,7 +184,7 @@ export const TasksListItem = styled.li<ITaskListItem>`
   color: ${p => {
     switch (p.design) {
       case 'low':
-        return p.theme.colors.blue;
+        return p.theme.colors.blue8;
       case 'medium':
         return p.theme.colors.yellow;
       case 'high':
@@ -234,11 +234,12 @@ export const HoverText = styled.p`
   padding: 4px;
   border-radius: ${props => props.theme.radii.normal};
   word-wrap: break-word;
-  background-color: wheat;
-  color: white;
+  color: ${props => props.theme.colors.white3};
+  background-color: ${props => props.theme.colors.blue};
+  font-weight: ${props => props.theme.fontWeights.bold};
   position: absolute;
   top: 30px;
-  left: 0;
+  left: 50%;
   opacity: 0;
   z-index: 2;
   &.act {
