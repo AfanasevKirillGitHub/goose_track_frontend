@@ -4,6 +4,9 @@ import 'slick-carousel/slick/slick-theme.css';
 import { useFetchReviewsQuery } from '../../redux/review/reviewOperations';
 import { IMG } from '../../images';
 // import { Stars } from './Stars/Stars';
+import ReactStars from 'react-stars'
+import {IMG} from '../../images'
+
 import * as SC from './ReviewsSlider.styled';
 
 export const GetReviews = () => {
@@ -35,6 +38,7 @@ export const GetReviews = () => {
     ],
   };
 
+  
   const { data } = useFetchReviewsQuery();
 
   console.log(data)
@@ -44,19 +48,31 @@ export const GetReviews = () => {
       <Slider {...settings}>
         {data?.rewiew.map(item => {
           return (
-            <SC.WrapperReview>
-              <SC.WrapperUser>
-                {item.imgUrl !== "null" ?
-                  <SC.ReviewerAvatar src={item.imgUrl} alt="Avatar" /> : <SC.ReviewerAvatar src={IMG.DefaultAvatar} alt="Avatar" />
-                }
-                <>
-                  <SC.ReviewerName>{item.name}</SC.ReviewerName>
-                  <SC.ReviewerGrade>grade: {item.stars}</SC.ReviewerGrade>
-                  {/* <Stars countOfStars={item.stars} /> */}
-                </>
-              </SC.WrapperUser>
-              <SC.TextReview>{item.reviewText}</SC.TextReview>
-            </SC.WrapperReview>
+            // <SC.WrapperReview>
+            //   <SC.WrapperUser>
+            //     {item.imgUrl !== "null" ?
+            //       <SC.ReviewerAvatar src={item.imgUrl} alt="Avatar" /> : <SC.ReviewerAvatar src={IMG.DefaultAvatar} alt="Avatar" />
+            //     }
+            //     <>
+            //       <SC.ReviewerName>{item.name}</SC.ReviewerName>
+            //       <SC.ReviewerGrade>grade: {item.stars}</SC.ReviewerGrade>
+            //       {/* <Stars countOfStars={item.stars} /> */}
+            //     </>
+            //   </SC.WrapperUser>
+            //   <SC.TextReview>{item.reviewText}</SC.TextReview>
+            // </SC.WrapperReview>
+            <SC.ReviewWrapper key={item._id}>
+              {item.imgUrl !== "null" ?
+                <SC.ReviewerAvatar src={item.imgUrl} alt="Avatar" /> :
+                <SC.ReviewerAvatar src={IMG.DefaultAvatar} alt="Avatar" />
+              }
+              <SC.ReviewerName>{item.name}</SC.ReviewerName>
+              <ReactStars
+                edit={false}
+                value={item.stars}
+              />
+              <p>{item.reviewText}</p>
+            </SC.ReviewWrapper>
           );
         })}
       </Slider>
