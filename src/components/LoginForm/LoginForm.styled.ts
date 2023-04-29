@@ -87,7 +87,7 @@ export const Button = styled.button`
   border: none;
   border-radius: ${props => props.theme.radii.medium};
   background: ${props => props.theme.colors.blue};
-  color: ${props => props.theme.colors.white};
+  color: ${props => props.theme.colors.white3};
   box-shadow: ${props => props.theme.shadows.button};
 
   font-weight: ${props => props.theme.fontWeights.semiBold};
@@ -196,7 +196,7 @@ export const Link = styled(NavLink)`
   font-size: ${props => props.theme.fontSizes.s};
   font-weight: ${props => props.theme.fontWeights.semiBold};
   line-height: ${props => props.theme.lineHeights.xl};
-  color: ${props => props.theme.colors.blue};
+  color: ${props => props.theme.colors.navLink};
 
   :hover,
   :focus {

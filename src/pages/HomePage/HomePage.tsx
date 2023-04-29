@@ -4,6 +4,7 @@ import { useGetSearchParams } from '../../hooks/useGetSearchParams';
 import { signInWithToken } from '../../redux/auth/authOperations';
 import { HomePageHeader } from '../../components/HomePage/HomePageHeader';
 import { HomePageMain } from '../../components/HomePage/HomePageMain';
+import { HomePageWrapper } from '../../components/HomePage/HomePage.styled';
 
 export const HomePage = () => {
   const { token } = useGetSearchParams();
@@ -14,9 +15,11 @@ export const HomePage = () => {
   return (
     <>
       <HomePageHeader />
-      <div className="container">
-        <HomePageMain />
-      </div>
+      <HomePageWrapper>
+        <div className="container">
+          <HomePageMain />
+        </div>
+      </HomePageWrapper>
     </>
   );
 };
