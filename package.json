@@ -39,6 +39,7 @@
     "react-router-dom": "^6.10.0",
     "react-scripts": "5.0.1",
     "react-slick": "^0.29.0",
+    "react-stars": "^2.2.5",
     "react-toastify": "^9.1.1",
     "reactjs-popup": "^2.0.5",
     "redux-persist": "^6.0.0",
@@ -89,6 +90,8 @@
   },
   "devDependencies": {
     "@types/react-router-dom": "^5.3.3",
+    "@types/react-slick": "^0.23.10",
+    "@types/react-stars": "^2.2.1",
     "@types/styled-components": "^5.1.26"
   }
 }

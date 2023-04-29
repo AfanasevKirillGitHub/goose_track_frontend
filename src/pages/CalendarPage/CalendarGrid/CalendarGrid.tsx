@@ -1,6 +1,7 @@
 import moment from 'moment';
 import * as SC from './CalendarGrid.styled';
 import { useFetchTasksQuery } from '../../../redux/task/taskOperations';
+import { useState } from 'react';
 
 interface IProps {
   startDay: moment.Moment;
@@ -11,6 +12,11 @@ export const CalendarGrid = ({ startDay, today }: IProps) => {
   const totalDays = 42;
   const day = startDay.clone().subtract(1, 'day');
   const daysArray = [...Array(totalDays)].map(() => day.add(1, 'day').clone());
+
+  const [currentTitle, setCurrentTitle] = useState('');
+  const showOnHover = (title: string) => {
+    setCurrentTitle(title);
+  };
 
   const { data } = useFetchTasksQuery(null);
 
@@ -68,11 +74,13 @@ export const CalendarGrid = ({ startDay, today }: IProps) => {
                     const dayTasks = data?.filter(
                       ({ date }) => date === dayItem.format('YYYY-MM-DD')
                     );
-                    return dayTasks?.map(todo => {
+                    return dayTasks?.map((todo, idx) => {
                       return dayTasks.length <= 2 ? (
                         <SC.TasksListItem
                           key={todo.title}
                           design={todo.priority}
+                          onMouseEnter={() => showOnHover(todo.title)}
+                          onMouseLeave={() => showOnHover('')}
                         >
                           {todo.title.slice(0, isMobileView ? 2 : 8)}
                           {todo.title.length > 8
@@ -80,12 +88,34 @@ export const CalendarGrid = ({ startDay, today }: IProps) => {
                             : isMobileView
                             ? '...'
                             : null}
+                          <SC.HoverText
+                            className={
+                              currentTitle === todo.title
+                                ? 'act'
+                                : 'visually-hidden'
+                            }
+                          >
+                            {todo.title}
+                          </SC.HoverText>
                         </SC.TasksListItem>
                       ) : (
-                        <SC.TasksListItemDiv key={todo.title}>
+                        <SC.TasksListItemDiv
+                          key={todo.title}
+                          onMouseEnter={() => showOnHover(todo.title)}
+                          onMouseLeave={() => showOnHover('')}
+                        >
                           <SC.TasksListItemMany
                             design={todo.priority}
                           ></SC.TasksListItemMany>
+                          <SC.HoverText
+                            className={
+                              currentTitle === todo.title
+                                ? 'act'
+                                : 'visually-hidden'
+                            }
+                          >
+                            {todo.title}
+                          </SC.HoverText>
                         </SC.TasksListItemDiv>
                       );
                     });
