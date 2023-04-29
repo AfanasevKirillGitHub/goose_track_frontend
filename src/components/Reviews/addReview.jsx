@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useAddReviewMutation } from '../../redux/review/reviewOperations';
-import ReactStars from 'react-stars'
 import * as SC from './addReview.styled';
 import { useTranslation } from 'react-i18next';
 
