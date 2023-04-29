@@ -4,11 +4,18 @@ import EllipsisText from 'react-ellipsis-text';
 import { SVG } from '../../images';
 import { TaskToolbar } from './TaskToolbar';
 import { t } from 'i18next';
+import { ITask } from '../../helpers/interfaces/taskApiInterface/taskApiInterface';
 
-export const TaskColumnCard = ({ taskData }) => {
+interface IProps {
+  taskData: ITask;
+}
+
+export const TaskColumnCard = ({ taskData }: IProps) => {
   const {
     user: { avatarURL },
   } = useAuth();
+
+  console.log(taskData);
 
   return (
     <SC.TaskCard>

@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+interface ITaskPriority {
+  name: string;
+}
+
 export const TaskCard = styled.article`
   width: 100%;
 
@@ -58,7 +62,7 @@ export const TaskImage = styled.img`
   height: 100%;
 `;
 
-export const TaskPriority = styled.div`
+export const TaskPriority = styled.div<ITaskPriority>`
   padding-top: ${p => p.theme.space[1]}px;
   padding-bottom: ${p => p.theme.space[1]}px;
   padding-left: 12px;

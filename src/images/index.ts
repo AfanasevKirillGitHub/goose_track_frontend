@@ -49,7 +49,7 @@ import teamM from './homePage/team-mob.png';
 import DefaultAvatar from './gus.svg';
 
 interface IIcons {
-  [key: string]: React.FC;
+  [key: string]: React.ComponentType<any>;
 }
 
 interface IImg {
