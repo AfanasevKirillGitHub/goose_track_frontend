@@ -1,3 +1,4 @@
+import { ITask } from '../../../helpers/interfaces/taskApiInterface/taskApiInterface';
 import { useModal } from '../../../hooks/useModal';
 import { SVG } from '../../../images';
 import {
@@ -8,11 +9,15 @@ import { TaskModal } from '../../TaskModal';
 import { ChangeStatusPopUp } from '../ChangeStatusPopUp';
 import * as SC from './TaskToolbar.styled';
 
-export const TaskToolbar = ({ taskData }) => {
+interface IProps {
+  taskData: ITask;
+}
+
+export const TaskToolbar = ({ taskData }: IProps) => {
   const { isOpenModal, toggleModal } = useModal();
 
   const [deleteTask, { isLoading: isDeletting }] = useRemoveTasksMutation();
-  const [{ isLoading: isUpdatind }] = useUpdateTasksMutation();
+  const [, { isLoading: isUpdatind }] = useUpdateTasksMutation();
 
   return (
     <>

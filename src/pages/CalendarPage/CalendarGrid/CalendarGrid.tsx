@@ -2,6 +2,7 @@ import moment from 'moment';
 import * as SC from './CalendarGrid.styled';
 import { useFetchTasksQuery } from '../../../redux/task/taskOperations';
 import { useState } from 'react';
+import { Loader } from '../../../components/Loader/Loader';
 
 interface IProps {
   startDay: moment.Moment;
@@ -18,7 +19,7 @@ export const CalendarGrid = ({ startDay, today }: IProps) => {
     setCurrentTitle(title);
   };
 
-  const { data } = useFetchTasksQuery(null);
+  const { data, isLoading } = useFetchTasksQuery(null);
 
   const isCurrentDay = (day: moment.Moment): boolean => {
     return moment().isSame(day, 'day');
@@ -32,6 +33,7 @@ export const CalendarGrid = ({ startDay, today }: IProps) => {
 
   return (
     <SC.CalendarContainer>
+      {isLoading && <Loader />}
       <SC.WeekWrapper>
         {[...Array(7)].map((_, idx) => (
           <SC.DayOfWeekItem key={idx}>

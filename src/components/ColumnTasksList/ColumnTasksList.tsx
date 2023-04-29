@@ -22,7 +22,7 @@ export const ColumnTasksList: React.FC<IColumnTasksListProps> = ({
     <SC.TaskList element="ul" options={{ scrollbars }}>
       {tasksByStatus?.map(task => (
         <SC.TaskElement key={task._id}>
-          <TaskColumnCard taskData={task} />
+          <TaskColumnCard taskData={task as ITask} />
         </SC.TaskElement>
       ))}
     </SC.TaskList>

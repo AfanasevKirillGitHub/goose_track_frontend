@@ -5,6 +5,8 @@ declare module '*.gif' {
   export default src;
 }
 
+declare module 'react-ellipsis-text';
+
 // declare module '*.css' ('*.scss') {
 //   const content: Record<string, string>;
 //   export default content;
