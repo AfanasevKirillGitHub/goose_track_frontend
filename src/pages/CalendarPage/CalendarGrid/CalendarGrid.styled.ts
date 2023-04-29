@@ -165,6 +165,10 @@ export const TasksList = styled.ul`
 `;
 
 export const TasksListItem = styled.li<ITaskListItem>`
+  /*  */
+  position: relative;
+  /*  */
+
   background-color: ${p => {
     switch (p.design) {
       case 'low':
@@ -203,6 +207,10 @@ export const TasksListItem = styled.li<ITaskListItem>`
 `;
 
 export const TasksListItemDiv = styled.li`
+  /*  */
+  position: relative;
+  /*  */
+
   display: inline-block;
   :not(:last-child) {
     margin-right: 5px;
@@ -219,4 +227,21 @@ export const TasksListItemMany = styled(TasksListItem).attrs(() => ({
 }))<ITaskListItem>`
   width: 20px;
   height: 20px;
+`;
+
+export const HoverText = styled.p`
+  width: 140px;
+  padding: 4px;
+  border-radius: ${props => props.theme.radii.normal};
+  word-wrap: break-word;
+  background-color: wheat;
+  color: white;
+  position: absolute;
+  top: 30px;
+  left: 0;
+  opacity: 0;
+  z-index: 2;
+  &.act {
+    opacity: 1;
+  }
 `;
