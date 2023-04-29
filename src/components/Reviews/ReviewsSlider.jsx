@@ -2,6 +2,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { useFetchReviewsQuery } from '../../redux/review/reviewOperations';
+import ReactStars from 'react-stars'
 import {IMG} from '../../images'
 
 import * as SC from './ReviewsSlider.styled';
@@ -30,6 +31,7 @@ export const GetReviews = () => {
     ],
   };
 
+  
   const { data } = useFetchReviewsQuery();
   console.log(data)
   return (
@@ -37,13 +39,15 @@ export const GetReviews = () => {
       <SC.ReviewsTitle> Reviews </SC.ReviewsTitle>
       <Slider {...settings}>
         {data?.rewiew.map(item => {
-          
           return (
-            <SC.ReviewWrapper key={item.name}>
-              <SC.ReviewerName>{item.name}</SC.ReviewerName>
+            <SC.ReviewWrapper key={item._id}>
               {item.imgUrl !== "null" ? <SC.ReviewerAvatar src={item.imgUrl} alt="Avatar"/> : <SC.ReviewerAvatar src={IMG.DefaultAvatar} alt="Avatar"/>}
-              <p>grade: {item.stars}</p>
-              <p>rewiew: {item.reviewText}</p>
+              <SC.ReviewerName>{item.name}</SC.ReviewerName>
+              <ReactStars
+              edit={false}
+              value={item.stars}
+              />
+              <p>{item.reviewText}</p>
             </SC.ReviewWrapper>
           );
         })}
