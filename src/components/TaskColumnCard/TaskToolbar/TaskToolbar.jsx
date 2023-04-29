@@ -5,6 +5,7 @@ import {
   useUpdateTasksMutation,
 } from '../../../redux/task/taskOperations';
 import { TaskModal } from '../../TaskModal';
+import { ChangeStatusPopUp } from '../ChangeStatusPopUp';
 import * as SC from './TaskToolbar.styled';
 
 export const TaskToolbar = ({ taskData }) => {
@@ -22,20 +23,23 @@ export const TaskToolbar = ({ taskData }) => {
   return (
     <>
       <SC.TaskToolbar>
-        <SC.TaskToolbarBtn
-          type="button"
-          // onClick={toggleModal}
-          // disabled={isDeletting || isUpdatind}
-        >
-          <SVG.ArrowCircle />
-        </SC.TaskToolbarBtn>
+        {/* <SC.TaskToolbarBtn
+            type="button"
+            onClick={togglePopUp}
+            // disabled={isDeletting || isUpdatind}
+          >
+            <SVG.ArrowCircle />
+          </SC.TaskToolbarBtn> */}
+        <ChangeStatusPopUp taskData={taskData} />
+
         <SC.TaskToolbarBtn
           type="button"
           onClick={toggleModal}
-          // disabled={isDeletting || isUpdatind}
+          disabled={isDeletting || isUpdatind}
         >
           <SVG.EditIcon />
         </SC.TaskToolbarBtn>
+
         <SC.TaskToolbarBtn
           type="button"
           onClick={() => deleteTask(taskData._id)}

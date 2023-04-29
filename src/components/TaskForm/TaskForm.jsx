@@ -11,17 +11,9 @@ import 'moment/locale/uk';
 import { SVG } from '../../images';
 import * as SC from './TaskForm.Styled';
 import { TaskFormButton } from './TaskFormButton';
+import { PRIORITY } from '../../helpers/enums';
 
-const PRIORITY = ['low', 'medium', 'high'];
 const taskCreateTime = moment(Date.now()).format('HH:mm');
-
-// const TEMP_MODAL_DATA = {
-//   title: 'Edit me',
-//   start: '11:00',
-//   end: '12:00',
-//   date: '2023-04-25',
-//   priority: 'low',
-// };
 
 export const TaskForm = ({ fieldsData, toggleModal }) => {
   const addMinutes = minutes => +Date.now() + minutes * 60 * 1000;
@@ -44,8 +36,6 @@ export const TaskForm = ({ fieldsData, toggleModal }) => {
 
   const [addTask, { isLoading: taskIsLoading }] = useAddTasksMutation();
   const [updateTask, { isLoading: isUpdatind }] = useUpdateTasksMutation();
-
-  console.log('isUpdatind :>> ', isUpdatind);
 
   const { register, handleSubmit } = useForm();
 
@@ -74,8 +64,6 @@ export const TaskForm = ({ fieldsData, toggleModal }) => {
       return;
     }
 
-    // console.log('formData :>> ', data);
-
     switch (modalType) {
       case 'edit':
         updateTask({ ...fieldsData, ...data });
@@ -89,7 +77,6 @@ export const TaskForm = ({ fieldsData, toggleModal }) => {
           status: fieldsData.status,
           date: current,
         };
-        // console.log('formData :>> ', taskData);
         addTask({ data: taskData, lang });
         toggleModal();
 
@@ -197,7 +184,7 @@ export const TaskForm = ({ fieldsData, toggleModal }) => {
         })}
       </SC.PriorityList>
       <SC.Buttons>
-        <TaskFormButton type="submit" disabled={taskIsLoading}>
+        <TaskFormButton type="submit" disabled={taskIsLoading || isUpdatind}>
           {modalType === 'add' ? (
             <SVG.AddIcon width="18px" height="18px" />
           ) : (

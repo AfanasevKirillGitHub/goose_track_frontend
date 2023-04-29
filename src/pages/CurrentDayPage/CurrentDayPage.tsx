@@ -7,12 +7,12 @@ import * as SC from './CurrentDayPage.styled';
 import { useNavigate } from 'react-router-dom';
 import { TasksColumnsList } from '../../components/TasksColumnsList/TasksColumnsList';
 import { useTranslation } from 'react-i18next';
+import { STATUS } from '../../helpers/enums';
 
 export const CurrentDayPage = () => {
   const { current } = useParams();
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const STATUS = ['todo', 'inprogress', 'done'];
 
   moment.updateLocale('en', { day: { dow: 1 } });
 
