@@ -202,7 +202,9 @@ export const Input = styled.input<IInput>`
   font-weight: ${p => p.theme.fontWeights.semiBold};
   font-size: ${p => p.theme.fontSizes.s};
   line-height: ${p => p.theme.lineHeights.xl};
-  color: ${p => p.theme.colors.black2};
+
+  color: ${p => p.theme.colors.black};
+
   margin-top: 8px;
   @media screen and (min-width: 768px) {
     width: 354px;
@@ -220,7 +222,7 @@ export const LabelBtn = styled.label`
   font-weight: ${p => p.theme.fontWeights.regular};
   font-size: ${p => p.theme.fontSizes.xs};
   line-height: ${p => p.theme.lineHeights.m};
-  color: ${p => p.theme.colors.black2};
+  color: ${p => p.theme.colors.black};
   @media screen and (min-width: 768px) {
     font-size: ${p => p.theme.fontSizes.s};
     line-height: ${p => p.theme.lineHeights.xl};
@@ -233,7 +235,7 @@ export const DatePick = styled(DatePicker)<ICellBirhtDayProps>`
   padding-left: 18px;
   margin-top: 8px;
   border: ${p =>
-    (!p.birthDay && '1px solid rgba(17, 17, 17, 0.15)') ||
+    (!p.birthDay && p.theme.borders.userInput) ||
     (p.birthDay && p.selected === null && '1px solid red') ||
     (p.birthDay && p.selected !== null && '1px solid green')};
   border-radius: 8px;

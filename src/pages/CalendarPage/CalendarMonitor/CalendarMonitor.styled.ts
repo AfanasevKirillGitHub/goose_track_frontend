@@ -104,10 +104,14 @@ export const ChevronButton = styled.button`
   padding: 7px;
   border: 1px solid rgba(220, 227, 229, 0.5);
   background-color: ${props => props.theme.colors.white};
-  color: #616161;
+  color: ${props => props.theme.colors.grey};
 
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
+
+  &:disabled {
+    color: ${props => props.theme.colors.grey9};
+  }
 
   @media screen and (min-width: 768px) {
     padding: 8px 16px;
@@ -158,10 +162,10 @@ export const Link = styled(NavLink)`
   text-decoration: none;
   color: ${props => props.theme.colors.navLink};
   padding: 9px 16px;
-  background-color: ${props => props.theme.colors.blue3};
+  background-color: ${props => props.theme.colors.monitorLink};
   min-width: 82px;
   &.active.act {
-    background-color: ${props => props.theme.colors.blue7};
+    background-color: ${props => props.theme.colors.monitorActiveLink};
   }
 `;
 

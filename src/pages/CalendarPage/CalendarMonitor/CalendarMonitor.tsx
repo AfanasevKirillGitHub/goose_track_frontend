@@ -46,7 +46,6 @@ export const CalendarMonitor = ({
             disabled={prevDisabled}
             style={{
               transform: 'rotate(180deg)',
-              color: prevDisabled ? '#DCE3E5' : '#616161',
             }}
           >
             <SVG.Chevron />
@@ -55,9 +54,6 @@ export const CalendarMonitor = ({
             type="button"
             onClick={nextHandler}
             disabled={nextDisabled}
-            style={{
-              color: nextDisabled ? '#DCE3E5' : '#616161',
-            }}
           >
             <SVG.Chevron />
           </SC.ChevronButton>

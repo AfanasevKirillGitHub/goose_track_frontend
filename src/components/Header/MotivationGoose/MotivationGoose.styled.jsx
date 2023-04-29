@@ -34,10 +34,11 @@ export const MotivationText = styled.p`
   font-weight: 600;
   font-size: 14px;
   line-height: 18px;
+  color: ${p => p.theme.colors.columnHeader};
 `;
 
 export const Accent = styled.span`
-  color: #3e85f3;
+  color: ${p => p.theme.colors.currentDay};
   font-family: 'Inter';
   font-style: normal;
   font-weight: 600;
