@@ -2,21 +2,6 @@ import { ITask } from '../../helpers/interfaces/taskApiInterface/taskApiInterfac
 import { Modal } from '../Modal/Modal';
 import { TaskForm } from '../TaskForm';
 
-interface IFieldsData {
-  date?: string;
-  title?: string;
-  start?: string;
-  end?: string;
-  priority?: string;
-  status: string;
-  _id?: string;
-  owner?: {
-    email: string;
-    name: string;
-    _id: string;
-  };
-}
-
 interface IProps {
   status: string;
   data: ITask | null;
@@ -24,7 +9,7 @@ interface IProps {
 }
 
 export const TaskModal = ({ status, data, toggleModal }: IProps) => {
-  let formData: IFieldsData;
+  let formData: Partial<ITask>;
   if (!data) {
     formData = { status };
   } else {

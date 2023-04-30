@@ -15,24 +15,10 @@ import { PRIORITY } from '../../helpers/enums';
 import { t } from 'i18next';
 import { ITask } from '../../helpers/interfaces/taskApiInterface/taskApiInterface';
 
-interface IFieldsData {
-  date?: string;
-  title?: string;
-  start?: string;
-  end?: string;
-  priority?: string;
-  status: string;
-  _id?: string;
-  owner?: {
-    email: string;
-    name: string;
-    _id: string;
-  };
-}
-
 interface IProps {
   toggleModal: () => void;
-  fieldsData: IFieldsData | ITask;
+
+  fieldsData: Partial<ITask>;
 }
 
 export const TaskForm = ({ fieldsData, toggleModal }: IProps) => {
