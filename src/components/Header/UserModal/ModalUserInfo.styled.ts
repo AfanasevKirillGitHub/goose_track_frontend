@@ -16,7 +16,8 @@ export const ModalUserInfo = styled.div`
   flex-direction: column;
   justify-content: space-between;
   position: absolute;
-  width: 197px;
+  /* width: 197px; */
+  width: fit-content;
   height: 189px;
   background: ${p => p.theme.colors.modalBackground};
   box-shadow: 0px 4px 16px rgba(17, 17, 17, 0.1);
@@ -24,7 +25,8 @@ export const ModalUserInfo = styled.div`
   top: 60px;
   right: 35px;
 
-  padding: 14px 0;
+  /* padding: 14px 0px; */
+  padding: 14px 14px 14px 0px;
 
   @media (min-width: 375px) {
     top: 60px;
