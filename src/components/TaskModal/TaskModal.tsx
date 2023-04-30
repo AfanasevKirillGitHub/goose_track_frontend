@@ -1,7 +1,14 @@
+import { ITask } from '../../helpers/interfaces/taskApiInterface/taskApiInterface';
 import { Modal } from '../Modal/Modal';
 import { TaskForm } from '../TaskForm';
 
-export const TaskModal = ({ status, data, toggleModal }) => {
+interface IProps {
+  status: string;
+  data: ITask;
+  toggleModal: () => void;
+}
+
+export const TaskModal = ({ status, data, toggleModal }: IProps) => {
   const formData = { ...data, status };
 
   return (

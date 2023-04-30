@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { ChangeEvent, useState } from 'react';
+import { SubmitErrorHandler, SubmitHandler, useForm } from 'react-hook-form';
 import {
   useAddTasksMutation,
   useUpdateTasksMutation,
@@ -13,8 +13,14 @@ import * as SC from './TaskForm.Styled';
 import { TaskFormButton } from './TaskFormButton';
 import { PRIORITY } from '../../helpers/enums';
 import { t } from 'i18next';
+import { ITask } from '../../helpers/interfaces/taskApiInterface/taskApiInterface';
 
-export const TaskForm = ({ fieldsData, toggleModal }) => {
+interface IProps {
+  toggleModal: () => void;
+  fieldsData: ITask;
+}
+
+export const TaskForm = ({ fieldsData, toggleModal }: IProps) => {
   // console.log('fieldsData :>> ', fieldsData);
   const { current } = useParams();
   const taskDay = fieldsData?.date ? fieldsData.date : current;
@@ -35,7 +41,7 @@ export const TaskForm = ({ fieldsData, toggleModal }) => {
     ? fieldsData.start
     : moment(Date.now()).format('HH:mm');
 
-  const addMinutes = minutes => Date.now() + minutes * 60 * 1000;
+  const addMinutes = (minutes: number) => Date.now() + minutes * 60 * 1000;
 
   const defaultEndTime = moment(addMinutes(60)).format('HH:mm');
 
@@ -49,7 +55,7 @@ export const TaskForm = ({ fieldsData, toggleModal }) => {
 
   const { register, handleSubmit } = useForm();
 
-  const onError = (errors, e) => {
+  const onError: SubmitErrorHandler<any> = (errors, e) => {
     const errorFields = Object.keys(errors);
     const notifyErrors = () =>
       errorFields.forEach(errorField => {
@@ -63,16 +69,16 @@ export const TaskForm = ({ fieldsData, toggleModal }) => {
     notifyErrors();
   };
 
-  const isValidStartTime = (day, time) => {
+  const isValidStartTime = (day: string, time: any) => {
     if (day === dayNow && time >= taskCreateTime) return true;
     if (day > dayNow) return true;
   };
   const isValidEndTime = start <= end;
 
-  const onSubmit = (data, e) => {
+  const onSubmit: SubmitHandler<any> = (data, e) => {
     switch (modalType) {
       case 'edit':
-        if (!isValidStartTime(taskDay, start)) {
+        if (!isValidStartTime(taskDay as string, start)) {
           toast.error(t('taskModalMsg.editInPast'));
           setStart(taskCreateTime);
           return;
@@ -88,7 +94,7 @@ export const TaskForm = ({ fieldsData, toggleModal }) => {
         break;
 
       default:
-        if (!isValidStartTime(taskDay, start)) {
+        if (!isValidStartTime(taskDay as string, start)) {
           toast.error(t('taskModalMsg.startTimeInPast'));
           setStart(taskCreateTime);
           return;
@@ -111,7 +117,7 @@ export const TaskForm = ({ fieldsData, toggleModal }) => {
     }
   };
 
-  const onInput = e => {
+  const onInput = (e: ChangeEvent<HTMLInputElement>) => {
     switch (e.target.name) {
       case 'title':
         setTitle(e.target.value);
@@ -136,9 +142,9 @@ export const TaskForm = ({ fieldsData, toggleModal }) => {
         <SC.Label>{t('Title')}</SC.Label>
         <SC.Input
           type="text"
-          placeholder={t('Enter text')}
+          placeholder={t('Enter text')!}
           {...register('title', {
-            required: t('taskModalMsg.requared'),
+            required: t('taskModalMsg.requared') as string,
             maxLength: {
               value: 250,
               message: t('taskModalMsg.maxLength'),
@@ -158,7 +164,7 @@ export const TaskForm = ({ fieldsData, toggleModal }) => {
           <SC.Input
             type="time"
             {...register('start', {
-              required: t('taskModalMsg.requared'),
+              required: t('taskModalMsg.requared') as string,
             })}
             value={start}
             onInput={onInput}
@@ -170,7 +176,7 @@ export const TaskForm = ({ fieldsData, toggleModal }) => {
           <SC.Label>{t('End')}</SC.Label>
           <SC.Input
             {...register('end', {
-              required: t('taskModalMsg.requared'),
+              required: t('taskModalMsg.requared') as string,
             })}
             type="time"
             value={end}
@@ -197,7 +203,7 @@ export const TaskForm = ({ fieldsData, toggleModal }) => {
                     validate: {
                       priority: value =>
                         PRIORITY.includes(value) ||
-                        t('taskModalMsg.priorityIsNotValid'),
+                        (t('taskModalMsg.priorityIsNotValid') as string),
                     },
                   })}
                   type="radio"
@@ -217,7 +223,7 @@ export const TaskForm = ({ fieldsData, toggleModal }) => {
       </SC.PriorityList>
 
       <SC.Buttons>
-        {isValidStartTime(taskDay, start) && (
+        {isValidStartTime(taskDay as string, start) && (
           <TaskFormButton type="submit" disabled={taskIsLoading || isUpdatind}>
             {modalType === 'add' ? (
               <SVG.AddIcon width="18px" height="18px" />
@@ -228,7 +234,8 @@ export const TaskForm = ({ fieldsData, toggleModal }) => {
           </TaskFormButton>
         )}
 
-        {(modalType === 'add' || !isValidStartTime(taskDay, start)) && (
+        {(modalType === 'add' ||
+          !isValidStartTime(taskDay as string, start)) && (
           <TaskFormButton type="button" onClick={toggleModal}>
             {t('Cancel')}
           </TaskFormButton>
