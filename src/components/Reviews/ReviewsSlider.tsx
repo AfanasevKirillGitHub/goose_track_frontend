@@ -17,8 +17,6 @@ export const GetReviews = () => {
     pauseOnHover: true,
     arrows: true,
     // appendArrows: <div id="btnSliderDiv">Prev</div>,
-    // prevArrow: document.querySelector('#btnSliderPrev'),
-    // nextArrow: document.querySelector('#btnSliderNext'),
     // prevArrow: <button type='button' id="btnSliderPrev">Prev</button>,
     // nextArrow: <button type='button' id="btnSliderNext">Next</button>,
     adaptiveHeight: true,

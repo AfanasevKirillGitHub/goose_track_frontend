@@ -165,13 +165,11 @@ export const NewSlider = styled(Slider)`
     /* & .slick-arrow.slick-prev:before{
         content: url('../../images/icons/slick-arrow-prev.svg');
         background-image: url('../../images/icons/slick-arrow-prev.svg');
-        background-image: url('../../images/homePage/Slick-arrow-prev.svg');
     }; */
 
     /* & .slick-arrow.slick-next:before{
         content: url('../../images/icons/slick-arrow-next.svg');
         background-image: url('../../images/icons/slick-arrow-next.svg');
-        background-image: url('../../images/homePage/Slick-arrow-next.svg');
     }; */
 
     @media screen and (min-width: 1440px) {
