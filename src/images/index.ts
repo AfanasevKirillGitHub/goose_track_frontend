@@ -22,6 +22,8 @@ import { ReactComponent as NotFoundIcon } from './icons/sad_goose_404.svg';
 import { ReactComponent as DropIcon } from './icons/water-drop.svg';
 import { ReactComponent as GradeStarGold } from './icons/grade-star-in-gold-color.svg';
 import { ReactComponent as GradeStarGrey } from './icons/grade-star-in-grey-color.svg';
+import { ReactComponent as SlickArrowNext } from './icons/slick-arrow-next.svg';
+import { ReactComponent as SlickArrowPrev } from './icons/slick-arrow-prev.svg';
 
 import homePage1 from './homePage/homePage1.png';
 import homePage2 from './homePage/homePage2.png';
@@ -80,6 +82,8 @@ export const SVG: IIcons = {
   DropIcon,
   GradeStarGold,
   GradeStarGrey,
+  SlickArrowNext,
+  SlickArrowPrev,
 };
 
 export const IMG: IImg = {

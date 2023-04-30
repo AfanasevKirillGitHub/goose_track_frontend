@@ -1,4 +1,3 @@
-import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { useFetchReviewsQuery } from '../../redux/review/reviewOperations';
@@ -13,10 +12,15 @@ export const GetReviews = () => {
     speed: 500,
     slidesToShow: 2,
     slidesToScroll: 2,
-    autoplay: true,
+    // autoplay: true,
     autoplaySpeed: 3000,
     pauseOnHover: true,
     arrows: true,
+    // appendArrows: <div id="btnSliderDiv">Prev</div>,
+    // prevArrow: document.querySelector('#btnSliderPrev'),
+    // nextArrow: document.querySelector('#btnSliderNext'),
+    // prevArrow: <button type='button' id="btnSliderPrev">Prev</button>,
+    // nextArrow: <button type='button' id="btnSliderNext">Next</button>,
     adaptiveHeight: true,
 
     responsive: [
@@ -34,21 +38,11 @@ export const GetReviews = () => {
 
   const { data } = useFetchReviewsQuery();
 
-  // const useSlideButtons = () => {
-  //   const SlideBtnPrev = document.querySelector('.slick-prev');
-  //   const SlideBtnNext = document.querySelector('.slick-next');
-
-  //   SlideBtnPrev.style.backgroundColor = "teal";
-  //   SlideBtnNext.style.backgroundColor = "teal";
-  // }
-
-  // useSlideButtons();
-  console.log(data);
   return (
     <SC.ContainerReviews>
       <SC.TitleReviews> Reviews </SC.TitleReviews>
 
-      <Slider {...settings}>
+      <SC.NewSlider {...settings}>
         {data?.rewiew.map(item => {
           return (
             <SC.WrapperReview key={item._id}>
@@ -82,7 +76,7 @@ export const GetReviews = () => {
             // </SC.WrapperReview>
           );
         })}
-      </Slider>
+      </SC.NewSlider>
     </SC.ContainerReviews>
   );
 };
