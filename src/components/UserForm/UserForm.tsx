@@ -163,20 +163,20 @@ export const UserForm = () => {
           <SC.DivNotifications>
             <SC.LabelBtn htmlFor="birthday">
               {t('Birthday')}
-               <SC.DatePickerWrapper>
-              <SC.DatePick
-                name="birthday"
-                id="date"
-                type="date"
-                input={true}
-                birthDay={birthDay.isDirty}
-                selected={birthday as Date}
-                onBlur={e => birthDay.onBlur(e)}
-                onChange={data => setBirthday(data as Date)}
-                dateFormat="yyyy-MM-dd"
-                calendarStartDay={1}
+              <SC.DatePickerWrapper>
+                <SC.DatePick
+                  name="birthday"
+                  id="date"
+                  type="date"
+                  input={true}
+                  birthDay={birthDay.isDirty}
+                  selected={birthday as Date}
+                  onBlur={e => birthDay.onBlur(e)}
+                  onChange={data => setBirthday(data as Date)}
+                  dateFormat="yyyy-MM-dd"
+                  calendarStartDay={1}
                 />
-                </SC.DatePickerWrapper>
+              </SC.DatePickerWrapper>
             </SC.LabelBtn>
             {birthDay.isDirty && birthday === null && (
               <SC.Notifications style={{ color: 'red' }}>

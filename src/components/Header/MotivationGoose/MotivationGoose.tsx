@@ -23,8 +23,7 @@ export const MotivationGoose = () => {
               </SC.HeaderTitle>
               <SC.MotivationText>
                 {' '}
-                <SC.Accent>Let go</SC.Accent> of the past and focus on the
-                present!
+                <SC.Accent>{t('let go')}</SC.Accent> {t('focus')}
               </SC.MotivationText>
             </SC.WrapperText>
           </SC.MotivationWrapper>

@@ -264,7 +264,7 @@ export const SubmitButton = styled.button`
   cursor: pointer;
   font-family: 'Inter';
   font-weight: ${p => p.theme.fontWeights.semiBold};
-  font-size: ${p => p.theme.fontSizes.s};
+  font-size: ${p => p.theme.fontSizes.m};
   line-height: ${p => p.theme.lineHeights.xl};
   background-color: ${p => p.theme.colors.blue};
   color: ${p => p.theme.colors.white};
@@ -323,7 +323,6 @@ export const ButtonReview = styled.button<IButton>`
   font-size: ${props => (props.design ? '14px' : props.theme.fontSizes.m)};
   line-height: ${props => props.theme.lineHeights.xl};
   font-weight: ${props => props.theme.fontWeights.semiBold};
-  box-shadow: 0 0 15px rgba(236, 236, 236, 0.5);
   transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out,
     transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -351,12 +350,12 @@ export const DatePickerWrapper = styled.div`
     background-color: ${p => p.theme.colors.blue};
     color: ${p => p.theme.colors.white};
     border-radius: 16px 16px 0 0;
-    border-bottom: 1px solid #FFFFFF;
+    border-bottom: 1px solid #ffffff;
   }
 
   & .react-datepicker__navigation-icon {
     ::before {
-    border-color: ${p => p.theme.colors.white};
+      border-color: ${p => p.theme.colors.white};
     }
   }
 
@@ -369,12 +368,12 @@ export const DatePickerWrapper = styled.div`
     color: ${p => p.theme.colors.white};
     :hover,
     :focus {
-    background-color: ${p => p.theme.colors.lightYellow};
-    color: ${p => p.theme.colors.blue};
-    border-radius: ${props => props.theme.radii.round};
+      background-color: ${p => p.theme.colors.lightYellow};
+      color: ${p => p.theme.colors.blue};
+      border-radius: ${props => props.theme.radii.round};
+    }
   }
-  }
-  
+
   & .react-datepicker__day-name {
     color: ${p => p.theme.colors.white};
   }
@@ -392,5 +391,4 @@ export const DatePickerWrapper = styled.div`
   & .react-datepicker__day--outside-month {
     color: ${p => p.theme.colors.blue};
   }
-
 `;
