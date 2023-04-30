@@ -15,8 +15,6 @@ export const TaskColumnCard = ({ taskData }: IProps) => {
     user: { avatarURL },
   } = useAuth();
 
-  console.log(taskData);
-
   return (
     <SC.TaskCard>
       <SC.TaskTitle>

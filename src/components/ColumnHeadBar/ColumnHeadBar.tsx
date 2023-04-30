@@ -1,9 +1,9 @@
-import { Header } from './ColumnHeadBar.styled';
+import * as SC from './ColumnHeadBar.styled';
 
 interface IColumnHeadBarProps {
   name: string;
 }
 
 export const ColumnHeadBar = ({ name }: IColumnHeadBarProps) => {
-  return <Header>{name}</Header>;
+  return <SC.Header>{name}</SC.Header>;
 };
