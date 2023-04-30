@@ -94,6 +94,9 @@
     "Field": "Field",
     "requared": "is requared!",
     "maxLength": "must be lower then 250 chars!",
-    "priorityIsNotValid": "is not valid!"
+    "priorityIsNotValid": "is not valid!",
+    "title": "'Title'",
+    "start": "'Start'",
+    "end": "'End'"
   }
 }

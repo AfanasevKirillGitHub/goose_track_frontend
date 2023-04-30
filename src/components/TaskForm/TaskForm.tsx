@@ -22,18 +22,11 @@ interface IProps {
 }
 
 export const TaskForm = ({ fieldsData, toggleModal }: IProps) => {
-  // console.log('fieldsData :>> ', fieldsData);
   const { current } = useParams();
   const taskDay = fieldsData?.date ? fieldsData.date : current;
-  console.log('taskDay :>> ', taskDay);
 
   const dayNow = moment(Date.now()).format('YYYY-MM-DD');
-  console.log('dayNow :>> ', dayNow);
 
-  //ts
-  // const lang = localStorage.getItem('i18nextLng') as string;
-
-  //js
   const lang = localStorage.getItem('i18nextLng');
 
   const modalType = (fieldsData.title as string) ? `edit` : `add`;
@@ -61,7 +54,7 @@ export const TaskForm = ({ fieldsData, toggleModal }: IProps) => {
     const notifyErrors = () =>
       errorFields.forEach(errorField => {
         toast.error(
-          `${t('taskModalMsg.Field')} ${errorField} ${
+          `${t('taskModalMsg.Field')} ${t(`taskModalMsg.${errorField}`)} ${
             errors[errorField]?.message
           }`
         );
@@ -154,7 +147,6 @@ export const TaskForm = ({ fieldsData, toggleModal }: IProps) => {
           name="title"
           value={title}
           onInput={onInput}
-          // disabled={!isValidStartTime(taskDay, start)}
         />
       </SC.Field>
 
@@ -169,7 +161,6 @@ export const TaskForm = ({ fieldsData, toggleModal }: IProps) => {
             })}
             value={start}
             onInput={onInput}
-            // disabled={!isValidStartTime(taskDay, start)}
           />
         </SC.Field>
 
@@ -182,7 +173,6 @@ export const TaskForm = ({ fieldsData, toggleModal }: IProps) => {
             type="time"
             value={end}
             onInput={onInput}
-            // disabled={!isValidStartTime(taskDay, start)}
           />
         </SC.Field>
       </SC.Time>
@@ -211,7 +201,6 @@ export const TaskForm = ({ fieldsData, toggleModal }: IProps) => {
                   value={name}
                   defaultChecked={isSelected}
                   onChange={e => setPriority(e.target.value)}
-                  // disabled={!isValidStartTime(taskDay, start)}
                 />
                 <SC.CustomRadioButton name={name}>
                   {isSelected ? <SVG.RadioButtonActive /> : <SVG.RadioButton />}
@@ -224,19 +213,16 @@ export const TaskForm = ({ fieldsData, toggleModal }: IProps) => {
       </SC.PriorityList>
 
       <SC.Buttons>
-        {isValidStartTime(taskDay as string, start) && (
-          <TaskFormButton type="submit" disabled={taskIsLoading || isUpdatind}>
-            {modalType === 'add' ? (
-              <SVG.AddIcon width="18px" height="18px" />
-            ) : (
-              <SVG.EditIcon />
-            )}
-            {t(modalType)}
-          </TaskFormButton>
-        )}
+        <TaskFormButton type="submit" disabled={taskIsLoading || isUpdatind}>
+          {modalType === 'add' ? (
+            <SVG.AddIcon width="18px" height="18px" />
+          ) : (
+            <SVG.EditIcon />
+          )}
+          {t(modalType)}
+        </TaskFormButton>
 
-        {(modalType === 'add' ||
-          !isValidStartTime(taskDay as string, start)) && (
+        {modalType === 'add' && (
           <TaskFormButton type="button" onClick={toggleModal}>
             {t('Cancel')}
           </TaskFormButton>
