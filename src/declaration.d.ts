@@ -7,6 +7,8 @@ declare module '*.gif' {
 
 declare module 'react-ellipsis-text';
 
+declare module 'react-simple-star-rating';
+
 // declare module '*.css' ('*.scss') {
 //   const content: Record<string, string>;
 //   export default content;

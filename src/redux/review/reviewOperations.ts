@@ -1,6 +1,11 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 import { RootState } from '../store';
+import {
+  IReview,
+  IReviewApi,
+  IReviewToSend,
+} from '../../helpers/interfaces/reviewApiInterface/reviewApiInterface';
 
 // interface IData {
 //   lang: string;
@@ -23,15 +28,15 @@ export const reviewsApi = createApi({
   }),
   tagTypes: ['reviews'],
   endpoints: builder => ({
-    fetchReviews: builder.query<any | [], null>({
+    fetchReviews: builder.query<IReview[] | [], null>({
       query: () => ({
         method: 'GET',
         url: `/`,
       }),
-      //   transformResponse: (response: ITaskApi) => response.tasks,
+      transformResponse: (response: IReviewApi) => response.rewiew,
       providesTags: ['reviews'],
     }),
-    addReview: builder.mutation<any, any>({
+    addReview: builder.mutation<IReview, IReviewToSend>({
       query: review => ({
         method: 'POST',
         url: '/',
