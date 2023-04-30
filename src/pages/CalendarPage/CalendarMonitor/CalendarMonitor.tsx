@@ -49,6 +49,7 @@ export const CalendarMonitor = ({
             }}
           >
             <SVG.Chevron />
+            <SC.HiddenTitle>Previous</SC.HiddenTitle>
           </SC.ChevronButton>
           <SC.ChevronButton
             type="button"
@@ -56,6 +57,7 @@ export const CalendarMonitor = ({
             disabled={nextDisabled}
           >
             <SVG.Chevron />
+            <SC.HiddenTitle>Next</SC.HiddenTitle>
           </SC.ChevronButton>
         </SC.ChevronButtonsWrapper>
         <SC.TodayButton type="button" onClick={todayHandler}>

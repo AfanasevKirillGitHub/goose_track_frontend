@@ -42,6 +42,7 @@ export const ThemeToogle = () => {
         ) : (
           <SVG.MoonIcon />
         )}
+        <SC.HiddenTitle>Theme Toggle</SC.HiddenTitle>
       </SC.ToogleBtn>
     </>
   );
