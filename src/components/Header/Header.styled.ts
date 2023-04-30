@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Header = styled.header`
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -14,8 +15,6 @@ export const Header = styled.header`
     padding: 40px 32px 16px 32px;
   }
 `;
-
-
 
 export const UserInfo = styled.div`
   display: flex;

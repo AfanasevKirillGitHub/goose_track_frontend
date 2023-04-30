@@ -28,8 +28,8 @@ export const LogoutBtn = ({ design }: IProps) => {
       {isModalOpen && (
         <Modal toggleModal={modalHandler}>
           <ModalForLogOut onCloseModal={modalHandler} />
-        </Modal>)
-      }
+        </Modal>
+      )}
     </>
   );
 };

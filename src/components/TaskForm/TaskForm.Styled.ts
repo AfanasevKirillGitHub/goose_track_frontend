@@ -160,6 +160,12 @@ export const PriorityLabel = styled.label`
   text-transform: capitalize;
 
   color: ${p => p.theme.colors.grey};
+
+  cursor: pointer;
+
+  :hover {
+    text-decoration: underline;
+  }
 `;
 
 export const Buttons = styled.div`
