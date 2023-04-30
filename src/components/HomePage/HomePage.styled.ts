@@ -133,7 +133,6 @@ export const ListItem = styled.li`
     }
   }
   @media screen and (min-width: 1440px) {
-    /* width: 1107px; */
     width: 1184px;
     display: flex;
     justify-content: space-between;

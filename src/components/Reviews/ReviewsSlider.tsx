@@ -1,11 +1,10 @@
-import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { useFetchReviewsQuery } from '../../redux/review/reviewOperations';
 import { IMG } from '../../images';
 import { Stars } from './Stars/Stars';
-
 import * as SC from './ReviewsSlider.styled';
+import { Key, ReactElement, JSXElementConstructor, ReactFragment, ReactPortal } from 'react';
 
 export const GetReviews = () => {
   const settings = {
@@ -17,6 +16,11 @@ export const GetReviews = () => {
     autoplaySpeed: 3000,
     pauseOnHover: true,
     arrows: true,
+    // appendArrows: <div id="btnSliderDiv">Prev</div>,
+    // prevArrow: document.querySelector('#btnSliderPrev'),
+    // nextArrow: document.querySelector('#btnSliderNext'),
+    // prevArrow: <button type='button' id="btnSliderPrev">Prev</button>,
+    // nextArrow: <button type='button' id="btnSliderNext">Next</button>,
     adaptiveHeight: true,
 
     responsive: [
@@ -34,22 +38,12 @@ export const GetReviews = () => {
 
   const { data } = useFetchReviewsQuery(null);
 
-  // const useSlideButtons = () => {
-  //   const SlideBtnPrev = document.querySelector('.slick-prev');
-  //   const SlideBtnNext = document.querySelector('.slick-next');
-
-  //   SlideBtnPrev.style.backgroundColor = "teal";
-  //   SlideBtnNext.style.backgroundColor = "teal";
-  // }
-
-  // useSlideButtons();
-  console.log(data);
   return (
     <SC.ContainerReviews>
       <SC.TitleReviews> Reviews </SC.TitleReviews>
 
-      <Slider {...settings}>
-        {data?.map(item => {
+      <SC.NewSlider {...settings}>
+        {data?.map((item: { _id: Key | null | undefined; imgUrl: string | null | undefined; name: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; stars: number; reviewText: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; }) => {
           return (
             <SC.WrapperReview key={item._id}>
               <SC.WrapperUser>
@@ -82,7 +76,7 @@ export const GetReviews = () => {
             // </SC.WrapperReview>
           );
         })}
-      </Slider>
+      </SC.NewSlider>
     </SC.ContainerReviews>
   );
 };

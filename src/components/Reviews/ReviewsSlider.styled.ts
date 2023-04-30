@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Slider from 'react-slick';
 // import ReactStars from 'react-stars';
 
 export const ContainerReviews = styled.div`
@@ -9,17 +10,17 @@ export const ContainerReviews = styled.div`
 
     @media screen and (min-width: 375px) {
         width: 335px;
-        padding-bottom: 64px;
+        padding-bottom: 138px;
     }
 
     @media screen and (min-width: 768px) {
         width: 580px;
-        padding-bottom: 100px;
+        padding-bottom: 170px;
     }
 
     @media screen and (min-width: 1440px) {
         width: 1184px;
-        padding-bottom: 118px;
+        padding-bottom: 188px;
     }
 `;
 
@@ -97,4 +98,85 @@ export const TextReview = styled.p`
     font-size: ${props => props.theme.fontSizes.s};
     line-height: ${props => props.theme.lineHeights.xl};
     color: ${p => p.theme.colors.black6};
+
+    @media screen and (min-width: 768px) {
+        margin-left: 68px;
+    };
+`;
+
+export const NewSlider = styled(Slider)`
+    & .slick-arrow {
+        top: 120%;
+        width: 60px;
+        height: 60px;
+    };
+
+    & .slick-arrow:hover {
+        scale: 1.02;
+        color: ${p => p.theme.colors.hoverBackground};
+    };
+
+    & .slick-arrow.slick-prev{
+        left: 100px;
+
+        @media screen and (min-width: 768px) {
+            left: 222px;
+        };
+
+        @media screen and (min-width: 1440px) {
+            left: 500px;
+        };
+    };
+
+    & .slick-arrow.slick-next{
+        right: 100px;
+
+        @media screen and (min-width: 768px) {
+            right: 222px;
+        };
+
+        @media screen and (min-width: 1440px) {
+            right: 500px;
+        };
+    };
+
+    & .slick-arrow.slick-prev,
+    & .slick-arrow.slick-next{
+        &:hover, &:focus {
+            &:before {
+                color: ${p => p.theme.colors.hoverBackground};
+                scale: 2.04;
+            };
+        };
+    };
+
+    & .slick-arrow.slick-prev:before,
+    & .slick-arrow.slick-next:before{
+        display: inline-block;
+        color: ${p => p.theme.colors.blue};
+        scale: 2;
+        /* content: '';
+        border: 2px dashed #2a2a2a;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center; */
+    };
+
+    /* & .slick-arrow.slick-prev:before{
+        content: url('../../images/icons/slick-arrow-prev.svg');
+        background-image: url('../../images/icons/slick-arrow-prev.svg');
+        background-image: url('../../images/homePage/Slick-arrow-prev.svg');
+    }; */
+
+    /* & .slick-arrow.slick-next:before{
+        content: url('../../images/icons/slick-arrow-next.svg');
+        background-image: url('../../images/icons/slick-arrow-next.svg');
+        background-image: url('../../images/homePage/Slick-arrow-next.svg');
+    }; */
+
+    @media screen and (min-width: 1440px) {
+        & .slick-slide {
+            padding: 0px 12px;
+        };
+    };
 `;
