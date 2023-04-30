@@ -4,11 +4,12 @@ import { GetReviews } from '../Reviews/ReviewsSlider';
 
 import { IMG } from '../../images';
 import { useSelector } from 'react-redux';
+import { getTheme } from '../../redux/theme/themeReducer';
 
 export const HomePageMain = () => {
   const { t } = useTranslation();
 
-  const { theme } = useSelector(state => state.theme);
+  const theme = useSelector(getTheme);
 
   return (
     <>

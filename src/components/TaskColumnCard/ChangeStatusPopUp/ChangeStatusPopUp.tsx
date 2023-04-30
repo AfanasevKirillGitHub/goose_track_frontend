@@ -1,18 +1,23 @@
 import 'reactjs-popup/dist/index.css';
 import { SVG } from '../../../images';
 import * as SC from './ChangeStatusPopUp.styled';
-import { STATUS } from '../../../helpers/enums';
+import { ESTATUS, STATUS } from '../../../helpers/enums';
 import { useMediaQuery } from '@react-hook/media-query';
 import { useUpdateTasksMutation } from '../../../redux/task/taskOperations';
 import { useTranslation } from 'react-i18next';
+import { ITask } from '../../../helpers/interfaces/taskApiInterface/taskApiInterface';
 
-export const ChangeStatusPopUp = ({ taskData }) => {
+interface IProps {
+  taskData: ITask;
+}
+
+export const ChangeStatusPopUp = ({ taskData }: IProps) => {
   const [updateTask, { isLoading: isUpdatind }] = useUpdateTasksMutation();
 
   const tablet = useMediaQuery('screen and (min-width: 768px)');
   const { t } = useTranslation();
 
-  const changeStatus = data => {
+  const changeStatus = (data: string) => {
     const updatedTask = { ...taskData, status: data };
 
     updateTask(updatedTask);
@@ -43,13 +48,13 @@ export const ChangeStatusPopUp = ({ taskData }) => {
         {STATUS.filter(status => status !== taskData.status).map(status => {
           let buttonName = status;
           switch (buttonName) {
-            case 'todo':
+            case ESTATUS.TODO:
               buttonName = t('To do');
               break;
-            case 'inprogress':
+            case ESTATUS.INPROGRESS:
               buttonName = t('In progress');
               break;
-            case 'done':
+            case ESTATUS.DONE:
               buttonName = t('Done');
               break;
             default:

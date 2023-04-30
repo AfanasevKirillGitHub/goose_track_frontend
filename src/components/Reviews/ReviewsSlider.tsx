@@ -32,7 +32,7 @@ export const GetReviews = () => {
     ],
   };
 
-  const { data } = useFetchReviewsQuery();
+  const { data } = useFetchReviewsQuery(null);
 
   // const useSlideButtons = () => {
   //   const SlideBtnPrev = document.querySelector('.slick-prev');
@@ -49,7 +49,7 @@ export const GetReviews = () => {
       <SC.TitleReviews> Reviews </SC.TitleReviews>
 
       <Slider {...settings}>
-        {data?.rewiew.map(item => {
+        {data?.map(item => {
           return (
             <SC.WrapperReview key={item._id}>
               <SC.WrapperUser>
