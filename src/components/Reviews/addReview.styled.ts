@@ -1,35 +1,38 @@
 import styled from 'styled-components';
 
+interface ILabel {
+  design?: boolean;
+}
+
 export const Form = styled.form`
-display: flex;
-flex-direction: column;
-align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
-`
-
-export const Label = styled.label`
-display: flex;
-flex-direction: column;
-text-align:center;
-font-size: ${props => (props.design ? '14px' : props.theme.fontSizes.l)};
-line-height: ${props => props.theme.lineHeights.xl};
-font-weight: ${props => props.theme.fontWeights.semiBold};
-color: ${p => p.theme.colors.grey};
-`
+export const Label = styled.label<ILabel>`
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: ${props => (props.design ? '14px' : props.theme.fontSizes.l)};
+  line-height: ${props => props.theme.lineHeights.xl};
+  font-weight: ${props => props.theme.fontWeights.semiBold};
+  color: ${p => p.theme.colors.grey};
+`;
 
 export const Textarea = styled.textarea`
-    resize:none;
+  resize: none;
+  outline: none;
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: ${p => p.theme.radii.medium};
+  margin-bottom: 20px;
+  margin-top: 10px;
+  :focus {
     outline: none;
-    width: 100%;
-    padding: 12px 16px;
-    border-radius: ${p => p.theme.radii.medium}; 
-    margin-bottom:20px;
-    margin-top:10px;
-    :focus {
-        outline: none;
-        border-color:${p => p.theme.colors.blue};
-    }
-`
+    border-color: ${p => p.theme.colors.blue};
+  }
+`;
 
 // export const Rating = styled.input`
 //    outline: none;
@@ -46,7 +49,7 @@ export const Textarea = styled.textarea`
 //    }
 // `
 
-export const Button = styled.button`
+export const Button = styled.button<ILabel>`
   display: flex;
   align-items: center;
   justify-content: center;

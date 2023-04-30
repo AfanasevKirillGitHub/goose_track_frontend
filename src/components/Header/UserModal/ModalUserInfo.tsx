@@ -5,15 +5,20 @@ import { LogoutBtn } from '../../Sidebar/LogoutBtn/LogoutBtn';
 import * as SC from './ModalUserInfo.styled';
 
 import { createPortal } from 'react-dom';
-import { useEffect } from 'react';
+import { MouseEvent, useEffect } from 'react';
 
-const modalUserRoot = document.querySelector('#user-modal');
+const modalUserRoot = document.querySelector('#user-modal') as HTMLElement;
 
-export const ModalUserInfo = ({ toggleModal, children }) => {
+interface IProps {
+  toggleModal: () => void;
+  children: React.ReactNode;
+}
+
+export const ModalUserInfo = ({ toggleModal, children }: IProps) => {
   const { t } = useTranslation();
 
   useEffect(() => {
-    const coseModal = evt => {
+    const coseModal = (evt: Event) => {
       if (evt instanceof KeyboardEvent && evt.code === 'Escape') {
         toggleModal();
       }
@@ -27,7 +32,7 @@ export const ModalUserInfo = ({ toggleModal, children }) => {
     };
   }, [toggleModal]);
 
-  const closeOnClick = evt => {
+  const closeOnClick = (evt: MouseEvent<HTMLElement>) => {
     if (evt.target === evt.currentTarget) {
       toggleModal();
     }

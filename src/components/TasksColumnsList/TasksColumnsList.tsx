@@ -1,7 +1,7 @@
 import { TasksColumn } from '../TasksColumn/TasksColumn';
 import { useFetchTasksQuery } from '../../redux/task/taskOperations';
-import { ColumnList } from './TasksColumnsList.styled';
 import { Loader } from '../Loader/Loader';
+import * as SC from './TasksColumnsList.styled';
 
 interface ITasksColumnsListProps {
   items: string[];
@@ -23,7 +23,7 @@ export const TasksColumnsList = ({
   return (
     <>
       {isLoading && <Loader />}
-      <ColumnList>
+      <SC.ColumnList>
         {items.map(item => (
           <TasksColumn
             key={item}
@@ -32,7 +32,7 @@ export const TasksColumnsList = ({
             status={item}
           />
         ))}
-      </ColumnList>
+      </SC.ColumnList>
     </>
   );
 };

@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+interface ICustomRadioButton {
+  name: string;
+}
+
 export const Form = styled.form`
   width: 303px;
   padding-top: 8px;
@@ -118,7 +122,7 @@ export const RadioButton = styled.input`
   }
 `;
 
-export const CustomRadioButton = styled.span`
+export const CustomRadioButton = styled.span<ICustomRadioButton>`
   display: flex;
   align-items: center;
   justify-content: start;

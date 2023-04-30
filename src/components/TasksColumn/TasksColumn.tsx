@@ -5,7 +5,7 @@ import { AddTaskBtn } from '../AddTaskBtn/AddTaskBtn';
 import { ColumnHeadBar } from '../ColumnHeadBar/ColumnHeadBar';
 import { ColumnTasksList } from '../ColumnTasksList/ColumnTasksList';
 import { TaskModal } from '../TaskModal';
-import { Column } from './TasksColumn.styled';
+import * as SC from './TasksColumn.styled';
 
 interface ITaskColumnProps {
   name: string;
@@ -33,7 +33,7 @@ export const TasksColumn = ({ name, tasks, status }: ITaskColumnProps) => {
   }
 
   return (
-    <Column>
+    <SC.Column>
       <ColumnHeadBar name={name}></ColumnHeadBar>
       <ColumnTasksList tasks={tasks} status={status}></ColumnTasksList>
       {isOpenModal && (
@@ -41,6 +41,6 @@ export const TasksColumn = ({ name, tasks, status }: ITaskColumnProps) => {
       )}
 
       <AddTaskBtn onClick={toggleModal} />
-    </Column>
+    </SC.Column>
   );
 };

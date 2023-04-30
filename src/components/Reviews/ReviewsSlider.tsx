@@ -3,8 +3,8 @@ import 'slick-carousel/slick/slick-theme.css';
 import { useFetchReviewsQuery } from '../../redux/review/reviewOperations';
 import { IMG } from '../../images';
 import { Stars } from './Stars/Stars';
-
 import * as SC from './ReviewsSlider.styled';
+import { Key, ReactElement, JSXElementConstructor, ReactFragment, ReactPortal } from 'react';
 
 export const GetReviews = () => {
   const settings = {
@@ -12,7 +12,7 @@ export const GetReviews = () => {
     speed: 500,
     slidesToShow: 2,
     slidesToScroll: 2,
-    // autoplay: true,
+    autoplay: true,
     autoplaySpeed: 3000,
     pauseOnHover: true,
     arrows: true,
@@ -36,14 +36,14 @@ export const GetReviews = () => {
     ],
   };
 
-  const { data } = useFetchReviewsQuery();
+  const { data } = useFetchReviewsQuery(null);
 
   return (
     <SC.ContainerReviews>
       <SC.TitleReviews> Reviews </SC.TitleReviews>
 
       <SC.NewSlider {...settings}>
-        {data?.rewiew.map(item => {
+        {data?.map((item: { _id: Key | null | undefined; imgUrl: string | null | undefined; name: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; stars: number; reviewText: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; }) => {
           return (
             <SC.WrapperReview key={item._id}>
               <SC.WrapperUser>
