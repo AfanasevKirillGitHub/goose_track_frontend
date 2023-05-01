@@ -39,6 +39,7 @@ export const ColorToggle = () => {
         onClick={() => dispatch(changeTheme(newTheme))}
       >
         <SVG.DropIcon />
+        <SC.HiddenTitle>Color Picker</SC.HiddenTitle>
       </SC.ColorPicker>
     </>
   );

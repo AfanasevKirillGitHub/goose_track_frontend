@@ -86,7 +86,6 @@ export const UserForm = () => {
               <SVG.AddIcon />
             </SC.Icon>
           </SC.IconWrapper>
-
           <SC.InputFile
             id="avatar"
             type="file"
@@ -94,6 +93,7 @@ export const UserForm = () => {
             accept="image/*,.png,.jpg,.jpeg,.webp"
             name="avatarURL"
           />
+          <SC.HiddenTitle>Upload Avatar</SC.HiddenTitle>
         </SC.AvatarButton>
 
         <SC.UserName> {user?.name ?? ' '} </SC.UserName>
