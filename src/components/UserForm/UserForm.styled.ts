@@ -297,6 +297,7 @@ export const SubmitButton = styled.button`
   line-height: ${p => p.theme.lineHeights.xl};
   background-color: ${p => p.theme.colors.blue};
   color: ${p => p.theme.colors.white};
+  transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
   &:disabled {
     background-color: rgba(62, 133, 243, 0.5);
   }
