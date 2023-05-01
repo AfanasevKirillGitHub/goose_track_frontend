@@ -126,7 +126,7 @@ export const ListItem = styled.li`
   }
   @media screen and (min-width: 768px) {
     width: 704px;
-    &:nth-child(2) {
+    &:nth-child(2n) {
       display: flex;
       flex-direction: column;
       align-items: flex-end;
