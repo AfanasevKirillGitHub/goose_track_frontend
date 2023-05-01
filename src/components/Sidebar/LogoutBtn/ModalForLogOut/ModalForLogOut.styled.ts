@@ -51,7 +51,6 @@ export const ItemBtn = styled.button`
   font-size: ${props => props.theme.fontSizes.m};
   line-height: ${props => props.theme.lineHeights.xl};
   font-weight: ${props => props.theme.fontWeights.semiBold};
-  box-shadow: ${props => props.theme.shadows.button};
   transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out,
     transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -59,6 +58,5 @@ export const ItemBtn = styled.button`
   :focus {
     color: ${p => p.theme.colors.blue};
     background-color: ${p => p.theme.colors.hoverBackground};
-    transform: scale(1.02);
   }
 `;
