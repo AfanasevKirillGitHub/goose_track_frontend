@@ -209,7 +209,7 @@ export const Link = styled(NavLink)`
   font-size: ${props => props.theme.fontSizes.s};
   font-weight: ${props => props.theme.fontWeights.semiBold};
   line-height: ${props => props.theme.lineHeights.xl};
-  color: ${props => props.theme.colors.blue};
+  color: ${props => props.theme.colors.navLink};
   @media (min-width: 768px) {
     font-size: ${props => props.theme.fontSizes.l};
     line-height: ${props => props.theme.lineHeights.m};
