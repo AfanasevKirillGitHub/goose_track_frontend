@@ -291,6 +291,8 @@ export const SubmitButton = styled.button`
   line-height: ${p => p.theme.lineHeights.xl};
   background-color: ${p => p.theme.colors.blue};
   color: ${p => p.theme.colors.white};
+  transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out,
+    transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   &:disabled {
     background-color: rgba(62, 133, 243, 0.5);
   }
@@ -307,6 +309,7 @@ export const SubmitButton = styled.button`
   :focus {
     background: gold;
     color: ${p => p.theme.colors.blue};
+    transform: scale(1.02);
   }
   @media screen and (min-width: 768px) {
     width: 262px;
