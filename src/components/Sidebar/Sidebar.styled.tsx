@@ -47,7 +47,6 @@ export const Sidebar = styled.div`
     padding: 24px 20px;
     background-color: ${p => p.theme.colors.white};
 
-    overflow-y: scroll;
     transform: translateX(-100%);
 
     transition-property: transform;
