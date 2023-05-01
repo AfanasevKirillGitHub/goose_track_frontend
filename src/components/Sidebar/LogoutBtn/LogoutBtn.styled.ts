@@ -33,7 +33,6 @@ export const Button = styled.button<IButton>`
   :focus {
     color: ${p => p.theme.colors.blue};
     background-color: ${p => p.theme.colors.hoverBackground};
-    transform: scale(1.02);
   }
 
   @media screen and (min-width: 768px) {
