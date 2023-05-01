@@ -77,7 +77,13 @@ export const ContainerAvatar = styled.div`
   }
 `;
 
-export const ImgAvatar = styled.img``;
+export const ImgAvatar = styled.img`
+  padding: 20px;
+
+  @media screen and (min-width: 768px) {
+    padding: 38px;
+  }
+`;
 
 export const UserName = styled.h2`
   margin-bottom: 4px;
