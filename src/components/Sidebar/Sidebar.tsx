@@ -11,28 +11,28 @@ interface IProps {
   toggleBurgerMenu: () => void;
 }
 
-export const AccountSidebar = ({ toggleBurgerMenu }: IProps ) => {
+export const AccountSidebar = ({ toggleBurgerMenu }: IProps) => {
   const { t } = useTranslation();
 
-// ======================== for closing Sidebar by navigate on accountPages if media screen less 1440 px
+  // ======================== for closing Sidebar by navigate on accountPages if media screen less 1440 px
   const [isDesktop, setIsDesktop] = useState(false);
-  
+
   const navigateByAccountPages = () => {
     if (window.innerWidth >= 1440) {
       return setIsDesktop(true);
     }
 
     return !isDesktop && closeSidebar();
-  }
+  };
 
-// ======================== for closing Sidebar by touching overlay
+  // ======================== for closing Sidebar by touching overlay
   const closeOnClickByOverlay = (event: MouseEvent<HTMLElement>) => {
     if (event.target === event.currentTarget) {
       closeSidebar();
     }
   };
-  
-// ======================== for closing Sidebar by using "toggleBurgerMenu" and NOT hidden overlay
+
+  // ======================== for closing Sidebar by using "toggleBurgerMenu" and NOT hidden overlay
   const closeSidebar = () => {
     toggleBurgerMenu();
     document.body.style.overflow = '';
@@ -65,7 +65,6 @@ export const AccountSidebar = ({ toggleBurgerMenu }: IProps ) => {
         </div>
 
         <LogoutBtn />
-
       </SC.Sidebar>
     </SC.MenuContainer>
   );

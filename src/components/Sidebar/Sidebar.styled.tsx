@@ -168,7 +168,7 @@ export const Link = styled(NavLink)`
 
   :hover:not(.active),
   :focus-visible:not(.active) {
-    color: ${p => p.theme.colors.navLink};
+    color: ${p => p.theme.colors.blue};
     background: ${p => p.theme.colors.hoverBackground};
   }
 
@@ -177,7 +177,6 @@ export const Link = styled(NavLink)`
     font-size: ${props => props.theme.fontSizes.m};
   }
 `;
-
 
 interface IButton {
   design?: boolean;
@@ -221,4 +220,3 @@ export const ButtonReview = styled.button<IButton>`
     height: ${props => (props.design ? '37' : '46')}px;
   }
 `;
-

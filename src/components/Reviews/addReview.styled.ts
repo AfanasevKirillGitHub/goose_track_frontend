@@ -28,6 +28,7 @@ export const Textarea = styled.textarea`
   border-radius: ${p => p.theme.radii.medium};
   margin-bottom: 20px;
   margin-top: 10px;
+  background-color: ${p => p.theme.colors.modalBackground};
   :focus {
     outline: none;
     border-color: ${p => p.theme.colors.blue};
