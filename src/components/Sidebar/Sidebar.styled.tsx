@@ -137,6 +137,7 @@ export const NavTitle = styled.h2`
 export const NavList = styled.ul`
   display: flex;
   flex-direction: column;
+  gap: 16px;
   margin-bottom: auto;
   list-style: none;
 `;
