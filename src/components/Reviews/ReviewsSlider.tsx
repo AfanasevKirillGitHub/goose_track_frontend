@@ -1,5 +1,6 @@
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { useTranslation } from 'react-i18next';
 import { useFetchReviewsQuery } from '../../redux/review/reviewOperations';
 import { IMG } from '../../images';
 import { Stars } from './Stars/Stars';
@@ -7,6 +8,8 @@ import * as SC from './ReviewsSlider.styled';
 import { Key, ReactElement, JSXElementConstructor, ReactFragment, ReactPortal } from 'react';
 
 export const GetReviews = () => {
+  const { t } = useTranslation();
+
   const settings = {
     infinite: true,
     speed: 500,
@@ -38,7 +41,7 @@ export const GetReviews = () => {
 
   return (
     <SC.ContainerReviews>
-      <SC.TitleReviews> Reviews </SC.TitleReviews>
+      <SC.TitleReviews> {t(`Reviews`)} </SC.TitleReviews>
 
       <SC.NewSlider {...settings}>
         {data?.map((item: { _id: Key | null | undefined; imgUrl: string | null | undefined; name: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; stars: number; reviewText: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; }) => {

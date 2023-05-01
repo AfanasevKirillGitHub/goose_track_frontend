@@ -28,8 +28,8 @@ export const Inner = styled.div`
 
 export const CloseBtn = styled.button`
   position: absolute;
-  top: 19px;
-  right: 19px;
+  top: 12px;
+  right: 8px;
   background-color: transparent;
   color: ${p => p.theme.colors.black};
   border: none;
