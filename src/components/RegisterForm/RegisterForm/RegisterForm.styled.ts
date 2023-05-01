@@ -102,7 +102,6 @@ export const Button = styled.button`
   background: ${props => props.theme.colors.blue};
   color: ${props => props.theme.colors.white3};
   background-color: ${p => p.theme.colors.blue};
-  box-shadow: ${props => props.theme.shadows.button};
 
   font-weight: ${props => props.theme.fontWeights.semiBold};
   font-size: ${props => props.theme.fontSizes.s};

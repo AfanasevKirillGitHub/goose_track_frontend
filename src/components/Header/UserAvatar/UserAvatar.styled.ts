@@ -7,10 +7,9 @@ interface IWrapper {
 export const Wrapper = styled.div<IWrapper>`
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
   gap: 14px;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding-left: 18px;
+  padding-right: 18px;
   flex-direction: ${props => (props.invert ? 'row' : 'row-reverse')};
   justify-content: ${props => (props.invert ? 'none' : 'flex-end')};
 `;
