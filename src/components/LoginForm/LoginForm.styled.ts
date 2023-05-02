@@ -93,6 +93,18 @@ export const Button = styled.button`
   font-size: ${props => props.theme.fontSizes.s};
   line-height: ${props => props.theme.lineHeights.xl};
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:disabled {
+    background-color: ${p => p.theme.colors.disabledButton};
+  }
+  &:disabled:hover {
+    background-color: ${p => p.theme.colors.disabledButton};
+    color: ${p => p.theme.colors.white};
+    cursor: not-allowed;
+  }
+  &:disabled:focus {
+    background-color: ${p => p.theme.colors.disabledButton};
+    color: ${p => p.theme.colors.white};
+  }
   svg {
     margin-left: ${props => props.theme.space[3]}px;
     width: 18px;

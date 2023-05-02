@@ -51,6 +51,18 @@ export const Textarea = styled.textarea`
 // `
 
 export const Button = styled.button<ILabel>`
+  &:disabled {
+    background-color: ${p => p.theme.colors.disabledButton};
+  }
+  &:disabled:hover {
+    background-color: ${p => p.theme.colors.disabledButton};
+    color: ${p => p.theme.colors.white};
+    cursor: not-allowed;
+  }
+  &:disabled:focus {
+    background-color: ${p => p.theme.colors.disabledButton};
+    color: ${p => p.theme.colors.white};
+  }
   display: flex;
   align-items: center;
   justify-content: center;
@@ -64,7 +76,7 @@ export const Button = styled.button<ILabel>`
   line-height: ${props => props.theme.lineHeights.xl};
   font-weight: ${props => props.theme.fontWeights.semiBold};
   transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out,
-    transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   :hover,
   :focus {
