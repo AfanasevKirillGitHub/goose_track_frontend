@@ -114,6 +114,8 @@ export const lightblue: ITheme = {
 
     colorSwitcher: '#3EB489',
     themeSwitcher: '#3E85F3',
+
+    mainBackground: '#F7F6F9',
   },
 
   borders: {
@@ -186,6 +188,8 @@ export const darkblue: ITheme = {
 
     colorSwitcher: '#3EB489',
     themeSwitcher: '#3E85F3',
+
+    mainBackground: '#171820',
   },
 
   borders: {
@@ -249,6 +253,8 @@ export const lightgreen: ITheme = {
 
     colorSwitcher: '#3E85F3',
     themeSwitcher: '#3EB489',
+
+    mainBackground: '#F7F6F9',
   },
 
   borders: {
@@ -313,6 +319,8 @@ export const darkgreen: ITheme = {
 
     colorSwitcher: '#3E85F3',
     themeSwitcher: '#3EB489',
+
+    mainBackground: '#171820',
   },
 
   borders: {

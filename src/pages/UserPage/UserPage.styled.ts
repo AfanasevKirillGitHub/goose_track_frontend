@@ -2,6 +2,10 @@ import styled from 'styled-components';
 
 export const FullPageWrapper = styled.div`
   background-color: ${props => props.theme.colors.white};
+
+  @media screen and (max-width: 1439px) {
+    background-color: ${props => props.theme.colors.mainBackground};
+  }
 `;
 
 export const Wrapper = styled.div`
