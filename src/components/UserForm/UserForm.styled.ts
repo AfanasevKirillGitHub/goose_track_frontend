@@ -95,6 +95,8 @@ export const UserName = styled.h2`
   }
   @media screen and (min-width: 768px) {
     margin-bottom: 8px;
+    font-size: ${p => p.theme.fontSizes.l};
+    line-height: ${p => p.theme.lineHeights.xxs};
   }
 `;
 
