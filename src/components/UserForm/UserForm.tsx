@@ -59,7 +59,7 @@ export const UserForm = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
 
   const toggleModal = () => {
-    setIsOpenModal(!isOpenModal);
+    setIsOpenModal(prev => !prev);
   };
 
   return (
@@ -251,21 +251,21 @@ export const UserForm = () => {
           </SC.DivNotifications>
         </SC.InputList>
 
-          <SC.SubmitButton
-            type="submit"
-            disabled={!email.validForm || !name.validForm}
-          >
-            {t('Save changes')}
-          </SC.SubmitButton>
+        <SC.SubmitButton
+          type="submit"
+          disabled={!email.validForm || !name.validForm}
+        >
+          {t('Save changes')}
+        </SC.SubmitButton>
       </SC.Form>
       <SC.ButtonReview onClick={toggleModal} type="button">
-            {t('Leave review')}
+        {t('Leave review')}
       </SC.ButtonReview>
       {isOpenModal && (
-          <Modal toggleModal={toggleModal}>
-            <AddReview />
-          </Modal>
-        )}
+        <Modal toggleModal={toggleModal}>
+          <AddReview toggleModal={toggleModal} />
+        </Modal>
+      )}
     </SC.Wrapper>
   );
 };
