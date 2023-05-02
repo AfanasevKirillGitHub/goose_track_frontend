@@ -1,10 +1,14 @@
 import { ChangeEvent, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useAddReviewMutation } from '../../redux/review/reviewOperations';
 import { Rating } from 'react-simple-star-rating';
 import * as SC from './addReview.styled';
-import { useTranslation } from 'react-i18next';
 
-export const AddReview = () => {
+interface IAddReviewProps {
+  toggleModal: () => void;
+}
+
+export const AddReview = ({ toggleModal }: IAddReviewProps) => {
   const [addReview, { isLoading }] = useAddReviewMutation();
   const [review, setReview] = useState('');
   const [stars, setStars] = useState(0);
@@ -24,6 +28,7 @@ export const AddReview = () => {
     addReview({ reviewText: review, stars });
     setReview('');
     setStars(0);
+    toggleModal();
   };
 
   return (
