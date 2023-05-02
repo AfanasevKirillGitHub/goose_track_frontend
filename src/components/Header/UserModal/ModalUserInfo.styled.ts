@@ -17,10 +17,11 @@ export const ModalUserInfo = styled.div`
   justify-content: space-between;
   position: absolute;
   min-width: 197px;
-  /* width: fit-content; */
+  width: max-content;
   height: 189px;
   background: ${p => p.theme.colors.modalBackground};
-  box-shadow: 0px 4px 16px rgba(17, 17, 17, 0.1);
+  box-shadow: ${props => props.theme.shadows.modal};
+
   border-radius: 8px;
   top: 60px;
   right: 35px;
@@ -52,7 +53,8 @@ export const Link = styled(NavLink)`
   font-weight: 500;
   font-size: 14px;
   line-height: 17px;
-  border: ${p => p.theme.borders.modalLink};
+  border-top: ${p => p.theme.borders.modalLink};
+  border-bottom: ${p => p.theme.borders.modalLink};
   color: ${p => p.theme.colors.grey3};
   transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out,
     border-color 0.25s ease-in-out, transform 250ms cubic-bezier(0.4, 0, 0.2, 1);

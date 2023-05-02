@@ -239,7 +239,7 @@ export const HoverText = styled.p`
   font-weight: ${props => props.theme.fontWeights.bold};
   position: absolute;
   top: 30px;
-  left: 50%;
+  left: 20%;
   opacity: 0;
   z-index: 2;
   &.act {
