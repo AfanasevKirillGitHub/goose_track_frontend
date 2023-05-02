@@ -46,7 +46,7 @@ import greenHomePageM3 from './homePage/greenHomePageM3.png';
 import register from './register.png';
 import rocket from './rocket.png';
 import goose from './goose.png';
-import motivation from './motivationGoose.png';
+import motivation from './MotivationGoose.png';
 
 import homePageD1x2 from './homePage/2x/homePageD1@2x.png';
 import homePageD2x2 from './homePage/2x/homePageD2@2x.png';
