@@ -326,13 +326,6 @@ export const Notifications = styled.span`
   bottom: -35%;
 `;
 
-export const ButtonsWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`;
-
 export const ButtonReview = styled.button<IButton>`
   display: flex;
   align-items: center;
@@ -402,17 +395,18 @@ export const DatePickerWrapper = styled.div`
     color: ${p => p.theme.colors.white};
   }
 
+  & .react-datepicker__day--weekend {
+    color: ${p => p.theme.colors.lightYellow};
+  }
+
   & .react-datepicker__day--selected {
     background-color: ${p => p.theme.colors.white};
     color: ${p => p.theme.colors.blue};
     border-radius: ${props => props.theme.radii.round};
   }
 
-  & .react-datepicker__day--weekend {
-    color: ${p => p.theme.colors.lightYellow};
-  }
-
   & .react-datepicker__day--outside-month {
     color: ${p => p.theme.colors.blue};
   }
+
 `;

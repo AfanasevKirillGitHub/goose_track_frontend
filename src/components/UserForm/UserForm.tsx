@@ -251,24 +251,21 @@ export const UserForm = () => {
           </SC.DivNotifications>
         </SC.InputList>
 
-        <SC.ButtonsWrapper>
           <SC.SubmitButton
             type="submit"
             disabled={!email.validForm || !name.validForm}
           >
             {t('Save changes')}
           </SC.SubmitButton>
-          <SC.ButtonReview onClick={toggleModal} type="button">
+      </SC.Form>
+      <SC.ButtonReview onClick={toggleModal} type="button">
             {t('Leave review')}
-          </SC.ButtonReview>
-        </SC.ButtonsWrapper>
-
-        {isOpenModal && (
+      </SC.ButtonReview>
+      {isOpenModal && (
           <Modal toggleModal={toggleModal}>
             <AddReview />
           </Modal>
         )}
-      </SC.Form>
     </SC.Wrapper>
   );
 };
