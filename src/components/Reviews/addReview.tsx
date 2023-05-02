@@ -2,6 +2,7 @@ import { ChangeEvent, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAddReviewMutation } from '../../redux/review/reviewOperations';
 import { Rating } from 'react-simple-star-rating';
+import { toast } from 'react-toastify';
 import * as SC from './addReview.styled';
 
 interface IAddReviewProps {
@@ -25,6 +26,10 @@ export const AddReview = ({ toggleModal }: IAddReviewProps) => {
   const handleSubmit = (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    localStorage.getItem('i18nextLng') === 'en'
+        ? toast.success('Thanks for the feedback')
+        : toast.success('Дякуємо за відгук');
+
     addReview({ reviewText: review, stars });
     setReview('');
     setStars(0);
@@ -42,6 +47,7 @@ export const AddReview = ({ toggleModal }: IAddReviewProps) => {
           maxLength={200}
           cols={30}
           rows={7}
+          // required
         ></SC.Textarea>
       </SC.Label>
       <div style={{ marginBottom: '20px' }}>
