@@ -25,24 +25,51 @@ import { ReactComponent as GradeStarGrey } from './icons/grade-star-in-grey-colo
 import { ReactComponent as SlickArrowNext } from './icons/slick-arrow-next.svg';
 import { ReactComponent as SlickArrowPrev } from './icons/slick-arrow-prev.svg';
 
-import homePage1 from './homePage/homePage1.png';
-import homePage2 from './homePage/homePage2.png';
-import homePage3 from './homePage/homePage3.png';
+import homePageD1 from './homePage/homePage1.png';
+import homePageD2 from './homePage/homePage2.png';
+import homePageD3 from './homePage/homePage3.png';
 import homePageM1 from './homePage/homePageM1.png';
 import homePageM2 from './homePage/homePageM2.png';
 import homePageM3 from './homePage/homePageM3.png';
-import homePageD1 from './homePage/homePageD1.png';
-import homePageD2 from './homePage/homePageD2.png';
-import homePageD3 from './homePage/homePageD3.png';
-import greenHomePage1 from './homePage/greenHomePage1.png';
-import greenHomePageD1 from './homePage/greenHomePageD1.png';
+import homePageT1 from './homePage/homePageD1.png';
+import homePageT2 from './homePage/homePageD2.png';
+import homePageT3 from './homePage/homePageD3.png';
+import greenHomePageD1 from './homePage/greenHomePage1.png';
+import greenHomePageD2 from './homePage/greenHomePage2.png';
+import greenHomePageD3 from './homePage/greenHomePage3.png';
+import greenHomePageT1 from './homePage/greenHomePageD1.png';
+import greenHomePageT2 from './homePage/greenHomePageD2.png';
+import greenHomePageT3 from './homePage/greenHomePageD3.png';
 import greenHomePageM1 from './homePage/greenHomePageM1.png';
-import greenHomePage2 from './homePage/greenHomePage2.png';
-import greenHomePageD2 from './homePage/greenHomePageD2.png';
 import greenHomePageM2 from './homePage/greenHomePageM2.png';
-import greenHomePage3 from './homePage/greenHomePage3.png';
-import greenHomePageD3 from './homePage/greenHomePageD3.png';
 import greenHomePageM3 from './homePage/greenHomePageM3.png';
+import register from './register.png';
+import rocket from './rocket.png';
+import goose from './goose.png';
+import motivation from './motivation.png';
+
+import homePageD1x2 from './homePage/2x/homePageD1@2x.png';
+import homePageD2x2 from './homePage/2x/homePageD2@2x.png';
+import homePageD3x2 from './homePage/2x/homePageD3@2x.png';
+import homePageM1x2 from './homePage/2x/homePageM1@2x.png';
+import homePageM2x2 from './homePage/2x/homePageM2@2x.png';
+import homePageM3x2 from './homePage/2x/homePageM3@2x.png';
+import homePageT1x2 from './homePage/2x/homePageT1@2x.png';
+import homePageT2x2 from './homePage/2x/homePageT2@2x.png';
+import homePageT3x2 from './homePage/2x/homePageT3@2x.png';
+import greenHomePageD1x2 from './homePage/2x/greenHomePageD1@2x.png';
+import greenHomePageD2x2 from './homePage/2x/greenHomePageD2@2x.png';
+import greenHomePageD3x2 from './homePage/2x/greenHomePageD3@2x.png';
+import greenHomePageT1x2 from './homePage/2x/greenHomePageT1@2x.png';
+import greenHomePageT2x2 from './homePage/2x/greenHomePageT2@2x.png';
+import greenHomePageT3x2 from './homePage/2x/greenHomePageT3@2x.png';
+import greenHomePageM1x2 from './homePage/2x/greenHomePageM1@2x.png';
+import greenHomePageM2x2 from './homePage/2x/greenHomePageM2@2x.png';
+import greenHomePageM3x2 from './homePage/2x/greenHomePageM3@2x.png';
+import register2x from './register@2x.png';
+import rocket2x from './rocket@2x.png';
+import goose2x from './goose@2x.png';
+import motivation2x from './motivation@2x.png';
 
 import team from './homePage/team-desc.png';
 import teamD from './homePage/team-tab.png';
@@ -87,26 +114,55 @@ export const SVG: IIcons = {
 };
 
 export const IMG: IImg = {
-  homePage1,
-  homePage2,
-  homePage3,
-  homePageM1,
-  homePageM2,
-  homePageM3,
   homePageD1,
   homePageD2,
   homePageD3,
-  greenHomePage1,
+  homePageM1,
+  homePageM2,
+  homePageM3,
+  homePageT1,
+  homePageT2,
+  homePageT3,
   greenHomePageD1,
-  greenHomePageM1,
-  greenHomePage2,
   greenHomePageD2,
-  greenHomePageM2,
-  greenHomePage3,
   greenHomePageD3,
+  greenHomePageT1,
+  greenHomePageT2,
+  greenHomePageT3,
+  greenHomePageM1,
+  greenHomePageM2,
   greenHomePageM3,
   team,
   teamD,
   teamM,
   DefaultAvatar,
+  register,
+  rocket,
+  goose,
+  motivation,
+};
+
+export const IMG2x: IImg = {
+  homePageD1x2,
+  homePageD2x2,
+  homePageD3x2,
+  homePageM1x2,
+  homePageM2x2,
+  homePageM3x2,
+  homePageT1x2,
+  homePageT2x2,
+  homePageT3x2,
+  greenHomePageD1x2,
+  greenHomePageD2x2,
+  greenHomePageD3x2,
+  greenHomePageT1x2,
+  greenHomePageT2x2,
+  greenHomePageT3x2,
+  greenHomePageM1x2,
+  greenHomePageM2x2,
+  greenHomePageM3x2,
+  register2x,
+  rocket2x,
+  goose2x,
+  motivation2x,
 };

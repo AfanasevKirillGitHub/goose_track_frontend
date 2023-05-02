@@ -1,9 +1,9 @@
-import * as SC from './HomePage.styled';
-import { useTranslation } from 'react-i18next';
-import { GetReviews } from '../Reviews/ReviewsSlider';
-
-import { IMG } from '../../images';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
+
+import * as SC from './HomePage.styled';
+import { GetReviews } from '../Reviews/ReviewsSlider';
+import { IMG, IMG2x } from '../../images';
 import { getTheme } from '../../redux/theme/themeReducer';
 
 export const HomePageMain = () => {
@@ -25,8 +25,8 @@ export const HomePageMain = () => {
             <source
               srcSet={
                 theme === 'lightblue' || theme === 'darkblue'
-                  ? IMG.homePage1
-                  : IMG.greenHomePage1
+                  ? `${IMG.homePageD1} 1x, ${IMG2x.homePageD1x2} 2x`
+                  : `${IMG.greenHomePageD1} 1x, ${IMG2x.greenHomePageD1x2} 2x`
               }
               type="image/jpg"
               media="(min-width: 1200px)"
@@ -34,8 +34,8 @@ export const HomePageMain = () => {
             <source
               srcSet={
                 theme === 'lightblue' || theme === 'darkblue'
-                  ? IMG.homePageD1
-                  : IMG.greenHomePageD1
+                  ? `${IMG.homePageT1} 1x, ${IMG2x.homePageT1x2} 2x`
+                  : `${IMG.greenHomePageT1} 1x, ${IMG2x.greenHomePageT1x2} 2x`
               }
               type="image/jpg"
               media="(min-width: 768px)"
@@ -43,8 +43,8 @@ export const HomePageMain = () => {
             <source
               srcSet={
                 theme === 'lightblue' || theme === 'darkblue'
-                  ? IMG.homePageM1
-                  : IMG.greenHomePageM1
+                  ? `${IMG.homePageM1} 1x, ${IMG2x.homePageM1x2} 2x`
+                  : `${IMG.greenHomePageM1} 1x, ${IMG2x.greenHomePageM1x2} 2x`
               }
               type="image/jpg"
               media="(max-width: 767px)"
@@ -63,8 +63,8 @@ export const HomePageMain = () => {
             <source
               srcSet={
                 theme === 'lightblue' || theme === 'darkblue'
-                  ? IMG.homePage2
-                  : IMG.greenHomePage2
+                  ? `${IMG.homePageD2} 1x, ${IMG2x.homePageD2x2} 2x`
+                  : `${IMG.greenHomePageD2} 1x, ${IMG2x.greenHomePageD2x2} 2x`
               }
               type="image/jpg"
               media="(min-width: 1200px)"
@@ -72,8 +72,8 @@ export const HomePageMain = () => {
             <source
               srcSet={
                 theme === 'lightblue' || theme === 'darkblue'
-                  ? IMG.homePageD2
-                  : IMG.greenHomePageD2
+                  ? `${IMG.homePageT2} 1x, ${IMG2x.homePageT2x2} 2x`
+                  : `${IMG.greenHomePageT2} 1x, ${IMG2x.greenHomePageT2x2} 2x`
               }
               type="image/jpg"
               media="(min-width: 768px)"
@@ -81,13 +81,13 @@ export const HomePageMain = () => {
             <source
               srcSet={
                 theme === 'lightblue' || theme === 'darkblue'
-                  ? IMG.homePageM2
-                  : IMG.greenHomePageM2
+                  ? `${IMG.homePageM2} 1x, ${IMG2x.homePageM2x2} 2x`
+                  : `${IMG.greenHomePageM2} 1x, ${IMG2x.greenHomePageM2x2} 2x`
               }
               type="image/jpg"
               media="(max-width: 767px)"
             />
-            <SC.ItemImg src={IMG.homePageD2} alt="preview menu" />
+            <SC.ItemImg src={IMG.homePageD2} alt="preview calendar" />
           </picture>
         </SC.ListItem>
 
@@ -102,8 +102,8 @@ export const HomePageMain = () => {
             <source
               srcSet={
                 theme === 'lightblue' || theme === 'darkblue'
-                  ? IMG.homePage3
-                  : IMG.greenHomePage3
+                  ? `${IMG.homePageD3} 1x, ${IMG2x.homePageD3x2} 2x`
+                  : `${IMG.greenHomePageD3} 1x, ${IMG2x.greenHomePageD3x2} 2x`
               }
               type="image/jpg"
               media="(min-width: 1200px)"
@@ -111,8 +111,8 @@ export const HomePageMain = () => {
             <source
               srcSet={
                 theme === 'lightblue' || theme === 'darkblue'
-                  ? IMG.homePageD3
-                  : IMG.greenHomePageD3
+                  ? `${IMG.homePageT3} 1x, ${IMG2x.homePageT3x2} 2x`
+                  : `${IMG.greenHomePageT3} 1x, ${IMG2x.greenHomePageT3x2} 2x`
               }
               type="image/jpg"
               media="(min-width: 768px)"
@@ -120,13 +120,13 @@ export const HomePageMain = () => {
             <source
               srcSet={
                 theme === 'lightblue' || theme === 'darkblue'
-                  ? IMG.homePageM3
-                  : IMG.greenHomePageM3
+                  ? `${IMG.homePageM3} 1x, ${IMG2x.homePageM3x2} 2x`
+                  : `${IMG.greenHomePageM3} 1x, ${IMG2x.greenHomePageM3x2} 2x`
               }
               type="image/jpg"
               media="(max-width: 767px)"
             />
-            <SC.ItemImg src={IMG.homePageD3} alt="preview day" />
+            <SC.ItemImg src={IMG.homePageD3} alt="preview calendar" />
           </picture>
         </SC.ListItem>
 

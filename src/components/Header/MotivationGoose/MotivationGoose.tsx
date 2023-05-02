@@ -1,8 +1,9 @@
-import { useFetchTasksQuery } from '../../../redux/task/taskOperations';
-import motivationGoose from '../../../images/MotivationGoose.png';
-import * as SC from './MotivationGoose.styled';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
+import { useFetchTasksQuery } from '../../../redux/task/taskOperations';
+import { IMG, IMG2x } from '../../../images';
+
+import * as SC from './MotivationGoose.styled';
 
 export const MotivationGoose = () => {
   const { data } = useFetchTasksQuery(null);
@@ -14,7 +15,10 @@ export const MotivationGoose = () => {
       {(data?.length as number) > 0 &&
         location.pathname.includes('/calendar') && (
           <SC.MotivationWrapper>
-            <img src={motivationGoose} alt="logo" />
+            <img
+              srcSet={`${IMG.motivation} 1x, ${IMG2x.motivation2x} 2x`}
+              alt="logo"
+            />
             <SC.WrapperText>
               <SC.HeaderTitle>
                 {location.pathname === '/user/account'

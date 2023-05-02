@@ -21,13 +21,13 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   width: 335px;
-  padding: 40px 24px;
+  padding: 32px 24px;
   margin-bottom: 18px;
   background-color: ${props => props.theme.colors.white};
   border-radius: ${props => props.theme.radii.normal};
   @media (min-width: 768px) {
     width: 480px;
-    padding: 40px;
+    padding: 32px 40px;
     margin-bottom: 24px;
   }
 `;
@@ -82,7 +82,7 @@ export const Button = styled.button`
   width: 287px;
   height: 44px;
   padding: 14px;
-  margin-top: ${props => props.theme.space[4]}px;
+  /* margin-top: ${props => props.theme.space[4]}px; */
 
   &:disabled {
     background-color: ${p => p.theme.colors.disabledButton};
@@ -136,7 +136,11 @@ export const Div = styled.div`
     margin-bottom: 24px;
   }
   @media (min-width: 768px) {
-    margin-bottom: 26px;
+    margin-bottom: 20px;
+
+    :last-of-type {
+      margin-bottom: 26px;
+    }
   }
 `;
 
@@ -225,7 +229,7 @@ export const TitleDiv = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 32px;
+  margin-bottom: 20px;
 `;
 
 export const Span = styled.span`

@@ -7,9 +7,8 @@ import { ICredentials } from '../../../helpers/interfaces/auth/authInterfaces';
 import { ThunkDispatch } from '@reduxjs/toolkit';
 import { AnyAction } from 'redux';
 import * as SC from './RegisterForm.styled';
-import register from '../../../images/register.png';
+import { SVG, IMG, IMG2x } from '../../../images';
 import { ChangeLngElem } from '../../ChangeLngElem/ChangeLngElem';
-import { SVG } from '../../../images';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch<ThunkDispatch<any, any, AnyAction>>();
@@ -227,7 +226,10 @@ export const RegisterForm = () => {
           </SC.Google>
         </SC.Form>
         <SC.Link to="/login">{t('Log In')}</SC.Link>
-        <SC.GooseImage src={register} alt="goose" />
+        <SC.GooseImage
+          srcSet={`${IMG.register} 1x, ${IMG2x.register2x} 2x`}
+          alt="goose"
+        />
       </SC.InnerDiv>
     </SC.Wrapper>
   );
