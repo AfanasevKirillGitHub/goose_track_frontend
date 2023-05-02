@@ -16,7 +16,7 @@ export const MotivationGoose = () => {
         location.pathname.includes('/calendar') && (
           <SC.MotivationWrapper>
             <img
-              srcSet={`${IMG.motivationGoose} 1x, ${IMG2x.motivationGoose2x} 2x`}
+              srcSet={`${IMG.motivation} 1x, ${IMG2x.motivation2x} 2x`}
               alt="logo"
             />
             <SC.WrapperText>

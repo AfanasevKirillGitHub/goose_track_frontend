@@ -46,7 +46,7 @@ import greenHomePageM3 from './homePage/greenHomePageM3.png';
 import register from './register.png';
 import rocket from './rocket.png';
 import goose from './goose.png';
-import motivationGoose from './motivationGoose.png';
+import motivation from './motivationGoose.png';
 
 import homePageD1x2 from './homePage/2x/homePageD1@2x.png';
 import homePageD2x2 from './homePage/2x/homePageD2@2x.png';
@@ -69,7 +69,7 @@ import greenHomePageM3x2 from './homePage/2x/greenHomePageM3@2x.png';
 import register2x from './register@2x.png';
 import rocket2x from './rocket@2x.png';
 import goose2x from './goose@2x.png';
-import motivationGoose2x from './motivation@2x.png';
+import motivation2x from './motivation@2x.png';
 
 import team from './homePage/team-desc.png';
 import teamD from './homePage/team-tab.png';
@@ -139,7 +139,7 @@ export const IMG: IImg = {
   register,
   rocket,
   goose,
-  motivationGoose,
+  motivation,
 };
 
 export const IMG2x: IImg = {
@@ -164,5 +164,5 @@ export const IMG2x: IImg = {
   register2x,
   rocket2x,
   goose2x,
-  motivationGoose2x,
+  motivation2x,
 };
