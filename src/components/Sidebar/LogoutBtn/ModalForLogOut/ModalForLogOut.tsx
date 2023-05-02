@@ -13,12 +13,18 @@ export const ModalForLogOut = ({ onCloseModal }: IProps) => {
 
   const dispatch = useDispatch<ThunkDispatch<any, any, AnyAction>>();
 
+  const handleLogout = async () => {
+    await dispatch(logOut());
+
+    document.location.reload();
+  };
+
   return (
     <>
       <SC.ModalTitle>{t(`Do you really wanna fly away?`)}</SC.ModalTitle>
       <SC.ModalList>
         <li>
-          <SC.ItemBtn type="button" onClick={() => dispatch(logOut())}>
+          <SC.ItemBtn type="button" onClick={handleLogout}>
             {t(`Yes`)}
           </SC.ItemBtn>
         </li>
