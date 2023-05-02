@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  min-height: 100vh;
   background-color: ${props => props.theme.colors.loginBackground};
 `;
 
@@ -27,7 +27,7 @@ export const Form = styled.form`
   border-radius: ${props => props.theme.radii.normal};
   @media (min-width: 768px) {
     width: 480px;
-    padding: 32px 40px;
+    padding: 24px 40px;
     margin-bottom: 24px;
   }
 `;
@@ -59,7 +59,7 @@ export const Input = styled.input`
   width: 100%;
   border: ${props => props.theme.borders.task};
   border-radius: ${props => props.theme.radii.normal};
-  margin-top: ${props => props.theme.space[3]}px;
+  margin-top: 4px;
   padding: 14px;
   background-color: ${props => props.theme.colors.white};
   color: ${props => props.theme.colors.black};
@@ -80,9 +80,8 @@ export const Button = styled.button`
   justify-content: center;
   cursor: pointer;
   width: 287px;
-  height: 44px;
+  height: 46px;
   padding: 14px;
-  /* margin-top: ${props => props.theme.space[4]}px; */
 
   &:disabled {
     background-color: ${p => p.theme.colors.disabledButton};
@@ -120,7 +119,7 @@ export const Button = styled.button`
 
   @media (min-width: 768px) {
     width: 400px;
-    height: 56px;
+    height: 48px;
     font-size: ${props => props.theme.fontSizes.l};
 
     svg {
@@ -174,7 +173,7 @@ export const Google = styled.a`
   }
 
   @media screen and (min-width: 768px) {
-    padding: 12px 16px;
+    padding: 8px 16px;
   }
 `;
 
@@ -229,7 +228,7 @@ export const TitleDiv = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 `;
 
 export const Span = styled.span`
