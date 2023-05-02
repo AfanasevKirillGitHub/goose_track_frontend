@@ -13,9 +13,11 @@ export const UserAvatar: React.FC<IUserAvatarProps> = ({
   const { user } = useAuth();
   const { t } = useTranslation();
 
+  const userName = user.name?.split(' ')[0];
+
   return (
     <SC.Wrapper invert={invert}>
-      <SC.Text>{t(`${user.name}`)}</SC.Text>
+      <SC.Text>{t(`${userName}`)}</SC.Text>
       {user.avatarURL === null || user.avatarURL === 'null' ? (
         <SC.AvatarDefault>
           <SC.IconWrapper>
