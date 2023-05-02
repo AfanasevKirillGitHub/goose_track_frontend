@@ -12,8 +12,6 @@ interface IProps {
   nextHandler: () => void;
   prevHandler: () => void;
   currentDay?: boolean;
-  nextDisabled?: boolean;
-  prevDisabled?: boolean;
 }
 
 export const CalendarMonitor = ({
@@ -22,8 +20,6 @@ export const CalendarMonitor = ({
   nextHandler,
   todayHandler,
   currentDay,
-  nextDisabled,
-  prevDisabled,
 }: IProps) => {
   const { t } = useTranslation();
 
@@ -43,7 +39,6 @@ export const CalendarMonitor = ({
           <SC.ChevronButton
             type="button"
             onClick={prevHandler}
-            disabled={prevDisabled}
             style={{
               transform: 'rotate(180deg)',
             }}
@@ -51,11 +46,7 @@ export const CalendarMonitor = ({
             <SVG.Chevron />
             <SC.HiddenTitle>Previous</SC.HiddenTitle>
           </SC.ChevronButton>
-          <SC.ChevronButton
-            type="button"
-            onClick={nextHandler}
-            disabled={nextDisabled}
-          >
+          <SC.ChevronButton type="button" onClick={nextHandler}>
             <SVG.Chevron />
             <SC.HiddenTitle>Next</SC.HiddenTitle>
           </SC.ChevronButton>
