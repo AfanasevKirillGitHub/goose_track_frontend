@@ -1,9 +1,8 @@
 import * as SC from './HomePage.styled';
-import goose from '../../images/goose.png';
 import { useTranslation } from 'react-i18next';
 import { authPages } from '../../helpers/pages';
 import { ChangeLngElem } from '../ChangeLngElem/ChangeLngElem';
-import { SVG } from '../../images';
+import { SVG, IMG, IMG2x } from '../../images';
 
 export const HomePageHeader = () => {
   const { t } = useTranslation();
@@ -13,7 +12,10 @@ export const HomePageHeader = () => {
       <SC.WrapperChange className="container">
         <ChangeLngElem />
       </SC.WrapperChange>
-      <SC.LogoImg src={goose} alt="logo goose" />
+      <SC.LogoImg
+        srcSet={`${IMG.goose} 1x, ${IMG2x.goose2x} 2x`}
+        alt="logo goose"
+      />
 
       <SC.Title>
         G<i>oo</i>seTrack

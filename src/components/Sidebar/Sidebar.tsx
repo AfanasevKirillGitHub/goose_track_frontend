@@ -3,8 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { accountPages } from '../../helpers/pages';
 import { LogoutBtn } from './LogoutBtn/LogoutBtn';
 import { CloseSidebarBtn } from './CloseSidebarBtn/CloseSidebarBtn';
-import { SVG } from '../../images';
-import goose from '../../images/goose.png';
+import { SVG, IMG, IMG2x } from '../../images';
 import * as SC from './Sidebar.styled';
 
 interface IProps {
@@ -43,7 +42,10 @@ export const AccountSidebar = ({ toggleBurgerMenu }: IProps) => {
       <SC.Sidebar id="sidebar">
         <div>
           <SC.LogoWrapper>
-            <SC.LogoImg src={goose} alt="logo goose" />
+            <SC.LogoImg
+              srcSet={`${IMG.goose} 1x, ${IMG2x.goose2x} 2x`}
+              alt="logo goose"
+            />
             <SC.Title>
               G<SC.Span>oo</SC.Span>seTrack
             </SC.Title>

@@ -7,9 +7,8 @@ import { ICredentials } from '../../helpers/interfaces/auth/authInterfaces';
 import * as SC from './LoginForm.styled';
 import { useInput } from '../../hooks/useInput';
 import { useState } from 'react';
-import rocket from '../../images/rocket.png';
 import { ChangeLngElem } from '../ChangeLngElem/ChangeLngElem';
-import { SVG } from '../../images';
+import { SVG, IMG, IMG2x } from '../../images';
 
 export const LoginForm = () => {
   const dispatch = useDispatch<ThunkDispatch<any, any, AnyAction>>();
@@ -136,7 +135,10 @@ export const LoginForm = () => {
         </SC.Form>
 
         <SC.Link to="/registration">{t('Sign Up')}</SC.Link>
-        <SC.GooseImage src={rocket} alt="goose" />
+        <SC.GooseImage
+          srcSet={`${IMG.rocket} 1x, ${IMG2x.rocket2x} 2x`}
+          alt="goose"
+        />
       </SC.InnerDiv>
     </SC.Wrapper>
   );
