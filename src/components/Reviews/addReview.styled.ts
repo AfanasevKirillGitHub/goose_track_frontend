@@ -29,6 +29,7 @@ export const Textarea = styled.textarea`
   margin-bottom: 20px;
   margin-top: 10px;
   background-color: ${p => p.theme.colors.modalBackground};
+  color: ${props => props.theme.colors.black};
   :focus {
     outline: none;
     border-color: ${p => p.theme.colors.blue};
@@ -76,7 +77,7 @@ export const Button = styled.button<ILabel>`
   line-height: ${props => props.theme.lineHeights.xl};
   font-weight: ${props => props.theme.fontWeights.semiBold};
   transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out,
-  transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   :hover,
   :focus {
