@@ -77,7 +77,11 @@ export const ContainerAvatar = styled.div`
   }
 `;
 
-export const ImgAvatar = styled.img``;
+export const ImgAvatar = styled.img`
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+`;
 
 export const UserName = styled.h2`
   margin-bottom: 4px;
@@ -408,5 +412,4 @@ export const DatePickerWrapper = styled.div`
   & .react-datepicker__day--outside-month {
     color: ${p => p.theme.colors.blue};
   }
-
 `;

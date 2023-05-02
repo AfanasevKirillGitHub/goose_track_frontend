@@ -36,6 +36,7 @@ export const TextWrapperOutline = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 8px;
   background-color: ${props => props.theme.colors.currentDay};
 
   color: ${props => props.theme.colors.white};
@@ -62,10 +63,6 @@ export const TextWrapper = styled.span`
 
   color: ${props => props.theme.colors.white3};
   min-width: 24px;
-
-  &:not(:last-of-type) {
-    margin-right: 10px;
-  }
 
   @media screen and (min-width: 768px) {
     font-size: 16px;
