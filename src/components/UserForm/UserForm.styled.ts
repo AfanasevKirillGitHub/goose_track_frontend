@@ -19,6 +19,11 @@ interface IButton {
   to?: boolean;
 }
 
+interface IImg {
+  src: string;
+  alt?: string;
+}
+
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -77,9 +82,9 @@ export const ContainerAvatar = styled.div`
   }
 `;
 
-export const ImgAvatar = styled.img`
-  height: 100%;
-  width: 100%;
+export const ImgAvatar = styled.img<IImg>`
+  height: ${p => (p.src.includes('svg') ? '48px' : '100%')};
+  width: ${p => (p.src.includes('svg') ? '48px' : '100%')};
   object-fit: cover;
 `;
 

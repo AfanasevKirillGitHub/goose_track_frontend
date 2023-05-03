@@ -37,7 +37,12 @@ export const TasksColumn = ({ name, tasks, status }: ITaskColumnProps) => {
       <ColumnHeadBar name={name}></ColumnHeadBar>
       <ColumnTasksList tasks={tasks} status={status}></ColumnTasksList>
       {isOpenModal && (
-        <TaskModal status={modalStatus} data={null} toggleModal={toggleModal} />
+        <TaskModal
+          status={modalStatus}
+          btnClicked="add"
+          data={null}
+          toggleModal={toggleModal}
+        />
       )}
 
       <AddTaskBtn onClick={toggleModal} />

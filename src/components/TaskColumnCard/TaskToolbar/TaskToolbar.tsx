@@ -1,10 +1,8 @@
+import { useState } from 'react';
 import { ITask } from '../../../helpers/interfaces/taskApiInterface/taskApiInterface';
 import { useModal } from '../../../hooks/useModal';
 import { SVG } from '../../../images';
-import {
-  useRemoveTasksMutation,
-  useUpdateTasksMutation,
-} from '../../../redux/task/taskOperations';
+import { useUpdateTasksMutation } from '../../../redux/task/taskOperations';
 import { TaskModal } from '../../TaskModal';
 import { ChangeStatusPopUp } from '../ChangeStatusPopUp';
 import * as SC from './TaskToolbar.styled';
@@ -14,10 +12,15 @@ interface IProps {
 }
 
 export const TaskToolbar = ({ taskData }: IProps) => {
+  const [btnClicked, setBtnClicked] = useState('');
   const { isOpenModal, toggleModal } = useModal();
 
-  const [deleteTask, { isLoading: isDeletting }] = useRemoveTasksMutation();
   const [, { isLoading: isUpdatind }] = useUpdateTasksMutation();
+
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setBtnClicked(event.currentTarget.name);
+    toggleModal();
+  };
 
   return (
     <>
@@ -26,16 +29,18 @@ export const TaskToolbar = ({ taskData }: IProps) => {
 
         <SC.TaskToolbarBtn
           type="button"
-          onClick={toggleModal}
-          disabled={isDeletting || isUpdatind}
+          name="edit"
+          onClick={handleClick}
+          disabled={isUpdatind}
         >
           <SVG.EditIcon />
         </SC.TaskToolbarBtn>
 
         <SC.TaskToolbarBtn
           type="button"
-          onClick={() => deleteTask(taskData._id)}
-          disabled={isDeletting || isUpdatind}
+          name="delete"
+          onClick={handleClick}
+          disabled={isUpdatind}
         >
           <SVG.Delete />
         </SC.TaskToolbarBtn>
@@ -46,6 +51,7 @@ export const TaskToolbar = ({ taskData }: IProps) => {
           status={taskData.status}
           data={taskData}
           toggleModal={toggleModal}
+          btnClicked={btnClicked}
         />
       )}
     </>
