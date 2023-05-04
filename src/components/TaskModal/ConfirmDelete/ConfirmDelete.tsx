@@ -1,4 +1,6 @@
 import { useTranslation } from 'react-i18next';
+import { toast } from 'react-toastify';
+
 import { useRemoveTasksMutation } from '../../../redux/task/taskOperations';
 import * as SC from './ConfirmDelete.styled';
 
@@ -14,6 +16,10 @@ export const ConfirmDelete = ({ id, toggleModal }: IDelete) => {
   const handleDelete = () => {
     deleteTask(id);
     toggleModal();
+
+    localStorage.getItem('i18nextLng') === 'en'
+      ? toast.success('Yaay, more free time!')
+      : toast.success('Юху, більше вільного часу!');
   };
 
   return (

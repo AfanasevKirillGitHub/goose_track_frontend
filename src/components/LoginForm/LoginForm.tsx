@@ -1,12 +1,13 @@
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
+
 import { signIn } from '../../redux/auth/authOperations';
 import { ICredentials } from '../../helpers/interfaces/auth/authInterfaces';
 import * as SC from './LoginForm.styled';
 import { useInput } from '../../hooks/useInput';
-import { useState } from 'react';
 import { ChangeLngElem } from '../ChangeLngElem/ChangeLngElem';
 import { SVG, IMG, IMG2x } from '../../images';
 

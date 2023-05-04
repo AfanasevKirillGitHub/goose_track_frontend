@@ -1,13 +1,15 @@
 import { useDispatch } from 'react-redux';
 import { ChangeEvent, useState } from 'react';
+import { toast } from 'react-toastify';
+import { useTranslation } from 'react-i18next';
+import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit';
+
 import { useAuth } from '../../hooks/useAuth';
 import { useInput } from '../../hooks/useInput';
 import { updateInfo } from '../../redux/auth/authOperations';
 import * as SC from './UserForm.styled';
-import { useTranslation } from 'react-i18next';
 import { SVG } from '../../images';
 import { ICredentials } from '../../helpers/interfaces/auth/authInterfaces';
-import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit';
 import { AddReview } from '../Reviews/addReview';
 import { Modal } from '../Modal/Modal';
 import DefaultAvatar from '../../images/icons/user.svg';
@@ -52,6 +54,10 @@ export const UserForm = () => {
       'avatar',
       avatarURL ? (avatarURL as File) : (user.avatarURL as string)
     );
+
+    localStorage.getItem('i18nextLng') === 'en'
+      ? toast.success('User data updated')
+      : toast.success('Дані оновлено');
 
     dispatch(updateInfo(formData as ICredentials));
   };

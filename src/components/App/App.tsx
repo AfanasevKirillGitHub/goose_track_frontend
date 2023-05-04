@@ -1,19 +1,18 @@
 import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { ThunkDispatch } from '@reduxjs/toolkit';
-import { useDispatch } from 'react-redux';
 import { AnyAction } from 'redux';
+import { ThemeProvider } from 'styled-components';
 import { useAuth } from '../../hooks/useAuth';
 import { refreshUser } from '../../redux/auth/authOperations';
 import { Loader } from '../Loader/Loader';
 import { ITheme } from '../../helpers/theme';
-import { ThemeProvider } from 'styled-components';
 import {
   lightblue,
   darkblue,
   darkgreen,
   lightgreen,
 } from '../../helpers/theme';
-import { useSelector } from 'react-redux';
 import { getTheme } from '../../redux/theme/themeReducer';
 import { Router } from '../../routsConfig/router';
 
