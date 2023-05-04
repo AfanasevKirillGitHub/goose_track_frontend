@@ -33,7 +33,7 @@ export const ModalTitle = styled.h3`
   }
 `;
 
-export const ModalList = styled.ul`
+export const ModalList = styled.div`
   display: flex;
   justify-content: space-evenly;
   list-style: none;
@@ -43,7 +43,7 @@ export const ItemBtn = styled.button`
   width: ${props => props.theme.space[8]}px;
   height: ${props => props.theme.space[6]}px;
   padding: ${props => props.theme.space[0]}px;
-  border-radius: ${props => props.theme.radii.medium};
+  border-radius: ${props => props.theme.radii.normal};
   border: ${props => props.theme.borders.none};
   color: ${p => p.theme.colors.white3};
   background-color: ${p => p.theme.colors.blue};
@@ -59,4 +59,9 @@ export const ItemBtn = styled.button`
     color: ${p => p.theme.colors.blue};
     background-color: ${p => p.theme.colors.hoverBackground};
   }
+`;
+
+export const SecondaryItemBtn = styled(ItemBtn)`
+  background-color: ${p => p.theme.colors.grey2};
+  color: ${p => p.theme.colors.black4};
 `;

@@ -26,16 +26,12 @@ export const ConfirmDelete = ({ id, toggleModal }: IDelete) => {
     <>
       <SC.ModalTitle>{t(`confirm delete`)}</SC.ModalTitle>
       <SC.ModalList>
-        <li>
-          <SC.ItemBtn type="button" onClick={handleDelete}>
-            {t(`Yes`)}
-          </SC.ItemBtn>
-        </li>
-        <li>
-          <SC.ItemBtn type="button" onClick={toggleModal}>
-            {t(`No`)}
-          </SC.ItemBtn>
-        </li>
+        <SC.ItemBtn type="button" onClick={handleDelete}>
+          {t(`Yes`)}
+        </SC.ItemBtn>
+        <SC.SecondaryItemBtn type="button" onClick={toggleModal}>
+          {t(`No`)}
+        </SC.SecondaryItemBtn>
       </SC.ModalList>
     </>
   );
