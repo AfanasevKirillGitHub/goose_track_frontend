@@ -1,11 +1,11 @@
+import { FormEvent, useState } from 'react';
+import { AnyAction } from 'redux';
+import { ThunkDispatch } from '@reduxjs/toolkit';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import { signUp } from '../../../redux/auth/authOperations';
 import { useInput } from '../../../hooks/useInput';
-import { FormEvent, useState } from 'react';
 import { ICredentials } from '../../../helpers/interfaces/auth/authInterfaces';
-import { ThunkDispatch } from '@reduxjs/toolkit';
-import { AnyAction } from 'redux';
 import * as SC from './RegisterForm.styled';
 import { SVG, IMG, IMG2x } from '../../../images';
 import { ChangeLngElem } from '../../ChangeLngElem/ChangeLngElem';

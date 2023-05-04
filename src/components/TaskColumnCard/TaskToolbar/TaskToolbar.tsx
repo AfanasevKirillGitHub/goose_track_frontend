@@ -17,8 +17,8 @@ export const TaskToolbar = ({ taskData }: IProps) => {
 
   const [, { isLoading: isUpdatind }] = useUpdateTasksMutation();
 
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setBtnClicked(event.currentTarget.name);
+  const handleClick = (evt: React.MouseEvent<HTMLButtonElement>) => {
+    setBtnClicked(evt.currentTarget.name);
     toggleModal();
   };
 

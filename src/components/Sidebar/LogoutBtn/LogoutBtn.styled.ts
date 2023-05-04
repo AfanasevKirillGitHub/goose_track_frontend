@@ -14,7 +14,8 @@ export const Button = styled.button<IButton>`
   width: ${props => (props.design ? '108' : '141')}px;
   height: ${props => (props.design ? '37' : '46')}px;
   padding: ${props => props.theme.space[0]}px;
-  border-radius: ${props => props.theme.radii.medium};
+  border-radius: ${props =>
+    props.design ? props.theme.radii.normal : props.theme.radii.medium};
   border: ${props => props.theme.borders.none};
   color: ${p => p.theme.colors.white3};
   background-color: ${p => p.theme.colors.blue};
@@ -37,6 +38,6 @@ export const Button = styled.button<IButton>`
 
   @media screen and (min-width: 768px) {
     width: ${props => (props.design ? '108' : '141')}px;
-    height: ${props => (props.design ? '37' : '46')}px;
+    height: ${props => (props.design ? '37' : '56')}px;
   }
 `;

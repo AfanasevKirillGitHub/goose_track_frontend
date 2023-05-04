@@ -1,11 +1,10 @@
-import { useTranslation } from 'react-i18next';
-import { SVG } from '../../../images';
-import { LogoutBtn } from '../../Sidebar/LogoutBtn/LogoutBtn';
-
-import * as SC from './ModalUserInfo.styled';
-
 import { createPortal } from 'react-dom';
 import { MouseEvent, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+
+import { SVG } from '../../../images';
+import { LogoutBtn } from '../../Sidebar/LogoutBtn/LogoutBtn';
+import * as SC from './ModalUserInfo.styled';
 
 const modalUserRoot = document.querySelector('#user-modal') as HTMLElement;
 

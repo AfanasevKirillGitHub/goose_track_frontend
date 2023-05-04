@@ -96,14 +96,14 @@
     "endTimeWrong": "End time can't be lower of start time!",
     "editInPast": "You can't edit a task in the past!",
     "Field": "Field",
-    "requared": "is requared!",
+    "requared": "is required!",
     "maxLength": "must be lower then 250 chars!",
     "priorityIsNotValid": "is not valid!",
     "title": "'Title'",
     "start": "'Start'",
     "end": "'End'"
   },
-  "let go": "Le go",
+  "let go": "Let go",
   "focus": "of the past and focus on the present!",
-  "confirm delete": "Are you shure you want to skip it?"
+  "confirm delete": "Are you sure you want to skip it?"
 }

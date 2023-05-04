@@ -83,8 +83,8 @@ export const ContainerAvatar = styled.div`
 `;
 
 export const ImgAvatar = styled.img<IImg>`
-  height: ${p => (p.src.includes('svg') ? '48px' : '100%')};
-  width: ${p => (p.src.includes('svg') ? '48px' : '100%')};
+  height: ${p => (p.src.includes('static') ? '48px' : '100%')};
+  width: ${p => (p.src.includes('static') ? '48px' : '100%')};
   object-fit: cover;
 `;
 
@@ -168,13 +168,26 @@ export const Icon = styled.div`
 `;
 
 export const InputFile = styled.input`
-  opacity: 0;
-  height: 0;
-  width: 0;
-  line-height: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
   overflow: hidden;
   padding: 0;
-  margin: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+
+  :active,
+  :focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    white-space: normal;
+    width: auto;
+  }
 `;
 
 export const HiddenTitle = styled.span`

@@ -23,16 +23,12 @@ export const ModalForLogOut = ({ onCloseModal }: IProps) => {
     <>
       <SC.ModalTitle>{t(`Do you really wanna fly away?`)}</SC.ModalTitle>
       <SC.ModalList>
-        <li>
-          <SC.ItemBtn type="button" onClick={handleLogout}>
-            {t(`Yes`)}
-          </SC.ItemBtn>
-        </li>
-        <li>
-          <SC.ItemBtn type="button" onClick={onCloseModal}>
-            {t(`No`)}
-          </SC.ItemBtn>
-        </li>
+        <SC.SecondaryItemBtn type="button" onClick={handleLogout}>
+          {t(`Yes`)}
+        </SC.SecondaryItemBtn>
+        <SC.ItemBtn type="button" onClick={onCloseModal}>
+          {t(`No`)}
+        </SC.ItemBtn>
       </SC.ModalList>
     </>
   );
