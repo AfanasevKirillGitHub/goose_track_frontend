@@ -96,7 +96,7 @@
     "endTimeWrong": "End time can't be lower of start time!",
     "editInPast": "You can't edit a task in the past!",
     "Field": "Field",
-    "requared": "is requared!",
+    "requared": "is required!",
     "maxLength": "must be lower then 250 chars!",
     "priorityIsNotValid": "is not valid!",
     "title": "'Title'",
