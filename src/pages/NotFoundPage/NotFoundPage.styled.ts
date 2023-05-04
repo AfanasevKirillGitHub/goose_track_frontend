@@ -10,6 +10,7 @@ export const NotFoundPage = styled.main`
   margin: 0;
   padding: 0;
   border: 0;
+  background-color: ${props => props.theme.colors.white};
 `;
 
 export const Wrapper = styled.div`
@@ -19,7 +20,7 @@ export const Wrapper = styled.div`
   margin-bottom: ${props => props.theme.space[6]}px;
   width: 200px;
   height: 200px;
-  background-color: ${props => props.theme.colors.blue2};
+  background-color: ${props => props.theme.colors.blue3};
 
   @media (min-width: 768px) {
     margin-bottom: ${props => props.theme.space[7]}px;
@@ -65,7 +66,8 @@ export const Button = styled(NavLink)`
   color: ${props => (props.to === '/login' ? '#3E85F3' : '#FFFFFF')};
   font-size: ${props => props.theme.fontSizes.xs};
   font-weight: ${props => props.theme.fontWeights.semiBold};
-  background-color: ${props => (props.to === '/login' ? '#FFFFFF' : '#3E85F3')};
+  background-color: ${props =>
+    props.to === '/login' ? '#FFFFFF' : props.theme.colors.blue};
 
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
