@@ -121,8 +121,16 @@ export const updateInfo = createAsyncThunk<
 >('user/update', async (credentials, thunkAPI) => {
   try {
     const { data } = await axios.patch<IAuth>('/user/info', credentials);
+
+    localStorage.getItem('i18nextLng') === 'en'
+      ? toast.success('User data updated')
+      : toast.success('Дані оновлено');
+
     return data;
   } catch (error: any) {
+    localStorage.getItem('i18nextLng') === 'en'
+      ? toast.error('Oops, something went wrong')
+      : toast.error('Лишенько, десь ми звернули не туди');
     return thunkAPI.rejectWithValue(error.message);
   }
 });
