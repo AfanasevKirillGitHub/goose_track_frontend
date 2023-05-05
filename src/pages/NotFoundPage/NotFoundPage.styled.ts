@@ -61,13 +61,12 @@ export const Button = styled(NavLink)`
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: ${props => props.theme.radii.medium};
+  border-radius: ${props => props.theme.radii.normal};
   border: ${props => props.theme.borders.none};
-  color: ${props => (props.to === '/login' ? '#3E85F3' : '#FFFFFF')};
-  font-size: ${props => props.theme.fontSizes.xs};
+  color: ${props => props.theme.colors.white};
+  font-size: ${props => props.theme.fontSizes.s};
   font-weight: ${props => props.theme.fontWeights.semiBold};
-  background-color: ${props =>
-    props.to === '/login' ? '#FFFFFF' : props.theme.colors.blue};
+  background-color: ${props => props.theme.colors.blue};
 
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -81,5 +80,22 @@ export const Button = styled(NavLink)`
     width: 128px;
     height: 48px;
     font-size: ${props => props.theme.fontSizes.s};
+  }
+`;
+
+export const PetlyLink = styled.a`
+  text-decoration: none;
+
+  font-size: ${props => props.theme.fontSizes.m};
+  font-weight: ${props => props.theme.fontWeights.semiBold};
+  line-height: ${props => props.theme.lineHeights.m};
+  color: ${props => props.theme.colors.blue};
+  margin-top: 48px;
+
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    color: ${props => props.theme.colors.hoverBackground};
   }
 `;
